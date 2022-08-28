@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('main_orders', function (Blueprint $table) {
             $table->id();
+            $table->string('productName');
+            $table->decimal('quantity', 10, 2);
+            $table->decimal('unitPrice', 10, 2);
+            $table->decimal('totalPrice', 10, 2);
+            $table->boolean('status');
             $table->timestamps();
         });
     }

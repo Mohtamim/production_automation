@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('sub_cats', function (Blueprint $table) {
             $table->id();
+            $table->integer('catId');
+            $table->string('subCatname');
+            $table->string('title')->nullable()->change();
             $table->timestamps();
         });
     }

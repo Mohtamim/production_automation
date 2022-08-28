@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('managerlists', function (Blueprint $table) {
             $table->id();
+            $table->integer('managerId');
+            $table->string('managerName');
+            $table->string('phone');
+            $table->string('email');
+            $table->integer('warehouseId')->nullable()->change();
             $table->timestamps();
+
         });
     }
 
