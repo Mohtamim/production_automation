@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class subCat extends Model
 {
     use HasFactory;
+    protected $table='sub_cats';
+    protected $primaryKey='id';
+    protected $fillable=[
+        'catId',
+        'subCatname',
+        'title',
+
+    ];
 }

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class packaging extends Model
 {
     use HasFactory;
+    protected $table='packagings';
+    protected $primaryKey='id';
 }

@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class managerlist extends Model
 {
     use HasFactory;
+    protected $table='managerlists';
+    protected $primaryKey='id';
+    protected $fillable=[
+                    'managerId',
+                    'managerName',
+                    'phone',
+                    'email',
+                    'warehouseId',
+    ];
 }

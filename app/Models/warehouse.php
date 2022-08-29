@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class warehouse extends Model
 {
     use HasFactory;
+    protected $table='warehouses';
+    protected $primaryKey='id';
+    protected $fillable=[
+        'warehouseName',
+        'address',
+
+    ];
+
 }

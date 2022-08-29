@@ -2,84 +2,58 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\assainOrderFormValidation;
 use App\Models\assainedOrder;
 use Illuminate\Http\Request;
 
 class AssainedOrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $input=assainedOrder::all();
+        return view('admin.assainedOrder.index')->with('assain',$input);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('admin.assainedOrder.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(assainOrderFormValidation $request)
     {
-        //
+        $input=$request->all();
+        assainedOrder::create($input);
+        return redirect('assain_order')->with('status','Assign Order create successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\assainedOrder  $assainedOrder
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(assainedOrder $assainedOrder)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\assainedOrder  $assainedOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(assainedOrder $assainedOrder)
+    public function edit($id)
     {
-        //
+       $input=assainedOrder::find($id);
+       return view('admin.assainedOrder.edit')->with('assain',$input);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\assainedOrder  $assainedOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, assainedOrder $assainedOrder)
+
+    public function update(assainOrderFormValidation $request, $id)
     {
-        //
+       $assain=assainedOrder::find($id);
+       $input=$request->all();
+       $assain->update($input);
+       return redirect('assaign_order')->with('flash_message','Assign Ordered value Updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\assainedOrder  $assainedOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(assainedOrder $assainedOrder)
+
+    public function destroy($id)
     {
-        //
+        assainedOrder::destroy($id);
+        return redirect('assaign_order')->with('status', 'Assign Ordered has been deleted');
     }
 }

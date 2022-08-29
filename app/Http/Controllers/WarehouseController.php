@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\warehouseFormValidation;
 use App\Models\warehouse;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class WarehouseController extends Controller
      */
     public function index()
     {
-        //
+      $input= warehouse::all();
+      return view('admin.warehouse.index')->with('warehouse', $input);
     }
 
     /**
@@ -24,7 +26,7 @@ class WarehouseController extends Controller
      */
     public function create()
     {
-        //
+      return view('admin.warehouse.create') ;
     }
 
     /**
@@ -35,15 +37,10 @@ class WarehouseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       return redirect('');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\warehouse  $warehouse
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(warehouse $warehouse)
     {
         //
@@ -57,27 +54,16 @@ class WarehouseController extends Controller
      */
     public function edit(warehouse $warehouse)
     {
-        //
+        return view('admin.warehouse.edit');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\warehouse  $warehouse
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, warehouse $warehouse)
+
+    public function update(warehouseFormValidation $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\warehouse  $warehouse
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(warehouse $warehouse)
     {
         //
