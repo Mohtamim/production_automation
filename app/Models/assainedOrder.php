@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class assainedOrder extends Model
 {
     use HasFactory;
+    protected $table='assained_orders';
+    protected $primaryKey='id';
+    protected $fillable=[
+                    'mainOrderId',
+                    'warehouseId',
+                    'quantity',
+                    'status',
+    ];
 }
