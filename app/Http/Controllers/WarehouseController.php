@@ -37,7 +37,7 @@ class WarehouseController extends Controller
      */
     public function store(Request $request)
     {
-       return redirect('');
+       return redirect('warehouses');
     }
 
 

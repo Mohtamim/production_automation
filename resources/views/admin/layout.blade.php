@@ -25,11 +25,35 @@
         <div class="overlay"></div>
         <div class="search-overlay"></div>
 
-        @include('admin.inc.sidebar')
 
-        <!--  BEGIN CONTENT AREA  -->
-           @yield('admin_content')
-        <!--  END CONTENT AREA  -->
+        <div class="main-container" id="container">
+
+            <div class="overlay"></div>
+            <div class="search-overlay"></div>
+
+            @include('admin.inc.sidebar')
+
+            <!--  BEGIN CONTENT AREA  -->
+            <div id="content" class="main-content">
+                <div class="layout-px-spacing">
+
+                    <div class="middle-content container-xxl p-0">
+
+                        <div class=" layout-top-spacing">
+                            @yield('admin_content')
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+            <!--  END CONTENT AREA  -->
+
+        </div>
 
     </div>
     <!-- END MAIN CONTAINER -->
