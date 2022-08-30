@@ -15,4 +15,7 @@
     <link href="{{ asset('assets') }}/plugins/src/apex/apexcharts.css" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets') }}/css/light/dashboard/dash_1.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets') }}/css/dark/dashboard/dash_1.css" rel="stylesheet" type="text/css" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
+    <link href="//cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->

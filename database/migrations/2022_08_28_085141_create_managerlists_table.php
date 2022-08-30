@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('managerName');
             $table->string('phone');
             $table->string('email');
-            $table->integer('warehouseId')->nullable()->change();
+            $table->integer('warehouseId')->unsigned()->nullable();
             $table->timestamps();
 
         });

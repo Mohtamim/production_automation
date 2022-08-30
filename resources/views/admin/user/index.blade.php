@@ -43,8 +43,6 @@
 
 
                                                 <td>
-                                                    <a href="{{ url('admin/users/' . $item->id) }}"
-                                                        class="btn btn-info">Show</a>
                                                     <a href="{{ url('admin/users/' . $item->id . '/edit') }}"
                                                         class="btn btn-success">Edit</a>
                                                         <form method="POST" action="{{ url('admin/users/' . $item->id) }}">
