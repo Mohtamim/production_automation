@@ -13,7 +13,7 @@ WareHose
             </div>
         </div>
         <div class="widget-content widget-content-area">
-            <form class="forms-sample" action="{{ url('customer') }}" method="POST">
+            <form class="forms-sample" action="{{ url('warehouses') }}" method="POST">
                 {!! csrf_field() !!}
                 <div class="mb-3">
                   <label for="warehouseName" class="form-label">Warehouse Name </label>
