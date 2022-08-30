@@ -52,7 +52,7 @@
                         <a href=""> Role </a>
                     </li>
                     <li>
-                        <a href=""> User </a>
+                        <a href="{{ url('admin/users') }}"> User </a>
                     </li>
                 </ul>
             </li>

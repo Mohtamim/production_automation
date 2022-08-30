@@ -2,84 +2,70 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\managerlist;
 use App\Models\users;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $users= users::all();
+        return view('admin.user.index')->with('users', $users);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.user.create');
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+
+        $userType= $request->userType;
+
+        if($userType==2){
+            $firstName= $request->firstName;
+            $lastName= $request->lastName;
+            $managerName= $firstName.' '.$lastName;
+            $managerId= $request->userId;
+            $email= $request->email;
+            $phone= $request->phone;
+
+            $data=new managerlist();
+            $data->managerId=$managerId;
+            $data->managerName=$managerName;
+            $data->phone=$phone;
+            $data->email=$email;
+            $data->save();
+        }
+
+        $input= $request->all();
+        users::create($input);
+        return redirect('admin/users')->with('flash_message','User Added');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\users  $users
-     * @return \Illuminate\Http\Response
-     */
     public function show(users $users)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\users  $users
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(users $users)
     {
-        //
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\users  $users
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, users $users)
     {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\users  $users
-     * @return \Illuminate\Http\Response
-     */
+
+        }
     public function destroy(users $users)
     {
-        //
+
     }
 }

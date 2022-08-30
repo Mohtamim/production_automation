@@ -8,9 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class users extends Model
 {
     use HasFactory;
-    protected $table='users';
+    protected $table='authusers';
     protected $primaryKey='id';
     protected $fillable=[
+        'userId',
         'firstName',
         'lastName',
          'userName',
@@ -20,4 +21,7 @@ class users extends Model
          'userType',
 
     ];
+    public function manager(){
+        return $this->hasMany(managerlist::class);
+    }
 }
