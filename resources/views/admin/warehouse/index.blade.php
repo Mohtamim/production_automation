@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <h3 class="text-center text-success">Warehouse</h3>
                     <div class="table-responsive">
-                        <a href="{{ url('/warehouse/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
+                        <a href="{{ url('admin/warehouse/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
                             Add New
                         </a><br><br>
                         <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
