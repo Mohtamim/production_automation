@@ -31,9 +31,11 @@ class WarehouseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(warehouseFormValidation $request)
     {
-       return redirect('warehouses');
+        $input= $request->all();
+        warehouse::create($input);
+        return redirect('admin/warehouses')->with('flash_message','warehouse Added');
     }
 
 
@@ -48,15 +50,19 @@ class WarehouseController extends Controller
      * @param  \App\Models\warehouse  $warehouse
      * @return \Illuminate\Http\Response
      */
-    public function edit(warehouse $warehouse)
+    public function edit($id)
     {
-        return view('admin.warehouse.edit');
+        $warehouse = warehouse::find($id);
+        return view('admin.warehouse.edit')->with('warehouse',$warehouse);
     }
 
 
-    public function update(warehouseFormValidation $request, $id)
+    public function update(warehouseFormValidation  $request, $id)
     {
-        //
+        $warehouse = warehouse::find($id);
+        $input = $request->all();
+        $warehouse->update($input);
+        return redirect('admin/warehouses')->with('flash_message', 'warehouse Updated!');
     }
 
 

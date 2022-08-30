@@ -13,7 +13,7 @@ WareHose
             </div>
         </div>
         <div class="widget-content widget-content-area">
-            <form class="forms-sample" action="{{ url('warehouse/'.$warehouse->id) }}" method="POST">
+            <form class="forms-sample" action="{{ url('admin/warehouses/'.$warehouse->id) }}" method="POST">
                 {!! csrf_field() !!}
                 @method("PATCH")
                     <div class="mb-3">

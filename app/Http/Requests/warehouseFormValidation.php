@@ -24,13 +24,21 @@ class warehouseFormValidation extends FormRequest
     public function rules()
     {
         return [
-            'warehouseName'=>'required|string|alpha',
-             'address'=>'required|string'
+            'warehouseName'=>'required|string|regex:/^[\pL\s\-]+$/u',
+             'address'=>'required|string',
+
+
         ];
     }
 
     public function messages()
     {
-        
+        return [
+            'warehouseName.required' => 'Please Enter a warehouse Name',
+            'warehouseName.string' => 'Warehouse Name Must be 10 Char',
+            'warehouseName.regex'=>'Number is not allowed',
+            'address.required'=>'Please Enter a warehouse Address',
+            'address.string' => 'Address Must be 50 Char'
+        ];
     }
 }
