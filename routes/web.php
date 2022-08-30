@@ -26,19 +26,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.layout');
+    return view('welcome');
 });
-
-Route::resource('assaign_order', AssainedOrderController::class);
-Route::resource('users', UsersController::class);
-Route::resource('country', CountryController::class);
-Route::resource('bank_benificiary', BankBenificiaryController::class);
-Route::resource('buyers', BuyersController::class);
-Route::resource('category', CatController::class);
-Route::resource('main_order', MainOrderController::class);
-Route::resource('managers', ManagerlistController::class);
-Route::resource('packaging', PackagingController::class);
-Route::resource('port', PackagingController::class);
-Route::resource('shiperment_exporter', ShiperAndExporterController::class);
-Route::resource('sub_category', SubCatController::class);
-Route::resource('warehouses', WarehouseController::class);
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('dashboard', function () {
+        return view('admin.layout');
+    });
+    Route::resource('assaign_order', AssainedOrderController::class);
+    Route::resource('users', UsersController::class);
+    Route::resource('country', CountryController::class);
+    Route::resource('bank_benificiary', BankBenificiaryController::class);
+    Route::resource('buyers', BuyersController::class);
+    Route::resource('category', CatController::class);
+    Route::resource('main_order', MainOrderController::class);
+    Route::resource('managers', ManagerlistController::class);
+    Route::resource('packaging', PackagingController::class);
+    Route::resource('port', PackagingController::class);
+    Route::resource('shiperment_exporter', ShiperAndExporterController::class);
+    Route::resource('sub_category', SubCatController::class);
+    Route::resource('warehouses', WarehouseController::class);
+});
