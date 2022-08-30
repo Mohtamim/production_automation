@@ -21,47 +21,28 @@
         </div>
         <div class="shadow-bottom"></div>
         <ul class="list-unstyled menu-categories" id="accordionExample">
-            <li class="menu active">
-                <a href="#dashboard"  class="dropdown-toggle active">
+            <li class="menu {{ Route::is('admin.layout') ? 'active' : '' }}">
+                <a href="{{ url('admin/dashboard') }}"  class="dropdown-toggle ">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                         <span>Dashboard</span>
                     </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
+                </a>
 
             </li>
 
-            <li class="menu menu-heading">
-                <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>Head Office</span></div>
-            </li>
-
-            <li class="menu">
-                <a href="#user" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            <li class="menu {{ Route::is('users.index') ? 'active' : '' }}">
+                <a href="{{ url('admin/users') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></line></svg>
                             <span>USER</span>
                     </div>
-                    <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </div>
                 </a>
-                <ul class="collapse submenu list-unstyled" id="user" data-bs-parent="#accordionExample">
-                    <li>
-                        <a href=""> Role </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('admin/users') }}"> User </a>
-                    </li>
-                </ul>
             </li>
 
 
 
-
-
-            <li class="menu">
+            <li class="menu {{ Route::is('warehouses.index') ? 'active' : '' }}">
                 <a href="{{ url('admin/warehouses') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
@@ -71,7 +52,7 @@
             </li>
 
             <li class="menu">
-                <a href="" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{ url('admin/managers') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                         <span>Manager</span>
@@ -80,7 +61,7 @@
             </li>
 
             <li class="menu">
-                <a href="./app-todoList.html" aria-expanded="false" class="dropdown-toggle">
+                <a href="{{ url('admin/buyers') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
                         <span>Buyers</span>
@@ -90,7 +71,7 @@
 
 
             <li class="menu">
-                <a href="#product" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                <a href="#products" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                         <span>Products</span>
@@ -101,16 +82,16 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="product" data-bs-parent="#accordionExample">
                     <li>
-                        <a href=""> Unit </a>
+                        <a href="{{ url('admin/unit') }}"> Unit </a>
                     </li>
                     <li>
-                        <a href=""> category </a>
+                        <a href="{{ url('admin/category') }}"> category </a>
                     </li>
                     <li>
-                        <a href=""> Subcategory </a>
+                        <a href="{{ url('admin/sub_category') }}"> Subcategory </a>
                     </li>
                     <li>
-                        <a href=""> Products </a>
+                        <a href="{{ url('admin/products') }}"> Products </a>
                     </li>
                 </ul>
             </li>
@@ -129,10 +110,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="order" data-bs-parent="#accordionExample">
                     <li>
-                        <a href=""> Order Type </a>
+                        <a href="{{ url('admin/assaign_order') }}">Assaign Order </a>
                     </li>
                     <li>
-                        <a href=""> Orders </a>
+                        <a href="{{ url('admin/main_order') }}"> Orders </a>
                     </li>
                 </ul>
             </li>
