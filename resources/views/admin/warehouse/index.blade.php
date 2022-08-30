@@ -32,15 +32,15 @@
                                                 <td>{{ $item->address }}</td>
 
                                                 <td>
-                                                    <a href="{{ url('/warehouses/' . $item->id) }}"
+                                                    <a href="{{ url('admin/warehouses/' . $item->id) }}"
                                                         class="btn btn-info">Show</a>
-                                                    <a href="{{ url('/warehouses/' . $item->id . '/edit') }}"
+                                                    <a href="{{ url('admin/warehouses/' . $item->id . '/edit') }}"
                                                         class="btn btn-success">Edit</a>
-                                                    <form method="post" action="{{ url('/warehouses/' . $item->id) }}">
-                                                        {{ method_field('DELETE') }}
-                                                        {{ csrf_field() }}
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                                    </form>
+                                                        <form method="POST" action="{{ url('admin/warehouses/' . $item->id) }}">
+                                                            {{ method_field('DELETE') }}
+                                                            {{ csrf_field() }}
+                                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
 
                                                 </td>
                                             </tr>
@@ -55,5 +55,5 @@
             </div>
         </div>
     </div>
-   
+
 @endsection

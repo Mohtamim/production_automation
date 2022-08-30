@@ -8,15 +8,11 @@ use Illuminate\Http\Request;
 
 class WarehouseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-      $input= warehouse::all();
-      return view('admin.warehouse.index')->with('warehouse', $input);
+        $warehouse= warehouse::all();
+        return view('admin.warehouse.index')->with('warehouse', $warehouse);
     }
 
     /**
