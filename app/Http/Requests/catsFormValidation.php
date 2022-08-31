@@ -13,7 +13,7 @@ class catsFormValidation extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,23 @@ class catsFormValidation extends FormRequest
     public function rules()
     {
         return [
-            //
+            'catName'=>'required|string|regex:/^[\pL\s\-]+$/u',
+             'catTitle'=>'required|string',
+
+
+
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'catName.required' => 'Please Enter a categoryName ',
+            'catName.string' => 'Number is not allowed',
+            'catName.regex' => 'Please Enter a categoryName',
+            'catTitle.required' => 'Please Enter a category Title',
+            'catTitle.string' => 'Number is not allowed',
+
         ];
     }
 }
