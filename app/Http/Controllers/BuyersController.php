@@ -2,84 +2,60 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\buyersFormValidation;
 use App\Models\buyers;
 use Illuminate\Http\Request;
 
 class BuyersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $buyer=buyers::all();
+        return view('admin.buyers.index')->with('buyer',$buyer);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+       return view('admin.buyers.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(buyersFormValidation $request)
     {
-        //
+        $buyer=$request->all();
+        buyers::create($buyer);
+        return redirect('admin/buyers')->with('status','buyers created successfully' );
+
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\buyers  $buyers
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(buyers $buyers)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\buyers  $buyers
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(buyers $buyers)
+
+    public function edit($id)
     {
-        //
+     $buyer=buyers::find($id);
+     return view('admin.buyers.edit')->with('buyer',$buyer);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\buyers  $buyers
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, buyers $buyers)
+
+    public function update(buyersFormValidation $request, $id)
     {
-        //
+        $buyer=$request->find($id);
+        $buyer->update($buyer);
+        return redirect('admin/buyers')->with('status','buyers updated successfully' );
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\buyers  $buyers
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(buyers $buyers)
+
+    public function destroy($id)
     {
-        //
+        buyers::destroy($id);
+       return redirect('admin/buyers')->with('status' ,'Buyers are deleted');
     }
 }
