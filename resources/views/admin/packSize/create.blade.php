@@ -1,90 +1,160 @@
 @extends('admin.layout')
 @section('ware-title')
-WareHose
+    WareHose
 @endsection
 @section('admin_content')
-<div class="col-lg-12 col-12  layout-spacing">
-    <div class="statbox widget box box-shadow">
-        <div class="widget-header">
-            <div class="row">
-                <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                    <h4 class="text-center"> Assaign Order</h4>
-                    <a href="{{ url('admin/assaign_order') }}" class="btn btn-info text-center justify-content-start my-4"> Assaign Order</a>
+    <div class="col-lg-12 col-12  layout-spacing">
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
+                        <h4 class="text-center"> Assaign Order</h4>
+                        <a href="{{ url('admin/pack_size') }}" class="btn btn-info text-center justify-content-start my-4">
+                            Assaign Order</a>
+                    </div>
+
                 </div>
 
             </div>
-
-        </div>
-        <div class="widget-content widget-content-area">
-            <form class="" action="{{ url('admin/assaign_order') }}" method="POST">
-                {!! csrf_field() !!}
-                <div class="input-group mb-3">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order Id:</span>
-                    <input type="number" class="form-control @error('mainOrderId')
+            <div class="widget-content widget-content-area">
+                <form class="" action="{{ url('admin/pack_size') }}" method="POST">
+                    {!! csrf_field() !!}
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="title">Main Order
+                            Id:</span>
+                        <input type="text"
+                            class="form-control @error('title')
                      is-invalid
-                    @enderror" name="mainOrderId" placeholder="Enter MainOrder Id">
-                    @error('mainOrderId')
-                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
-                </div>
+                    @enderror"
+                            name="title" placeholder="Enter MainOrder Id">
+                        @error('title')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
 
 
 
 
-                <select class="form-select" name="uniteType" id="uniteType" aria-label="Default select example">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order Id:</span>
-                    <option  selected class="form-control">Select The Order</option>
-                    @foreach ($mainOrder as $mainOrder)
-                    <option value="{{ $mainOrder->id }}">{{ $mainOrder->productName }}</option>
-                    @endforeach
-                  </select><br>
-
-
-
-
-
-
-
-
-
-
-
-                <div class="input-group mb-3">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="warehouseId">Ware House Id:</span>
-                    <input type="number" class="form-control @error('warehouseId')
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="length">Ware House
+                            Id:</span>
+                        <input type="number"
+                            class="form-control @error('length')
                     is-invalid
+                    @enderror"
+                            name="length" placeholder="Enter length" aria-label="Enter your Assign Order Id"
+                            aria-describedby="basic-addon2">
+                        @error('length')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
 
-                    @enderror" name="warehouseId" placeholder="Enter warehouseId" aria-label="Enter your Assign Order Id" aria-describedby="basic-addon2">
-                    @error('warehouseId')
-                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
+                    </div>
 
-                </div>
-
-                <div class="input-group mb-3">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="phone">Quantity:</span>
-                    <input type="number" class="form-control @error('quantity')
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="phone">width:</span>
+                        <input type="number"
+                            class="form-control @error('quantity')
                      is-invalid
-                    @enderror" name="quantity" placeholder="Enter  quantity" aria-label="Enter  quantity " aria-describedby="basic-addon2">
-                    @error('quantity')
-                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror"
+                            name="width" placeholder="Enter  width" aria-label="Enter  width "
+                            aria-describedby="basic-addon2">
+                        @error('width')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
 
-                    @enderror
-                </div>
-                <div class="input-group mb-3" style="minWidth:678px">
 
-                    <select id="status" class="form-select" name="status">
-                        <option value="" >Select Status</option>
-                        <option value="1">Active</option>
-                        <option value="0">Deactive</option>
-                    </select>
-                </div>
+                    <input type="submit" value="save" class="btn btn-success">
+                    <button class="btn btn-secondary">Cancel</button>
+                </form>
 
-                <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
-              </form>
-
+            </div>
         </div>
     </div>
-</div>
+@endsection
+@extends('admin.layout')
+@section('ware-title')
+    WareHose
+@endsection
+@section('admin_content')
+    <div class="col-lg-12 col-12  layout-spacing">
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
+                        <h4 class="text-center"> Assaign Order</h4>
+                        <a href="{{ url('admin/pack_size') }}" class="btn btn-info text-center justify-content-start my-4">
+                            Assaign Order</a>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="widget-content widget-content-area">
+                <form class="" action="{{ url('admin/pack_size') }}" method="POST">
+                    {!! csrf_field() !!}
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="title">Main Order
+                            Id:</span>
+                        <input type="text"
+                            class="form-control @error('title')
+                     is-invalid
+                    @enderror"
+                            name="title" placeholder="Enter MainOrder Id">
+                        @error('title')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+
+
+
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="length">Ware House
+                            Id:</span>
+                        <input type="number"
+                            class="form-control @error('length')
+                    is-invalid
+                    @enderror"
+                            name="length" placeholder="Enter length" aria-label="Enter your Assign Order Id"
+                            aria-describedby="basic-addon2">
+                        @error('length')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="phone">width:</span>
+                        <input type="number"
+                            class="form-control @error('quantity')
+                     is-invalid
+                    @enderror"
+                            name="width" placeholder="Enter  width" aria-label="Enter  width "
+                            aria-describedby="basic-addon2">
+                        @error('width')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="phone">width:</span>
+                        <input type="number"
+                            class="form-control @error('quantity')
+                     is-invalid
+                    @enderror"
+                            name="width" placeholder="Enter  width" aria-label="Enter  width "
+                            aria-describedby="basic-addon2">
+                        @error('width')
+                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+
+
+                    <input type="submit" value="save" class="btn btn-success">
+                    <button class="btn btn-secondary">Cancel</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
 @endsection

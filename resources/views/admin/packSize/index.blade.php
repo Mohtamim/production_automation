@@ -19,10 +19,10 @@ Pack Size
                 <tr>
 
                   <th>SL</th>
-                  <th>mainOrderId</th>
-                  <th>warehouseId</th>
-                  <th>quantity</th>
-                  <th>status</th>
+                  <th>Pack Name</th>
+                  <th>length</th>
+                  <th>width</th>
+                  <th>height</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -30,21 +30,14 @@ Pack Size
                   @foreach ($assain as $item)
                   <tr>
                       <td>{{$loop->iteration}}</td>
-                      <td>{{$item->mainOrderId}}</td>
-                      <td>{{$item->warehouseId}}</td>
-                      <td>{{$item->quantity}}</td>
-                      @if ($item->status==1)
-                      <td>Active</td>
-                      @endif
-                      @if ($item->status==0)
-                      <td>Deactive</td>
-                      @endif
-
-
+                      <td>{{$item->title}}</td>
+                      <td>{{$item->length}}</td>
+                      <td>{{$item->width}}</td>
+                      <td>{{$item->height}}</td>
                       <td>
-                        <a href="{{url('admin/assaign_order/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
-                        <a href="{{url('admin/assaign_order/'.$item->id.'/edit')}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <form method="post" action="{{url('admin/assaign_order/'.$item->id)}}">
+                        <a href="{{url('admin/pack_size/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
+                        <a href="{{url('admin/pack_size/'.$item->id.'/edit')}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <form method="post" action="{{url('admin/pack_size/'.$item->id)}}">
                             {{ method_field('DELETE')}}
                             {{ csrf_field()}}
                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i></button>
@@ -56,8 +49,6 @@ Pack Size
                    @endforeach
               </tbody>
             </table>
-
-
           </div>
         </div>
       </div>

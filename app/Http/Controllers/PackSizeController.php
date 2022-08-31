@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\packSizeFormValidation;
 use App\Models\packSize;
 use Illuminate\Http\Request;
 
@@ -20,54 +21,42 @@ class PackSizeController extends Controller
        return view('admin.packaging.create');
     }
 
-   
-    public function store(Request $request)
+
+    public function store(packSizeFormValidation $request)
     {
-        //
+       $pack=packSize::all();
+       packSize::create($pack);
+       return redirect('admin/pack_size')->with('status','Pack Size created Successfully');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\packSize  $packSize
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(packSize $packSize)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\packSize  $packSize
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(packSize $packSize)
+
+    public function edit($id)
     {
-        //
+     $pack=packSize::find($id);
+     return view('admin.packaging.edit')->with('pack',$pack);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\packSize  $packSize
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, packSize $packSize)
+
+    public function update(packSizeFormValidation $request, $id)
     {
-        //
+        $pack=packSize::find($id);
+        $input=$request->all();
+        $pack->update($input);
+        return redirect('admin/pack_size')->with('status','Pack Size created Successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\packSize  $packSize
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(packSize $packSize)
+
+    public function destroy($id)
     {
-        //
+       $pack=packSize::destroy($id);
+       return redirect('admin/pack_size')->with('status','pack size deleted successfully');
+
     }
 }
