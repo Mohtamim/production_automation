@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('buyers', function (Blueprint $table) {
             $table->id();
+            $table->string('buyerCode');
+            $table->string('buyerName');
+            $table->email('email')->unique();
+            $table->numeric('phone');
+            $table->string('img');
+            $table->string('country');
             $table->timestamps();
         });
     }

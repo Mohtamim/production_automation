@@ -11,8 +11,10 @@ class CatController extends Controller
 
     public function index()
     {
+
         $input=cat::all();
         return view('admin.category.index')->with('cat',$input);
+
 
     }
 
