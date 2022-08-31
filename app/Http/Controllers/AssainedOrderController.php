@@ -26,13 +26,14 @@ class AssainedOrderController extends Controller
     {
         $input=$request->all();
         assainedOrder::create($input);
-        return redirect('assain_order')->with('status','Assign Order create successfully');
+        return redirect('admin/assaign_order')->with('status','Assign Order create successfully');
     }
 
 
-    public function show(assainedOrder $assainedOrder)
+    public function show($id)
     {
-        //
+        $order = assainedOrder::find($id);
+        return view('admin.assainedOrder.show')->with('assain',$order);
     }
 
     public function edit($id)
@@ -47,13 +48,13 @@ class AssainedOrderController extends Controller
        $assain=assainedOrder::find($id);
        $input=$request->all();
        $assain->update($input);
-       return redirect('assaign_order')->with('flash_message','Assign Ordered value Updated');
+       return redirect('admin/assaign_order')->with('flash_message','Assign Ordered value Updated');
     }
 
 
     public function destroy($id)
     {
         assainedOrder::destroy($id);
-        return redirect('assaign_order')->with('status', 'Assign Ordered has been deleted');
+        return redirect('admin/assaign_order')->with('status', 'Assign Ordered has been deleted');
     }
 }

@@ -13,7 +13,7 @@ class assainOrderFormValidation extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,23 @@ class assainOrderFormValidation extends FormRequest
     public function rules()
     {
         return [
-            //
+            'mainOrderId'=>'required|numeric',
+             'warehouseId'=>'required|numeric',
+             'quantity'=>'required|numeric',
+
+
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'mainOrderId.required' => 'Please Enter a MainOrderId ',
+            'mainOrderId.numeric' => 'String is not allowed',
+            'warehouseId.required' => 'Please Enter a WarehouseId',
+            'warehouseId.numeric' => 'String is not allowed',
+            'quantity.required' => 'Please Enter a Quantity',
+            'quantity.numeric' => 'String is not allowed',
         ];
     }
 }
