@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('cats', function (Blueprint $table) {
             $table->id();
             $table->string('catName');
-            $table->string('catTitle')->nullable()->change();
+            $table->string('catTitle');
             $table->timestamps();
         });
     }
