@@ -1,6 +1,6 @@
 @extends('admin.layout')
-@section('ware-title')
-WareHose
+@section('title')
+    Main Order
 @endsection
 @section('admin_content')
 <div class="container mt-5">
@@ -10,20 +10,20 @@ WareHose
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h4>ADD Warehouse</h4>
+                    <h4>Take Order</h4>
                 </div>
             </div>
         </div>
         <div class="widget-content widget-content-area ">
-            <form class="forms-sample" action="{{ url('admin/warehouses') }}" method="POST">
+            <form class="forms-sample" action="{{ url('admin/main_order') }}" method="POST">
                 {!! csrf_field() !!}
 
                 <div class="mb-3">
-                    <label for="warehouseName" class="control-label">Warehouse Name</label><br>
-                <input type="text" name="warehouseName" id="warehouseName" class="form-control @error('warehouseName')
+                    <label for="productName" class="control-label">Product Name</label><br>
+                <input type="text" name="productName" id="productName" class="form-control @error('productName')
                   is-invalid
                    @enderror">
-                   @error('warehouseName')
+                   @error('productName')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
 
@@ -31,17 +31,43 @@ WareHose
 
 
                 <div class="mb-3">
-                    <label for="address" class="control-label">Address</label><br>
-                <input type="text" name="address" id="address" class="form-control @error('address')
+                    <label for="quantity" class="control-label">Quantity</label><br>
+                <input type="text" name="quantity" id="quantity" class="form-control @error('quantity')
                   is-invalid
                    @enderror" >
-                   @error('address')
+                   @error('quantity')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
 
                 </div>
+                <div class="mb-3">
+                    <label for="unitPrice" class="control-label">Unit Price</label><br>
+                <input type="text" name="unitPrice" id="unitPrice" class="form-control @error('unitPrice')
+                  is-invalid
+                   @enderror" >
+                   @error('unitPrice')
+                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                   @enderror
 
+                </div>
+                <div class="mb-3">
+                    <label for="totalPrice" class="control-label">Total Price</label><br>
+                <input type="text" name="totalPrice" id="totalPrice" class="form-control @error('totalPrice')
+                  is-invalid
+                   @enderror" >
+                   @error('totalPrice')
+                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                   @enderror
 
+                </div>
+                <div class="input-group mb-3" style="minWidth:678px">
+
+                    <select id="status" class="form-select" name="status">
+                        <option value="" >Select Status</option>
+                        <option value="1">Active</option>
+                        <option value="0">Deactive</option>
+                    </select>
+                </div>
 
 
                 <input type="submit" value="save" class="btn btn-success">

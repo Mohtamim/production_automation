@@ -15,6 +15,7 @@ WareHose
         <div class="widget-content widget-content-area">
             <form class="" action="{{ url('admin/assaign_order/'.$assain->id) }}" method="POST">
                 {!! csrf_field() !!}
+                @method('PUT')
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order Id:</span>
                     <input type="number" value="{{$assain->mainOrderId}}" class="form-control @error('mainOrderId')

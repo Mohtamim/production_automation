@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\mainOrderFormValidation;
 use App\Models\mainOrder;
 use Illuminate\Http\Request;
 
 class MainOrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $mainorder=mainOrder::all();
+        return view('admin.mainOrder.index')->with('mainorder',$mainorder);
     }
 
     /**
@@ -24,62 +22,44 @@ class MainOrderController extends Controller
      */
     public function create()
     {
-        //
+       return view('admin.mainOrder.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(mainOrderFormValidation $request)
     {
-        //
+        $input=$request->all();
+        mainOrder::create($input);
+        return redirect('admin/main_order')->with('status','Main Order create successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\mainOrder  $mainOrder
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(mainOrder $mainOrder)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\mainOrder  $mainOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(mainOrder $mainOrder)
+
+    public function edit($id)
     {
-        //
+       $input=mainOrder::find($id);
+       return view('admin.mainOrder.edit')->with('mainorder',$input);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\mainOrder  $mainOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, mainOrder $mainOrder)
+
+    public function update(mainOrderFormValidation $request, $id)
     {
-        //
+       $mainorder=mainOrder::find($id);
+       $input=$request->all();
+       $mainorder->update($input);
+       return redirect('admin/main_order')->with('flash_message','Main Ordered value Updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\mainOrder  $mainOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(mainOrder $mainOrder)
+
+    public function destroy($id)
     {
-        //
+        mainOrder::destroy($id);
+        return redirect('admin/main_order')->with('status', 'Main Ordered has been deleted');
     }
 }
+
