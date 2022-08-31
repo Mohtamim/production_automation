@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\subCat;
+use App\Models\unit;
 use Illuminate\Http\Request;
 
-class SubCatController extends Controller
+class UnitController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class SubCatController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\subCat  $subCat
+     * @param  \App\Models\unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function show(subCat $subCat)
+    public function show(unit $unit)
     {
         //
     }
@@ -52,10 +52,10 @@ class SubCatController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\subCat  $subCat
+     * @param  \App\Models\unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function edit(subCat $subCat)
+    public function edit(unit $unit)
     {
         //
     }
@@ -64,10 +64,10 @@ class SubCatController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\subCat  $subCat
+     * @param  \App\Models\unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, subCat $subCat)
+    public function update(Request $request, unit $unit)
     {
         //
     }
@@ -75,10 +75,10 @@ class SubCatController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\subCat  $subCat
+     * @param  \App\Models\unit  $unit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(subCat $subCat)
+    public function destroy(unit $unit)
     {
         //
     }

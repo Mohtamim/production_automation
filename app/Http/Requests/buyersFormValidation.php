@@ -13,7 +13,7 @@ class buyersFormValidation extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class buyersFormValidation extends FormRequest
     public function rules()
     {
         return [
-            //
+            'buyerCode'=>'required|numeric',
+            'buyerName'=>'required|string',
+            'email'=>'required|string',
+            'phone'=>'required|numeric',
+            'img'=>'required',
+            'country'=>'required|string'
+        ];
+    }
+    public function messages()
+    {
+        return[
+        'buyerCode.required'=>'required|numeric',
         ];
     }
 }

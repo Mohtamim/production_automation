@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('buyers', function (Blueprint $table) {
+        Schema::create('pack_sizes', function (Blueprint $table) {
             $table->id();
-            $table->integer('buyerCode');
-            $table->string('buyerName');
-            $table->string('email')->unique();
-            $table->integer('phone');
-            $table->string('img');
-            $table->string('country');
+            $table->string('title');
+            $table->float('length');
+            $table->float('width');
+            $table->float('height');
+
+
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buyers');
+        Schema::dropIfExists('pack_sizes');
     }
 };
