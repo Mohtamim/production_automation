@@ -16,4 +16,10 @@ class assainedOrder extends Model
                     'quantity',
                     'status',
     ];
+    public function warehouse(){
+        return $this->hasMany(warehouse::class);
+    }
+    public function mainorder(){
+        return $this->hasMany(mainOrder::class);
+    }
 }

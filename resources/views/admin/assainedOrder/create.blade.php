@@ -27,6 +27,28 @@ WareHose
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
+
+
+
+
+                <select class="form-select" name="uniteType" id="uniteType" aria-label="Default select example">
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order Id:</span>
+                    <option  selected class="form-control">Select The Order</option>
+                    @foreach ($mainOrder as $mainOrder)
+                    <option value="{{ $mainOrder->id }}">{{ $mainOrder->productName }}</option>
+                    @endforeach
+                  </select><br>
+
+
+
+
+
+
+
+
+
+
+
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="warehouseId">Ware House Id:</span>
                     <input type="number" class="form-control @error('warehouseId')

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\assainOrderFormValidation;
 use App\Models\assainedOrder;
+use App\Models\mainOrder;
+use App\Models\warehouse;
 use Illuminate\Http\Request;
 
 class AssainedOrderController extends Controller
@@ -18,7 +20,9 @@ class AssainedOrderController extends Controller
 
     public function create()
     {
-        return view('admin.assainedOrder.create');
+        $wareHouse = wareHouse::all();
+        $mainOrder = mainOrder::all();
+        return view('admin.assainedOrder.create')->with(['wareHouse'=> $wareHouse,'mainOrder'=> $mainOrder]);
     }
 
 
