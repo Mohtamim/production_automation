@@ -31,13 +31,11 @@ class productFormValidation extends FormRequest
             'DH_raw_materials'=>'required|numeric',
             'supplier_raw_materials'=>'required|numeric',
             'wages'=>'required|numeric',
-            'carring_charge'=>'required|numeric',
-            'treatement_deduction'=>'required|',
-            'is_sample_product'=>'required|string|regex:/^[\pL\s\-]+$/u',
-            'Details'=>'required|string|regex:/^[\pL\s\-]+$/u',
-            'notes'=>'required|string|regex:/^[\pL\s\-]+$/u',
-            'totalcost_for_supplier'=>'required|string|regex:/^[\pL\s\-]+$/u',
-            'DH_total_price'=>'required|string|regex:/^[\pL\s\-]+$/u'
+            'carring_charge'=>'numeric',
+            'treatement_deduction'=>'numeric',
+            'is_sample_product'=>'required|boolean',
+            'totalcost_for_supplier'=>'required|numeric',
+            'DH_total_price'=>'required|numeric'
         ];
     }
 }

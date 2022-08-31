@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\productFormValidation;
 use App\Models\pruduct;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class PruductController extends Controller
      */
     public function index()
     {
-        //
+        $input=pruduct::all();
+        return view('admin.product.index')->with('product',$input);
     }
 
     /**
@@ -24,7 +26,7 @@ class PruductController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.product.create') ;
     }
 
     /**
@@ -33,9 +35,11 @@ class PruductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(productFormValidation $request)
     {
-        //
+        $input= $request->all();
+        pruduct::create($input);
+        return redirect('admin/product')->with('flash_message','Product Added');
     }
 
     /**
@@ -44,9 +48,10 @@ class PruductController extends Controller
      * @param  \App\Models\pruduct  $pruduct
      * @return \Illuminate\Http\Response
      */
-    public function show(pruduct $pruduct)
+    public function show($id)
     {
-        //
+        $order = pruduct::find($id);
+        return view('admin.product.show')->with('product',$order);
     }
 
     /**
@@ -55,9 +60,10 @@ class PruductController extends Controller
      * @param  \App\Models\pruduct  $pruduct
      * @return \Illuminate\Http\Response
      */
-    public function edit(pruduct $pruduct)
+    public function edit($id)
     {
-        //
+        $product = pruduct::find($id);
+        return view('admin.product.edit')->with('product',$product);
     }
 
     /**
@@ -67,9 +73,12 @@ class PruductController extends Controller
      * @param  \App\Models\pruduct  $pruduct
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, pruduct $pruduct)
+    public function update(productFormValidation  $request, $id)
     {
-        //
+        $product = pruduct::find($id);
+        $input = $request->all();
+        $product->update($input);
+        return redirect('admin/product')->with('flash_message', 'product Updated!');
     }
 
     /**
@@ -78,8 +87,9 @@ class PruductController extends Controller
      * @param  \App\Models\pruduct  $pruduct
      * @return \Illuminate\Http\Response
      */
-    public function destroy(pruduct $pruduct)
+    public function destroy($id)
     {
-        //
+        pruduct::destroy($id);
+        return redirect('admin/product')->with('product', 'Product has been deleted');
     }
 }

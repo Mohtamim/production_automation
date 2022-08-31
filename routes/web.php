@@ -8,6 +8,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\MainOrderController;
 use App\Http\Controllers\ManagerlistController;
 use App\Http\Controllers\PackagingController;
+use App\Http\Controllers\PruductController;
 use App\Http\Controllers\ShiperAndExporterController;
 use App\Http\Controllers\SubCatController;
 use App\Http\Controllers\UsersController;
@@ -45,4 +46,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('shiperment_exporter', ShiperAndExporterController::class);
     Route::resource('sub_category', SubCatController::class);
     Route::resource('warehouses', WarehouseController::class);
+    Route::resource('product',PruductController::class);
 });
