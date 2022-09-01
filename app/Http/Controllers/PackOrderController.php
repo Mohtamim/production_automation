@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\packaging;
 use App\Models\packOrder;
+use App\Models\warehouse;
 use Illuminate\Http\Request;
+use App\Models\PackageingCompany;
+use App\Models\packSize;
 
 class PackOrderController extends Controller
 {
@@ -25,9 +29,10 @@ class PackOrderController extends Controller
      */
     public function create()
     {
-        $packorder = packOrder::all();
+        $packSize=packSize::all();
+        $pack= PackageingCompany::all();
         $mainOrder = packOrder::all();
-        return view('admin.packOrder.create')->with(['wareHouse'=> $packorder,'mainOrder'=> $mainOrder]);
+        return view('admin.packOrder.create')->with(['pack'=> $pack,'packSize'=>$packSize ,'mainOrder'=> $mainOrder]);
     }
 
     /**

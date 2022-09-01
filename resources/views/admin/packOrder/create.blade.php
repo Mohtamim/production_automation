@@ -34,33 +34,43 @@ Pack Order
                         @enderror
                     </div>
                     <div class="input-group mb-3 col">
-                        <span class="input-group-text bg-light text-black font-weight-bold" >Company
-                            </span>
-                        <input type="text" id="company"
-                            class="form-control @error('company')
-                    is-invalid
+                        <span class="input-group-text bg-light text-black font-weight-bold" >Quantity:</span>
+                        <input type="number" id="quantity"
+                            class="form-control @error('quantity')
+                     is-invalid
                     @enderror"
-                            name="company" placeholder="Enter company" aria-label="Enter your company"
+                            name="quantity" placeholder="Enter  quantity" aria-label="Enter  quantity "
                             aria-describedby="basic-addon2">
-                        @error('company')
+                        @error('quantity')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
-
                     </div>
+
+
                 </div>
                 <div class="row ms-2 me-2">
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold">Pack:</span>
-                        <input type="text"  id="pack"
-                            class="form-control @error('pack')
-                     is-invalid
-                    @enderror"
-                            name="pack" placeholder="Enter  pack" aria-label="Enter Pack name "
-                            aria-describedby="basic-addon2">
-                        @error('pack')
-                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                        @enderror
+                        <select id="status" class="form-select" name="status">
+                            <option value="" >Select Company Name</option>
+                            @foreach ($packSize as $packSize )
+                            <option value="{{$packSize->id  }}">{{ $packSize->title.' - '.$packSize->id}}</option>
+                            @endforeach
+                        </select>
                     </div>
+                    <div class="input-group mb-3 col">
+                        <span class="input-group-text bg-light text-black font-weight-bold" >Company
+                            </span>
+                            <select id="status" class="form-select" name="status">
+                                <option value="" >Select Company Name</option>
+                                @foreach ($pack as $pack )
+                                <option value="{{$pack->id  }}">{{ $pack->companyName.' - '.$pack->id}}</option>
+                                @endforeach
+                            </select>
+
+                    </div>
+                </div>
+                <div class="row ms-2 me-2">
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold">Price:</span>
                         <input type="number"  id="price"
@@ -70,20 +80,6 @@ Pack Order
                             name="price" placeholder="Enter  price" aria-label="Enter  price "
                             aria-describedby="basic-addon2">
                         @error('price')
-                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                        @enderror
-                    </div>
-                </div>
-                <div class="row ms-2 me-2">
-                    <div class="input-group mb-3 col">
-                        <span class="input-group-text bg-light text-black font-weight-bold" >Quantity:</span>
-                        <input type="number" id="quantity"
-                            class="form-control @error('quantity')
-                     is-invalid
-                    @enderror"
-                            name="quantity" placeholder="Enter  quantity" aria-label="Enter  quantity "
-                            aria-describedby="basic-addon2">
-                        @error('quantity')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
