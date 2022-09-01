@@ -2,84 +2,58 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\portFormValidation;
 use App\Models\port;
 use Illuminate\Http\Request;
 
-class PortController extends Controller
+class portController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $port=port::all();
+        return view('admin.port.index')->with('port', $port);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('admin.port.create') ;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(portFormValidation $request)
     {
-        //
+        $input= $request->all();
+        port::create($input);
+        return redirect('admin/port')->with('flash_message','port Added');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\port  $port
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(port $port)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\port  $port
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(port $port)
+
+    public function edit($id)
     {
-        //
+        $port = port::find($id);
+        return view('admin.port.edit')->with('port',$port);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\port  $port
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, port $port)
+
+    public function update(portFormValidation $request, $id)
     {
-        //
+        $port = port::find($id);
+        $input = $request->all();
+        $port->update($input);
+        return redirect('admin/port')->with('flash_message', 'port Updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\port  $port
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(port $port)
     {
-        //
+
     }
 }

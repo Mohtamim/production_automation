@@ -13,6 +13,7 @@ use App\Http\Controllers\PackOrderController;
 use App\Http\Controllers\PackPricingController;
 use App\Http\Controllers\PruductController;
 use App\Http\Controllers\PackSizeController;
+use App\Http\Controllers\portController;
 use App\Http\Controllers\ShiperAndExporterController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UsersController;
@@ -46,7 +47,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('main_order', MainOrderController::class);
     Route::resource('managers', ManagerlistController::class);
     Route::resource('packaging', PackagingController::class);
-    Route::resource('port', PackagingController::class);
+    Route::resource('port',portController::class);
     Route::resource('shiperment_exporter', ShiperAndExporterController::class);
     Route::resource('warehouses', WarehouseController::class);
     Route::resource('product',PruductController::class);

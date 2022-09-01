@@ -11,6 +11,8 @@ class port extends Model
     protected $table='ports';
     protected $primaryKey='id';
     protected $fillable=[
+        'name',
+        'status'
 
     ];
 }

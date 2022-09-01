@@ -1,16 +1,16 @@
 @extends('admin.layout')
-@section('ware-title')
-    WareHose
+@section('title')
+Port
 @endsection
 @section('admin_content')
     <div class="row ">
         <div class="col-md-12 grid-margin stretch-card ">
             <div class="card ">
                 <div class="card-body">
-                    <h3 class="text-center text-success">Warehouse</h3>
+                    <h3 class="text-center text-success">Port</h3>
                     <div class="table-responsive">
-                        <a href="{{ url('admin/warehouses/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
-                            Add New
+                        <a href="{{ url('admin/port/create') }}" class="btn btn-success btn-sm" title="Add new port">
+                            Add port
                         </a><br><br>
                         <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                             <div class="widget-content widget-content-area br-8">
@@ -18,26 +18,31 @@
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Warehouse Name</th>
-                                            <th>Address</th>
-
+                                            <th> Name</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($warehouse as $item)
+                                        @foreach ($port as $pt)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->warehouseName }}</td>
-                                                <td>{{ $item->address }}</td>
+                                                <td>{{$loop->iteration }}</td>
+                                                <td>{{$pt->name }}</td>
+                                                @if ($pt->status==1)
+                                                <td>Active</td>
+                                                @endif
+                                                @if($pt->status==0)
+                                                <td>Deactive</td>
+                                                @endif
+
 
                                                 <td>
-                                                    <a href="{{url('admin/warehouses/'.$item->id)}}" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"><i class="fa fa-eye"></i></a>
-                                                    <a href="{{url('admin/warehouses/'.$item->id.'/edit')}}" class="btn btn-primary btn-sm" title="Edit Customer" aria-hidden="true"><i class="fa fa-pencil"></i></a>
-                                                    <form method="POST" action="{{ url('admin/warehouses/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                    <a href="{{url('admin/port/'.$pt->id)}}" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"><i class="fa fa-eye"></i></a>
+                                                    <a href="{{url('admin/port/'.$pt->id.'/edit')}}" class="btn btn-primary btn-sm" title="Edit port" aria-hidden="true"><i class="fa fa-pencil"></i></a>
+                                                    <form method="POST" action="{{ url('admin/port/' . $pt->id) }}" accept-charset="UTF-8" style="display:inline">
                                                         {{ method_field('DELETE') }}
                                                         {{ csrf_field() }}
-                                                        <button type="submit" class="btn btn-danger btn-sm" title="Delete customer" onclick="return confirm("Confirm delete?")"><i class="fa-solid fa-toggle-on"></i></button>
+                                                        <button type="submit" class="btn btn-danger btn-sm" title="Delete port" onclick="return confirm("Confirm delete?")"><i class="fa-solid fa-toggle-on"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>

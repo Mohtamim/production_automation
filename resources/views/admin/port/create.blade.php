@@ -1,6 +1,6 @@
 @extends('admin.layout')
-@section('ware-title')
-WareHose
+@section('title')
+Port
 @endsection
 @section('admin_content')
 <div class="container mt-5">
@@ -10,37 +10,34 @@ WareHose
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h4>ADD Warehouse</h4>
+                    <h4>ADD Port</h4>
                 </div>
             </div>
         </div>
         <div class="widget-content widget-content-area ">
-            <form class="forms-sample" action="{{ url('admin/warehouses') }}" method="POST">
+            <form class="forms-sample" action="{{ url('admin/port') }}" method="POST">
                 {!! csrf_field() !!}
 
                 <div class="mb-3">
-                    <label for="warehouseName" class="control-label">Warehouse Name</label><br>
-                <input type="text" name="warehouseName" id="warehouseName" class="form-control @error('warehouseName')
+                    <label for="name" class="control-label">Port Name</label><br>
+                <input type="text" name="name" id="name" class="form-control @error('name')
                   is-invalid
                    @enderror">
-                   @error('warehouseName')
+                   @error('name')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
 
                 </div>
 
 
-                <div class="mb-3">
-                    <label for="address" class="control-label">Address</label><br>
-                <input type="text" name="address" id="address" class="form-control @error('address')
-                  is-invalid
-                   @enderror" >
-                   @error('address')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
+                <div class="input-group mb-3" style="minWidth:678px">
+                    <select id="status" class="form-select" name="status">
+                        <option value="" >Select Status</option>
+                        <option value="1">Active</option>
+                        <option value="0">Deactive</option>
+                    </select>
 
                 </div>
-
 
 
 
