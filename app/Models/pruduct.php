@@ -26,4 +26,11 @@ class pruduct extends Model
                  'totalcost_for_supplier',
                  'DH_total_price'
     ];
+    public function category(){
+        return $this->hasMany(cat::class);
+    }
+
+    public function unit(){
+        return $this->hasMany(unit::class);
+    }
 }

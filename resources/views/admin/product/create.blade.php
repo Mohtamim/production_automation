@@ -26,38 +26,43 @@ Product
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
-
                 <div class=" input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="category">Category:</span>
-                    <input type="text" class="form-control @error('category')
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="Image">image:</span>
+                    <input type="file"  class="form-control @error('image')
                      is-invalid
-                    @enderror" name="category" placeholder="Enter category">
-                    @error('category')
+                    @enderror" name="image" placeholder="Enter image">
+                    @error('image')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
+
             </div>
 
             <div class="row ms-2 me-2">
-                <div class=" input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="img">Image:</span>
-                    <input type="file" class="form-control @error('img')
-                     is-invalid
-                    @enderror" name="img" placeholder="Enter  img">
-                    @error('img')
-                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
+                 <div class=" input-group mb-3 col">
+                    <label class="input-group-text bg-light text-black font-weight-bold" id="unit">Unit:</label>
+                    <select id="unit" class="form-select" name="unit">
+                        <option value="" >Select Unit</option>
+                        @foreach ($unit as  $unit)
+                        <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                        @endforeach
+
+                    </select>
                 </div>
 
                 <div class=" input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="unit">Unit:</span>
-                    <input type="number" step=".01" class="form-control @error('unit')
-                     is-invalid
-                    @enderror" name="unit" placeholder="Enter unit">
-                    @error('unit')
-                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
-                </div>
+
+                    <label class="input-group-text bg-light text-black font-weight-bold" id="category">Category:</label>
+
+                    <select id="category" class="form-select" name="category">
+                        <option value="" >Select category</option>
+                        @foreach ($category as  $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->catName }}</option>
+                        @endforeach
+
+                    </select>
+
+            </div>
             </div>
             <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">

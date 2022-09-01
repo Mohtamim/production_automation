@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\productFormValidation;
+use App\Models\cat;
+use App\Models\unit;
 use App\Models\pruduct;
 use Illuminate\Http\Request;
+use App\Http\Requests\productFormValidation;
 
 class PruductController extends Controller
 {
@@ -26,7 +28,9 @@ class PruductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create') ;
+        $category = cat::all();
+        $unit = unit::all();
+        return view('admin.product.create')->with(['category'=>$category,'unit'=>$unit]) ;
     }
 
     /**
