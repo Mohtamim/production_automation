@@ -2,84 +2,58 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\unitFormValidation;
 use App\Models\unit;
 use Illuminate\Http\Request;
 
 class UnitController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $unit= unit::all();
+        return view('admin.unit.index')->with('unit', $unit);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('admin.unit.create') ;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(unitFormValidation $request)
     {
-        //
+        $input= $request->all();
+        unit::create($input);
+        return redirect('admin/unit')->with('flash_message','Unit Added');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\unit  $unit
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(unit $unit)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(unit $unit)
+
+    public function edit($id)
     {
-        //
+        $unit = unit::find($id);
+        return view('admin.unit.edit')->with('unit',$unit);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, unit $unit)
+
+    public function update(unitFormValidation $request, $id)
     {
-        //
+        $unit = unit::find($id);
+        $input = $request->all();
+        $unit->update($input);
+        return redirect('admin/unit')->with('flash_message', 'unit Updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\unit  $unit
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(unit $unit)
     {
-        //
+
     }
 }

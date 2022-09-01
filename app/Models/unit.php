@@ -9,9 +9,11 @@ class unit extends Model
 {
     use HasFactory;
     use HasFactory;
-    protected $table='assained_orders';
+    protected $table='units';
     protected $primaryKey='id';
     protected $fillable=[
-                    
+        'name',
+        'status'
+
     ];
 }

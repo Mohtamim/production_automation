@@ -8,13 +8,19 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\MainOrderController;
 use App\Http\Controllers\ManagerlistController;
 use App\Http\Controllers\PackagingController;
+<<<<<<< HEAD
 
 use App\Http\Controllers\PruductController;
 
 use App\Http\Controllers\PackSizeController;
 
+=======
+use App\Http\Controllers\PruductController;
+use App\Http\Controllers\PackSizeController;
+>>>>>>> 5bb201ca4c2c62c45a177d3e99f5b4774b11d53e
 use App\Http\Controllers\ShiperAndExporterController;
 use App\Http\Controllers\SubCatController;
+use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
@@ -50,9 +56,14 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('shiperment_exporter', ShiperAndExporterController::class);
     Route::resource('sub_category', SubCatController::class);
     Route::resource('warehouses', WarehouseController::class);
+<<<<<<< HEAD
 
     Route::resource('product',PruductController::class);
 
+=======
+    Route::resource('product',PruductController::class);
+    Route::resource('unit',UnitController::class);
+>>>>>>> 5bb201ca4c2c62c45a177d3e99f5b4774b11d53e
     Route::resource('pack_size', PackSizeController::class);
 
 });
