@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('pack_pricings', function (Blueprint $table) {
             $table->id();
+            $table->string('companyName');
+            $table->string('packTitle');
+            $table->string('packSizes');
+            $table->string('price');
             $table->timestamps();
         });
     }

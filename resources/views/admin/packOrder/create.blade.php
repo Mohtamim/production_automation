@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-    Packaging Company
+    Packageing Company
 @endsection
 @section('admin_content')
     <div class="col-lg-12 col-12  layout-spacing">
@@ -8,36 +8,37 @@
             <div class="widget-header">
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h4 class="text-center"> Edit Packaging Company</h4>
-
+                        <h4 class="text-center"> Packaging Company</h4>
+                        <a href="{{ url('admin/packaging_company') }}" class="btn btn-info text-center justify-content-start my-4">
+                            packaging Company</a>
                     </div>
 
                 </div>
 
             </div>
             <div class="widget-content widget-content-area">
-                <form class="" action="{{ url('admin/packaging_company/'.$packCompany->id) }}" method="POST">
+                <form class="" action="{{ url('admin/packaging_company') }}" method="POST">
                     {!! csrf_field() !!}
-                    @method('PATCH')
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold">Company Name:</span>
-                        <input type="text" id="companyName" value="{{ $packCompany->companyName }}"
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="companyName">Company Name
+                            </span>
+                        <input type="text"
                             class="form-control @error('companyName')
                      is-invalid
                     @enderror"
-                            name="companyName" >
+                            name="companyName" placeholder="Enter MainOrder Id">
                         @error('companyName')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold">Email
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="email">email
                             </span>
-                        <input type="email"  value="{{ $packCompany->email }}" id="email"
+                        <input type="text"
                             class="form-control @error('email')
                     is-invalid
                     @enderror"
-                            name="email" aria-label="example@gmail.com"
+                            name="email" placeholder="Enter email" aria-label="Enter your Assign Order Id"
                             aria-describedby="basic-addon2">
                         @error('email')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -46,30 +47,31 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" >Contact:</span>
-                        <input type="number" value="{{ $packCompany->contact }}" id="contact"
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="contact">contact:</span>
+                        <input type="number"
                             class="form-control @error('contact')
                      is-invalid
                     @enderror"
-                            name="contact"  aria-label="Enter  contact "
+                            name="contact" placeholder="Enter  contact" aria-label="Enter  contact "
                             aria-describedby="basic-addon2">
                         @error('contact')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
-
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" >Address:</span>
-                        <input type="text" value="{{ $packCompany->address }}" id="address"
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="address">address:</span>
+                        <input type="text"
                             class="form-control @error('address')
                      is-invalid
                     @enderror"
-                            name="address"  aria-label="Enter  address "
+                            name="address" placeholder="Enter  address" aria-label="Enter  address "
                             aria-describedby="basic-addon2">
                         @error('address')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
+
+
                     <input type="submit" value="save" class="btn btn-success">
                     <button class="btn btn-secondary">Cancel</button>
                 </form>

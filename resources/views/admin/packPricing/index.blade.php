@@ -1,7 +1,7 @@
 
 @extends('admin.layout')
 @section('title')
-Packaging Company
+Pack Pricing
 @endsection
 @section('admin_content')
 <div class="container mt-3">
@@ -9,9 +9,9 @@ Packaging Company
     <div class="col-md-12 grid-margin stretch-card ">
       <div class="card ms-4">
         <div class="card-body ms-4">
-          <h3 class="text-center text-success"> Packaging Company</h3>
+          <h3 class="text-center text-success"> Pack Pricing</h3>
           <div class="table-responsive">
-            <a href="{{url('admin/packaging_company/create')}}" class="btn btn-success btn-sm" title="Add new Customer">
+            <a href="{{url('admin/pack_price/create')}}" class="btn btn-success btn-sm" title="Add new Customer">
                 Add New
             </a><br><br>
             <table id="dataTableExample" class="table">
@@ -20,24 +20,24 @@ Packaging Company
 
                   <th>SL</th>
                   <th>Company Name</th>
-                  <th>Email</th>
-                  <th>Contact</th>
-                  <th>Address</th>
+                  <th>Pack Title</th>
+                  <th>Pack Sizes</th>
+                  <th>Price</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                  @foreach ($packCompany as $item)
+                  @foreach ($packPrice as $item)
                   <tr>
                       <td>{{$loop->iteration}}</td>
                       <td>{{$item->companyName}}</td>
-                      <td>{{$item->email}}</td>
-                      <td>{{$item->contact}}</td>
-                      <td>{{$item->address}}</td>
+                      <td>{{$item->packTitle}}</td>
+                      <td>{{$item->packSizes}}</td>
+                      <td>{{$item->price}}</td>
                       <td>
-                        <a href="{{url('admin/packaging_company/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
-                        <a href="{{url('admin/packaging_company/'.$item->id.'/edit')}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <form method="post" action="{{url('admin/packaging_company/'.$item->id)}}">
+                        <a href="{{url('admin/pack_price/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
+                        <a href="{{url('admin/pack_price/'.$item->id.'/edit')}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <form method="post" action="{{url('admin/pack_price/'.$item->id)}}">
                             {{ method_field('DELETE')}}
                             {{ csrf_field()}}
                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i></button>

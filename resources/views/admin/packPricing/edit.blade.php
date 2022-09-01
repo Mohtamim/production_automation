@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-    Packaging Company
+    Pack Pricing
 @endsection
 @section('admin_content')
     <div class="col-lg-12 col-12  layout-spacing">
@@ -8,7 +8,7 @@
             <div class="widget-header">
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h4 class="text-center"> Edit Packaging Company</h4>
+                        <h4 class="text-center"> Edit Pack Pricing</h4>
 
                     </div>
 
@@ -16,12 +16,12 @@
 
             </div>
             <div class="widget-content widget-content-area">
-                <form class="" action="{{ url('admin/packaging_company/'.$packCompany->id) }}" method="POST">
+                <form class="" action="{{ url('admin/pack_price/'.$packPrice->id) }}" method="POST">
                     {!! csrf_field() !!}
                     @method('PATCH')
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold">Company Name:</span>
-                        <input type="text" id="companyName" value="{{ $packCompany->companyName }}"
+                        <input type="text" id="companyName" value="{{ $packPrice->companyName }}"
                             class="form-control @error('companyName')
                      is-invalid
                     @enderror"
@@ -31,42 +31,42 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold">Email
+                        <span class="input-group-text bg-light text-black font-weight-bold">Pack Title
                             </span>
-                        <input type="email"  value="{{ $packCompany->email }}" id="email"
-                            class="form-control @error('email')
+                        <input type="packTitle"  value="{{ $packPrice->packTitle }}" id="packTitle"
+                            class="form-control @error('packTitle')
                     is-invalid
                     @enderror"
-                            name="email" aria-label="example@gmail.com"
+                            name="packTitle" aria-label="example@gmail.com"
                             aria-describedby="basic-addon2">
-                        @error('email')
+                        @error('packTitle')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
 
                     </div>
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" >Contact:</span>
-                        <input type="number" value="{{ $packCompany->contact }}" id="contact"
-                            class="form-control @error('contact')
+                        <span class="input-group-text bg-light text-black font-weight-bold" >Pack Sizes:</span>
+                        <input type="number" value="{{ $packPrice->packSizes }}" id="packSizes"
+                            class="form-control @error('packSizes')
                      is-invalid
                     @enderror"
-                            name="contact"  aria-label="Enter  contact "
+                            name="packSizes"  aria-label="Enter  packSizes "
                             aria-describedby="basic-addon2">
-                        @error('contact')
+                        @error('packSizes')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" >Address:</span>
-                        <input type="text" value="{{ $packCompany->address }}" id="address"
-                            class="form-control @error('address')
+                        <span class="input-group-text bg-light text-black font-weight-bold" >Price:</span>
+                        <input type="text" value="{{ $packPrice->price }}" id="price"
+                            class="form-control @error('price')
                      is-invalid
                     @enderror"
-                            name="address"  aria-label="Enter  address "
+                            name="price"  aria-label="Enter  price "
                             aria-describedby="basic-addon2">
-                        @error('address')
+                        @error('price')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\packagingCompanyFormValidation;
 use App\Models\PackageingCompany;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,7 @@ class PackageingCompanyController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(packagingCompanyFormValidation $request)
     {
         $packCompany=$request->all();
         PackageingCompany::create($packCompany);
@@ -43,9 +44,9 @@ class PackageingCompanyController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(packagingCompanyFormValidation $request, $id)
     {
-        $packCompany=PackageingCompany::all();
+        $packCompany=PackageingCompany::find($id);
         $input=$request->all();
         $packCompany->update($input);
         return redirect('admin/packaging_company')->with('status','Packaging Company updated Successfully');
