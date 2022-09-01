@@ -26,7 +26,7 @@
                             class="form-control @error('companyName')
                      is-invalid
                     @enderror"
-                            name="companyName" placeholder="Enter MainOrder Id">
+                            name="companyName" placeholder="Company Name ">
                         @error('companyName')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
@@ -52,7 +52,7 @@
                             class="form-control @error('packSizes')
                      is-invalid
                     @enderror"
-                            name="packSizes" placeholder="Enter  packSizes" aria-label="Enter  packSizes "
+                            name="packSizes" placeholder="ex:1.4x2.7" aria-label="Enter  packSizes "
                             aria-describedby="basic-addon2">
                         @error('packSizes')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -64,7 +64,7 @@
                             class="form-control @error('price')
                      is-invalid
                     @enderror"
-                            name="price" placeholder="Enter  price" aria-label="Enter  price "
+                            name="price" placeholder="ex:1000000" aria-label="Enter  price "
                             aria-describedby="basic-addon2">
                         @error('price')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>

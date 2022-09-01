@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('pack_orders', function (Blueprint $table) {
             $table->id();
+            $table->string('proformalInvoice');
+            $table->string('company');
+            $table->string('pack');
+            $table->string('price');
+            $table->string('quantity');
+            $table->string('totalCost');
+            $table->string('payAmount');
+            $table->string('note');
+
+
             $table->timestamps();
         });
     }

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('companyName');
             $table->string('packTitle');
-            $table->string('packSizes');
-            $table->string('price');
+            $table->float('packSizes');
+            $table->integer('price');
             $table->timestamps();
         });
     }

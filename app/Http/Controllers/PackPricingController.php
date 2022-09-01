@@ -50,8 +50,8 @@ class PackPricingController extends Controller
 
     public function update(packPricingFormValidation $request, $id)
     {
-        $packPrice=$request->find($id);
-        $input=packPricing::all();
+        $packPrice=packPricing::find($id);
+        $input=$request->all();
         $packPrice->update($input);
         return redirect('admin/pack_price')->with('status','pack priceing Update Successfully');
     }
