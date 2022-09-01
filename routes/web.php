@@ -9,9 +9,6 @@ use App\Http\Controllers\MainOrderController;
 use App\Http\Controllers\ManagerlistController;
 use App\Http\Controllers\PackagingController;
 use App\Http\Controllers\PruductController;
-
-use App\Http\Controllers\PackSizeController;
-use App\Http\Controllers\PruductController;
 use App\Http\Controllers\PackSizeController;
 use App\Http\Controllers\ShiperAndExporterController;
 use App\Http\Controllers\SubCatController;
