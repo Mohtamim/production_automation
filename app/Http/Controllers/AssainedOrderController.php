@@ -22,7 +22,7 @@ class AssainedOrderController extends Controller
     {
         $wareHouse = wareHouse::all();
         $mainOrder = mainOrder::all();
-        return view('admin.assainedOrder.create')->with(['wareHouse'=> $wareHouse,'mainOrder'=> $mainOrder]);
+        return view('admin.assainedOrder.create')->with(['warehouse'=> $wareHouse,'mainOrder'=> $mainOrder]);
     }
 
 

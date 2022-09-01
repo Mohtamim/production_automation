@@ -18,13 +18,13 @@ class PackSizeController extends Controller
 
     public function create()
     {
-       return view('admin.packaging.create');
+       return view('admin.packSize.create');
     }
 
 
     public function store(packSizeFormValidation $request)
     {
-       $pack=packSize::all();
+       $pack=$request->all();
        packSize::create($pack);
        return redirect('admin/pack_size')->with('status','Pack Size created Successfully');
 
@@ -40,7 +40,7 @@ class PackSizeController extends Controller
     public function edit($id)
     {
      $pack=packSize::find($id);
-     return view('admin.packaging.edit')->with('pack',$pack);
+     return view('admin.packSize.edit')->with('pack',$pack);
     }
 
 

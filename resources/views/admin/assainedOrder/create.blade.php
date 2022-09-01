@@ -8,16 +8,55 @@ WareHose
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                    <h4 class="text-center"> Assaign Order</h4>
-                    <a href="{{ url('admin/assaign_order') }}" class="btn btn-info text-center justify-content-start my-4"> Assaign Order</a>
+                    <h4 class="text-center">Assaign Order</h4>
                 </div>
 
             </div>
 
         </div>
         <div class="widget-content widget-content-area">
+
+
+
+            <table id="table" class="table dt-table-hover"  width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>SL</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>UnitPrice</th>
+                        <th>TotalPrice</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($mainOrder as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->productName }}</td>
+                            <td>{{ $item->quantity }}</td>
+                            <td>{{ $item->unitPrice }}</td>
+                            <td>{{ $item->totalPrice }}</td>
+                            @if ($item->status==1)
+                            <td>Active</td>
+                            @endif
+
+                           @if ($item->status==0)
+                            <td>Deactive</td>
+                            @endif
+                            <td>
+                                <button href="#" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"></i>select</button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
             <form class="" action="{{ url('admin/assaign_order') }}" method="POST">
                 {!! csrf_field() !!}
+
+
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order Id:</span>
                     <input type="number" class="form-control @error('mainOrderId')
@@ -27,10 +66,6 @@ WareHose
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
-
-
-
-
                 <select class="form-select" name="uniteType" id="uniteType" aria-label="Default select example">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order Id:</span>
                     <option  selected class="form-control">Select The Order</option>
@@ -39,26 +74,15 @@ WareHose
                     @endforeach
                   </select><br>
 
-
-
-
-
-
-
-
-
-
-
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="warehouseId">Ware House Id:</span>
-                    <input type="number" class="form-control @error('warehouseId')
-                    is-invalid
+                    <select id="status" class="form-select" name="status">
+                        <option value="" >Select Warehouse Name</option>
+                        @foreach ($warehouse as $ware )
+                        <option value="{{$ware->id  }}">{{ $ware->warehouseName.' - '.$ware->id}}</option>
+                        @endforeach
 
-                    @enderror" name="warehouseId" placeholder="Enter warehouseId" aria-label="Enter your Assign Order Id" aria-describedby="basic-addon2">
-                    @error('warehouseId')
-                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
-
+                    </select>
                 </div>
 
                 <div class="input-group mb-3">
