@@ -51,7 +51,7 @@
                 </a>
             </li>
 
-            <li class="menu {{ Route::is('managers*') ? 'active' : '' }}">
+            <li class="menu {{ Route::is('managers.*') ? 'active' : '' }}">
                 <a href="{{ url('admin/managers') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
@@ -60,7 +60,7 @@
                 </a>
             </li>
 
-            <li class="menu {{ Route::is('buyers*') ? 'active' : '' }}">
+            <li class="menu {{ Route::is('buyers.*') ? 'active' : '' }}">
                 <a href="{{ url('admin/buyers') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
@@ -70,7 +70,7 @@
             </li>
 
 
-            <li class="menu">
+            <li class="menu {{ Route::is('product.*') ? 'active' : '' }}{{ Route::is('unit*') ? 'active' : '' }}{{ Route::is('category*') ? 'active' : '' }}">
                 <a href="#products" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
@@ -80,25 +80,22 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </div>
                 </a>
-                <ul class="collapse submenu list-unstyled" id="product" data-bs-parent="#accordionExample">
-                    <li>
+                <ul class="collapse submenu list-unstyled" id="products" data-bs-parent="#accordionExample">
+                    <li class="{{ Route::is('unit*') ? 'active' : '' }}">
                         <a href="{{ url('admin/unit') }}"> Unit </a>
                     </li>
-                    <li>
+                    <li class="{{ Route::is('category*') ? 'active' : '' }}">
                         <a href="{{ url('admin/category') }}"> category </a>
                     </li>
-                    <li>
-                        <a href="{{ url('admin/sub_category') }}"> Subcategory </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('admin/products') }}"> Products </a>
+                    <li class="{{ Route::is('product*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/product') }}"> Products </a>
                     </li>
                 </ul>
             </li>
 
 
 
-            <li class="menu">
+            <li class="menu {{ Route::is('*order*') ? 'active' : '' }}">
                 <a href="#order" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><circle cx="8" cy="21" r="2"></circle><circle cx="20" cy="21" r="2"></circle><path d="M5.67 6H23l-1.68 8.39a2 2 0 0 1-2 1.61H8.75a2 2 0 0 1-2-1.74L5.23 2.74A2 2 0 0 0 3.25 1H1"></path></svg>
@@ -109,16 +106,16 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="order" data-bs-parent="#accordionExample">
-                    <li>
+                    <li class="{{ Route::is('assaign_order*') ? 'active' : '' }}">
                         <a href="{{ url('admin/assaign_order') }}">Assaign Order </a>
                     </li>
-                    <li>
+                    <li class="{{ Route::is('main_order*') ? 'active' : '' }}">
                         <a href="{{ url('admin/main_order') }}"> Orders </a>
                     </li>
                 </ul>
             </li>
 
-            <li class="menu">
+            <li class="menu {{ Route::is('*pack*') ? 'active' : '' }}">
                 <a href="#pack" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"></path><polyline points="2.32 6.16 12 11 21.68 6.16"></polyline><line x1="12" y1="22.76" x2="12" y2="11"></line></svg>
@@ -129,17 +126,17 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="pack" data-bs-parent="#accordionExample">
-                    <li>
-                        <a href="""> pack Size </a>
+                    <li class="{{ Route::is('pack_size*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/pack_size') }}"> Pack Size </a>
                     </li>
-                    <li>
-                        <a href="""> packgeing Company </a>
+                    <li class="{{ Route::is('packaging_company*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/packaging_company') }}"> Packgeing Company </a>
                     </li>
-                    <li>
-                        <a href=""> Pack Order </a>
+                    <li class="{{ Route::is('pack_order*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/pack_order') }}"> Pack Order </a>
                     </li>
-                    <li>
-                        <a href=""> pack Price</a>
+                    <li class="{{ Route::is('pack_price*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/pack_price') }}"> Pack Price</a>
                     </li>
                 </ul>
             </li>

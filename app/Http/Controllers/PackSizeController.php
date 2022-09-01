@@ -12,7 +12,7 @@ class PackSizeController extends Controller
     public function index()
     {
        $pack=packSize::all();
-       return view('admin.packaging.index')->with('status',$pack);
+       return view('admin.packSize.index')->with('assain',$pack);
     }
 
 
