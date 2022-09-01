@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\packaging;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class packOrder extends Model
 {
@@ -20,5 +21,12 @@ class packOrder extends Model
         'payAmount',
         'note',
     ];
+    public function pack(){
+        return $this->hasMany(PackageingCompany::class);
+    }
+    public function packSize(){
+        return $this->hasMany(packSize::class);
+    }
+
 
 }
