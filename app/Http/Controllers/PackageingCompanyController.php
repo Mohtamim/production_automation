@@ -7,79 +7,54 @@ use Illuminate\Http\Request;
 
 class PackageingCompanyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+       $packCompany=PackageingCompany::all();
+       return view('admin.packageingCompany.index')->with('packCompany',$packCompany);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('admin.packageingCompany.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $packCompany=$request->all();
+        PackageingCompany::create($packCompany);
+        return redirect('admin/packaging_company')->with('status','Packaging Company created Successfully');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PackageingCompany  $packageingCompany
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(PackageingCompany $packageingCompany)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PackageingCompany  $packageingCompany
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PackageingCompany $packageingCompany)
+
+    public function edit($id)
     {
-        //
+     $packCompany=PackageingCompany::find($id);
+     return view('admin.packageingCompany.edit')->with('packCompany',$packCompany);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PackageingCompany  $packageingCompany
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, PackageingCompany $packageingCompany)
+
+    public function update(Request $request, $id)
     {
-        //
+        $packCompany=PackageingCompany::all();
+        $input=$request->all();
+        $packCompany->update($input);
+        return redirect('admin/packaging_company')->with('status','Packaging Company updated Successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PackageingCompany  $packageingCompany
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(PackageingCompany $packageingCompany)
+
+    public function destroy($id)
     {
-        //
+        $packCompany=PackageingCompany::destroy($id);
+        return redirect('admin/packaging_company')->with('status','Packaging Company deleted Successfully');
     }
 }

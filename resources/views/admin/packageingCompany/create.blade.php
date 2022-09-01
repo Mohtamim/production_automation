@@ -8,65 +8,65 @@
             <div class="widget-header">
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h4 class="text-center"> Assaign Order</h4>
-                        <a href="{{ url('admin/pack_size') }}" class="btn btn-info text-center justify-content-start my-4">
-                            Assaign Order</a>
+                        <h4 class="text-center"> Packaging Company</h4>
+                        <a href="{{ url('admin/packaging_company') }}" class="btn btn-info text-center justify-content-start my-4">
+                            packaging Company</a>
                     </div>
 
                 </div>
 
             </div>
             <div class="widget-content widget-content-area">
-                <form class="" action="{{ url('admin/pack_size') }}" method="POST">
+                <form class="" action="{{ url('admin/packaging_company') }}" method="POST">
                     {!! csrf_field() !!}
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="title">Pack Name
-                            Id:</span>
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="companyName">Company Name
+                            </span>
                         <input type="text"
-                            class="form-control @error('title')
+                            class="form-control @error('companyName')
                      is-invalid
                     @enderror"
-                            name="title" placeholder="Enter MainOrder Id">
-                        @error('title')
+                            name="companyName" placeholder="Enter MainOrder Id">
+                        @error('companyName')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="length">Length
-                            Id:</span>
-                        <input type="number"
-                            class="form-control @error('length')
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="email">email
+                            </span>
+                        <input type="text"
+                            class="form-control @error('email')
                     is-invalid
                     @enderror"
-                            name="length" placeholder="Enter length" aria-label="Enter your Assign Order Id"
+                            name="email" placeholder="Enter email" aria-label="Enter your Assign Order Id"
                             aria-describedby="basic-addon2">
-                        @error('length')
+                        @error('email')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
 
                     </div>
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="phone">width:</span>
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="contact">contact:</span>
                         <input type="number"
-                            class="form-control @error('width')
+                            class="form-control @error('contact')
                      is-invalid
                     @enderror"
-                            name="width" placeholder="Enter  width" aria-label="Enter  width "
+                            name="contact" placeholder="Enter  contact" aria-label="Enter  contact "
                             aria-describedby="basic-addon2">
-                        @error('width')
+                        @error('contact')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="phone">Height:</span>
-                        <input type="number"
-                            class="form-control @error('height')
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="address">address:</span>
+                        <input type="text"
+                            class="form-control @error('address')
                      is-invalid
                     @enderror"
-                            name="height" placeholder="Enter  height" aria-label="Enter  height "
+                            name="address" placeholder="Enter  address" aria-label="Enter  address "
                             aria-describedby="basic-addon2">
-                        @error('height')
+                        @error('address')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>

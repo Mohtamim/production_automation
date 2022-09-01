@@ -19,25 +19,25 @@ Pack Size
                 <tr>
 
                   <th>SL</th>
-                  <th>Pack Name</th>
-                  <th>length</th>
-                  <th>width</th>
-                  <th>height</th>
+                  <th>Company Name</th>
+                  <th>Email</th>
+                  <th>Contact</th>
+                  <th>Address</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                  @foreach ($assain as $item)
+                  @foreach ($packCompany as $item)
                   <tr>
                       <td>{{$loop->iteration}}</td>
-                      <td>{{$item->title}}</td>
-                      <td>{{$item->length}}</td>
-                      <td>{{$item->width}}</td>
-                      <td>{{$item->height}}</td>
+                      <td>{{$item->companyName}}</td>
+                      <td>{{$item->email}}</td>
+                      <td>{{$item->contact}}</td>
+                      <td>{{$item->address}}</td>
                       <td>
-                        <a href="{{url('admin/pack_size/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
-                        <a href="{{url('admin/pack_size/'.$item->id.'/edit')}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
-                        <form method="post" action="{{url('admin/pack_size/'.$item->id)}}">
+                        <a href="{{url('admin/packaging_company/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
+                        <a href="{{url('admin/packaging_company/'.$item->id.'/edit')}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <form method="post" action="{{url('admin/packaging_company/'.$item->id)}}">
                             {{ method_field('DELETE')}}
                             {{ csrf_field()}}
                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i></button>
