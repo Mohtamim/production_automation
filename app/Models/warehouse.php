@@ -15,5 +15,8 @@ class warehouse extends Model
         'address',
 
     ];
+    public function warehouse(){
+        return $this->hasMany(warehouse::class);
+    }
 
 }
