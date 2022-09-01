@@ -31,7 +31,7 @@ Pack Order
                 </tr>
               </thead>
               <tbody>
-                  @foreach ($packoder as $item)
+                  @foreach ($packorder as $item)
                   <tr>
                       <td>{{$loop->iteration}}</td>
                       <td>{{$item->proformalInvoice}}</td>

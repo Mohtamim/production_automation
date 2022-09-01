@@ -14,7 +14,8 @@ class PackOrderController extends Controller
      */
     public function index()
     {
-        //
+        $packorder=packOrder::all();
+        return view('admin.packOrder.index')->with('packorder',$packorder);
     }
 
     /**
@@ -24,7 +25,9 @@ class PackOrderController extends Controller
      */
     public function create()
     {
-        //
+        $packorder = packOrder::all();
+        $mainOrder = packOrder::all();
+        return view('admin.packOrder.create')->with(['wareHouse'=> $packorder,'mainOrder'=> $mainOrder]);
     }
 
     /**
@@ -35,7 +38,9 @@ class PackOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input= $request->all();
+        packOrder::create($input);
+        return redirect('admin/pack_order')->with('flash_message','Pack Order Added');
     }
 
     /**
@@ -55,31 +60,25 @@ class PackOrderController extends Controller
      * @param  \App\Models\packOrder  $packOrder
      * @return \Illuminate\Http\Response
      */
-    public function edit(packOrder $packOrder)
+    public function edit($id)
     {
-        //
+        $packorder=packOrder::find($id);
+        return view('admin.packOrder.edit')->with('packorder',$packorder);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\packOrder  $packOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, packOrder $packOrder)
+
+    public function update(Request $request, $id)
     {
-        //
+        $packorder=packOrder::find($id);
+        $input= $request->all();
+        $packorder->update($input);
+        return redirect('admin/pack_order')->with('flash_message','Pack Order Added');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\packOrder  $packOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(packOrder $packOrder)
+
+    public function destroy($id)
     {
-        //
+        packOrder::destroy($id);
+        return redirect('admin/pack_order')->with('flash_message','Pack Order deleted');
     }
 }
