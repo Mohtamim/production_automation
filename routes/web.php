@@ -7,7 +7,10 @@ use App\Http\Controllers\CatController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\MainOrderController;
 use App\Http\Controllers\ManagerlistController;
+use App\Http\Controllers\PackageingCompanyController;
 use App\Http\Controllers\PackagingController;
+use App\Http\Controllers\PackOrderController;
+use App\Http\Controllers\PackPricingController;
 use App\Http\Controllers\PruductController;
 use App\Http\Controllers\PackSizeController;
 use App\Http\Controllers\ShiperAndExporterController;
@@ -52,5 +55,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('product',PruductController::class);
     Route::resource('unit',UnitController::class);
     Route::resource('pack_size', PackSizeController::class);
+    Route::resource('packaging_company', PackageingCompanyController::class);
+    Route::resource('pack_order', PackOrderController::class);
+    Route::resource('pack_price', PackPricingController::class);
 
 });
