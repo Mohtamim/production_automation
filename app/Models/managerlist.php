@@ -17,4 +17,7 @@ class managerlist extends Model
                     'email',
                     'warehouseId',
     ];
+    public function warehouse(){
+        return $this->hasMany(warehouse::class);
+    }
 }

@@ -72,10 +72,10 @@ Warehouse Manager
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" >Warehouse Id:</span>
-                        <select id="status" class="form-select" name="status">
+                        <select id="warehouseId" class="form-select" name="warehouseId">
                             <option value="" >Select Warehouse Name</option>
                             @foreach ($warehouse as $ware )
-                            <option value="{{$ware->id  }}">{{ $ware->warehouseName.' - '.$ware->id}}</option>
+                            <option value="{{$ware->id}}">{{ $ware->warehouseName.' - '.$ware->id}}</option>
                             @endforeach
 
 

@@ -32,6 +32,7 @@
                                                 <td>{{ $item->managerName }}</td>
                                                 <td>{{ $item->phone }}</td>
                                                 <td>{{ $item->email }}</td>
+                                                {{-- <td>{{ DB::Table('warehouses')->select('warehouseName')->where('id',$item->warehouseId)->get();}}</td> --}}
                                                 <td>{{ $item->warehouseId }}</td>
 
                                                 <td>

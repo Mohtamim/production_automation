@@ -13,8 +13,9 @@ class ManagerlistController extends Controller
 
     public function index()
     {
-       $manager=managerlist::all();
-       return view('admin.manager.index')->with('manager',$manager);
+        $warehouse= warehouse::all();
+        $manager=managerlist::all();
+     return view('admin.manager.index')->with(['warehouse'=>$warehouse,'manager'=>$manager]);
     }
 
 
@@ -40,8 +41,8 @@ class ManagerlistController extends Controller
     public function edit($id)
     {
         $warehouse= warehouse::all();
-       $manager=managerlist::find($id);
-       return view('admin.manager.edit')->with(['warehouse'=>$warehouse,'manager'=>$manager]);
+        $manager=managerlist::find($id);
+        return view('admin.manager.edit')->with(['warehouse'=>$warehouse,'manager'=>$manager]);
     }
 
 
