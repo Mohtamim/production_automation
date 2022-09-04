@@ -19,18 +19,20 @@
             <div class="widget-content widget-content-area">
                 <form class="" action="{{ url('admin/pack_price') }}" method="POST">
                     {!! csrf_field() !!}
-                    <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="companyName">Company Name
-                            </span>
-                        <input type="text"
-                            class="form-control @error('companyName')
-                     is-invalid
-                    @enderror"
-                            name="companyName" placeholder="Company Name ">
-                        @error('companyName')
-                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                        @enderror
-                    </div>
+                    <div class=" input-group mb-3">
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="companyName">Company Name:</span>
+
+
+                        <select class="mdb-select md-form " id="companyName" name="companyName" searchable="Search here..">
+                            <option value="" disabled selected>Select Packaging Company</option>
+                            @foreach ($companyName as  $compN)
+                            <option value="{{ $compN->id }}">{{ $compN->companyName }}</option>
+                            @endforeach
+
+                          </select>
+
+                </div>
+
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" id="packTitle">Pack Title
                             </span>
@@ -79,4 +81,10 @@
             </div>
         </div>
     </div>
+    <script>
+         $(document).ready(function() {
+        $('.mdb-select').materialSelect();
+        });
+    </script>
+
 @endsection

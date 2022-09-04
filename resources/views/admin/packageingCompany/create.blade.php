@@ -9,8 +9,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
                         <h4 class="text-center"> Packaging Company</h4>
-                        <a href="{{ url('admin/packaging_company') }}" class="btn btn-info text-center justify-content-start my-4">
-                            packaging Company</a>
+                       
                     </div>
 
                 </div>
@@ -26,7 +25,7 @@
                             class="form-control @error('companyName')
                      is-invalid
                     @enderror"
-                            name="companyName" placeholder="Enter MainOrder Id">
+                            name="companyName" placeholder="Enter Company Name">
                         @error('companyName')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror

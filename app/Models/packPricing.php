@@ -16,4 +16,7 @@ class packPricing extends Model
         'packSizes',
         'price'
     ];
+    public function companyName(){
+        return $this->hasMany(PackageingCompany::class);
+    }
 }
