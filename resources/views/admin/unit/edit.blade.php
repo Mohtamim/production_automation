@@ -22,7 +22,7 @@ Unit
                 <div class="mb-3">
                   <label for="name" class="form-label">Unit Name</label>
 
-                  <input type="text" class="form-control" name="name" id="name"  value="{{ $unit->name }}"><br>
+                  <input type="text" class="form-control" name="name" id="name"  value="{{ $unit->name }}">
 
                 </div>
                 <div class="mb-3">

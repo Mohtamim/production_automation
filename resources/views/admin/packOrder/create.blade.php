@@ -9,8 +9,7 @@ Pack Order
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
                         <h4 class="text-center"> Pack Order</h4>
-                        <a href="{{ url('admin/pack_order') }}" class="btn btn-info text-center justify-content-start my-4">
-                            Pack Order</a>
+
                     </div>
 
                 </div>
@@ -122,10 +121,12 @@ Pack Order
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
-                    <input type="submit" value="save" class="btn btn-success me-4">
-                    <button class="btn btn-secondary">Cancel</button>
-                </div>
 
+                </div>
+                <div class="input-group mb-3 col" >
+                <input type="submit" value="save" class="btn btn-success me-1 ">
+                <button class="btn btn-secondary">Cancel</button>
+            </div>
                 </form>
 
             </div>
