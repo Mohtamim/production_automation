@@ -23,8 +23,8 @@
                         <span class="input-group-text bg-light text-black font-weight-bold" id="companyName">Company Name:</span>
 
 
-                        <select class="mdb-select md-form " id="companyName" name="companyName" searchable="Search here..">
-                            <option value="" disabled selected>Select Packaging Company</option>
+                        <select class="form-select form-control select2" id="companyName" name="companyName">
+                            <option value="" >Select Packaging Company</option>
                             @foreach ($companyName as  $compN)
                             <option value="{{ $compN->id }}">{{ $compN->companyName }}</option>
                             @endforeach
@@ -81,10 +81,8 @@
             </div>
         </div>
     </div>
-    <script>
-         $(document).ready(function() {
-        $('.mdb-select').materialSelect();
-        });
-    </script>
 
+    <script>
+        $('.select2').select2();
+    </script>
 @endsection
