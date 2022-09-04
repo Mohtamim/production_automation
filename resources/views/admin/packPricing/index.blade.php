@@ -35,14 +35,15 @@ Pack Pricing
                       <td>{{$item->packSizes}}</td>
                       <td>{{$item->price}}</td>
                       <td>
-                        <a href="{{url('admin/pack_price/'.$item->id)}}" class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
-                        <a href="{{url('admin/pack_price/'.$item->id.'/edit')}}" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <div class="d-flex justify-content-center">
+                        <a href="{{url('admin/pack_price/'.$item->id)}}" class="btn btn-info btn-sm me-1"><i class="fa-solid fa-eye"></i></a>
+                        <a href="{{url('admin/pack_price/'.$item->id.'/edit')}}" class="btn btn-success btn-sm me-1"><i class="fa-solid fa-pen-to-square"></i></a>
                         <form method="post" action="{{url('admin/pack_price/'.$item->id)}}">
                             {{ method_field('DELETE')}}
                             {{ csrf_field()}}
                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i></button>
                         </form>
-
+                        </div>
                     </td>
                 </tr>
 

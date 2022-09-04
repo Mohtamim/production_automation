@@ -17,9 +17,9 @@ WareHose
         <div class="widget-content widget-content-area ">
             <form class="forms-sample" action="{{ url('admin/buyers') }}" method="POST">
                 {!! csrf_field() !!}
-
-                <div class="mb-3">
-                    <label for="buyerCode" class="control-label">Buyer Code </label><br>
+                <div class="row ms-2 me-2">
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Buyer Code: </span><br>
                 <input type="number" name="buyerCode" id="buyerCode" class="form-control @error('buyerCode')
                   is-invalid
                    @enderror">
@@ -30,8 +30,8 @@ WareHose
                 </div>
 
 
-                <div class="mb-3">
-                    <label for="buyerName" class="control-label">Buyer Name</label><br>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Buyer Name: </span><br>
                 <input type="text" name="buyerName" id="buyerName" class="form-control @error('buyerName')
                   is-invalid
                    @enderror" >
@@ -40,8 +40,10 @@ WareHose
                    @enderror
 
                 </div>
-                <div class="mb-3">
-                    <label for="email" class="control-label">Email</label><br>
+            </div>
+            <div class="row ms-2 me-2">
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Email: </span><br>
                 <input type="text" name="email" id="email" class="form-control @error('email')
                   is-invalid
                    @enderror" >
@@ -51,8 +53,8 @@ WareHose
 
                 </div>
 
-                <div class="mb-3">
-                    <label for="phone" class="control-label">Phone</label><br>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Phone: </span><br>
                 <input type="text" name="phone" id="phone" class="form-control @error('phone')
                   is-invalid
                    @enderror" >
@@ -61,8 +63,9 @@ WareHose
                    @enderror
 
                 </div>
-                <div class="mb-3">
-                    <label for="img" class="control-label">img</label><br>
+            </div>
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Image: </span><br>
                 <input type="file" name="img" id="img" class="form-control @error('img')
                   is-invalid
                    @enderror" >
@@ -72,9 +75,9 @@ WareHose
 
                 </div>
 
-                <div class="mb-3">
-                    <label for="country" class="control-label">country</label><br>
-                    <select name="country" id="country" class="form-control @error('country')
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text bg-light text-black font-weight-bold">country: </span><br>
+                    <select name="country" id="country" class="form-control h-50 select2 @error('country')
                     is-invalid
                      @enderror" >
                      @error('country')
@@ -345,4 +348,7 @@ WareHose
     </div>
 </div>
 </div>
+<script>
+    $('.select2').select2();
+</script>
 @endsection

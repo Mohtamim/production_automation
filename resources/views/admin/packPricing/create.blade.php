@@ -33,33 +33,34 @@
 
                 </div>
 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="packTitle">Pack Title
-                            </span>
-                        <input type="text"
-                            class="form-control @error('packTitle')
-                    is-invalid
-                    @enderror"
-                            name="packTitle" placeholder="Enter packTitle" aria-label="Enter your Assign Order Id"
-                            aria-describedby="basic-addon2">
-                        @error('packTitle')
-                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                        @enderror
 
-                    </div>
+                <div class=" input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="packTitle"> Pack Title:</span>
 
-                    <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="packSizes">Pack Sizes:</span>
-                        <input type="number"
-                            class="form-control @error('packSizes')
-                     is-invalid
-                    @enderror"
-                            name="packSizes" placeholder="ex:1.4x2.7" aria-label="Enter  packSizes "
-                            aria-describedby="basic-addon2">
-                        @error('packSizes')
-                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                        @enderror
-                    </div>
+
+                    <select class="mdb-select md-form select2 " id="packTitle" name="packTitle" searchable="Search here..">
+                        <option value="" disabled selected>Select Pack Title</option>
+                        @foreach ($packTitle as  $packTitle)
+                        <option value="{{ $packTitle->id }}">{{ $packTitle->title."-".$packTitle->id }}</option>
+                        @endforeach
+
+                      </select>
+
+            </div>
+
+                    <div class=" input-group mb-3">
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="packSizes"> Pack Sizes:</span>
+
+
+                        <select class="mdb-select md-form select2" id="packSizes" name="packSizes" searchable="Search here..">
+                            <option value="" disabled selected>Select Pack Sizes</option>
+                            @foreach ($packSize as  $pSizes)
+                            <option value="{{ $pSizes->id }}">{{ $pSizes->length."x".$pSizes->width."x".$pSizes->height }}</option>
+                            @endforeach
+
+                          </select>
+
+                </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" id="price">Price:</span>
                         <input type="number"

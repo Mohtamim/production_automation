@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\packPricingFormValidation;
 use App\Models\PackageingCompany;
 use App\Models\packPricing;
+use App\Models\packSize;
 use Illuminate\Http\Request;
 
 class PackPricingController extends Controller
@@ -19,8 +20,10 @@ class PackPricingController extends Controller
 
     public function create()
     {
+        $packTitle=packSize::all();
+        $packSize=packSize::all();
         $packaingCompany = PackageingCompany::all();
-        return view('admin.packPricing.create')->with('companyName',$packaingCompany);
+        return view('admin.packPricing.create')->with(['companyName'=>$packaingCompany,'packSize'=>$packSize,'packTitle'=>$packTitle]);
     }
 
 

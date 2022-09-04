@@ -61,10 +61,10 @@ Pack Order
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold" >Company
                             </span>
-                            <select id="status" class="form-select" name="status">
+                            <select id="status" class="form-select " name="status">
                                 <option value="" >Select Company Name</option>
                                 @foreach ($pack as $pack )
-                                <option value="{{$pack->id  }}">{{ $pack->companyName.' - '.$pack->id}}</option>
+                                <option value="{{$pack->id }}">{{ $pack->companyName.' - '.$pack->id}}</option>
                                 @endforeach
                             </select>
 
