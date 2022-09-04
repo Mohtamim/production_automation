@@ -24,18 +24,18 @@ class productFormValidation extends FormRequest
     public function rules()
     {
         return [
-            'title'=>'required|string|regex:/^[\pL\s\-]+$/u',
+            'title'=>'required|string',
             'category'=>'required|string|regex:/^[\pL\s\-]+$/u',
-            'img'=>'required',
-            'unit'=>'required|string|regex:/^[\pL\s\-]+$/u',
-            'DH_raw_materials'=>'required|numeric',
-            'supplier_raw_materials'=>'required|numeric',
-            'wages'=>'required|numeric',
-            'carring_charge'=>'numeric',
-            'treatement_deduction'=>'numeric',
+            'image'=>'required',
+            'unit'=>'required',
+            'DH_raw_materials'=>'required',
+            'supplier_raw_materials'=>'required',
+            'wages'=>'required',
+            'carring_charge'=>'required',
+            'treatement_deduction'=>'required',
             'is_sample_product'=>'required|boolean',
-            'totalcost_for_supplier'=>'required|numeric',
-            'DH_total_price'=>'required|numeric'
+            'totalcost_for_supplier'=>'required',
+            'DH_total_price'=>'required'
         ];
     }
 }
