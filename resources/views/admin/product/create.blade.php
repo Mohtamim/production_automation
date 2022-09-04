@@ -16,7 +16,6 @@ Product
             <form class="" action="{{ url('admin/product') }}" method="POST">
                 {!! csrf_field() !!}
                 <div class="row ms-2 me-2">
-
                     <div class=" input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="title">Product Name:</span>
                     <input type="text" class="form-control @error('title')
@@ -125,17 +124,9 @@ Product
 
                         <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="option1">
                         <label class="form-check-label" for="is_sample_product" value="1">Yes</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input @error('is_sample_product')
-                        is-invalid
-                       @enderror" type="radio" name="is_sample_product" id="is_sample_product" value="option2">
+                        <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="option2">
                         <label class="form-check-label" for="is_sample_product" value="0">No</label>
                       </div>
-
-                    @error('is_sample_product')
-                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
                 </div>
             </div>
             <div class="row ms-2 me-2">
@@ -179,10 +170,12 @@ Product
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
-            </div>
 
-                <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+            </div>
+            <div class="input-group mb-3 me-4 col">
+            <input type="submit" value="save" class="btn btn-success me-2">
+            <button class="btn btn-secondary">Cancel</button>
+        </div>
               </form>
 
         </div>
