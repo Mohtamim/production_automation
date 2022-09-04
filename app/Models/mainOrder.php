@@ -18,4 +18,7 @@ class mainOrder extends Model
         'status',
 
     ];
+    public function waproductsrehouse(){
+        return $this->hasMany(pruduct::class);
+    }
 }

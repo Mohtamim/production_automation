@@ -51,7 +51,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('shiperment_exporter', ShiperAndExporterController::class);
     Route::resource('warehouses', WarehouseController::class);
     Route::resource('product',PruductController::class);
-    Route::resource('product',PruductController::class);
     Route::resource('unit',UnitController::class);
     Route::resource('pack_size', PackSizeController::class);
     Route::resource('packaging_company', PackageingCompanyController::class);

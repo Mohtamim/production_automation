@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\mainOrderFormValidation;
 use App\Models\mainOrder;
+use App\Models\pruduct;
 use Illuminate\Http\Request;
 
 class MainOrderController extends Controller
@@ -21,8 +22,8 @@ class MainOrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-       return view('admin.mainOrder.create');
+    { $product= pruduct::all();
+       return view('admin.mainOrder.create')->with('product',$product);
     }
 
 

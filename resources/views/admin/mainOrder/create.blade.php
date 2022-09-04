@@ -18,15 +18,21 @@
             <form class="forms-sample" action="{{ url('admin/main_order') }}" method="POST">
                 {!! csrf_field() !!}
 
-                <div class="mb-3">
-                    <label for="productName" class="control-label">Product Name</label><br>
-                <input type="text" name="productName" id="productName" class="form-control @error('productName')
-                  is-invalid
-                   @enderror">
-                   @error('productName')
+                <hr>
+                <div class="input-group mb-3">
+                    <label for="product" class="control-label">Product:</label><hr>
+                    <select id="status" class="form-select select2 @error('productName')
+                    is-invalid
+                     @enderror" name="productName" id="productName">
+                        <option value="" >Select Product</option>
+                        @foreach ($product as $pro )
+                        <option value="{{$pro->id  }}">{{ $pro->productName}}</option>
+                        @endforeach
+
+                    </select>
+                    @error('productName')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
-
                 </div>
 
 
@@ -77,4 +83,7 @@
     </div>
 </div>
 </div>
+<script>
+    $('.select2').select2();
+</script>
 @endsection

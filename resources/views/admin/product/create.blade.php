@@ -13,10 +13,11 @@ Product
             </div>
         </div>
         <div class="widget-content widget-content-area">
-            <form class="" action="{{ url('admin/product') }}" method="POST">
+            <form class="" action="{{ url('admin/product') }}" method="POST" enctype="multipart/form-data">
                 {!! csrf_field() !!}
+
                 <div class="row ms-2 me-2">
-                    <div class=" input-group mb-3 col">
+                <div class=" input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="title">Product Name:</span>
                     <input type="text" class="form-control @error('title')
                      is-invalid
@@ -26,7 +27,7 @@ Product
                     @enderror
                 </div>
                 <div class=" input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="Image">image:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="image">Image:</span>
                     <input type="file"  class="form-control @error('image')
                      is-invalid
                     @enderror" name="image" placeholder="Enter image">
@@ -122,9 +123,9 @@ Product
                     <div class="form-check form-check-inline">
                         <span class="input-group-text bg-light text-black font-weight-bold me-2" id="is_sample_product">Is it sample product?:</span>
 
-                        <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="option1">
+                        <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="1">
                         <label class="form-check-label" for="is_sample_product" value="1">Yes</label>
-                        <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="option2">
+                        <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="0">
                         <label class="form-check-label" for="is_sample_product" value="0">No</label>
                       </div>
                 </div>

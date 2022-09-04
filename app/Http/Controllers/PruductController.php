@@ -39,10 +39,45 @@ class PruductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(productFormValidation $request)
+    public function store(Request $request)
     {
         $input= $request->all();
-        pruduct::create($input);
+        $title = $request->title;
+        $category = $request->category;
+        $DH_raw_materials = $request->DH_raw_materials;
+        $supplier_raw_materials = $request->supplier_raw_materials;
+        $wages = $request->wages;
+        $unit = $request->unit;
+        $carring_charge = $request->carring_charge;
+        $treatement_deduction = $request->treatement_deduction;
+        $is_sample_product = $request->is_sample_product;
+        $Details = $request->Details;
+        $notes = $request->notes;
+        $totalcost_for_supplier = $request->totalcost_for_supplier;
+        $DH_total_price = $request->DH_total_price;
+        $img = $request->file('image');
+        $img_name= hexdec(uniqid()). '.' . $img->getClientOriginalExtension();
+        $img_url='upload/'.$img_name;
+        $img->move(public_path('upload'),$img_name);
+
+
+
+        pruduct::insert([
+            'title'=>$title,
+            'category'=>$category,
+            'DH_raw_materials'=>$DH_raw_materials,
+            'supplier_raw_materials'=>$supplier_raw_materials,
+            'wages'=>$wages,
+            'DH_total_price'=>$DH_total_price,
+            'unit'=>$unit,
+            'carring_charge'=>$carring_charge,
+            'treatement_deduction'=>$treatement_deduction,
+            'is_sample_product'=>$is_sample_product,
+            'Details'=>$Details,
+            'notes'=>$notes,
+            'totalcost_for_supplier'=>$totalcost_for_supplier,
+            'img'=>$img_url,
+       ]);
         return redirect('admin/product')->with('flash_message','Product Added');
     }
 
