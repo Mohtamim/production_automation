@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\packPricingFormValidation;
+use App\Models\PackageingCompany;
 use App\Models\packPricing;
 use Illuminate\Http\Request;
 
@@ -18,13 +19,15 @@ class PackPricingController extends Controller
 
     public function create()
     {
-        return view('admin.packPricing.create');
+        $packaingCompany = PackageingCompany::all();
+        return view('admin.packPricing.create')->with('companyName',$packaingCompany);
     }
 
 
     public function store(packPricingFormValidation $request)
     {
         $packPrice=$request->all();
+
         packPricing::create($packPrice);
         return redirect('admin/pack_price')->with('status','pack priceing created Successfully');
     }
