@@ -26,7 +26,7 @@
                      @enderror" name="productName" id="productName">
                         <option value="" >Select Product</option>
                         @foreach ($product as $pro )
-                        <option value="{{$pro->id  }}">{{ $pro->productName}}</option>
+                        <option value="{{$pro->id  }}">{{ $pro->title}}</option>
                         @endforeach
 
                     </select>
@@ -83,6 +83,38 @@
     </div>
 </div>
 </div>
+<script>
+        $('select#status').on('change',function(e){
+        e.preventDefault();
+        var selected_ststus = $(this).children("option:selected").val();
+
+        console.log(selected_status);
+        $.ajax({
+            url:"admin/main_order/" + selected_status,
+            method: 'get',
+            // data: {id:selected_status},
+            dataType: 'json',
+            success: function(){
+                console.log('Request Send');
+            }
+        });
+        $.ajax({
+        url:'admin/main_order/',
+        method:'POST',
+        dataType:'html',
+        data:{id:id},
+        success:function(data){
+            var dat=$.parseJSON(data); // JSON decode
+            $('#uuser_name').val(dat.loadData.user_name);
+            $('#uuser_pass').val(dat.qr.user_pass);
+            $('#u_token').val(dat.qr._token);
+
+        }
+    })
+
+    });
+}
+</script>
 <script>
     $('.select2').select2();
 </script>

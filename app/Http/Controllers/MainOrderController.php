@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\mainOrderFormValidation;
 use App\Models\mainOrder;
 use App\Models\pruduct;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Input\Input;
 
 class MainOrderController extends Controller
 {
@@ -15,7 +18,6 @@ class MainOrderController extends Controller
         $mainorder=mainOrder::all();
         return view('admin.mainOrder.index')->with('mainorder',$mainorder);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -35,9 +37,10 @@ class MainOrderController extends Controller
     }
 
 
-    public function show(mainOrder $mainOrder)
+    public function show($id)
     {
-        //
+        $loadData = DB::table('products')->where('id',$id)->get();
+        return response()->json($loadData);
     }
 
 

@@ -14,7 +14,7 @@
     <script src="{{ asset('assets') }}/plugins/src/table/datatable/datatables.js"></script>
    <script>
      $(document).ready(function () {
-        $('#table').DataTable();
+        $('.table').DataTable();
     });
 
    </script>

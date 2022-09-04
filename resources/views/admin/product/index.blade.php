@@ -15,7 +15,7 @@
                 </a><br><br>
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                     <div class="widget-content widget-content-area br-8">
-                        <table id="zero-config" class="table dt-table-hover">
+                        <table id="zero-config" class="table table-responsive text-center multi-table table dt-table-hover">
                             <thead>
                                 <tr>
                                     <th>Id</th>
@@ -64,14 +64,16 @@
 
 
                                         <td>
-                                            <a href="{{ url('admin/product/' . $item->id . '/edit') }}"
-                                                class="btn btn-success">Edit</a>
-                                            <form method="POST" action="{{ url('admin/product/' . $item->id) }}">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
+                                            <div class="container justify-content-center d-flex ">
+                                                <a href="{{ url('admin/product/' . $item->id . '/edit') }}"
+                                                    class="btn btn-success btn-sm me-1" aria-hidden="true"><i class="fa fa-pencil"></i></a>
+                                                <form method="POST" action="{{ url('admin/product/' . $item->id) }}">
+                                                    {{ method_field('DELETE') }}
+                                                    {{ csrf_field() }}
+                                                    <button type="submit" class="btn btn-danger btn-sm me-1" aria-hidden="true"><i class="fa fa-trash"></i></button>
+                                                </form>
 
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -81,9 +83,6 @@
                 </div>
 
             </div>
-            {{-- </div> --}}
-            {{-- </div> --}}
-            {{-- </div> --}}
         </div>
     </div>
 @endsection
