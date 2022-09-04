@@ -3,6 +3,7 @@
 Product
 @endsection
 @section('admin_content')
+<div class="container mt-3">
     <div class="row ">
         <div class="col-md-12 grid-margin stretch-card ">
             <div class="card ">
@@ -14,7 +15,7 @@ Product
                         </a><br><br>
                         <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                             <div class="widget-content widget-content-area br-8">
-                                <table id="zero-config" class="table dt-table-hover" style="width:100%">
+                                <table id="zero-config" class="table dt-table-hover">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
@@ -49,6 +50,12 @@ Product
                                                 <td>{{ $item->wages }}</td>
                                                 <td>{{ $item->carring_charge }}</td>
                                                 <td>{{ $item->treatement_deduction }}</td>
+                                                @if ($item->is_sample_product==1)
+                                                <td>Yes</td>
+                                                @endif
+                                                @if ($item->is_sample_product==0)
+                                                <td>No</td>
+                                                @endif
                                                 <td>{{ $item->is_sample_product }}</td>
                                                 <td>{{ $item->Details }}</td>
                                                 <td>{{ $item->notes }}</td>
@@ -78,5 +85,6 @@ Product
             </div>
         </div>
     </div>
+</div>
 
 @endsection

@@ -122,11 +122,10 @@ Pack Order
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
+                    <input type="submit" value="save" class="btn btn-success me-4">
+                    <button class="btn btn-secondary">Cancel</button>
                 </div>
 
-
-                    <input type="submit" value="save" class="btn btn-success">
-                    <button class="btn btn-secondary">Cancel</button>
                 </form>
 
             </div>
