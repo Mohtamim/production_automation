@@ -19,9 +19,9 @@
                     {!! csrf_field() !!}
                     @method('PATCH')
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" value="{{ $pack->title }}" id="title">Pack Name
+                        <span class="input-group-text bg-light text-black font-weight-bold"  id="title">Pack Name
                             Id:</span>
-                        <input type="text"
+                        <input type="text" value="{{ $pack->title }}"
                             class="form-control @error('title')
                      is-invalid
                     @enderror"
@@ -31,9 +31,9 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" value="{{ $pack->length }}" id="length">Length
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="length">Length
                             Id:</span>
-                        <input type="number"
+                        <input type="number" value="{{ $pack->length }}" 
                             class="form-control @error('length')
                     is-invalid
                     @enderror"
@@ -46,8 +46,8 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" value="{{ $pack->width }}" id="phone">width:</span>
-                        <input type="number"
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="phone">width:</span>
+                        <input type="number" value="{{ $pack->width }}" 
                             class="form-control @error('width')
                      is-invalid
                     @enderror"
@@ -59,8 +59,8 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" value="{{ $pack->height }}" id="phone">Height:</span>
-                        <input type="number"
+                        <span class="input-group-text bg-light text-black font-weight-bold"  id="phone">Height:</span>
+                        <input type="number" value="{{ $pack->height }}"
                             class="form-control @error('height')
                      is-invalid
                     @enderror"

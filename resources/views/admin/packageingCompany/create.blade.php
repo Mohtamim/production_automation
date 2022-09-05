@@ -31,7 +31,7 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="email">email
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="email">Email
                             </span>
                         <input type="text"
                             class="form-control @error('email')
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="contact">contact:</span>
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="contact">Contact:</span>
                         <input type="number"
                             class="form-control @error('contact')
                      is-invalid
@@ -58,7 +58,7 @@
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="address">address:</span>
+                        <span class="input-group-text bg-light text-black font-weight-bold" id="address">Address:</span>
                         <input type="text"
                             class="form-control @error('address')
                      is-invalid

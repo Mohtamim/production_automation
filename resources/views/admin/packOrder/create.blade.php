@@ -50,8 +50,8 @@ Pack Order
                 <div class="row ms-2 me-2">
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold">Pack:</span>
-                        <select id="status" value="{{ old('status') }}"  class="form-select" name="status">
-                            <option value="" >Select Company Name</option>
+                        <select id="pack"  value="{{ old('pack') }}"  class="form-select" name="pack">
+                            <option value="" >Select Package </option>
                             @foreach ($packSize as $packSize )
                             <option value="{{$packSize->id  }}">{{ $packSize->title.' - '.$packSize->id}}</option>
                             @endforeach
@@ -60,7 +60,7 @@ Pack Order
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold" >Company
                             </span>
-                            <select id="status" value="{{ old('status') }}"  class="form-select " name="status">
+                            <select id="company" value="{{ old('company') }}"  class="form-select " name="company">
                                 <option value="" >Select Company Name</option>
                                 @foreach ($pack as $pack )
                                 <option value="{{$pack->id }}">{{ $pack->companyName.' - '.$pack->id}}</option>

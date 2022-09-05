@@ -36,7 +36,7 @@ Pack Pricing
                       <td>{{$item->price}}</td>
                       <td>
                         <div class="d-flex justify-content-center">
-                        <a href="{{url('admin/pack_price/'.$item->id)}}" class="btn btn-info btn-sm me-1"><i class="fa-solid fa-eye"></i></a>
+                       
                         <a href="{{url('admin/pack_price/'.$item->id.'/edit')}}" class="btn btn-success btn-sm me-1"><i class="fa-solid fa-pen-to-square"></i></a>
                         <form method="post" action="{{url('admin/pack_price/'.$item->id)}}">
                             {{ method_field('DELETE')}}

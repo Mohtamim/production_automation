@@ -12,10 +12,14 @@ assign Order
                     </div>
 
                       <div class="card-body">
-                        <h5 class="card-title">Main Order Id: {{ $assain->mainOrderId }}</h5>
-                        <p class="card-text">Ware House Id: {{ $assain->warehouseId }}</p>
-                        <p class="card-text">Quantity: {{ $assain->quantity }}</p>
-                        <p class="card-text">Status: {{ $assain->status }}</p>
+                        <h5 class="card-title">Proformal Invoice: {{ $pack->proformalInvoice }}</h5>
+                        <p class="card-text">Company: {{ $pack->company }}</p>
+                        <p class="card-text">Pack: {{ $pack->pack }}</p>
+                        <p class="card-text">Price: {{ $pack->price }}</p>
+                        <p class="card-text">Quantity: {{ $pack->quantity }}</p>
+                        <p class="card-text">TotalCost: {{ $pack->totalCost }}</p>
+                        <p class="card-text">PayAmount: {{ $pack->payAmount }}</p>
+                        <p class="card-text">Note: {{ $pack->note }}</p>
                       </div>
                 </div>
             </div>

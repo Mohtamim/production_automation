@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\packorderFormValidation;
 use App\Models\packaging;
 use App\Models\packOrder;
 use App\Models\warehouse;
@@ -42,7 +43,7 @@ class PackOrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(packorderFormValidation $request)
     {
         $input= $request->all();
         packOrder::create($input);
@@ -55,9 +56,10 @@ class PackOrderController extends Controller
      * @param  \App\Models\packOrder  $packOrder
      * @return \Illuminate\Http\Response
      */
-    public function show(packOrder $packOrder)
+    public function show($id)
     {
-        //
+        $order = packOrder::find($id);
+        return view('admin.packOrder.show')->with('pack',$order);
     }
 
     /**
@@ -73,7 +75,7 @@ class PackOrderController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(packorderFormValidation $request, $id)
     {
         $packorder=packOrder::find($id);
         $input= $request->all();
