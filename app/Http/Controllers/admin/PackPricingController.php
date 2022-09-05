@@ -32,7 +32,7 @@ class PackPricingController extends Controller
         $packPrice=$request->all();
 
         packPricing::create($packPrice);
-        return redirect('admin/pack_price')->with('status','pack priceing created Successfully');
+        return redirect('admin/pack_price')->with('success','Package Price create successfully');
     }
 
 
@@ -59,13 +59,13 @@ class PackPricingController extends Controller
         $packPrice=packPricing::find($id);
         $input=$request->all();
         $packPrice->update($input);
-        return redirect('admin/pack_price')->with('status','pack priceing Update Successfully');
+        return redirect('admin/pack_price')->with(['update'=>'Your Package Price is Updated']);
     }
 
 
     public function destroy($id)
     {
         packPricing::destroy($id);
-        return redirect('admin/pack_price')->with('status','pack priceing deleted Successfully');
+        return redirect('admin/pack_price')->with('delete', 'Package Price has been deleted');
     }
 }

@@ -46,7 +46,7 @@ class PackOrderController extends Controller
     {
         $input= $request->all();
         packOrder::create($input);
-        return redirect('admin/pack_order')->with('flash_message','Pack Order Added');
+        return redirect('admin/pack_order')->with('success','Package Order created successfully');
     }
 
     /**
@@ -78,13 +78,13 @@ class PackOrderController extends Controller
         $packorder=packOrder::find($id);
         $input= $request->all();
         $packorder->update($input);
-        return redirect('admin/pack_order')->with('flash_message','Pack Order Added');
+        return redirect('admin/pack_order')->with(['update'=>'Your Package Order is Updated']);
     }
 
 
     public function destroy($id)
     {
         packOrder::destroy($id);
-        return redirect('admin/pack_order')->with('flash_message','Pack Order deleted');
+        return redirect('admin/pack_order')->with('delete', 'Package Order has been deleted');
     }
 }
