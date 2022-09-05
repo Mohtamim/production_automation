@@ -77,13 +77,10 @@ Product
 
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="supplier_raw_materials">Supplier Materials Cost:</span>
-                    <input type="number" step=".01" class="form-control @error('supplier_raw_materials')
-                     is-invalid
-                    @enderror" name="supplier_raw_materials"  value="{{ old('supplier_raw_materials') }}" placeholder=
+                    <input type="number" step=".01" class="form-control
+                     name="supplier_raw_materials"  value="{{ old('supplier_raw_materials') }}" placeholder=
                     "BDT:10,0000">
-                    @error('supplier_raw_materials')
-                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
+
                 </div>
             </div>
             <div class="row ms-2 me-2">

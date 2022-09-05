@@ -35,7 +35,7 @@ class buyersFormValidation extends FormRequest
     public function messages()
     {
         return[
-        'buyerCode.required'=>'required|numeric',
+        'buyerCode.required'=>'Enter a Buyer Code*',
         ];
     }
 }

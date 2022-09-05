@@ -40,7 +40,7 @@ class PruductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(productFormValidation $request)
     {
         $input= $request->all();
         $title = $request->title;
