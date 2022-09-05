@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\usersFormValidation;
 use App\Models\managerlist;
 use App\Models\users;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class UsersController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(usersFormValidation $request)
     {
 
         $userType= $request->userType;
@@ -61,7 +62,7 @@ class UsersController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(usersFormValidation $request, $id)
     {
         $user = users::find($id);
         $input = $request->all();
@@ -71,7 +72,7 @@ class UsersController extends Controller
         }
     public function destroy($id)
     {
-            
+
         users::destroy($id);
         return redirect('admin/users')->with('delete', 'User has been deleted');
     }
