@@ -1,8 +1,8 @@
-@extends('admin.layout')
+@extends('manager.layout')
 @section('ware-title')
     assign Order
 @endsection
-@section('admin_content')
+@section('manager_content')
     <div class="container">
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card ">
@@ -10,7 +10,7 @@
                     <div class="card-body ms-4">
                         <h3 class="text-center text-success"> Assign Order</h3>
                         <div class="table-responsive">
-                            <a href="{{ url('admin/assaign_order/create') }}" class="btn btn-success btn-sm"
+                            <a href="{{ url('manager/order/create') }}" class="btn btn-success btn-sm"
                                 title="Add new Customer">
                                 Add New
                             </a><br><br>
@@ -42,12 +42,12 @@
 
 
                                             <td>
-                                                <a href="{{ url('admin/assaign_order/' . $item->id) }}"
+                                                <a href="{{ url('manager/order/' . $item->id) }}"
                                                     class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
-                                                <a href="{{ url('admin/assaign_order/' . $item->id . '/edit') }}"
+                                                <a href="{{ url('manager/order/' . $item->id . '/edit') }}"
                                                     class="btn btn-success btn-sm"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
-                                                <form method="post" action="{{ url('admin/assaign_order/' . $item->id) }}">
+                                                <form method="post" action="{{ url('manager/order/' . $item->id) }}">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
                                                     <button type="submit" class="btn btn-danger btn-sm"><i

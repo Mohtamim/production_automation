@@ -19,6 +19,12 @@ use App\Http\Controllers\admin\ShiperAndExporterController;
 use App\Http\Controllers\admin\UnitController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\WarehouseController;
+use App\Http\Controllers\manager\invoiceController;
+use App\Http\Controllers\manager\managerAssignOrderController;
+use App\Http\Controllers\manager\managerDashboardController;
+use App\Http\Controllers\manager\managersController;
+use App\Http\Controllers\manager\paymentInfoController;
+use App\Models\managerlist;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -56,4 +62,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('pack_order', PackOrderController::class);
     Route::resource('pack_price', PackPricingController::class);
 
+});
+
+Route::group(['prefix' => 'manager'], function () {
+Route::resource('order',managerAssignOrderController::class);
+Route::resource('dashboard',managerDashboardController::class);
+Route::resource('invoice',invoiceController::class);
+Route::resource('payment_info',paymentInfoController::class);
+Route::resource('managers',managersController::class);
 });

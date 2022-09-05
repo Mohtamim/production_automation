@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <title>@yield('title') </title>
-    @include('manager.inc.style')
+    @include('admin.inc.style')
 
 </head>
 
@@ -21,7 +21,7 @@
     </div>
     <!--  END LOADER -->
 
-    @include('manager.inc.nav')
+    @include('admin.inc.nav')
 
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -33,7 +33,7 @@
         <div class="overlay"></div>
         <div class="search-overlay"></div>
 
-        @include('manager.inc.sidebar')
+        @include('admin.inc.sidebar')
 
         <!--  BEGIN CONTENT AREA  -->
         <div id="content" class="main-content">
@@ -42,7 +42,7 @@
                 <div class="middle-content container-xxl p-0">
 
                     <div class=" layout-top-spacing">
-                        @yield('manager_content')
+                        @yield('admin_content')
                     </div>
 
 
@@ -59,7 +59,7 @@
 
     <!-- END MAIN CONTAINER -->
 
-    @include('manager.inc.scrpit')
+    @include('admin.inc.scrpit')
 
 </body>
 

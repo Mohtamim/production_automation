@@ -1,8 +1,8 @@
-@extends('admin.layout')
+@extends('manager.layout')
 @section('ware-title')
 WareHose
 @endsection
-@section('admin_content')
+@section('manager_content')
 <div class="col-lg-12 col-12  layout-spacing">
     <div class="statbox widget box box-shadow">
         <div class="widget-header">
@@ -53,7 +53,7 @@ WareHose
                 </tbody>
             </table>
 
-            <form class="" action="{{ url('admin/assaign_order') }}" method="POST">
+            <form class="" action="{{ url('manager/order') }}" method="POST">
                 {!! csrf_field() !!}
 
 

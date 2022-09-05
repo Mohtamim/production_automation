@@ -29,7 +29,7 @@ class BuyersController extends Controller
     {
         $buyer=$request->all();
         buyers::create($buyer);
-        return redirect('admin/buyers')->with('status','buyers created successfully' );
+        return redirect('admin/buyers')->with('success','Buyers created successfully' );
 
 
     }
@@ -52,13 +52,13 @@ class BuyersController extends Controller
     {
         $buyer=$request->find($id);
         $buyer->update($buyer);
-        return redirect('admin/buyers')->with('status','buyers updated successfully' );
+        return redirect('admin/buyers')->with(['update'=>'Your Buyer is Updated'] );
     }
 
 
     public function destroy($id)
     {
         buyers::destroy($id);
-       return redirect('admin/buyers')->with('status' ,'Buyers are deleted');
+       return redirect('admin/buyers')->with('delete' ,'Buyers has been deleted');
     }
 }

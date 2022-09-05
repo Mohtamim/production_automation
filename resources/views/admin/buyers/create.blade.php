@@ -76,7 +76,7 @@ WareHose
                 </div>
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">country: </span><br>
+                    
                     <select name="country" id="country" value="{{ old('country') }}"  class="form-control h-50 select2 @error('country')
                     is-invalid
                      @enderror" >
