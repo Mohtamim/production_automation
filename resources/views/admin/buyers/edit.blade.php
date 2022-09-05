@@ -340,11 +340,11 @@ WareHose
                 </div>
             </div>
 
-
-
-
-                <input type="submit" value="save" class="btn btn-success">
+                <div class="input-group mb-3 me-4 col">
+                <input type="submit" value="save" class="btn btn-success me-1">
                 <button class="btn btn-secondary">Cancel</button>
+                </div>
+
               </form>
         </div>
     </div>

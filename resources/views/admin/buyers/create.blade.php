@@ -337,14 +337,12 @@ WareHose
                         <option value="ZWE">Zimbabwe</option>
                     </select>
                 </div>
-
+                <div class="row  me-2">
+                <div class="input-group mb-3 col">
+                    <input type="submit" value="save" class="btn btn-success me-1">
+                    <button class="btn btn-secondary">Cancel</button>
+                    </div>
                 </div>
-
-
-
-
-                <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
               </form>
         </div>
     </div>
