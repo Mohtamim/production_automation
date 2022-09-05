@@ -65,6 +65,7 @@ WareHose
 
                 </div>
             </div>
+            <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">img</span><br>
                 <input type="file" name="img" id="img" value="{{ $buyer->img }}"  class="form-control @error('img')
@@ -75,15 +76,16 @@ WareHose
                    @enderror
 
                 </div>
-
+            </div>
+            <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
-                        <select name="country" id="country" value="{{ $buyer->country }}"   class="form-control h-50 select2 @error('country')
+                        <select name="country" id="country" value="{{ $buyer->country }}" class="form-control h-50 select2 @error('country')
                     is-invalid
                      @enderror" selected >
                      @error('country')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                      @enderror
-                        <option value="">Select Country</option>
+                        <option value=""Active>Select Country</option>
                         <option value="AFG">Afghanistan</option>
                         <option value="ALA">Åland Islands</option>
                         <option value="ALB">Albania</option>
@@ -336,6 +338,7 @@ WareHose
                     </select>
 
                 </div>
+            </div>
 
 
 
