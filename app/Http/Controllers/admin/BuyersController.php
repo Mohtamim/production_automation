@@ -15,6 +15,7 @@ class BuyersController extends Controller
     public function index()
     {
         $buyer=buyers::all();
+
         return view('admin.buyers.index')->with('buyer',$buyer);
     }
 
@@ -28,7 +29,24 @@ class BuyersController extends Controller
     public function store(buyersFormValidation $request)
     {
         $buyer=$request->all();
-        buyers::create($buyer);
+        $buyerCode=$request->buyerCode;
+        $buyerName=$request->buyerName;
+        $email=$request->email;
+        $phone=$request->phone;
+        $img=$request->file('img');
+        $img_name=hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+        $img_url='upload/'.$img_name;
+        $img->move(public_path('upload'),$img_name);
+        $country=$request->country;
+        // buyers::create($buyer);
+        buyers::insert([
+             'buyerCode'=>$buyerCode,
+             'buyerName'=>$buyerName,
+             'email'=>$email,
+             'phone'=>$phone,
+             'img'=> $img_url,
+             'country'=> $country
+        ]);
         return redirect('admin/buyers')->with('success','Buyers created successfully' );
 
 

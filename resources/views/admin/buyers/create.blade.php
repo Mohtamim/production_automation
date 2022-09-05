@@ -15,7 +15,7 @@ WareHose
             </div>
         </div>
         <div class="widget-content widget-content-area ">
-            <form class="forms-sample" action="{{ url('admin/buyers') }}" method="POST">
+            <form class="forms-sample" action="{{ url('admin/buyers') }}" method="POST" enctype="multipart/form-data">
                 {!! csrf_field() !!}
                 <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
