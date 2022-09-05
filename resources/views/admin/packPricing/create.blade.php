@@ -23,7 +23,7 @@
                         <span class="input-group-text bg-light text-black font-weight-bold" id="companyName">Company Name:</span>
 
 
-                        <select class="form-select form-control select2" id="companyName" name="companyName">
+                        <select class="form-select form-control select2" value="{{ old('companyName') }}"  id="companyName" name="companyName">
                             <option value="" >Select Packaging Company</option>
                             @foreach ($companyName as  $compN)
                             <option value="{{ $compN->id }}">{{ $compN->companyName }}</option>
@@ -38,7 +38,7 @@
                     <span class="input-group-text bg-light text-black font-weight-bold" id="packTitle"> Pack Title:</span>
 
 
-                    <select class="mdb-select md-form select2 " id="packTitle" name="packTitle" searchable="Search here..">
+                    <select class="mdb-select md-form select2 " id="packTitle" value="{{ old('packTitle') }}"  name="packTitle" searchable="Search here..">
                         <option value="" disabled selected>Select Pack Title</option>
                         @foreach ($packTitle as  $packTitle)
                         <option value="{{ $packTitle->id }}">{{ $packTitle->title."-".$packTitle->id }}</option>
@@ -52,7 +52,7 @@
                         <span class="input-group-text bg-light text-black font-weight-bold" id="packSizes"> Pack Sizes:</span>
 
 
-                        <select class="mdb-select md-form select2" id="packSizes" name="packSizes" searchable="Search here..">
+                        <select class="mdb-select md-form select2" id="packSizes" value="{{ old('packSizes') }}"  name="packSizes" searchable="Search here..">
                             <option value="" disabled selected>Select Pack Sizes</option>
                             @foreach ($packSize as  $pSizes)
                             <option value="{{ $pSizes->id }}">{{ $pSizes->length."x".$pSizes->width."x".$pSizes->height }}</option>
@@ -63,7 +63,7 @@
                 </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" id="price">Price:</span>
-                        <input type="number"
+                        <input type="number" value="{{ old('price') }}" 
                             class="form-control @error('price')
                      is-invalid
                     @enderror"

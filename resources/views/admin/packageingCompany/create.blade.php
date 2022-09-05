@@ -25,7 +25,7 @@
                             class="form-control @error('companyName')
                      is-invalid
                     @enderror"
-                            name="companyName" placeholder="Enter Company Name">
+                            name="companyName" value="{{ old('companyName') }}"  placeholder="Enter Company Name">
                         @error('companyName')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
@@ -37,7 +37,7 @@
                             class="form-control @error('email')
                     is-invalid
                     @enderror"
-                            name="email" placeholder="Enter email" aria-label="Enter your Assign Order Id"
+                            name="email" value="{{ old('email') }}"  placeholder="Enter email" aria-label="Enter your Assign Order Id"
                             aria-describedby="basic-addon2">
                         @error('email')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -51,7 +51,7 @@
                             class="form-control @error('contact')
                      is-invalid
                     @enderror"
-                            name="contact" placeholder="Enter  contact" aria-label="Enter  contact "
+                            name="contact" value="{{ old('contact') }}"   placeholder="Enter  contact" aria-label="Enter  contact "
                             aria-describedby="basic-addon2">
                         @error('contact')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -63,7 +63,7 @@
                             class="form-control @error('address')
                      is-invalid
                     @enderror"
-                            name="address" placeholder="Enter  address" aria-label="Enter  address "
+                            name="address" value="{{ old('address') }}"  placeholder="Enter  address" aria-label="Enter  address "
                             aria-describedby="basic-addon2">
                         @error('address')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>

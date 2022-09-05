@@ -32,12 +32,12 @@
                                                 <td>{{ $item->address }}</td>
 
                                                 <td>
-                                                    <a href="{{url('admin/warehouses/'.$item->id)}}" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"><i class="fa fa-eye"></i></a>
+                    
                                                     <a href="{{url('admin/warehouses/'.$item->id.'/edit')}}" class="btn btn-primary btn-sm" title="Edit Customer" aria-hidden="true"><i class="fa fa-pencil"></i></a>
                                                     <form method="POST" action="{{ url('admin/warehouses/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                         {{ method_field('DELETE') }}
                                                         {{ csrf_field() }}
-                                                        <button type="submit" class="btn btn-danger btn-sm" title="Delete customer" onclick="return confirm("Confirm delete?")"><i class="fa-solid fa-toggle-on"></i></button>
+                                                        <button type="submit" class="btn btn-info btn-sm btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>

@@ -48,8 +48,8 @@ Pack Order
                         <a href="{{url('admin/pack_order/'.$item->id.'/edit')}}" class="btn btn-success btn-sm me-1"><i class="fa-solid fa-pen-to-square"></i></a>
                         <form method="post" action="{{url('admin/pack_order/'.$item->id)}}">
                             {{ method_field('DELETE')}}
-                            {{ csrf_field()}}
-                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i></button>
+                            {{ csrf_field()}}<button type="submit" class="btn btn-info btn-sm btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
+                        
                         </form>
                         </div>
 

@@ -24,7 +24,18 @@ class portFormValidation extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'required|string|regex:/^[\pL\s\-]+$/u',
+            'status'=>'required|string',
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'Please Enter a unit Name',
+            'name.string' => 'Unit Name Must be 10 Char',
+            'name.regex'=>'Number is not allowed',
+            'status.required'=>'Please Enter a warehouse status',
+            'status.string' => 'Address Must be 50 Char'
         ];
     }
 }

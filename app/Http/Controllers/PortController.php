@@ -52,8 +52,10 @@ class portController extends Controller
     }
 
 
-    public function destroy(port $port)
+    public function destroy($id)
     {
+        port::destroy($id);
+        return redirect('admin/port')->with('port', 'port has been deleted');
 
     }
 }

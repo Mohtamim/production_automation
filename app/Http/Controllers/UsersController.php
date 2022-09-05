@@ -60,13 +60,18 @@ class UsersController extends Controller
     }
 
 
-    public function update(Request $request, users $users)
+    public function update(Request $request, $id)
     {
-
+        $user = users::find($id);
+        $input = $request->all();
+        $user->update($input);
+        return redirect('admin/users')->with('flash_message', 'user Updated!');
 
         }
-    public function destroy(users $users)
+    public function destroy($id)
     {
-
+            
+        users::destroy($id);
+        return redirect('admin/users')->with('status', 'user has been deleted');
     }
 }

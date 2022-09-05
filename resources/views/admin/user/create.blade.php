@@ -39,7 +39,7 @@ WareHose
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="password">Password:</span>
-                    <input type="password" class="form-control" name="password" placeholder="Enter your password Number" aria-label="Enter your password Number" aria-describedby="basic-addon2">
+                    <input type="password" class="form-control" value="{{ old('password') }}" name="password" placeholder="Enter your password Number" aria-label="Enter your password Number" aria-describedby="basic-addon2">
 
                 </div>
                 <div class="input-group mb-3" style="minWidth:678px">

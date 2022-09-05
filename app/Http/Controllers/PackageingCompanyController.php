@@ -31,9 +31,10 @@ class PackageingCompanyController extends Controller
     }
 
 
-    public function show(PackageingCompany $packageingCompany)
+    public function show($id)
     {
-        //
+        $order = PackageingCompany::find($id);
+        return view('admin.packageingCompany.show')->with('packageingCompany',$order);
     }
 
 

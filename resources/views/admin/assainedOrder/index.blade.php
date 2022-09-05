@@ -50,8 +50,7 @@
                                                 <form method="post" action="{{ url('admin/assaign_order/' . $item->id) }}">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa-solid fa-trash-can"></i></button>
+                                                    <button type="submit" class="btn btn-info btn-sm btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
                                                 </form>
 
                                             </td>

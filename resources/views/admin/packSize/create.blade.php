@@ -21,7 +21,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" id="title">Pack Name
                             Id:</span>
-                        <input type="text"
+                        <input type="text" value="{{ old('title') }}" 
                             class="form-control @error('title')
                      is-invalid
                     @enderror"
@@ -33,7 +33,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" id="length">Length
                             Id:</span>
-                        <input type="number"
+                        <input type="number" value="{{ old('length') }}" 
                             class="form-control @error('length')
                     is-invalid
                     @enderror"
@@ -47,7 +47,7 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" id="phone">width:</span>
-                        <input type="number"
+                        <input type="number" value="{{ old('width') }}" 
                             class="form-control @error('width')
                      is-invalid
                     @enderror"
@@ -59,7 +59,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" id="phone">Height:</span>
-                        <input type="number"
+                        <input type="number" value="{{ old('height') }}" 
                             class="form-control @error('height')
                      is-invalid
                     @enderror"

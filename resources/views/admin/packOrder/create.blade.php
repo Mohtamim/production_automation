@@ -23,7 +23,7 @@ Pack Order
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold" >Proformal Invoice
                             </span>
-                        <input type="text" id="proformalInvoice"
+                        <input type="text" id="proformalInvoice" value="{{ old('proformalInvoice') }}" 
                             class="form-control @error('proformalInvoice')
                      is-invalid
                     @enderror"
@@ -34,7 +34,7 @@ Pack Order
                     </div>
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold" >Quantity:</span>
-                        <input type="number" id="quantity"
+                        <input type="number" id="quantity" value="{{ old('quantity') }}" 
                             class="form-control @error('quantity')
                      is-invalid
                     @enderror"
@@ -50,7 +50,7 @@ Pack Order
                 <div class="row ms-2 me-2">
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold">Pack:</span>
-                        <select id="status" class="form-select" name="status">
+                        <select id="status" value="{{ old('status') }}"  class="form-select" name="status">
                             <option value="" >Select Company Name</option>
                             @foreach ($packSize as $packSize )
                             <option value="{{$packSize->id  }}">{{ $packSize->title.' - '.$packSize->id}}</option>
@@ -60,7 +60,7 @@ Pack Order
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold" >Company
                             </span>
-                            <select id="status" class="form-select " name="status">
+                            <select id="status" value="{{ old('status') }}"  class="form-select " name="status">
                                 <option value="" >Select Company Name</option>
                                 @foreach ($pack as $pack )
                                 <option value="{{$pack->id }}">{{ $pack->companyName.' - '.$pack->id}}</option>
@@ -72,7 +72,7 @@ Pack Order
                 <div class="row ms-2 me-2">
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold">Price:</span>
-                        <input type="number"  id="price"
+                        <input type="number"  id="price" value="{{ old('price') }}" 
                             class="form-control @error('price')
                      is-invalid
                     @enderror"
@@ -84,7 +84,7 @@ Pack Order
                     </div>
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold">Total Cost:</span>
-                        <input type="number"  id="totalCost"
+                        <input type="number"  id="totalCost" value="{{ old('totalCost') }}" 
                             class="form-control @error('totalCost')
                      is-invalid
                     @enderror"
@@ -99,7 +99,7 @@ Pack Order
 
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold">Pay Amount:</span>
-                        <input type="number"  id="payAmount"
+                        <input type="number"  id="payAmount" value="{{ old('payAmount') }}" 
                             class="form-control @error('payAmount')
                      is-invalid
                     @enderror"
@@ -111,7 +111,7 @@ Pack Order
                     </div>
                     <div class="input-group mb-3 col">
                         <span class="input-group-text bg-light text-black font-weight-bold" >Note:</span>
-                        <input type="text" id="note"
+                        <input type="text" id="note" value="{{ old('note') }}" 
                             class="form-control @error('note')
                      is-invalid
                     @enderror"

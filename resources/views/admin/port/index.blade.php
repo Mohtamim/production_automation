@@ -37,12 +37,12 @@ Port
 
 
                                                 <td>
-                                                    <a href="{{url('admin/port/'.$pt->id)}}" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"><i class="fa fa-eye"></i></a>
+                                                  
                                                     <a href="{{url('admin/port/'.$pt->id.'/edit')}}" class="btn btn-primary btn-sm" title="Edit port" aria-hidden="true"><i class="fa fa-pencil"></i></a>
                                                     <form method="POST" action="{{ url('admin/port/' . $pt->id) }}" accept-charset="UTF-8" style="display:inline">
                                                         {{ method_field('DELETE') }}
                                                         {{ csrf_field() }}
-                                                        <button type="submit" class="btn btn-danger btn-sm" title="Delete port" onclick="return confirm("Confirm delete?")"><i class="fa-solid fa-toggle-on"></i></button>
+                                                        <button type="submit" class="btn btn-info btn-sm btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>

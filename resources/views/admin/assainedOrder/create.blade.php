@@ -59,14 +59,14 @@ WareHose
 
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order Id:</span>
-                    <input type="number" class="form-control @error('mainOrderId')
+                    <input type="number" value="{{ old('mainOrderId') }}"  class="form-control @error('mainOrderId')
                      is-invalid
                     @enderror" name="mainOrderId" placeholder="Enter MainOrder Id">
                     @error('mainOrderId')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
-                <select class="form-select" name="uniteType" id="uniteType" aria-label="Default select example">
+                <select class="form-select" name="uniteType" value="{{ old('uniteType') }}"  id="uniteType" aria-label="Default select example">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order Id:</span>
                     <option  selected class="form-control">Select The Order</option>
                     @foreach ($mainOrder as $mainOrder)
@@ -76,7 +76,7 @@ WareHose
 
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="warehouseId">Ware House Id:</span>
-                    <select id="status" class="form-select" name="status">
+                    <select id="status" value="{{ old('status') }}"  class="form-select" name="status">
                         <option value="" >Select Warehouse Name</option>
                         @foreach ($warehouse as $ware )
                         <option value="{{$ware->id  }}">{{ $ware->warehouseName.' - '.$ware->id}}</option>
@@ -87,7 +87,7 @@ WareHose
 
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="phone">Quantity:</span>
-                    <input type="number" class="form-control @error('quantity')
+                    <input type="number" value="{{ old('quantity') }}"  class="form-control @error('quantity')
                      is-invalid
                     @enderror" name="quantity" placeholder="Enter  quantity" aria-label="Enter  quantity " aria-describedby="basic-addon2">
                     @error('quantity')
@@ -97,7 +97,7 @@ WareHose
                 </div>
                 <div class="input-group mb-3" style="minWidth:678px">
 
-                    <select id="status" class="form-select" name="status">
+                    <select id="status" value="{{ old('status') }}"  class="form-select" name="status">
                         <option value="" >Select Status</option>
                         <option value="1">Active</option>
                         <option value="0">Deactive</option>

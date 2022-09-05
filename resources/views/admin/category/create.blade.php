@@ -17,7 +17,7 @@ Category
                 {!! csrf_field() !!}
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="catName">Category Name:</span>
-                    <input type="text" class="form-control @error('catName')
+                    <input type="text"  value="{{ old('catName') }}" class="form-control @error('catName')
                     is-invalid
                     @enderror" name="catName" placeholder="Enter your Category Name">
               @error('catName')
@@ -29,9 +29,9 @@ Category
 
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="catTitle">catTitle:</span>
-                    <input type="text" class="form-control @error('catTitle')
+                    <input type="text"  class="form-control @error('catTitle')
                     is-invalid
-                    @enderror" name="catTitle" placeholder="Enter your categoryTitle" aria-label="Enter your catTitle" aria-describedby="basic-addon2">
+                    @enderror" name="catTitle"  value="{{ old('catTitle') }}"  placeholder="Enter your categoryTitle" aria-label="Enter your catTitle" aria-describedby="basic-addon2">
                     @error('catTitle')
               <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
 

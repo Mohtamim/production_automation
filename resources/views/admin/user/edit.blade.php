@@ -49,14 +49,17 @@ WareHose
 
                     <select id="userType" class="form-select" name="userType">
                         @if (($user->userType)==1)
-                        `    <option value="1" selected>Admin</option>
+                            <option value="1" selected>Admin</option>
+                            <option value="2">Manager</option>
                         @endif
                         @if (($user->userType)==2)
-                        `     <option value="2" selected>Manager</option>
+                            <option value="1">Admin</option>
+                            <option value="2" selected>Manager</option>
+
                         @endif
 
-                        <option value="1">Admin</option>
-                        <option value="2">Manager</option>
+
+
                     </select>
                 </div>
                 @php

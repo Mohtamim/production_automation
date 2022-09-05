@@ -8,14 +8,14 @@ assign Order
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Assign Order Details</h2>
+                        <h2>Packaging Company Details</h2>
                     </div>
 
                       <div class="card-body">
-                        <h5 class="card-title">Main Order Id: {{ $assain->mainOrderId }}</h5>
-                        <p class="card-text">Ware House Id: {{ $assain->warehouseId }}</p>
-                        <p class="card-text">Quantity: {{ $assain->quantity }}</p>
-                        <p class="card-text">Status: {{ $assain->status }}</p>
+                        <h5 class="card-title">Company Name: {{ $packageingCompany->companyName }}</h5>
+                        <p class="card-text">Email: {{ $packageingCompany->email }}</p>
+                        <p class="card-text">Contact: {{ $packageingCompany->contact }}</p>
+                        <p class="card-text">Address: {{ $packageingCompany->address }}</p>
                       </div>
                 </div>
             </div>

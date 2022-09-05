@@ -20,7 +20,7 @@ Port
 
                 <div class="mb-3">
                     <label for="name" class="control-label">Port Name</label><br>
-                <input type="text" name="name" id="name" class="form-control @error('name')
+                <input type="text" name="name" value="{{ old('name') }}"  id="name" class="form-control @error('name')
                   is-invalid
                    @enderror">
                    @error('name')
@@ -31,7 +31,7 @@ Port
 
 
                 <div class="input-group mb-3" style="minWidth:678px">
-                    <select id="status" class="form-select" name="status">
+                    <select id="status"   class="form-select" name="status">
                         <option value="" >Select Status</option>
                         <option value="1">Active</option>
                         <option value="0">Deactive</option>

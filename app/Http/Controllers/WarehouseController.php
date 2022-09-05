@@ -39,9 +39,11 @@ class WarehouseController extends Controller
     }
 
 
-    public function show(warehouse $warehouse)
+    public function show($id)
     {
-        //
+        
+        $order = warehouse::find($id);
+        return view('admin.warehouse.show')->with('warehouse',$order);
     }
 
     /**
@@ -66,8 +68,10 @@ class WarehouseController extends Controller
     }
 
 
-    public function destroy(warehouse $warehouse)
+    public function destroy($id)
     {
-        //
+                   
+        warehouse::destroy($id);
+        return redirect('admin/warehouses')->with('status', 'warehouse has been deleted');
     }
 }

@@ -20,7 +20,7 @@ WareHose
 
                 <div class="mb-3">
                     <label for="warehouseName" class="control-label">Warehouse Name</label><br>
-                <input type="text" name="warehouseName" id="warehouseName" class="form-control @error('warehouseName')
+                <input type="text" name="warehouseName" value="{{ old('warehouseName') }}" id="warehouseName" class="form-control @error('warehouseName')
                   is-invalid
                    @enderror">
                    @error('warehouseName')
@@ -32,7 +32,7 @@ WareHose
 
                 <div class="mb-3">
                     <label for="address" class="control-label">Address</label><br>
-                <input type="text" name="address" id="address" class="form-control @error('address')
+                <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control @error('address')
                   is-invalid
                    @enderror" >
                    @error('address')

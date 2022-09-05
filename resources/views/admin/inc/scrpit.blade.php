@@ -12,10 +12,31 @@
     <script src="{{ asset('assets') }}/plugins/src/table/datatable/datatables.js"></script>
 
     <script src="{{ asset('assets') }}/plugins/src/table/datatable/datatables.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
    <script>
      $(document).ready(function () {
         $('.table').DataTable();
     });
 
    </script>
+   <script>
+       
+    $('.delete-confirm').click(function(event) {
+   var form =  $(this).closest("form");
+   var name = $(this).data("name");
+   event.preventDefault();
+   swal({
+       title: `Are you sure you want to delete this?`,
+       text: "If you delete this, it will be gone forever.",
+       icon: "warning",
+       buttons: true,
+       dangerMode: true,
+   })
+   .then((willDelete) => {
+     if (willDelete) {
+       form.submit();
+     }
+   });
+});
+ </script>
 

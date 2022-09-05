@@ -20,7 +20,7 @@ WareHose
                 <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">Buyer Code: </span><br>
-                <input type="number" name="buyerCode" id="buyerCode" class="form-control @error('buyerCode')
+                <input type="number" name="buyerCode" value="{{ old('buyerCode') }}" id="buyerCode" class="form-control @error('buyerCode')
                   is-invalid
                    @enderror">
                    @error('buyerCode')
@@ -32,7 +32,7 @@ WareHose
 
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">Buyer Name: </span><br>
-                <input type="text" name="buyerName" id="buyerName" class="form-control @error('buyerName')
+                <input type="text" name="buyerName" value="{{ old('buyerName') }}" id="buyerName" class="form-control @error('buyerName')
                   is-invalid
                    @enderror" >
                    @error('buyerName')
@@ -44,7 +44,7 @@ WareHose
             <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">Email: </span><br>
-                <input type="text" name="email" id="email" class="form-control @error('email')
+                <input type="text" name="email" value="{{ old('email') }}"   id="email" class="form-control @error('email')
                   is-invalid
                    @enderror" >
                    @error('email')
@@ -55,7 +55,7 @@ WareHose
 
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">Phone: </span><br>
-                <input type="text" name="phone" id="phone" class="form-control @error('phone')
+                <input type="text" name="phone" id="phone" value="{{ old('phone') }}"  class="form-control @error('phone')
                   is-invalid
                    @enderror" >
                    @error('phone')
@@ -66,7 +66,7 @@ WareHose
             </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">Image: </span><br>
-                <input type="file" name="img" id="img" class="form-control @error('img')
+                <input type="file" name="img" id="img" value="{{ old('img') }}"  class="form-control @error('img')
                   is-invalid
                    @enderror" >
                    @error('img')
@@ -77,7 +77,7 @@ WareHose
 
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">country: </span><br>
-                    <select name="country" id="country" class="form-control h-50 select2 @error('country')
+                    <select name="country" id="country" value="{{ old('country') }}"  class="form-control h-50 select2 @error('country')
                     is-invalid
                      @enderror" >
                      @error('country')

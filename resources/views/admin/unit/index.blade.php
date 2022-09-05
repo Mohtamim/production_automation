@@ -37,12 +37,11 @@ Unit
 
 
                                                 <td>
-                                                    <a href="{{url('admin/unit/'.$item->id)}}" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"><i class="fa fa-eye"></i></a>
                                                     <a href="{{url('admin/unit/'.$item->id.'/edit')}}" class="btn btn-primary btn-sm" title="Edit Unit" aria-hidden="true"><i class="fa fa-pencil"></i></a>
-                                                    <form method="POST" action="{{ url('admin/unit/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                    <form method="POST" action="{{ url('admin/unit/' . $item->id) }}"  accept-charset="UTF-8" style="display:inline">
                                                         {{ method_field('DELETE') }}
                                                         {{ csrf_field() }}
-                                                        <button type="submit" class="btn btn-danger btn-sm" title="Delete unit" onclick="return confirm("Confirm delete?")"><i class="fa-solid fa-toggle-on"></i></button>
+                                                        <button type="submit" id="{{ $item->id }}" class="btn btn-danger btn-sm delete-confirm" title="Delete unit" ><i class="fa-solid fa-trash"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -57,5 +56,6 @@ Unit
             </div>
         </div>
     </div>
+    
 
 @endsection

@@ -52,8 +52,10 @@ class UnitController extends Controller
     }
 
 
-    public function destroy(unit $unit)
+    public function destroy($id)
     {
-
+        
+        unit::destroy($id);
+        return redirect('admin/unit')->with('status', 'Assign Ordered has been deleted');
     }
 }

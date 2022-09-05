@@ -70,7 +70,7 @@
                                                 <form method="POST" action="{{ url('admin/product/' . $item->id) }}">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
-                                                    <button type="submit" class="btn btn-danger btn-sm me-1" aria-hidden="true"><i class="fa fa-trash"></i></button>
+                                                    <button type="submit" class="btn btn-info btn-sm btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
                                                 </form>
 
                                             </div>

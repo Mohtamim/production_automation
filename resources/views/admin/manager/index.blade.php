@@ -36,8 +36,10 @@
                                                 <td>{{ $item->warehouseId }}</td>
 
                                                 <td>
+
                                                     <a href="{{url('admin/managers/'.$item->id)}}" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"><i class="fa fa-eye"></i></a>
                                                     <a href="{{url('admin/managers/'.$item->id.'/edit')}}" class="btn btn-primary btn-sm" title="Edit Customer" aria-hidden="true"><i class="fa fa-pencil"></i></a>
+                                                    <button type="submit" class="btn btn-info btn-sm btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
                                                 </td>
                                             </tr>
                                         @endforeach
