@@ -1,6 +1,8 @@
 <div class="sidebar-wrapper sidebar-theme">
 
-    <nav id="sidebar">
+    <nav id="sidebar" style="background-color: #FFDEE9;
+    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+    ">
 
         <div class="container">
             <div class="row text-center">
