@@ -8,8 +8,8 @@
             <div class="row text-center">
                 <div class="justify-content-center text-center">
                     <nav class="rounded float-center nav-responsive">
-                        <a class="navbar-brand" class="text-align-center" href="{{ url('admin/dashboard') }}">
-                        <center>  <img src="{{ asset('assets') }}/img/dhlogo.jpg" class="justify-content-end " width="50"
+                        <a class="navbar-brand" class="" href="{{ url('admin/dashboard') }}">
+                        <center>  <img src="{{ asset('assets') }}/img/dhlogo.jpg" class="justify-content-end" width="50"
                                 height="50" alt="Dhaka Handicraft"></center>
                         </a>
 
@@ -258,7 +258,7 @@
             </li>
 
             <li class="menu">
-                <a href="{{ url('admin/port') }}" aria-expanded="false" class="dropdown-toggle">
+                <a href="" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
