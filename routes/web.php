@@ -36,7 +36,7 @@ Route::get('/', function () {
 });
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', function () {
-        return view('admin.layout');
+        return view('admin.dashboard');
     });
     Route::resource('assaign_order', AssainedOrderController::class);
     Route::resource('users', UsersController::class);
