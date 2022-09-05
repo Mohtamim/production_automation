@@ -27,7 +27,7 @@ class PackageingCompanyController extends Controller
     {
         $packCompany=$request->all();
         PackageingCompany::create($packCompany);
-        return redirect('admin/packaging_company')->with('status','Packaging Company created Successfully');
+        return redirect('admin/packaging_company')->with('success','Package Company created successfully');
 
     }
 
@@ -51,13 +51,13 @@ class PackageingCompanyController extends Controller
         $packCompany=PackageingCompany::find($id);
         $input=$request->all();
         $packCompany->update($input);
-        return redirect('admin/packaging_company')->with('status','Packaging Company updated Successfully');
+        return redirect('admin/packaging_company')->with(['update'=>'Your Package Company is Updated']);
     }
 
 
     public function destroy($id)
     {
         $packCompany=PackageingCompany::destroy($id);
-        return redirect('admin/packaging_company')->with('status','Packaging Company deleted Successfully');
+        return redirect('admin/packaging_company')->with('delete', 'Package Company has been deleted');
     }
 }
