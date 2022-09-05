@@ -79,7 +79,7 @@ class PruductController extends Controller
             'totalcost_for_supplier'=>$totalcost_for_supplier,
             'img'=>$img_url,
        ]);
-        return redirect('admin/product')->with('flash_message','Product Added');
+        return redirect('admin/product')->with('success','Product created successfully');
     }
 
     /**
@@ -118,7 +118,7 @@ class PruductController extends Controller
         $product = pruduct::find($id);
         $input = $request->all();
         $product->update($input);
-        return redirect('admin/product')->with('flash_message', 'product Updated!');
+        return redirect('admin/product')->with(['update'=>'Your Product is Updated']);
     }
 
     /**
@@ -130,6 +130,6 @@ class PruductController extends Controller
     public function destroy($id)
     {
         pruduct::destroy($id);
-        return redirect('admin/product')->with('product', 'Product has been deleted');
+        return redirect('admin/product')->with('delete', 'Product has been deleted');
     }
 }

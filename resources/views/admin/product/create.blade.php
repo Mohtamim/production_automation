@@ -124,7 +124,7 @@ Product
                     <div class="form-check form-check-inline">
                         <span class="input-group-text bg-light text-black font-weight-bold me-2" id="is_sample_product">Is it sample product?:</span>
 
-                        <input class="form-check-input" type="radio" name="is_sample_product" value="{{ old('is_sample_product') }}" id="is_sample_product" value="1">
+                        <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="1">
                         <label class="form-check-label" for="is_sample_product" value="1">Yes</label>
                         <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="0">
                         <label class="form-check-label" for="is_sample_product" value="0">No</label>

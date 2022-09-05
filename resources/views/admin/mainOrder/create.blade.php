@@ -21,7 +21,7 @@
                 <hr>
                 <div class="input-group mb-3">
                     <label for="product" class="control-label">Product:</label><hr>
-                    <select id="status"  value="{{ old('productName') }}" class="form-select select2 @error('productName')
+                    <select id="status" class="form-select select2 @error('productName')
                     is-invalid
                      @enderror" name="productName" id="productName">
                         <option value="" >Select Product</option>
@@ -38,7 +38,7 @@
 
                 <div class="mb-3">
                     <label for="quantity" class="control-label">Quantity</label><br>
-                <input type="text"  value="{{ old('quantity') }}" name="quantity" id="quantity" class="form-control @error('quantity')
+                <input type="text" name="quantity" id="quantity" class="form-control @error('quantity')
                   is-invalid
                    @enderror" >
                    @error('quantity')
@@ -48,7 +48,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="unitPrice" class="control-label">Unit Price</label><br>
-                <input type="text" name="unitPrice" value="{{ old('unitPrice') }}"  id="unitPrice" class="form-control @error('unitPrice')
+                <input type="text" name="unitPrice" id="unitPrice" class="form-control @error('unitPrice')
                   is-invalid
                    @enderror" >
                    @error('unitPrice')
@@ -58,7 +58,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="totalPrice" class="control-label">Total Price</label><br>
-                <input type="text" name="totalPrice"  value="{{ old('totalPrice') }}" id="totalPrice" class="form-control @error('totalPrice')
+                <input type="text" name="totalPrice" id="totalPrice" class="form-control @error('totalPrice')
                   is-invalid
                    @enderror" >
                    @error('totalPrice')
@@ -68,7 +68,7 @@
                 </div>
                 <div class="input-group mb-3" style="minWidth:678px">
 
-                    <select id="status"  value="{{ old('status') }}" class="form-select" name="status">
+                    <select id="status" class="form-select" name="status">
                         <option value="" >Select Status</option>
                         <option value="1">Active</option>
                         <option value="0">Deactive</option>

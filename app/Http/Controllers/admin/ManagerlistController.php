@@ -54,13 +54,13 @@ class ManagerlistController extends Controller
        $manager=managerlist::find($id);
        $input=$request->all();
        $manager->update($input);
-       return redirect('admin/managers')->with('status','Warehouse Manager updated');
+       return redirect('admin/managers')->with(['update'=>'Your Manager is Updated']);
     }
 
 
     public function destroy($id)
     {
         managerlist::destroy($id);
-        return redirect('admin/managers')->with('status','Warehouse Manager Deleted');
+        return redirect('admin/managers')->with('delete', 'Manager has been deleted');
     }
 }

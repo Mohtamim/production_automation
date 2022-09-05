@@ -27,7 +27,7 @@ class PackSizeController extends Controller
     {
        $pack=$request->all();
        packSize::create($pack);
-       return redirect('admin/pack_size')->with('status','Pack Size created Successfully');
+       return redirect('admin/pack_size')->with('success','Package Size created successfully');
 
     }
 
@@ -50,14 +50,14 @@ class PackSizeController extends Controller
         $pack=packSize::find($id);
         $input=$request->all();
         $pack->update($input);
-        return redirect('admin/pack_size')->with('status','Pack Size created Successfully');
+        return redirect('admin/pack_size')->with(['update'=>'Your Package Size is Updated']);
     }
 
 
     public function destroy($id)
     {
        $pack=packSize::destroy($id);
-       return redirect('admin/pack_size')->with('status','pack size deleted successfully');
+       return redirect('admin/pack_size')->with('delete', 'Package Size has been deleted');
 
     }
 }

@@ -36,7 +36,7 @@ class MainOrderController extends Controller
     {
         $input=$request->all();
         mainOrder::create($input);
-        return redirect('admin/main_order')->with('status','Main Order create successfully');
+        return redirect('admin/main_order')->with('success','Main Order create successfully');
     }
 
 
@@ -59,14 +59,14 @@ class MainOrderController extends Controller
        $mainorder=mainOrder::find($id);
        $input=$request->all();
        $mainorder->update($input);
-       return redirect('admin/main_order')->with('flash_message','Main Ordered value Updated');
+       return redirect('admin/main_order')->with(['update'=>'Your Main Order is Updated']);
     }
 
 
     public function destroy($id)
     {
         mainOrder::destroy($id);
-        return redirect('admin/main_order')->with('status', 'Main Ordered has been deleted');
+        return redirect('admin/main_order')->with('delete', 'Main Order has been deleted');
     }
 }
 

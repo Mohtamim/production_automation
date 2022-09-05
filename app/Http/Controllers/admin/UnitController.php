@@ -27,7 +27,7 @@ class UnitController extends Controller
     {
         $input= $request->all();
         unit::create($input);
-        return redirect('admin/unit')->with('flash_message','Unit Added');
+        return redirect('admin/unit')->with('success','Unit created successfully');
     }
 
 
@@ -49,7 +49,7 @@ class UnitController extends Controller
         $unit = unit::find($id);
         $input = $request->all();
         $unit->update($input);
-        return redirect('admin/unit')->with('flash_message', 'unit Updated!');
+        return redirect('admin/unit')->with(['update'=>'Your Unit is Updated']);
     }
 
 
@@ -57,6 +57,6 @@ class UnitController extends Controller
     {
         
         unit::destroy($id);
-        return redirect('admin/unit')->with('status', 'Assign Ordered has been deleted');
+        return redirect('admin/unit')->with('delete', 'Unit has been deleted');
     }
 }

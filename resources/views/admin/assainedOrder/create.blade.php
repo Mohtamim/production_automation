@@ -18,7 +18,7 @@ WareHose
 
 
 
-            <table id="table" class="table dt-table-hover"  width="100%" cellspacing="0">
+            <table id="table"  class="table dt-table-hover"  width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>SL</th>
@@ -46,14 +46,14 @@ WareHose
                             <td>Deactive</td>
                             @endif
                             <td>
-                                <button href="#" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"></i>select</button>
+                                <button id="{{  $item->id }}" onclick="fetchData(id)" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"></i>select</button>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
 
-            <form class="" action="{{ url('admin/assaign_order') }}" method="POST">
+            <form id="save_data" class="" action="{{ url('admin/assaign_order') }}" method="POST">
                 {!! csrf_field() !!}
 
 
@@ -111,4 +111,21 @@ WareHose
         </div>
     </div>
 </div>
+
+}
+<script>
+function fetchData(id){
+ 
+        $.ajax({
+            url: '{{ url('admin/assain_order/') }}',
+            method:'post',
+            data:{ id : id },
+            success:function(){
+               $('#add').modal('hide');
+                window.location.assign('http://localhost/laravel_pwadr51-Jquery/');
+            }
+        })
+    }
+}
+</script>
 @endsection

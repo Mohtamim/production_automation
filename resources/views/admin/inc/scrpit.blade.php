@@ -37,7 +37,6 @@
                 });
         });
     </script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(".alert").delay(4000).slideUp(500, function() {
             $(this).alert('close');

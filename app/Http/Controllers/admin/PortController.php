@@ -28,7 +28,7 @@ class portController extends Controller
     {
         $input= $request->all();
         port::create($input);
-        return redirect('admin/port')->with('flash_message','port Added');
+        return redirect('admin/port')->with('success','Port created successfully');
     }
 
 
@@ -50,14 +50,14 @@ class portController extends Controller
         $port = port::find($id);
         $input = $request->all();
         $port->update($input);
-        return redirect('admin/port')->with('flash_message', 'port Updated!');
+        return redirect('admin/port')->with(['update'=>'Your Port is Updated']);
     }
 
 
     public function destroy($id)
     {
         port::destroy($id);
-        return redirect('admin/port')->with('port', 'port has been deleted');
+        return redirect('admin/port')->with('delete', 'Port has been deleted');
 
     }
 }

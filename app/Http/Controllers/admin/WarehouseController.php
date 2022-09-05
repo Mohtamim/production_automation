@@ -36,7 +36,7 @@ class WarehouseController extends Controller
     {
         $input= $request->all();
         warehouse::create($input);
-        return redirect('admin/warehouses')->with('flash_message','warehouse Added');
+        return redirect('admin/warehouses')->with('success','Warehouse create successfully');
     }
 
 
@@ -65,7 +65,7 @@ class WarehouseController extends Controller
         $warehouse = warehouse::find($id);
         $input = $request->all();
         $warehouse->update($input);
-        return redirect('admin/warehouses')->with('flash_message', 'warehouse Updated!');
+        return redirect('admin/warehouses')->with(['update'=>'Your warehouse is Updated']);
     }
 
 
@@ -73,6 +73,6 @@ class WarehouseController extends Controller
     {
                    
         warehouse::destroy($id);
-        return redirect('admin/warehouses')->with('status', 'warehouse has been deleted');
+        return redirect('admin/warehouses')->with('delete', 'Warehouse has been deleted');
     }
 }

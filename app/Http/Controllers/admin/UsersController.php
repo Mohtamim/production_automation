@@ -45,7 +45,7 @@ class UsersController extends Controller
 
         $input= $request->all();
         users::create($input);
-        return redirect('admin/users')->with('flash_message','User Added');
+        return redirect('admin/users')->with('success','User created successfully');
     }
 
     public function show(users $users)
@@ -66,13 +66,13 @@ class UsersController extends Controller
         $user = users::find($id);
         $input = $request->all();
         $user->update($input);
-        return redirect('admin/users')->with('flash_message', 'user Updated!');
+        return redirect('admin/users')->with(['update'=>'Your User is Updated']);
 
         }
     public function destroy($id)
     {
             
         users::destroy($id);
-        return redirect('admin/users')->with('status', 'user has been deleted');
+        return redirect('admin/users')->with('delete', 'User has been deleted');
     }
 }
