@@ -27,7 +27,7 @@ class CatController extends Controller
     {
         $input=$request->all();
         cat::create($input);
-        return redirect('admin/category')->with('cat','Category create successfully');
+        return redirect('admin/category')->with('success','Category create successfully');
     }
     public function show(cat $cat)
     {
@@ -37,7 +37,7 @@ class CatController extends Controller
     public function edit($id)
     {
         $input=cat::find($id);
-        return view('admin.category.edit')->with('cat',$input);
+        return view('admin.category.edit')->with(['cat'=>$input]);
     }
 
     public function update(catsFormValidation $request, $id)
@@ -45,13 +45,13 @@ class CatController extends Controller
         $assain=cat::find($id);
         $input=$request->all();
         $assain->update($input);
-        return redirect('admin/category')->with('flash_message','Category value Updated');
+        return redirect('admin/category')->with(['update'=>'Your category is Updated']);
     }
 
 
     public function destroy($id)
     {
         cat::destroy($id);
-        return redirect('admin/category')->with('status', 'Category has been deleted');
+        return redirect('admin/category')->with('delete', 'Category has been deleted');
     }
 }

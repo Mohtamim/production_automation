@@ -42,6 +42,10 @@
                 <div class="middle-content container-xxl p-0">
 
                     <div class=" layout-top-spacing">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12">
+                              @include('admin.inc.flash-messages')
+                            </div>
                         @yield('admin_content')
                     </div>
 
