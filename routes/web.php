@@ -5,6 +5,7 @@ use App\Http\Controllers\BankBenificiaryController;
 use App\Http\Controllers\BuyersController;
 use App\Http\Controllers\CatController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\MainOrderController;
 use App\Http\Controllers\ManagerlistController;
 use App\Http\Controllers\PackageingCompanyController;
@@ -35,9 +36,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('dashboard', function () {
-        return view('admin.dashboard');
-    });
+    Route::resource('dashboard',dashboardController::class);
     Route::resource('assaign_order', AssainedOrderController::class);
     Route::resource('users', UsersController::class);
     Route::resource('country', CountryController::class);

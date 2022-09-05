@@ -8,8 +8,8 @@
             <div class="row text-center">
                 <div class="justify-content-center text-center">
                     <nav class="rounded float-center nav-responsive">
-                        <a class="navbar-brand" class="text-align-center" href="{{ url('admin/dashboard') }}">
-                        <center>  <img src="{{ asset('assets') }}/img/dhlogo.jpg" class="justify-content-end " width="50"
+                        <a class="navbar-brand" class="" href="{{ url('admin/dashboard') }}">
+                        <center>  <img src="{{ asset('assets') }}/img/dhlogo.jpg" class="justify-content-end" width="50"
                                 height="50" alt="Dhaka Handicraft"></center>
                         </a>
 
