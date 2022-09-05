@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\packagingCompanyFormValidation;
 use App\Models\PackageingCompany;
 use Illuminate\Http\Request;

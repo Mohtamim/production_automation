@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\country;
+use App\Http\Controllers\Controller;
+use App\Models\packaging;
 use Illuminate\Http\Request;
 
-class CountryController extends Controller
+class PackagingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class CountryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\country  $country
+     * @param  \App\Models\packaging  $packaging
      * @return \Illuminate\Http\Response
      */
-    public function show(country $country)
+    public function show(packaging $packaging)
     {
         //
     }
@@ -52,10 +53,10 @@ class CountryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\country  $country
+     * @param  \App\Models\packaging  $packaging
      * @return \Illuminate\Http\Response
      */
-    public function edit(country $country)
+    public function edit(packaging $packaging)
     {
         //
     }
@@ -64,10 +65,10 @@ class CountryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\country  $country
+     * @param  \App\Models\packaging  $packaging
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, country $country)
+    public function update(Request $request, packaging $packaging)
     {
         //
     }
@@ -75,10 +76,10 @@ class CountryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\country  $country
+     * @param  \App\Models\packaging  $packaging
      * @return \Illuminate\Http\Response
      */
-    public function destroy(country $country)
+    public function destroy(packaging $packaging)
     {
         //
     }

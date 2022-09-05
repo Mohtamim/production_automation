@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\bankBenificiary;
+use App\Http\Controllers\Controller;
+use App\Models\shiperAndExporter;
 use Illuminate\Http\Request;
 
-class BankBenificiaryController extends Controller
+class ShiperAndExporterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class BankBenificiaryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\bankBenificiary  $bankBenificiary
+     * @param  \App\Models\shiperAndExporter  $shiperAndExporter
      * @return \Illuminate\Http\Response
      */
-    public function show(bankBenificiary $bankBenificiary)
+    public function show(shiperAndExporter $shiperAndExporter)
     {
         //
     }
@@ -52,10 +53,10 @@ class BankBenificiaryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\bankBenificiary  $bankBenificiary
+     * @param  \App\Models\shiperAndExporter  $shiperAndExporter
      * @return \Illuminate\Http\Response
      */
-    public function edit(bankBenificiary $bankBenificiary)
+    public function edit(shiperAndExporter $shiperAndExporter)
     {
         //
     }
@@ -64,10 +65,10 @@ class BankBenificiaryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\bankBenificiary  $bankBenificiary
+     * @param  \App\Models\shiperAndExporter  $shiperAndExporter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, bankBenificiary $bankBenificiary)
+    public function update(Request $request, shiperAndExporter $shiperAndExporter)
     {
         //
     }
@@ -75,10 +76,10 @@ class BankBenificiaryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\bankBenificiary  $bankBenificiary
+     * @param  \App\Models\shiperAndExporter  $shiperAndExporter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(bankBenificiary $bankBenificiary)
+    public function destroy(shiperAndExporter $shiperAndExporter)
     {
         //
     }
