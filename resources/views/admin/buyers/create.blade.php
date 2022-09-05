@@ -64,6 +64,7 @@ WareHose
 
                 </div>
             </div>
+            <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">Image: </span><br>
                 <input type="file" name="img" id="img" value="{{ old('img') }}"  class="form-control @error('img')
@@ -74,9 +75,10 @@ WareHose
                    @enderror
 
                 </div>
-
+            </div>
+                <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
-                    
+
                     <select name="country" id="country" value="{{ old('country') }}"  class="form-control h-50 select2 @error('country')
                     is-invalid
                      @enderror" >
@@ -334,15 +336,13 @@ WareHose
                         <option value="ZMB">Zambia</option>
                         <option value="ZWE">Zimbabwe</option>
                     </select>
-
-
                 </div>
-
-
-
-
-                <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+                <div class="row  me-2">
+                <div class="input-group mb-3 col">
+                    <input type="submit" value="save" class="btn btn-success me-1">
+                    <button class="btn btn-secondary">Cancel</button>
+                    </div>
+                </div>
               </form>
         </div>
     </div>
