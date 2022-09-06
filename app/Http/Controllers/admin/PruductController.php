@@ -91,6 +91,7 @@ class PruductController extends Controller
     public function show($id)
     {
         $order = pruduct::find($id);
+        
         return view('admin.product.show')->with('product',$order);
     }
 

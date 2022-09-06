@@ -33,7 +33,7 @@ Category
 
 
                                                 <td>
-                                                    <a href="{{url('admin/category/'.$item->id)}}" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"><i class="fa fa-eye"></i></a>
+                                                   
                                                     <a href="{{url('admin/category/'.$item->id.'/edit')}}" class="btn btn-primary btn-sm" title="Edit Customer" aria-hidden="true"><i class="fa fa-pencil"></i></a>
                                                     <form method="POST" action="{{ url('admin/category/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                         {{ method_field('DELETE') }}
