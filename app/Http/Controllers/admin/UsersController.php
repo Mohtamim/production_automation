@@ -35,12 +35,14 @@ class UsersController extends Controller
             $managerId= $request->userId;
             $email= $request->email;
             $phone= $request->phone;
+            $userName= $request->userName;
 
             $data=new managerlist();
             $data->managerId=$managerId;
             $data->managerName=$managerName;
             $data->phone=$phone;
             $data->email=$email;
+            $data->userName=$userName;
             $data->save();
         }
 

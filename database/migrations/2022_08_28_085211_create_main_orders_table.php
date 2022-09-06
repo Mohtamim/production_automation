@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('quantity', 10, 2);
             $table->decimal('unitPrice', 10, 2);
             $table->decimal('totalPrice', 10, 2);
+            $table->string('remaing_quantity');
             $table->boolean('status');
             $table->timestamps();
         });

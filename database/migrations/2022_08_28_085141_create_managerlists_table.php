@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('managerId');
             $table->string('managerName');
+            $table->string('userName');
             $table->string('phone');
             $table->string('email');
             $table->integer('warehouseId')->unsigned()->nullable();

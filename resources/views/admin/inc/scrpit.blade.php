@@ -38,6 +38,9 @@
         });
     </script>
     <script>
+        $('.select2').select2();
+    </script>
+    <script>
         $(".alert").delay(4000).slideUp(500, function() {
             $(this).alert('close');
         });

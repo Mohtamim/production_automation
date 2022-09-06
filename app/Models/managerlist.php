@@ -14,6 +14,7 @@ class managerlist extends Model
                     'managerId',
                     'managerName',
                     'phone',
+                    'userName',
                     'email',
                     'warehouseId',
     ];

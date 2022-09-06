@@ -40,8 +40,8 @@ Product
 
             <div class="row ms-2 me-2">
                  <div class=" input-group mb-3 col">
-                    <label class="input-group-text bg-light text-black font-weight-bold" id="unit">Unit:</label>
-                    <select id="unit" class="form-select" name="unit">
+                    {{-- <label class="input-group-text bg-light text-black font-weight-bold" id="unit">Unit:</label> --}}
+                    <select id="unit" class="form-select select2" name="unit">
                         <option value="" >Select Unit</option>
                         @foreach ($unit as  $unit)
                         <option value="{{ $unit->id }}">{{ $unit->name }}</option>
@@ -52,9 +52,9 @@ Product
 
                 <div class=" input-group mb-3 col">
 
-                    <label class="input-group-text bg-light text-black font-weight-bold" id="category">Category:</label>
+                    {{-- <label class="input-group-text bg-light text-black font-weight-bold" id="category">Category:</label> --}}
 
-                    <select id="category" class="form-select" name="category">
+                    <select id="category" class="form-select select2" name="category">
                         <option value="" >Select category</option>
                         @foreach ($category as  $cat)
                         <option value="{{ $cat->id }}">{{ $cat->catName }}</option>
@@ -77,7 +77,7 @@ Product
 
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="supplier_raw_materials">Supplier Materials Cost:</span>
-                    <input type="number" step=".01" class="form-control
+                    <input type="number" step=".01" class="form-control"
                      name="supplier_raw_materials"  value="{{ old('supplier_raw_materials') }}" placeholder=
                     "BDT:10,0000">
 

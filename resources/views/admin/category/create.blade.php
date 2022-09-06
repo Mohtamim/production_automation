@@ -28,7 +28,7 @@ Category
                 </div>
 
                 <div class="input-group mb-3">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="catTitle">catTitle:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="catTitle">Category Title:</span>
                     <input type="text"  class="form-control @error('catTitle')
                     is-invalid
                     @enderror" name="catTitle"  value="{{ old('catTitle') }}"  placeholder="Enter your categoryTitle" aria-label="Enter your catTitle" aria-describedby="basic-addon2">
