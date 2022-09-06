@@ -40,7 +40,7 @@
                     <label for="quantity" class="control-label">Quantity</label><br>
                 <input type="text" name="quantity" id="quantity" class="form-control @error('quantity')
                   is-invalid
-                   @enderror" >
+                   @enderror" onkeyup="fetchData()" >
                    @error('quantity')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
@@ -50,7 +50,7 @@
                     <label for="unitPrice" class="control-label">Unit Price</label><br>
                 <input type="text" name="unitPrice" id="unitPrice" class="form-control @error('unitPrice')
                   is-invalid
-                   @enderror" >
+                   @enderror" onkeyup="fetchData()">
                    @error('unitPrice')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
@@ -83,7 +83,20 @@
     </div>
 </div>
 </div>
-<script>
+<script type="text/javascript">
+    function fetchData() {
+        var quantity = $("#quantity").val();
+        var unitPrice = $("#unitPrice").val();
+        var totalPrice = $("#totalPrice").val();
+
+        var result=quantity*unitPrice;
+        $('#totalPrice').val(result);
+
+    }
+</script>
+
+
+{{-- <script>
         $('select#status').on('change',function(e){
         e.preventDefault();
         var selected_ststus = $(this).children("option:selected").val();
@@ -114,7 +127,7 @@
 
     });
 }
-</script>
+</script> --}}
 <script>
     $('.select2').select2();
 </script>
