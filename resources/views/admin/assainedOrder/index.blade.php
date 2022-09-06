@@ -44,17 +44,18 @@
 
 
                                             <td>
+                                                <div class="d-flex content-justify-center">
                                                 <a href="{{ url('admin/assaign_order/' . $item->id) }}"
-                                                    class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
+                                                    class="btn btn-info btn-sm me-1"><i class="fa-solid fa-eye"></i></a>
                                                 <a href="{{ url('admin/assaign_order/' . $item->id . '/edit') }}"
-                                                    class="btn btn-success btn-sm"><i
+                                                    class="btn btn-success btn-sm me-1"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
                                                 <form method="post" action="{{ url('admin/assaign_order/' . $item->id) }}">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
-                                                    <button type="submit" class="btn btn-info btn-sm btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
+                                                    <button type="submit" class="btn btn-info btn-sm me-1 btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
                                                 </form>
-
+                                            </div>
                                             </td>
                                         </tr>
                                     @endforeach
