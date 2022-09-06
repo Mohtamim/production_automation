@@ -20,6 +20,7 @@
                                             <th>SL</th>
                                             <th>Product Name</th>
                                             <th>Quantity</th>
+                                            <th>Remain for Assaign</th>
                                             <th>UnitPrice</th>
                                             <th>TotalPrice</th>
                                             <th>Status</th>
@@ -32,6 +33,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item->productName }}</td>
                                                 <td>{{ $item->quantity }}</td>
+                                                <td>{{ $item->remaing_quantity }}</td>
                                                 <td>{{ $item->unitPrice }}</td>
                                                 <td>{{ $item->totalPrice }}</td>
                                                 @if ($item->status==1)

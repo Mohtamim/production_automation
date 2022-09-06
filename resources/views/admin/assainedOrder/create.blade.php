@@ -150,7 +150,7 @@
                     $.each(data, function(key, value) {
                         $('#mainOrderId').val(value.id);
                         $('#productName').val(value.productName);
-                        $('#quantity').val(value.quantity);
+                        $('#quantity').val(value.remaing_quantity);
                     })
 
                 }
