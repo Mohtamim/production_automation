@@ -14,15 +14,16 @@
                                 title="Add new Customer">
                                 Add New
                             </a><br><br>
-                            <table id="dataTableExample" class="table">
+                            <table id="table table-responsive text-center multi-table table dt-table-hover" class="table" style="white-space: nowrap;  text-overflow:ellipsis;">
                                 <thead>
                                     <tr>
 
                                         <th>SL</th>
-                                        <th>mainOrderId</th>
-                                        <th>warehouseId</th>
-                                        <th>quantity</th>
-                                        <th>status</th>
+                                        <th>Main Order Number</th>
+                                        <th>Product Name</th>
+                                        <th>Warehouse Id</th>
+                                        <th>Quantity</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -31,6 +32,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->mainOrderId }}</td>
+                                            <td>{{ $item->productName }}</td>
                                             <td>{{ $item->warehouseId }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             @if ($item->status == 1)

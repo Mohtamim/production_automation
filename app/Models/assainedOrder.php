@@ -12,6 +12,7 @@ class assainedOrder extends Model
     protected $primaryKey='id';
     protected $fillable=[
                     'mainOrderId',
+                    'productName',
                     'warehouseId',
                     'quantity',
                     'status',

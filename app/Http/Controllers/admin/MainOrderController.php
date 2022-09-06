@@ -34,8 +34,20 @@ class MainOrderController extends Controller
 
     public function store(mainOrderFormValidation $request)
     {
-        $input=$request->all();
-        mainOrder::create($input);
+        $productName = $request->productName;
+        $quantity = $request->quantity;
+        $unitPrice = $request->unitPrice;
+        $totalPrice = $request->totalPrice;
+        $status = $request->status;
+      
+        mainOrder::insert([
+            'productName'=>$productName,
+            'quantity'=>$quantity,
+            'remaing_quantity'=>$quantity,
+            'unitPrice'=>$unitPrice,
+            'totalPrice'=>$totalPrice,
+            'status'=>$status,
+       ]);
         return redirect('admin/main_order')->with('success','Main Order create successfully');
     }
 

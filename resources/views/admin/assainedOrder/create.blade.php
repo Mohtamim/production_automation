@@ -94,7 +94,7 @@
 
                     <div class="input-group mb-3">
 
-                        <select id="status" value="{{ old('status') }}" class="form-select form-control select2" name="status">
+                        <select id="warehouseId" value="{{ old('warehouseId') }}" class="form-select form-control select2" name="warehouseId">
                             <option value="">Select Warehouse Name</option>
                             @foreach ($warehouse as $ware)
                                 <option value="{{ $ware->id }}">{{ $ware->warehouseName }}</option>

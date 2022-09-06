@@ -128,7 +128,7 @@
                         <a href="{{ url('admin/unit') }}"> Unit </a>
                     </li>
                     <li class="{{ Route::is('category*') ? 'active' : '' }}">
-                        <a href="{{ url('admin/category') }}"> category </a>
+                        <a href="{{ url('admin/category') }}"> Category </a>
                     </li>
                     <li class="{{ Route::is('product*') ? 'active' : '' }}">
                         <a href="{{ url('admin/product') }}"> Products </a>

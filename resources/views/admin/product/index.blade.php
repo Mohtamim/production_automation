@@ -62,6 +62,8 @@
 
                                         <td>
                                             <div class="container justify-content-center d-flex ">
+                                                <a href="{{ url('admin/product/' . $item->id) }}" class="btn btn-info btn-sm me-1"
+                                                    title="View customer" aria-hidden="true"><i class="fa fa-eye"></i></a>
                                                 <a href="{{ url('admin/product/' . $item->id . '/edit') }}"
                                                     class="btn btn-success btn-sm me-1" aria-hidden="true"><i class="fa fa-pencil"></i></a>
                                                 <form method="POST" action="{{ url('admin/product/' . $item->id) }}">
