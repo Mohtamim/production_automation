@@ -8,10 +8,10 @@ Product
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4 class="text-center">ADD Product</h4>
+                    <h2 class="text-center text-success font-weight-blod mt-2">ADD Product</h2>
                 </div>
             </div>
-        </div>
+        </div><hr>
         <div class="widget-content widget-content-area">
             <form class="" action="{{ url('admin/product') }}" method="POST" enctype="multipart/form-data">
                 {!! csrf_field() !!}

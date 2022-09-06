@@ -77,7 +77,7 @@
                             class="form-control @error('productName')
                      is-invalid
                     @enderror"
-                            name="productName" placeholder="Enter MainOrder Id">
+                            name="productName" placeholder="Enter a Product Name">
                         @error('productName')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
