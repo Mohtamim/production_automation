@@ -68,8 +68,10 @@ class BuyersController extends Controller
 
     public function update(buyersFormValidation $request, $id)
     {
-        $buyer=$request->find($id);
-        $buyer->update($buyer);
+
+        $buyer=buyers::find($id);
+        $input=$request->all();
+        $buyer->update($input);
         return redirect('admin/buyers')->with(['update'=>'Your Buyer is Updated'] );
     }
 
