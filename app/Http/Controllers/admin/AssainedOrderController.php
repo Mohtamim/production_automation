@@ -63,6 +63,7 @@ class AssainedOrderController extends Controller
     public function show($id)
     {
         $order = assainedOrder::find($id);
+        
         return view('admin.assainedOrder.show')->with('assain',$order);
     }
 
