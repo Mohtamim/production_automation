@@ -9,6 +9,8 @@ use App\Http\Requests\buyersFormValidation;
 use App\Models\buyers;
 use Illuminate\Http\Request;
 
+use function GuzzleHttp\Promise\all;
+
 class BuyersController extends Controller
 {
 
@@ -53,9 +55,11 @@ class BuyersController extends Controller
     }
 
 
-    public function show(buyers $buyers)
+    public function show($id)
     {
-        //
+        $order = buyers::find($id);
+
+        return view('admin.buyers.show')->with('buyers',$order);
     }
 
 
@@ -70,7 +74,23 @@ class BuyersController extends Controller
     {
 
         $buyer=buyers::find($id);
-        $input=$request->all();
+        $buyerCode=$request->buyerCode;
+        $buyerName=$request->buyerName;
+        $email=$request->email;
+        $phone=$request->phone;
+        $img=$request->file('img');
+        $img_name=hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+        $img_url='upload/'.$img_name;
+        $img->move(public_path('upload'),$img_name);
+        $country=$request->country;
+        $input=([
+            'buyerCode'=>$buyerCode,
+            'buyerName'=>$buyerName,
+            'email'=>$email,
+            'phone'=>$phone,
+            'img'=> $img_url,
+            'country'=> $country
+        ]);
         $buyer->update($input);
         return redirect('admin/buyers')->with(['update'=>'Your Buyer is Updated'] );
     }

@@ -8,7 +8,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2> Product Details</h2>
+                        <h2 class="text-success text-center "> Product Details</h2>
                     </div>
 
                       <div class="card-body">
@@ -35,9 +35,11 @@
                             </div>
                             <div class="col">
                                 <div style="float: right;">
-                                    <p class="card-text"><img src="{{ asset($product->img ) }}" style="width: 250px; height:250px;" alt=""></p>
-                              </div>
-                            </div>
+
+                                    <div class="card card-text"><img src="{{ asset($product->img ) }}" style="width: 250px; height:250px;" alt=""></div>
+                                    <div class=" card-text text-center mt-1"> Caption: {{ $product->title }}</div>
+                                </div>
+                             </div>
                         </div>
                       </div>
 

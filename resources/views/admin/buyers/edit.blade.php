@@ -1,6 +1,6 @@
 @extends('admin.layout')
-@section('ware-title')
-WareHose
+@section('title')
+Buyer
 @endsection
 @section('admin_content')
 <div class="container mt-5">
@@ -10,12 +10,12 @@ WareHose
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h4>Edit Buyers</h4>
+                    <h2 class="text-success text-center font-weight-bold mt-3" >Edit Buyers</h2>
                 </div>
             </div>
         </div>
         <div class="widget-content widget-content-area ">
-            <form class="forms-sample" action="{{ url('admin/buyers/'.$buyer->id) }}" method="POST">
+            <form class="forms-sample" action="{{ url('admin/buyers/'.$buyer->id) }}" method="POST" enctype="multipart/form-data">
                 @method('PATCH')
                 {!! csrf_field() !!}
                 <div class="row ms-2 me-2">
@@ -68,7 +68,7 @@ WareHose
             <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">img</span><br>
-                <input type="file" name="img" id="img" value="{{ $buyer->img }}"  class="form-control @error('img')
+                <input type="file" name="img" id="img"  class="form-control @error('img')
                   is-invalid
                    @enderror" >
                    @error('img')
