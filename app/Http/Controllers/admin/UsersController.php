@@ -64,7 +64,7 @@ class UsersController extends Controller
     }
 
 
-    public function update(usersFormValidation $request, $id)
+    public function update(Request $request, $id)
     {
         $user = users::find($id);
         $input = $request->all();

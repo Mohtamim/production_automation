@@ -17,11 +17,11 @@
                                             <tr>
                                                 <th>SL</th>
                                                 <th>Buyer Code</th>
-                                                <th>buyerName</th>
-                                                <th>email</th>
-                                                <th>phone</th>
-                                                <th>img</th>
-                                                <th>country</th>
+                                                <th>Buyer Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>Image</th>
+                                                <th>Country</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

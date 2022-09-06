@@ -27,7 +27,7 @@ class buyersFormValidation extends FormRequest
             'buyerCode'=>'required|numeric',
             'buyerName'=>'required|string',
             'email'=>'required|string',
-            'phone'=>'required|numeric',
+            'phone'=>'required',
             'img'=>'required',
             'country'=>'required|string'
         ];

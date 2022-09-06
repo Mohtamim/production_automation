@@ -10,10 +10,10 @@ WareHose
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h4>ADD Buyers</h4>
+                    <h2 class="text-success text-center font-weight-bold mt-3">ADD Buyers</h2>
                 </div>
             </div>
-        </div>
+        </div><hr>
         <div class="widget-content widget-content-area ">
             <form class="forms-sample" action="{{ url('admin/buyers') }}" method="POST" enctype="multipart/form-data">
                 {!! csrf_field() !!}

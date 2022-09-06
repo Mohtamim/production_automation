@@ -30,7 +30,7 @@ class usersFormValidation extends FormRequest
             'email'=>'required|string',
             'phone'=>'required|numeric',
             'password'=>'required|string',
-            'userType'=>'required|numeric',
+            
 
         ];
     }
