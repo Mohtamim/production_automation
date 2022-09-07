@@ -8,10 +8,10 @@ Category
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4 class="text-center">Edit Category</h4>
+                    <h2 class="text-success text-center font-weight-bold mt-3" >Edit Category</h2>
                 </div>
             </div>
-        </div>
+        </div><hr>
         <div class="widget-content widget-content-area">
             <form class="" action="{{ url('admin/category/'.$cat->id) }}" method="POST">
                 {!! csrf_field() !!}
@@ -42,8 +42,8 @@ Category
 
 
 
-                <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+                <input type="submit" value="Update" class="btn btn-success">
+                <a class="btn btn-secondary" href="{{ url('admin/category') }}">Cancel</a>
               </form>
 
         </div>

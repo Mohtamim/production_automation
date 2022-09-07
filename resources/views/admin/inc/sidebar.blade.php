@@ -194,18 +194,19 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="pack" data-bs-parent="#accordionExample">
-                    <li class="{{ Route::is('pack_size*') ? 'active' : '' }}">
-                        <a href="{{ url('admin/pack_size') }}"> Pack Size </a>
-                    </li>
                     <li class="{{ Route::is('packaging_company*') ? 'active' : '' }}">
                         <a href="{{ url('admin/packaging_company') }}"> Packgeing Company </a>
                     </li>
-                    <li class="{{ Route::is('pack_order*') ? 'active' : '' }}">
-                        <a href="{{ url('admin/pack_order') }}"> Pack Order </a>
+                    <li class="{{ Route::is('pack_size*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/pack_size') }}"> Pack Size </a>
                     </li>
                     <li class="{{ Route::is('pack_price*') ? 'active' : '' }}">
                         <a href="{{ url('admin/pack_price') }}"> Pack Price</a>
                     </li>
+                    <li class="{{ Route::is('pack_order*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/pack_order') }}"> Pack Order </a>
+                    </li>
+
                 </ul>
             </li>
             <li class="menu">

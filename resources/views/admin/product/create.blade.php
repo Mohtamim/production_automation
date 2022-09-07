@@ -173,7 +173,7 @@ Product
             </div>
             <div class="input-group mb-3 me-4 col">
             <input type="submit" value="save" class="btn btn-success me-2">
-            <button class="btn btn-secondary">Cancel</button>
+            <a href="{{ url('admin/product') }}" class="btn btn-secondary">Cancel</a>
         </div>
               </form>
 

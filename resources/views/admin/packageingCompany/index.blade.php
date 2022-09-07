@@ -6,35 +6,35 @@ Packaging Company
 @section('admin_content')
 <div class="container mt-3">
 <div class="row">
-    <div class="col-md-12 grid-margin stretch-card ">
-      <div class="card ms-4">
-        <div class="card-body ms-4">
+    <div class="col-md-12 grid-margin ">
+
           <h3 class="text-center text-success"> Packaging Company</h3>
           <div class="table-responsive">
             <a href="{{url('admin/packaging_company/create')}}" class="btn btn-success btn-sm" title="Add new Customer">
                 Add New
-            </a><br><br>
+            </a>
+            <hr>
             <table id="dataTableExample" class="table">
               <thead>
                 <tr>
 
-                  <th>SL</th>
-                  <th>Company Name</th>
-                  <th>Email</th>
-                  <th>Contact</th>
-                  <th>Address</th>
-                  <th>Action</th>
+                  <th class="text-centeer">SL</th>
+                  <th class="text-centeer">Company Name</th>
+                  <th class="text-centeer">Email</th>
+                  <th class="text-centeer">Contact</th>
+                  <th class="text-centeer">Address</th>
+                  <th class="text-centeer">Action</th>
                 </tr>
               </thead>
               <tbody>
                   @foreach ($packCompany as $item)
                   <tr>
-                      <td>{{$loop->iteration}}</td>
-                      <td>{{$item->companyName}}</td>
-                      <td>{{$item->email}}</td>
-                      <td>{{$item->contact}}</td>
-                      <td>{{$item->address}}</td>
-                      <td>
+                      <td class="text-centeer">{{$loop->iteration}}</td>
+                      <td class="text-centeer">{{$item->companyName}}</td>
+                      <td class="text-centeer">{{$item->email}}</td>
+                      <td class="text-centeer">{{$item->contact}}</td>
+                      <td class="text-centeer">{{$item->address}}</td>
+                      <td class="text-centeer">
                         <div class="d-flex justify-content-center">
                         <a href="{{url('admin/packaging_company/'.$item->id)}}" class="btn btn-info btn-sm me-1"><i class="fa-solid fa-eye"></i></a>
                         <a href="{{url('admin/packaging_company/'.$item->id.'/edit')}}" class="btn btn-success btn-sm me-1"><i class="fa-solid fa-pen-to-square"></i></a>
@@ -52,8 +52,7 @@ Packaging Company
             </table>
           </div>
         </div>
-      </div>
-    </div>
+
   </div>
 </div>
   @endsection

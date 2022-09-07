@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
                         <h4 class="text-center"> Packaging Company</h4>
-                       
+
                     </div>
 
                 </div>
@@ -72,7 +72,7 @@
 
 
                     <input type="submit" value="save" class="btn btn-success">
-                    <button class="btn btn-secondary">Cancel</button>
+                    <a href="{{ url('admin/packaging_company') }}" class="btn btn-secondary">Cancel</a>
                 </form>
 
             </div>

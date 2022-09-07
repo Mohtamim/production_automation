@@ -9,7 +9,7 @@
             <div class="table-responsive">
                 <a href="{{ url('admin/product/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
                     Add Product
-                </a><br><br>
+                </a><hr>
 
                         <table id="table" class="table table-responsive text-center multi-table table dt-table-hover" style="white-space: nowrap;  text-overflow:ellipsis;">
                             <thead>
@@ -36,35 +36,35 @@
                             <tbody>
                                 @foreach ($product as $item)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $item->category }}</td>
-                                        <td><img src="{{ asset($item->img ) }}" style="width: 50px; height:50px;" alt=""></td>
-                                        <td>{{ $item->unit }}</td>
-                                        <td>{{ $item->DH_raw_materials }}</td>
-                                        <td>{{ $item->supplier_raw_materials }}</td>
-                                        <td>{{ $item->wages }}</td>
-                                        <td>{{ $item->carring_charge }}</td>
-                                        <td>{{ $item->treatement_deduction }}</td>
+                                        <td class="text-center">{{ $loop->iteration }}</td>
+                                        <td class="text-center">{{ $item->title }}</td>
+                                        <td class="text-center">{{ $item->category }}</td>
+                                        <td class="text-center"><img src="{{ asset($item->img ) }}" style="width: 50px; height:50px;" alt=""></td>
+                                        <td class="text-center">{{ $item->unit }}</td>
+                                        <td class="text-center">{{ $item->DH_raw_materials }}</td>
+                                        <td class="text-center">{{ $item->supplier_raw_materials }}</td>
+                                        <td class="text-center">{{ $item->wages }}</td>
+                                        <td class="text-center">{{ $item->carring_charge }}</td>
+                                        <td class="text-center">{{ $item->treatement_deduction }}</td>
                                         @if ($item->is_sample_product == 1)
-                                            <td>Yes</td>
+                                            <td class="text-center">Yes</td>
                                         @endif
                                         @if ($item->is_sample_product == 0)
-                                            <td>No</td>
+                                            <td class="text-center">No</td>
                                         @endif
 
-                                        <td>{{ $item->Details }}</td>
-                                        <td>{{ $item->notes }}</td>
-                                        <td>{{ $item->totalcost_for_supplier }}</td>
-                                        <td>{{ $item->DH_total_price }}</td>
+                                        <td class="text-center">{{ $item->Details }}</td>
+                                        <td class="text-center">{{ $item->notes }}</td>
+                                        <td class="text-center">{{ $item->totalcost_for_supplier }}</td>
+                                        <td class="text-center">{{ $item->DH_total_price }}</td>
 
 
-                                        <td>
+                                        <td class="text-center">
                                             <div class="container justify-content-center d-flex ">
                                                 <a href="{{ url('admin/product/' . $item->id) }}" class="btn btn-info btn-sm me-1"
                                                     title="View customer" aria-hidden="true"><i class="fa fa-eye"></i></a>
                                                 <a href="{{ url('admin/product/' . $item->id . '/edit') }}"
-                                                    class="btn btn-success btn-sm me-1" aria-hidden="true"><i class="fa fa-pencil"></i></a>
+                                                    class="btn btn-success btn-sm me-1" aria-hidden="true"><i class="fa fa-pen-to-square"></i></a>
                                                 <form method="POST" action="{{ url('admin/product/' . $item->id) }}">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
@@ -78,7 +78,7 @@
                             </tbody>
                         </table>
                     </div>
-               
+
         </div>
     </div>
 @endsection

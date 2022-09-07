@@ -3,18 +3,16 @@
     WareHose
 @endsection
 @section('admin_content')
-    <div class="col-lg-12 col-12  layout-spacing">
-        <div class="statbox widget box box-shadow">
-            <div class="widget-header">
-                <div class="row">
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h4 class="text-center">Edit Pack Size</h4>
-                    </div>
-
+<div class="col-lg-12 col-12  layout-spacing">
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h2 class="text-center text-success font-weight-bold mt-2">Edit Pack Size</h2>
                 </div>
-
             </div>
-            <div class="widget-content widget-content-area">
+        </div><hr>
+        <div class="widget-content widget-content-area">
                 <form class="" action="{{ url('admin/pack_size/'.$pack->id) }}" method="POST">
                     {!! csrf_field() !!}
                     @method('PATCH')
@@ -33,7 +31,7 @@
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" id="length">Length
                             Id:</span>
-                        <input type="number" value="{{ $pack->length }}" 
+                        <input type="number" value="{{ $pack->length }}"
                             class="form-control @error('length')
                     is-invalid
                     @enderror"
@@ -47,7 +45,7 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" id="phone">width:</span>
-                        <input type="number" value="{{ $pack->width }}" 
+                        <input type="number" value="{{ $pack->width }}"
                             class="form-control @error('width')
                      is-invalid
                     @enderror"
@@ -72,8 +70,8 @@
                     </div>
 
 
-                    <input type="submit" value="save" class="btn btn-success">
-                    <button class="btn btn-secondary">Cancel</button>
+                    <input type="submit" value="Update" class="btn btn-success">
+                    <a href="{{ url('admin/pack_size') }}" class="btn btn-secondary">Cancel</a>
                 </form>
 
             </div>
