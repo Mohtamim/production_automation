@@ -40,22 +40,28 @@ class AssainedOrderController extends Controller
 
         $mainOrder = mainOrder::all();
         $remainQ = mainOrder::where('id',$mainOrderId)->value('remaing_quantity');
-        $remainQ= $remainQ-$quantity;
-        if($remainQ>0){
-        DB::table('main_orders')
-            ->where('id', $mainOrderId)
-            ->update(['remaing_quantity' => $remainQ]);
+        $remainQ1= $remainQ-$quantity;
 
-        assainedOrder::insert([
-            'mainOrderId'=>$mainOrderId,
-            'productName'=>$productName,
-            'warehouseId'=>$warehouseId,
-            'quantity'=>$quantity,
-            'status'=>$status,
+        if($remainQ<=0){
 
-       ]);
-    return redirect('admin/assaign_order')->with('success','Assign Order create successfully');
-    }
+            return redirect('admin/assaign_order/create')->with('error','You have no remain quantity');
+        }
+        elseif($remainQ1>=0){
+            DB::table('main_orders')
+                ->where('id', $mainOrderId)
+                ->update(['remaing_quantity' => $remainQ]);
+
+            assainedOrder::insert([
+                'mainOrderId'=>$mainOrderId,
+                'productName'=>$productName,
+                'warehouseId'=>$warehouseId,
+                'quantity'=>$quantity,
+                'status'=>$status,
+
+           ]);
+        return redirect('admin/assaign_order')->with('success','Assign Order create successfully');
+        }
+    return redirect('admin/assaign_order/create')->with('error','You haven\'t enough remain quantity');
 }
 
 

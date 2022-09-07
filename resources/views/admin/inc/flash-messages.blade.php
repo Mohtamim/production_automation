@@ -15,20 +15,20 @@
 @endif
 
 @if ($message = Session::get('error'))
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
   <strong>Error!</strong> {{ $message }}
 </div>
 @endif
 
 @if ($errors->any())
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
+<div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
   <strong>Error!</strong> Something whent wrong!
 </div>
 @endif
 
 
 @if (session('status'))
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success text-center" role="alert">
         {{ session('status') }}
     </div>
 @endif

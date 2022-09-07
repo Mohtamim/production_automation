@@ -27,27 +27,31 @@
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody>{{ $i=0 }}
                         @foreach ($mainOrder as $item)
-                            <tr>
-                                <td class="text-center">{{ $loop->iteration }}</td>
-                                <td class="text-center">{{ $item->productName }}</td>
-                                <td class="text-center">{{ $item->remaing_quantity }}</td>
-                                <td class="text-center">{{ $item->unitPrice }}</td>
-                                <td class="text-center">{{ $item->totalPrice }}</td>
-                                @if ($item->status == 1)
-                                    <td class="text-center">Active</td>
-                                @endif
+                        @if (($item->remaing_quantity>0))
+                        @if ( ($item->status != 0))
+                         <tr>
+                            <td class="text-center">{{ $i+=1 }}</td>
+                            <td class="text-center">{{ $item->productName }}</td>
+                            <td class="text-center">{{ $item->remaing_quantity }}</td>
+                            <td class="text-center">{{ $item->unitPrice }}</td>
+                            <td class="text-center">{{ $item->totalPrice }}</td>
+                            @if ($item->status == 1)
+                                <td class="text-center">Active</td>
+                            @endif
 
-                                @if ($item->status == 0)
-                                    <td class="text-center">Deactive</td>
-                                @endif
-                                <td class="text-center">
-                                    <button id="{{ $item->id }}" onclick="fetchData(id)"
-                                        class="btn btn-info btn-sm">select</button>
-                                    {{-- <button type="button" id="{{  $item->id }}" onclick="fetchData(id)" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"></i>select</button> --}}
-                                </td>
-                            </tr>
+                            @if ($item->status == 0)
+                                <td class="text-center">Deactive</td>
+                            @endif
+                            <td class="text-center">
+                                <button id="{{ $item->id }}" onclick="fetchData(id)"
+                                    class="btn btn-info btn-sm">select</button>
+                                {{-- <button type="button" id="{{  $item->id }}" onclick="fetchData(id)" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"></i>select</button> --}}
+                            </td>
+                        </tr>
+                        @endif
+                        @endif
                         @endforeach
                     </tbody>
                 </table>
