@@ -30,7 +30,8 @@ class MainOrderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { $product= pruduct::all();
+    {
+        $product= pruduct::all();
        return view('admin.mainOrder.create')->with('product',$product);
     }
 
@@ -67,8 +68,10 @@ class MainOrderController extends Controller
 
     public function edit($id)
     {
+
        $input=mainOrder::find($id);
-       return view('admin.mainOrder.edit')->with('mainorder',$input);
+        $product= pruduct::all();
+        return view('admin.mainOrder.edit')->with(['mainorder'=>$input,'product'=>$product]);
     }
 
 

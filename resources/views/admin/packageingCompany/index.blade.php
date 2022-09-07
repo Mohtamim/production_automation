@@ -8,7 +8,7 @@ Packaging Company
 <div class="row">
     <div class="col-md-12 grid-margin ">
 
-          <h3 class="text-center text-success"> Packaging Company</h3>
+          <h3 class="text-center text-success font-weight-bold mt-3"> PACKAGING COMPANY</h3>
           <div class="table-responsive">
             <a href="{{url('admin/packaging_company/create')}}" class="btn btn-success btn-sm" title="Add new Customer">
                 Add New

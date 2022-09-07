@@ -18,15 +18,19 @@
             <form class="forms-sample" action="{{ url('admin/main_order/'.$mainorder->id) }}" method="POST">
                 {!! csrf_field() !!}
                  @method("PATCH")
-                <div class="mb-3">
-                    <label for="productName" class="control-label">Product Name</label><br>
-                <input type="text" name="productName" value="{{ $mainorder->productName }}" id="productName" class="form-control @error('productName')
-                  is-invalid
-                   @enderror">
-                   @error('productName')
+                 <div class="input-group mb-3">
+                    <select  class="form-select select2 @error('productName')
+                    is-invalid
+                     @enderror" name="productName" id="productName">
+                        <option value="" >Select Product</option>
+                        @foreach ($product as $pro )
+                        <option value="{{$pro->id  }}">{{ $pro->title}}</option>
+                        @endforeach
+
+                    </select>
+                    @error('productName')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
-
                 </div>
 
 

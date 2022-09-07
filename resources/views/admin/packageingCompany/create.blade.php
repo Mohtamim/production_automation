@@ -3,19 +3,18 @@
     Packageing Company
 @endsection
 @section('admin_content')
-    <div class="col-lg-12 col-12  layout-spacing">
-        <div class="statbox widget box box-shadow">
+<div class="container mt-5">
+    <div class="col-lg-12 col-12">
+
+        <div class="widget box box-shadow">
             <div class="widget-header">
                 <div class="row">
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h4 class="text-center"> Packaging Company</h4>
-
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
+                        <h2 class="text-center text-success h2 font-weight-bold mt-3">ADD PACKAGING COMPANY </h2>
                     </div>
-
                 </div>
-
-            </div>
-            <div class="widget-content widget-content-area">
+            </div> <hr>
+            <div class="widget-content widget-content-area ">
                 <form class="" action="{{ url('admin/packaging_company') }}" method="POST">
                     {!! csrf_field() !!}
                     <div class="input-group mb-3">

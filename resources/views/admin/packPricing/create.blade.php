@@ -3,20 +3,17 @@
     Pack Pricing
 @endsection
 @section('admin_content')
-    <div class="col-lg-12 col-12  layout-spacing">
-        <div class="statbox widget box box-shadow">
-            <div class="widget-header">
-                <div class="row">
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h4 class="text-center"> Pack Pricing</h4>
-                        {{-- <a href="{{ url('admin/packaging_company') }}" class="btn btn-info text-center justify-content-start my-4">
-                            packaging Company</a> --}}
-                    </div>
-
+<div class="container-fluid mt-4 ">
+<div class="col-lg-12 col-12  layout-spacing">
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h2 class="text-center text-success font-weight-bold mt-2"> PACKAGE PRICE</h2>
                 </div>
-
             </div>
-            <div class="widget-content widget-content-area">
+        </div><hr>
+        <div class="widget-content widget-content-area">
                 <form class="" action="{{ url('admin/pack_price') }}" method="POST">
                     {!! csrf_field() !!}
                     <div class=" input-group mb-3">
@@ -63,7 +60,7 @@
                 </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold" id="price">Price:</span>
-                        <input type="number" value="{{ old('price') }}" 
+                        <input type="number" value="{{ old('price') }}"
                             class="form-control @error('price')
                      is-invalid
                     @enderror"
@@ -82,7 +79,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <script>
         $('.select2').select2();
     </script>

@@ -4,11 +4,11 @@
 Pack Size
 @endsection
 @section('admin_content')
-<div class="container mt-3">
-<div class="row">
+<div class="container-fluid mt-3 m-5 shadow">
+<div class="row mb-4">
     <div class="col-md-12 grid-margin  ">
 
-          <h3 class="text-center text-success">Pack Size</h3>
+          <h3 class="text-center text-success font-weight-bold mt-3">PACKAGE SIZE</h3>
           <div class="table-responsive">
             <a href="{{url('admin/pack_size/create')}}" class="btn btn-success btn-sm" title="Add new Customer">
                 Add New

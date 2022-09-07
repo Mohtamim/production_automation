@@ -8,7 +8,7 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h2 class="text-center text-success font-weight-bold mt-2">Add Pack Size</h2>
+                    <h2 class="text-center text-success font-weight-bold mt-2">ADD PACKAGE SIZE</h2>
                 </div>
             </div>
         </div><hr>

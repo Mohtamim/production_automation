@@ -4,11 +4,10 @@
 Pack Pricing
 @endsection
 @section('admin_content')
-<div class="container mt-3">
+<div class="container-fluid mt-5 m-2 shadow">
 <div class="row">
     <div class="col-md-12 grid-margin  ">
-
-          <h3 class="text-center text-success"> Pack Pricing</h3>
+        <h2 class="text-center text-success font-weight-bold mt-2"> PACKAGE PRICE</h2>
           <div class="table-responsive">
             <a href="{{url('admin/pack_price/create')}}" class="btn btn-success btn-sm" title="Add new Customer">
                 Add New
@@ -51,7 +50,7 @@ Pack Pricing
             </table>
           </div>
         </div>
-     
+
   </div>
 </div>
   @endsection

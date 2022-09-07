@@ -8,7 +8,7 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h2 class="text-center text-success font-weight-bold mt-2">Edit Packing Company</h2>
+                    <h2 class="text-center text-success font-weight-bold mt-2">EDIT PACKAGING COMPANY</h2>
                 </div>
             </div>
         </div><hr>

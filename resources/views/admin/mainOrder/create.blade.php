@@ -20,7 +20,7 @@
 
 
                 <div class="input-group mb-3">
-                    <select id="status" class="form-select select2 @error('productName')
+                    <select  class="form-select select2 @error('productName')
                     is-invalid
                      @enderror" name="productName" id="productName">
                         <option value="" >Select Product</option>
