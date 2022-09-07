@@ -41,6 +41,7 @@ class AssainedOrderController extends Controller
         $mainOrder = mainOrder::all();
         $remainQ = mainOrder::where('id',$mainOrderId)->value('remaing_quantity');
         $remainQ= $remainQ-$quantity;
+        if($remainQ>0){
         DB::table('main_orders')
             ->where('id', $mainOrderId)
             ->update(['remaing_quantity' => $remainQ]);
@@ -53,17 +54,15 @@ class AssainedOrderController extends Controller
             'status'=>$status,
 
        ]);
-
-
-
-        return redirect('admin/assaign_order')->with('status','Assign Order create successfully');
+    return redirect('admin/assaign_order')->with('success','Assign Order create successfully');
     }
+}
 
 
     public function show($id)
     {
         $order = assainedOrder::find($id);
-        
+
         return view('admin.assainedOrder.show')->with('assain',$order);
     }
 

@@ -17,26 +17,26 @@ Unit
                                 <table id="table" class="table dt-table-hover"  width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th> Name</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            <th class="text-center">Id</th>
+                                            <th class="text-center"> Name</th>
+                                            <th class="text-center">Status</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($unit as $item)
                                             <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->name }}</td>
+                                                <td class="text-center">{{ $loop->iteration }}</td>
+                                                <td class="text-center">{{ $item->name }}</td>
                                                 @if ($item->status==1)
-                                                <td>Active</td>
+                                                <td class="text-center">Active</td>
                                                 @endif
                                                 @if ($item->status==0)
-                                                <td>Deactive</td>
+                                                <td class="text-center">Deactive</td>
                                                 @endif
 
 
-                                                <td>
+                                                <td class="text-center">
                                                     <a href="{{url('admin/unit/'.$item->id.'/edit')}}" class="btn btn-primary btn-sm" title="Edit Unit" aria-hidden="true"><i class="fa fa-pencil"></i></a>
                                                     <form method="POST" action="{{ url('admin/unit/' . $item->id) }}"  accept-charset="UTF-8" style="display:inline">
                                                         {{ method_field('DELETE') }}
@@ -56,6 +56,6 @@ Unit
             </div>
         </div>
     </div>
-    
+
 
 @endsection
