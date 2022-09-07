@@ -11,7 +11,7 @@ class mainOrder extends Model
     protected $table='main_orders';
     protected $primaryKey='id';
     protected $fillable=[
-        'productName',
+        'productId',
         'quantity',
         'remaing_quantity',
         'unitPrice',
@@ -20,6 +20,9 @@ class mainOrder extends Model
 
     ];
     public function waproductsrehouse(){
-        return $this->hasMany(pruduct::class);
+        return $this->hasMany(warehouse::class);
+    }
+    public function pruducts(){
+        return $this->belongsTo(pruduct::class);
     }
 }
