@@ -160,7 +160,7 @@
 
                     $.each(data, function(key, value) {
                         $('#mainOrderId').val(value.id);
-                        $('#productName').val(value.productName);
+                        $('#productName').val(value.productId);
                         $('#quantity').val(value.remaing_quantity);
                     })
 

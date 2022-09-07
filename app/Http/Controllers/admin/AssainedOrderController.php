@@ -50,11 +50,11 @@ class AssainedOrderController extends Controller
         elseif($remainQ1>=0){
             DB::table('main_orders')
                 ->where('id', $mainOrderId)
-                ->update(['remaing_quantity' => $remainQ]);
+                ->update(['remaing_quantity' => $remainQ1]);
 
             assainedOrder::insert([
                 'mainOrderId'=>$mainOrderId,
-                'productName'=>$productName,
+                'productId'=>$productName,
                 'warehouseId'=>$warehouseId,
                 'quantity'=>$quantity,
                 'status'=>$status,

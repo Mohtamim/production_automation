@@ -60,7 +60,7 @@ class MainOrderController extends Controller
     {
         // $loadData = DB::table('products')->where('id',$id)->get();
         // return response()->json($loadData);
-        $order = mainOrder::where('id',$oid)->select('id','quantity','remaing_quantity','productName')->get();
+        $order = mainOrder::where('id',$oid)->select('id','quantity','remaing_quantity','productId')->get();
 
         return response()->json($order, 200);
     }
