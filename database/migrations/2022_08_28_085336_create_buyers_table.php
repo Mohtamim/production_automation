@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('buyerCode');
             $table->string('buyerName');
             $table->string('email')->unique();
-            $table->integer('phone');
+            $table->string('phone');
             $table->string('img');
             $table->string('country');
             $table->timestamps();

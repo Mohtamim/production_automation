@@ -16,7 +16,8 @@ class AssainedOrderController extends Controller
     public function index()
     {
         $input=assainedOrder::all();
-        return view('admin.assainedOrder.index')->with('assain',$input);
+        $mainoreders=mainOrder::all();
+        return view('admin.assainedOrder.index',compact('mainoreders'))->with('assain',$input);
     }
 
 

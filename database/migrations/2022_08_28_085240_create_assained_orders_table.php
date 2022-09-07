@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('assained_orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('mainOrderId');
+            $table->foreignId('mainOrderId')->constrained('main_orders')->onDelete('cascade');
             $table->string('productName');
             $table->integer('warehouseId');
             $table->decimal('quantity');
-            $table->boolean('status');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }
