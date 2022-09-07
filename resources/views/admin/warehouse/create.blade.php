@@ -10,7 +10,7 @@ WareHose
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h3  class="text-center text-success h2 font-weight-bold mt-3" >ADD Warehouse</h3>
+                    <h3  class="text-center text-success h2 font-weight-bold mt-3" >ADD WAREHOUSE</h3>
                 </div>
             </div>
         </div>

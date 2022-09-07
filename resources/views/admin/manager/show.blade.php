@@ -8,7 +8,7 @@ Warehouse Manager
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="text-center text-success h2 font-weight-bold mt-3">Warehouse Manager Details</h2>
+                        <h2 class="text-center text-success h2 font-weight-bold mt-3">WAREHOUSE MANAGER DETAILS</h2>
                     </div>
 
                       <div class="card-body">

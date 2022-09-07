@@ -6,7 +6,7 @@
     <div class="row ">
         <div class="col-md-12 grid-margin stretch-card ">
 
-            <h2 class="text-center text-success font-weight-bold mt-3">Warehouse Manager</h2>
+            <h2 class="text-center text-success font-weight-bold mt-3">WAREHOUSE MANAGER</h2>
             <hr class="bg-primary">
             <div class="table-responsive">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">

@@ -7,7 +7,7 @@ Category
     <div class="row ">
         <div class="col-md-12 grid-margin stretch-card ">
 
-                    <h2 class="text-center text-success">CATEGOEY</h2>
+                    <h2 class="text-center text-success font-weight-bold">CATEGOEY</h2>
                     <div class="table-responsive">
                         <a href="{{ url('admin/category/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
                             Add Category

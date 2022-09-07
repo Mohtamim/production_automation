@@ -5,7 +5,7 @@
 @section('admin_content')
     <div class="row ">
         <div class="col-md-12 grid-margin ">
-            <h2 class="text-center text-success mt-2">Main Order</h2>
+            <h2 class="text-center text-success mt-2">MAIN ORDER</h2>
 
             <div class="table-responsive">
                 <a href="{{ url('admin/main_order/create') }}" class="btn btn-success btn-sm" title="Add new Customer">

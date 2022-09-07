@@ -8,7 +8,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="text-success text-center "> Buyers Details</h2>
+                        <h2 class="text-success text-center "> BUYERS DETAILS</h2>
                     </div>
 
                       <div class="card-body">

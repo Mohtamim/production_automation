@@ -25,7 +25,7 @@ class productFormValidation extends FormRequest
     {
         return [
             'title'=>'required|string',
-            'category'=>'required|string|regex:/^[\pL\s\-]+$/u',
+            'category'=>'required',
             'image'=>'required',
             'unit'=>'required',
             'DH_raw_materials'=>'required',
@@ -33,7 +33,7 @@ class productFormValidation extends FormRequest
             'wages'=>'required',
             'carring_charge'=>'required',
             'treatement_deduction'=>'required',
-            'is_sample_product'=>'required|boolean',
+            'is_sample_product'=>'required',
             'totalcost_for_supplier'=>'required',
             'DH_total_price'=>'required'
         ];

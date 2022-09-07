@@ -5,7 +5,7 @@
 @section('admin_content')
     <div class="container mt-3">
         <div class="row ">
-            <h3 class="text-center text-success">Product</h3>
+            <h3 class="text-center text-success font-weight-bold">PRODUCT</h3>
             <div class="table-responsive">
                 <a href="{{ url('admin/product/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
                     Add Product

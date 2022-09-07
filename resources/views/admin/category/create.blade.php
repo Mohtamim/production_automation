@@ -8,7 +8,7 @@ Category
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4 class="text-center">ADD Category</h4>
+                    <h3 class="text-center h2 text-success font-weight-bold">ADD CATEGORY</h3>
                 </div>
             </div>
         </div>

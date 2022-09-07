@@ -8,7 +8,7 @@ Category
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h2 class="text-success text-center font-weight-bold mt-3" >Edit Category</h2>
+                    <h2 class="text-success text-center font-weight-bold mt-3" >EDIT CATEGORY</h2>
                 </div>
             </div>
         </div><hr>

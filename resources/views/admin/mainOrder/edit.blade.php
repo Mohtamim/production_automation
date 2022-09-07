@@ -10,7 +10,7 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h2 class="text-center text-success h2 font-weight-bold mt-3">Edit Order</h2>
+                    <h2 class="text-center text-success h2 font-weight-bold mt-3">EDIT ORDER</h2>
                 </div>
             </div>
         </div><hr class="bg-primary">
@@ -41,7 +41,7 @@
 
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Unit Price</span><br>
+                    <span class="input-group-text bg-light text-black font-weight-bold">Unit Price(USD)</span><br>
                 <input type="text" name="unitPrice" value="{{ $mainorder->unitPrice }}" id="unitPrice" class="form-control @error('unitPrice')
                   is-invalid
                    @enderror">
@@ -51,7 +51,7 @@
 
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Total Price</span><br>
+                    <span class="input-group-text bg-light text-black font-weight-bold">Total Price(USD)</span><br>
                 <input type="text" name="totalPrice" id="totalPrice" value="{{ $mainorder->totalPrice }}" class="form-control @error('totalPrice')
                   is-invalid
                    @enderror" >
@@ -74,7 +74,7 @@
                     </select>
                 </div>
                 <input type="submit" value="Update" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+                <a href="{{ url('admin/main_order') }}" class="btn btn-secondary">Cancel</a>
               </form>
         </div>
     </div>

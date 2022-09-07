@@ -6,9 +6,8 @@ Pack Pricing
 @section('admin_content')
 <div class="container mt-3">
 <div class="row">
-    <div class="col-md-12 grid-margin stretch-card ">
-      <div class="card ms-4">
-        <div class="card-body ms-4">
+    <div class="col-md-12 grid-margin  ">
+
           <h3 class="text-center text-success"> Pack Pricing</h3>
           <div class="table-responsive">
             <a href="{{url('admin/pack_price/create')}}" class="btn btn-success btn-sm" title="Add new Customer">
@@ -36,7 +35,7 @@ Pack Pricing
                       <td>{{$item->price}}</td>
                       <td>
                         <div class="d-flex justify-content-center">
-                       
+
                         <a href="{{url('admin/pack_price/'.$item->id.'/edit')}}" class="btn btn-success btn-sm me-1"><i class="fa-solid fa-pen-to-square"></i></a>
                         <form method="post" action="{{url('admin/pack_price/'.$item->id)}}">
                             {{ method_field('DELETE')}}
@@ -52,8 +51,7 @@ Pack Pricing
             </table>
           </div>
         </div>
-      </div>
-    </div>
+     
   </div>
 </div>
   @endsection

@@ -8,7 +8,7 @@ Product
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h2 class="text-center text-success font-weight-bold mt-2">Edit Product</h2>
+                    <h2 class="text-center text-success font-weight-bold mt-2">EDIT PRODUCT</h2>
                 </div>
             </div>
         </div><hr>
@@ -27,15 +27,19 @@ Product
                     @enderror
                 </div>
 
-                <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="category">Category:</span>
-                    <input type="text"  value="{{ $product->category }}" class="form-control @error('category')
-                     is-invalid
-                    @enderror" name="category" placeholder="Enter category">
-                    @error('category')
-                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
-                </div>
+                <div class=" input-group mb-3 col">
+
+                    {{-- <label class="input-group-text bg-light text-black font-weight-bold" id="category">Category:</label> --}}
+
+                    <select id="category" class="form-select select2" name="category">
+                        <option value="" >Select category</option>
+                        @foreach ($category as  $cat)
+                        <option value="{{ $cat->id }}">{{ $cat->catName }}</option>
+                        @endforeach
+
+                    </select>
+
+            </div>
                  </div>
 
                  <div class="row ms-2 me-2">
@@ -43,7 +47,7 @@ Product
                     <span class="input-group-text bg-light text-black font-weight-bold" id="img">Image:</span>
                     <input type="file"  value="{{ $product->img }}"  class="form-control @error('img')
                      is-invalid
-                    @enderror" name="img" placeholder="Enter a img">
+                    @enderror" name="img" >
                     @error('img')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
@@ -117,13 +121,17 @@ Product
 
 
                 <div class="input-group mb-3 col">
-                    <div class="form-check form-check-inline">
-                        <span class="input-group-text bg-light text-black font-weight-bold me-2" id="is_sample_product">Is it sample product?:</span>
-
+                    <div class="form-check form-check-inline @error('is_sample_product')
+                    is-invalid
+                    @enderror" id="is_sample_product" name="is_sample_product">
+                        <span class="input-group-text bg-light text-black font-weight-bold me-2">Is it sample product?:</span>
                         <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="1">
                         <label class="form-check-label" for="is_sample_product" value="1">Yes</label>
                         <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="0">
                         <label class="form-check-label" for="is_sample_product" value="0">No</label>
+                        @error('is_sample_product')
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
                       </div>
                 </div>
                  </div>

@@ -8,7 +8,7 @@ Product
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h2 class="text-center text-success font-weight-blod mt-2">ADD Product</h2>
+                    <h2 class="text-center text-success font-weight-blod mt-2">ADD PRODUCT</h2>
                 </div>
             </div>
         </div><hr>

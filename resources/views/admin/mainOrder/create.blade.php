@@ -10,7 +10,7 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h2 class="text-center text-success h2 font-weight-bold mt-3">Take Order</h2>
+                    <h2 class="text-center text-success h2 font-weight-bold mt-3">TAKE ORDER </h2>
                 </div>
             </div>
         </div> <hr>
@@ -46,7 +46,7 @@
 
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Unit Price</span><br>
+                    <span class="input-group-text bg-light text-black font-weight-bold">Unit Price(USD)</span><br>
                 <input type="text" name="unitPrice" id="unitPrice" class="form-control @error('unitPrice')
                   is-invalid
                    @enderror" onkeyup="fetchData()">
@@ -56,7 +56,7 @@
 
                 </div>
                 <div class="input-group mb-3">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Total Price</span><br>
+                    <span class="input-group-text bg-light text-black font-weight-bold">Total Price(USD)</span><br>
                 <input type="text" name="totalPrice" id="totalPrice" class="form-control @error('totalPrice')
                   is-invalid
                    @enderror" >
@@ -76,7 +76,7 @@
 
 
                 <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+                <a href="{{ url('admin/main_order') }}" class="btn btn-secondary">Cancel</a>
               </form>
         </div>
     </div>
@@ -127,7 +127,7 @@
     });
 }
 </script> --}}
-<script>
+<script type="text/javascript">
     $('.select2').select2();
 </script>
 @endsection
