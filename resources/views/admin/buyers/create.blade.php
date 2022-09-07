@@ -340,7 +340,7 @@ WareHose
                 <div class="row  me-2">
                 <div class="input-group mb-3 col">
                     <input type="submit" value="save" class="btn btn-success me-1">
-                    <button class="btn btn-secondary">Cancel</button>
+                    <a class="btn btn-secondary" href="{{ url('admin/buyers') }}">Cancel</a>
                     </div>
                 </div>
               </form>

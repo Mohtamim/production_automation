@@ -8,10 +8,11 @@
             <div class="widget-header">
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                        <h4 class="text-center">ADD USER</h4>
+                        <h3 class="text-center text-success h2 font-weight-bold mt-3">ADD USER</h3>
                     </div>
                 </div>
             </div>
+            <hr class="bg-primary">
             <div class="widget-content widget-content-area">
                 <form class="" action="{{ url('admin/users') }}" method="POST">
                     {!! csrf_field() !!}
@@ -120,7 +121,7 @@
                     </div>
                     <div class="input-group mb-3 col">
                     <input type="submit" value="save" class="btn btn-success me-1">
-                    <button class="btn btn-secondary">Cancel</button>
+                    <a class="btn btn-secondary" href="{{ url('admin/users') }}">Cancel</a>
                     </div>
                 </form>
 

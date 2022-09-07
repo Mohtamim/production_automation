@@ -3,23 +3,22 @@
 Unit
 @endsection
 @section('admin_content')
-<div class="container mt-5">
+<div class="container-fluid mt-5">
 <div class="col-lg-12 col-12">
-
     <div class="widget box box-shadow">
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h4>ADD Unit</h4>
+                    <h2 class="text-center text-success mt-3 ">ADD UNIT</h2>
                 </div>
             </div>
-        </div>
+        </div><hr>
         <div class="widget-content widget-content-area ">
             <form class="forms-sample" action="{{ url('admin/unit') }}" method="POST">
                 {!! csrf_field() !!}
 
-                <div class="mb-3">
-                    <label for="name" class="control-label">Unit Name</label><br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Unit Name</span><br>
                 <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control @error('name')
                   is-invalid
                    @enderror">
@@ -42,7 +41,7 @@ Unit
 
 
                 <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+                <a class="btn btn-secondary" href="{{ url('admin/unit') }}">Cancel</a>
               </form>
         </div>
     </div>

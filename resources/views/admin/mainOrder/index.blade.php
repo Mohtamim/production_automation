@@ -11,8 +11,6 @@
                 <a href="{{ url('admin/main_order/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
                     Add New
                 </a><hr class="bg-primary">
-               
-
                         <table id="table table-responsive text-center multi-table table dt-table-hover" width=100% class="table"
                             style="white-space: nowrap; text-overflow:ellipsis;">
                             <thead>

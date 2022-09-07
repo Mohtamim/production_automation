@@ -10,8 +10,7 @@
                 <a href="{{ url('admin/product/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
                     Add Product
                 </a><br><br>
-                <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
-                    <div class="widget-content widget-content-area br-8">
+
                         <table id="table" class="table table-responsive text-center multi-table table dt-table-hover" style="white-space: nowrap;  text-overflow:ellipsis;">
                             <thead>
                                 <tr >
@@ -79,9 +78,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-
-            </div>
+               
         </div>
     </div>
 @endsection

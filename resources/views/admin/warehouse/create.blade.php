@@ -10,16 +10,17 @@ WareHose
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h4>ADD Warehouse</h4>
+                    <h3  class="text-center text-success h2 font-weight-bold mt-3" >ADD Warehouse</h3>
                 </div>
             </div>
         </div>
+        <hr class="bg-primary">
         <div class="widget-content widget-content-area ">
             <form class="forms-sample" action="{{ url('admin/warehouses') }}" method="POST">
                 {!! csrf_field() !!}
 
-                <div class="mb-3">
-                    <label for="warehouseName" class="control-label">Warehouse Name</label><br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Warehouse Name</span><br>
                 <input type="text" name="warehouseName" value="{{ old('warehouseName') }}" id="warehouseName" class="form-control @error('warehouseName')
                   is-invalid
                    @enderror">
@@ -30,8 +31,8 @@ WareHose
                 </div>
 
 
-                <div class="mb-3">
-                    <label for="address" class="control-label">Address</label><br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Address</span><br>
                 <input type="text" name="address" value="{{ old('address') }}" id="address" class="form-control @error('address')
                   is-invalid
                    @enderror" >
@@ -45,7 +46,7 @@ WareHose
 
 
                 <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+                <a class="btn btn-secondary" href="{{ url('admin/warehouses') }}">Cancel</a>
               </form>
         </div>
     </div>

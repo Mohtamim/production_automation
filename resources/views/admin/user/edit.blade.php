@@ -8,11 +8,11 @@
             <div class="widget-header">
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                        <h2 class="text-success text-center font-weight-bold mt-3">Edit Warehouse user</h2>
+                        <h3 class="text-success text-center font-weight-bold mt-3">EDIT USERS</h3>
                     </div>
                 </div>
             </div>
-            <hr>
+            <hr class="bg-primary">
             <div class="widget-content widget-content-area">
 
 
@@ -121,8 +121,8 @@
                         </div>
                         <div class="row ms-2 me-2">
                             <div class="input-group mb-3">
-                        <input type="submit" value="save" class="btn btn-success me-1">
-                        <button class="btn btn-secondary">Cancel</button>
+                        <input type="submit" value="update" class="btn btn-success me-1">
+                        <a class="btn btn-secondary" href="{{ url('admin/users') }}">Cancel</a>
                             </div>
                         </div>
                 </form>

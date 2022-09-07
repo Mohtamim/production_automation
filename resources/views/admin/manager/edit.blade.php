@@ -3,19 +3,17 @@
 Warehouse Manager
 @endsection
 @section('admin_content')
-    <div class="col-lg-12 col-12  layout-spacing">
-        <div class="statbox widget box box-shadow">
-            <div class="widget-header">
-                <div class="row">
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h4 class="text-center"> Edit Warehouse Manager</h4>
-
-                    </div>
-
+<div class="col-lg-12 col-12  layout-spacing">
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h3 class="text-success text-center font-weight-bold mt-3">EDIT WAREHOUSE MANAGER</h3>
                 </div>
-
             </div>
-            <div class="widget-content widget-content-area">
+        </div>
+        <hr class="bg-primary">
+        <div class="widget-content widget-content-area">
                 <form class="" action="{{ url('admin/managers/'.$manager->id) }}" method="POST">
                     {!! csrf_field() !!}
                     @method('PATCH')
@@ -81,8 +79,8 @@ Warehouse Manager
 
                         </select>
                     </div>
-                    <input type="submit" value="save" class="btn btn-success">
-                    <button class="btn btn-secondary">Cancel</button>
+                    <input type="submit" value="Update" class="btn btn-success">
+                    <a class="btn btn-secondary" href="{{ url('admin/managers') }}">Cancel</a>
                 </form>
 
             </div>

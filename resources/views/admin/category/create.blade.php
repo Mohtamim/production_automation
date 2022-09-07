@@ -42,7 +42,7 @@ Category
 
 
                 <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+                <a class="btn btn-secondary" href="{{ url('admin/category') }}">Cancel</a>
               </form>
 
         </div>

@@ -341,8 +341,8 @@ Buyer
             </div>
 
                 <div class="input-group mb-3 me-4 col">
-                <input type="submit" value="save" class="btn btn-success me-1">
-                <button class="btn btn-secondary">Cancel</button>
+                <input type="submit" value="Update" class="btn btn-success me-1">
+                <a class="btn btn-secondary" href="{{ url('admin/buyers') }}">Cancel</a>
                 </div>
 
               </form>

@@ -8,10 +8,10 @@ Unit
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4>Edit Unit</h4>
+                    <h3 class="text-center text-success mt-3 ">Edit Unit</h3>
                 </div>
             </div>
-        </div>
+        </div><hr>
         <div class="widget-content widget-content-area">
             <form class="forms-sample" action="{{ url('admin/unit/'.$unit->id) }}" method="POST">
                 {!! csrf_field() !!}
@@ -19,9 +19,8 @@ Unit
                     <div class="mb-3">
                     <input type="hidden" name="id" id="id" value="{{$unit->id}}" />
                 </div>
-                <div class="mb-3">
-                  <label for="name" class="form-label">Unit Name</label>
-
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Unit Name</span><br>
                   <input type="text" class="form-control" name="name" id="name"  value="{{ $unit->name }}">
 
                 </div>
@@ -40,7 +39,7 @@ Unit
                 </div>
 
                 <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+                <a class="btn btn-secondary" href="{{ url('admin/unit') }}">Cancel</a>
               </form>
         </div>
     </div>
