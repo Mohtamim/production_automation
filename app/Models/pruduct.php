@@ -33,4 +33,7 @@ class pruduct extends Model
     public function unit(){
         return $this->hasMany(unit::class);
     }
+    public function mainorders(){
+        return $this->hasMany(mainOrder::class);
+    }
 }

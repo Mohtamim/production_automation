@@ -11,6 +11,11 @@
                 <a href="{{ url('admin/main_order/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
                     Add New
                 </a><hr class="bg-primary">
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 00a545be0b2764bbcbfeff5584bab72dd51c9806
                         <table id="table table-responsive text-center multi-table table dt-table-hover" width=100% class="table"
                             style="white-space: nowrap; text-overflow:ellipsis;">
                             <thead>
@@ -26,10 +31,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($mainorder as $item)
+                                @foreach ($products as $item)
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
-                                        <td class="text-center">{{ $item->productName }}</td>
+                                        <td class="text-center">{{ $item->products->title }}</td>
                                         <td class="text-center">{{ $item->quantity }}</td>
                                         <td class="text-center">{{ $item->remaing_quantity }}</td>
                                         <td class="text-center">{{ $item->unitPrice }}</td>
