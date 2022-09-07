@@ -18,13 +18,10 @@ class MainOrderController extends Controller
 
     public function index()
     {
+        $products = DB::table('main_orders')
+            ->leftJoin('pruducts', 'main_orders.id', '=', 'pruducts.id')
+            ->get();
 
-        $products = mainOrder::with('pruducts')->get(['productId',
-        'quantity',
-        'remaing_quantity',
-        'unitPrice',
-        'totalPrice',
-        'status']);
         return view('admin.mainOrder.index',compact('products'));
     }
     /**
