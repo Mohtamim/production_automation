@@ -18,32 +18,32 @@
                                 <thead>
                                     <tr>
 
-                                        <th>SL</th>
-                                        <th>Main Order Number</th>
-                                        <th>Product Name</th>
-                                        <th>Warehouse Id</th>
-                                        <th>Quantity</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th class="text-center">SL</th>
+                                        <th class="text-center">Main Order Number</th>
+                                        <th class="text-center">Product Name</th>
+                                        <th class="text-center">Warehouse Id</th>
+                                        <th class="text-center">Quantity</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($assain as $item)
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->mainOrderId }}</td>
-                                            <td>{{ $item->productName }}</td>
-                                            <td>{{ $item->warehouseId }}</td>
-                                            <td>{{ $item->quantity }}</td>
+                                            <td class="text-center">{{ $loop->iteration }}</td>
+                                            <td class="text-center">{{ $item->mainOrderId }}</td>
+                                            <td class="text-center">{{ $item->productName }}</td>
+                                            <td class="text-center">{{ $item->warehouseId }}</td>
+                                            <td class="text-center">{{ $item->quantity }}</td>
                                             @if ($item->status == 1)
-                                                <td>Active</td>
+                                                <td class="text-center">Active</td>
                                             @endif
                                             @if ($item->status == 0)
-                                                <td>Deactive</td>
+                                                <td class="text-center">Deactive</td>
                                             @endif
 
 
-                                            <td>
+                                            <td class="text-center">
                                                 <div class="d-flex content-justify-center">
                                                 <a href="{{ url('admin/assaign_order/' . $item->id) }}"
                                                     class="btn btn-info btn-sm me-1"><i class="fa-solid fa-eye"></i></a>

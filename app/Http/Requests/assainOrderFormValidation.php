@@ -27,6 +27,7 @@ class assainOrderFormValidation extends FormRequest
             'mainOrderId'=>'required|numeric',
              'warehouseId'=>'required|numeric',
              'quantity'=>'required|numeric',
+             'status'=>'required'
 
 
         ];

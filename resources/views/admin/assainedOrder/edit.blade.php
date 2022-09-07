@@ -8,7 +8,7 @@ WareHose
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4 class="text-center">Edit Assaign Order</h4>
+                    <h2 class="text-success text-center mt-3">Edit Assaign Order</h2>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@ WareHose
                     </select>
                 </div>
 
-                <input type="submit" value="save" class="btn btn-success">
+                <input type="submit" value="Update" class="btn btn-success">
                 <button class="btn btn-secondary">Cancel</button>
               </form>
 

@@ -8,44 +8,41 @@
             <div class="widget-header">
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h4 class="text-center">Assaign Order</h4>
+                        <h2 class=" text-center text-center mt-2">Assaign Order</h2>
                     </div>
 
                 </div>
 
             </div>
             <div class="widget-content widget-content-area">
-
-
-
                 <table id="table" class="table dt-table-hover" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>SL</th>
-                            <th>Product Name</th>
-                            <th>Remaing for Assiagn</th>
-                            <th>UnitPrice</th>
-                            <th>TotalPrice</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th class="text-center">SL</th>
+                            <th class="text-center">Product Name</th>
+                            <th class="text-center">Remaing for Assiagn</th>
+                            <th class="text-center">UnitPrice</th>
+                            <th class="text-center">TotalPrice</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($mainOrder as $item)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->productName }}</td>
-                                <td>{{ $item->remaing_quantity }}</td>
-                                <td>{{ $item->unitPrice }}</td>
-                                <td>{{ $item->totalPrice }}</td>
+                                <td class="text-center">{{ $loop->iteration }}</td>
+                                <td class="text-center">{{ $item->productName }}</td>
+                                <td class="text-center">{{ $item->remaing_quantity }}</td>
+                                <td class="text-center">{{ $item->unitPrice }}</td>
+                                <td class="text-center">{{ $item->totalPrice }}</td>
                                 @if ($item->status == 1)
-                                    <td>Active</td>
+                                    <td class="text-center">Active</td>
                                 @endif
 
                                 @if ($item->status == 0)
-                                    <td>Deactive</td>
+                                    <td class="text-center">Deactive</td>
                                 @endif
-                                <td>
+                                <td class="text-center">
                                     <button id="{{ $item->id }}" onclick="fetchData(id)"
                                         class="btn btn-info btn-sm">select</button>
                                     {{-- <button type="button" id="{{  $item->id }}" onclick="fetchData(id)" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"></i>select</button> --}}
@@ -94,13 +91,18 @@
 
                     <div class="input-group mb-3">
 
-                        <select id="warehouseId" value="{{ old('warehouseId') }}" class="form-select form-control select2" name="warehouseId">
+                        <select id="warehouseId" value="{{ old('warehouseId') }}" class="form-select form-control @error('warehouseId')
+                        is-invalid
+                        @enderror select2" name="warehouseId">
                             <option value="">Select Warehouse Name</option>
                             @foreach ($warehouse as $ware)
                                 <option value="{{ $ware->id }}">{{ $ware->warehouseName }}</option>
                             @endforeach
 
                         </select>
+                        @error('warehouseId')
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
                     </div>
 
                     <div class="input-group mb-3">
@@ -117,11 +119,16 @@
                     </div>
                     <div class="input-group mb-3" style="minWidth:678px">
 
-                        <select id="status" value="{{ old('status') }}" class="form-select" name="status">
+                        <select id="status" value="{{ old('status') }}" class="form-select @error('status')
+                        is-invalid
+                        @enderror" name="status">
                             <option value="">Select Status</option>
                             <option value="1">Active</option>
                             <option value="0">Deactive</option>
                         </select>
+                        @error('status')
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
                     </div>
 
                     <input type="submit" value="save" class="btn btn-success">
