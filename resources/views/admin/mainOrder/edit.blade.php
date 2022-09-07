@@ -10,10 +10,10 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h4>Edit Order</h4>
+                    <h2 class="text-center text-success h2 font-weight-bold mt-3">Edit Order</h2>
                 </div>
             </div>
-        </div>
+        </div><hr class="bg-primary">
         <div class="widget-content widget-content-area ">
             <form class="forms-sample" action="{{ url('admin/main_order/'.$mainorder->id) }}" method="POST">
                 {!! csrf_field() !!}
@@ -30,8 +30,8 @@
                 </div>
 
 
-                <div class="mb-3">
-                    <label for="quantity" class="control-label">Quantity</label><br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Quantity</span><br>
                 <input type="text" name="quantity" value="{{ $mainorder->quantity }}" id="quantity" class="form-control @error('quantity')
                   is-invalid
                    @enderror" >
@@ -40,18 +40,18 @@
                    @enderror
 
                 </div>
-                <div class="mb-3">
-                    <label for="unitPrice" class="control-label">Unit Price</label><br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Unit Price</span><br>
                 <input type="text" name="unitPrice" value="{{ $mainorder->unitPrice }}" id="unitPrice" class="form-control @error('unitPrice')
                   is-invalid
-                   @enderror" >
+                   @enderror">
                    @error('unitPrice')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
 
                 </div>
-                <div class="mb-3">
-                    <label for="totalPrice" class="control-label">Total Price</label><br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Total Price</span><br>
                 <input type="text" name="totalPrice" id="totalPrice" value="{{ $mainorder->totalPrice }}" class="form-control @error('totalPrice')
                   is-invalid
                    @enderror" >
@@ -73,7 +73,7 @@
                         @endif
                     </select>
                 </div>
-                <input type="submit" value="save" class="btn btn-success">
+                <input type="submit" value="Update" class="btn btn-success">
                 <button class="btn btn-secondary">Cancel</button>
               </form>
         </div>

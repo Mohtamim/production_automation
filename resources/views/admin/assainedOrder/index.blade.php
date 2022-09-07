@@ -5,15 +5,15 @@
 @section('admin_content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 grid-margin stretch-card ">
-                <div class="card ms-4">
-                    <div class="card-body ms-4">
-                        <h3 class="text-center text-success"> Assign Order</h3>
+            <div class="col-md-12 grid-margin">
+                        <h2 class="text-center text-success"> Assign Order</h2>
                         <div class="table-responsive">
                             <a href="{{ url('admin/assaign_order/create') }}" class="btn btn-success btn-sm"
                                 title="Add new Customer">
                                 Add New
-                            </a><br><br>
+                            </a>
+                            <hr class="bg-primary">
+                            <br><br>
                             <table id="table table-responsive text-center multi-table table dt-table-hover" class="table" style="white-space: nowrap;  text-overflow:ellipsis;">
                                 <thead>
                                     <tr>

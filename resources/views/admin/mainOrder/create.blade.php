@@ -10,17 +10,16 @@
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h4>Take Order</h4>
+                    <h2 class="text-center text-success h2 font-weight-bold mt-3">Take Order</h2>
                 </div>
             </div>
-        </div>
+        </div> <hr>
         <div class="widget-content widget-content-area ">
             <form class="forms-sample" action="{{ url('admin/main_order') }}" method="POST">
                 {!! csrf_field() !!}
 
-                <hr>
+
                 <div class="input-group mb-3">
-                    <label for="product" class="control-label">Product:</label><hr>
                     <select id="status" class="form-select select2 @error('productName')
                     is-invalid
                      @enderror" name="productName" id="productName">
@@ -36,8 +35,8 @@
                 </div>
 
 
-                <div class="mb-3">
-                    <label for="quantity" class="control-label">Quantity</label><br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Quantity</span><br>
                 <input type="text" name="quantity" id="quantity" class="form-control @error('quantity')
                   is-invalid
                    @enderror" onkeyup="fetchData()" >
@@ -46,8 +45,8 @@
                    @enderror
 
                 </div>
-                <div class="mb-3">
-                    <label for="unitPrice" class="control-label">Unit Price</label><br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Unit Price</span><br>
                 <input type="text" name="unitPrice" id="unitPrice" class="form-control @error('unitPrice')
                   is-invalid
                    @enderror" onkeyup="fetchData()">
@@ -56,8 +55,8 @@
                    @enderror
 
                 </div>
-                <div class="mb-3">
-                    <label for="totalPrice" class="control-label">Total Price</label><br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Total Price</span><br>
                 <input type="text" name="totalPrice" id="totalPrice" class="form-control @error('totalPrice')
                   is-invalid
                    @enderror" >

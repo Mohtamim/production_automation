@@ -161,11 +161,12 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="order" data-bs-parent="#accordionExample">
-                    <li class="{{ Route::is('assaign_order*') ? 'active' : '' }}">
-                        <a href="{{ url('admin/assaign_order') }}">Assaign Order </a>
-                    </li>
+
                     <li class="{{ Route::is('main_order*') ? 'active' : '' }}">
                         <a href="{{ url('admin/main_order') }}"> Orders </a>
+                    </li>
+                    <li class="{{ Route::is('assaign_order*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/assaign_order') }}">Assaign Order </a>
                     </li>
                 </ul>
             </li>
