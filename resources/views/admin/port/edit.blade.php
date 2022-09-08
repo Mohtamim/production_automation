@@ -8,19 +8,19 @@ Port
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4>Edit Port</h4>
+                    <h2 class="text-center text-success font-weight-bold mt-2">EDIT PORT</h2>
                 </div>
             </div>
-        </div>
+        </div><hr>
         <div class="widget-content widget-content-area">
             <form class="forms-sample" action="{{ url('admin/port/'.$port->id) }}" method="POST">
                 {!! csrf_field() !!}
                 @method("PATCH")
-                    <div class="mb-3">
+                    <div class="input-group mb-3">
                     <input type="hidden" name="id" id="id" value="{{$port->id}}" />
                 </div>
-                <div class="mb-3">
-                  <label for="name" class="form-label">port Name</label>
+                <div class="input-group mb-3">
+                  <span class="input-group-text bg-light text-black font-weight-bold">Port Name</span>
 
                   <input type="text" class="form-control" name="name" id="name"  value="{{ $port->name }}"><br>
 
@@ -40,7 +40,7 @@ Port
                 </div>
 
                 <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+                <a href="{{ url('admin/port') }}" class="btn btn-secondary">Cancel</a>
               </form>
         </div>
     </div>

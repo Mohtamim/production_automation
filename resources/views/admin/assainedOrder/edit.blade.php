@@ -8,7 +8,7 @@ WareHose
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h2 class="text-success text-center mt-3">Edit Assaign Order</h2>
+                    <h2 class="text-success text-center mt-3">EDIT ASSIGN ORDER</h2>
                 </div>
             </div>
         </div>

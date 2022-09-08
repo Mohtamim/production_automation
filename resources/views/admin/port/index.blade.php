@@ -7,11 +7,13 @@ Port
         <div class="col-md-12 grid-margin stretch-card ">
             <div class="card ">
                 <div class="card-body">
-                    <h3 class="text-center text-success">Port</h3>
+                    <h2 class="text-center text-success">PORT</h2>
                     <div class="table-responsive">
                         <a href="{{ url('admin/port/create') }}" class="btn btn-success btn-sm" title="Add new port">
                             Add port
-                        </a><br><br>
+                        </a>
+                        <hr>
+                        <br><br>
                         <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                             <div class="widget-content widget-content-area br-8">
                                 <table id="table" class="table dt-table-hover"  width="100%" cellspacing="0">
@@ -37,7 +39,7 @@ Port
 
 
                                                 <td>
-                                                  
+
                                                     <a href="{{url('admin/port/'.$pt->id.'/edit')}}" class="btn btn-primary btn-sm" title="Edit port" aria-hidden="true"><i class="fa fa-pencil"></i></a>
                                                     <form method="POST" action="{{ url('admin/port/' . $pt->id) }}" accept-charset="UTF-8" style="display:inline">
                                                         {{ method_field('DELETE') }}

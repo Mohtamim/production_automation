@@ -6,7 +6,7 @@
     <div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
         <div class="row">
             <div class="col-md-12 grid-margin">
-                        <h2 class="text-center text-success"> Assign Order</h2>
+                        <h2 class="text-center text-success">ASSIGN ORDER</h2>
                         <div class="table-responsive">
                             <a href="{{ url('admin/assaign_order/create') }}" class="btn btn-success btn-sm"
                                 title="Add new Customer">

@@ -8,7 +8,7 @@
             <div class="widget-header">
                 <div class="row">
                     <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h2 class=" text-center text-center mt-2">Assaign Order</h2>
+                        <h2 class=" text-center text-center mt-2">ASSIGN ORDER</h2>
                     </div>
 
                 </div>

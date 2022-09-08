@@ -8,7 +8,7 @@ assign Order
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h2>Assign Order Details</h2>
+                        <h2 class="text-success text-center " >ASSIGN ORDER DETAILS</h2>
                     </div>
 
                       <div class="card-body">
