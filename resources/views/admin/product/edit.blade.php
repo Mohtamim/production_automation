@@ -54,6 +54,11 @@ Product
                     @error('img')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
+                    @if ($errors->has('img'))
+                    <span class="help-block">
+                                        <strong>{{ $errors->first('img') }}</strong>
+                                    </span>
+                @endif
                 </div>
 
                 <div class=" input-group mb-3 col">
@@ -142,12 +147,14 @@ Product
                  <div class="row ms-2 me-2">
                     <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">Details:</span>
-                    <input type="text"  value="{{ $product->Details }}" id="Details" class="form-control" name="Details">
+                    <textarea type="text" value="{{old('Details',$product->Details ) }}" id="Details" class="form-control" name="Details">{{ $product->Details }}</textarea>
                 </div>
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" >Notes:</span>
-                    <input type="text"  value="{{ $product->notes }}" id="notes"  class="form-control  name="notes">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Notes:</span>
+                    <div class="md-form">
+                        <textarea type="text" name="notes" id="notes" value="{{ old('notes',$product->notes) }}" class="form-control ">{{ $product->notes }}</textarea>
+                    </div>
                 </div>
 
                  </div>
