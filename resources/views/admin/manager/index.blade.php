@@ -11,7 +11,7 @@
             <div class="table-responsive">
                 <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
                     <div class="widget-content widget-content-area br-8">
-                        <table id="table" class="table dt-table-hover table-responsive" width="100%" cellspacing="0"style="white-space: nowrap;  text-overflow:ellipsis;">
+                        <table id="table" class="table dt-table-hover table-responsive" width="100%" cellspacing="0" style="white-space: nowrap;  text-overflow:ellipsis;">
                             <thead>
                                 <tr>
 

@@ -19,12 +19,14 @@ use App\Http\Controllers\admin\ShiperAndExporterController;
 use App\Http\Controllers\admin\UnitController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\WarehouseController;
+use App\Http\Controllers\customLoginController;
 use App\Http\Controllers\manager\invoiceController;
 use App\Http\Controllers\manager\managerAssignOrderController;
 use App\Http\Controllers\manager\managerDashboardController;
 use App\Http\Controllers\manager\managersController;
 use App\Http\Controllers\manager\paymentInfoController;
 use App\Models\managerlist;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,10 +40,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::group(['prefix' => 'admin'], function () {
+Route::get('/', [customLoginController::class,'index'])->name('login.form');
+Route::POST('authUser', [customLoginController::class,'login'])->name('admin.login');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::group(['prefix' => 'admin','middleware'=>'user'], function () {
     Route::resource('dashboard',dashboardController ::class);
     Route::resource('assaign_order', AssainedOrderController::class);
     Route::resource('users', UsersController::class);
@@ -71,3 +78,5 @@ Route::resource('invoice',invoiceController::class);
 Route::resource('payment_info',paymentInfoController::class);
 Route::resource('managers',managersController::class);
 });
+
+

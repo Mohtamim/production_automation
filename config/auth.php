@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 return [
 
     /*
@@ -40,6 +42,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'user',
+        ],
+
     ],
 
     /*
@@ -64,11 +71,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'user' => [
+            'driver' => 'eloquent',
+            'model' => User::class,
+        ]
     ],
 
     /*
@@ -93,6 +99,13 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'user' => [
+            'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
     ],
 
     /*

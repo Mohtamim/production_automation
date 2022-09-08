@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\usersFormValidation;
+use App\Models\User;
 use App\Models\managerlist;
 use App\Models\users;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class UsersController extends Controller
 
     public function index()
     {
-        $users= users::all();
+        $users= User::all();
         return view('admin.user.index')->with('users', $users);
     }
 
@@ -47,11 +48,11 @@ class UsersController extends Controller
         }
 
         $input= $request->all();
-        users::create($input);
+        User::create($input);
         return redirect('admin/users')->with('success','User created successfully');
     }
 
-    public function show(users $users)
+    public function show(User $users)
     {
 
     }
@@ -59,14 +60,14 @@ class UsersController extends Controller
 
     public function edit($id)
     {
-        $user = users::find($id);
+        $user = User::find($id);
         return view('admin.user.edit')->with('user',$user);
     }
 
 
     public function update(Request $request, $id)
     {
-        $user = users::find($id);
+        $user = User::find($id);
         $input = $request->all();
         $user->update($input);
         return redirect('admin/users')->with(['update'=>'Your User is Updated']);
@@ -75,7 +76,7 @@ class UsersController extends Controller
     public function destroy($id)
     {
 
-        users::destroy($id);
+        User::destroy($id);
         return redirect('admin/users')->with('delete', 'User has been deleted');
     }
 }
