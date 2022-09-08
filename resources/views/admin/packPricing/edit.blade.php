@@ -3,19 +3,16 @@
     Pack Pricing
 @endsection
 @section('admin_content')
-    <div class="col-lg-12 col-12  layout-spacing">
-        <div class="statbox widget box box-shadow">
-            <div class="widget-header">
-                <div class="row">
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h4 class="text-center"> Edit Pack Pricing</h4>
-
-                    </div>
-
+<div class="col-lg-12 col-12  layout-spacing">
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h2 class="text-center text-success font-weight-bold mt-2">EDIT PACKAGE PRICE</h2>
                 </div>
-
             </div>
-            <div class="widget-content widget-content-area">
+        </div><hr>
+        <div class="widget-content widget-content-area">
                 <form class="" action="{{ url('admin/pack_price/'.$packPrice->id) }}" method="POST">
                     {!! csrf_field() !!}
                     @method('PATCH')
@@ -77,5 +74,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

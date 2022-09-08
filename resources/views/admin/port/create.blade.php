@@ -10,7 +10,7 @@ Port
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h4>ADD Port</h4>
+                    <h2 class="text-success text-center">ADD PORT</h2>
                 </div>
             </div>
         </div>
@@ -18,8 +18,8 @@ Port
             <form class="forms-sample" action="{{ url('admin/port') }}" method="POST">
                 {!! csrf_field() !!}
 
-                <div class="mb-3">
-                    <label for="name" class="control-label">Port Name</label><br>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Port Name</span><br>
                 <input type="text" name="name" value="{{ old('name') }}"  id="name" class="form-control @error('name')
                   is-invalid
                    @enderror">
@@ -42,7 +42,7 @@ Port
 
 
                 <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
+                <a href="{{ url('admin/port') }}" class="btn btn-secondary">Cancel</a>
               </form>
         </div>
     </div>
