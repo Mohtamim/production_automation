@@ -4,7 +4,7 @@
 Pack Size
 @endsection
 @section('admin_content')
-<div class="container-fluid mt-3 m-5 shadow">
+<div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
 <div class="row mb-4">
     <div class="col-md-12 grid-margin  ">
 

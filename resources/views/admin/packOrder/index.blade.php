@@ -4,11 +4,10 @@
 Pack Order
 @endsection
 @section('admin_content')
-<div class="container mt-3">
+<div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
 <div class="row">
-    <div class="col-md-12 grid-margin stretch-card ">
-      <div class="card ms-4">
-        <div class="card-body ms-4">
+    <div class="col-md-12 grid-margin  ">
+
           <h3 class="text-center text-success"> Pack Order</h3>
           <div class="table-responsive">
             <a href="{{url('admin/pack_order/create')}}" class="btn btn-success btn-sm" title="Add new pack_order">
@@ -49,7 +48,7 @@ Pack Order
                         <form method="post" action="{{url('admin/pack_order/'.$item->id)}}">
                             {{ method_field('DELETE')}}
                             {{ csrf_field()}}<button type="submit" class="btn btn-info btn-sm btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
-                        
+
                         </form>
                         </div>
 

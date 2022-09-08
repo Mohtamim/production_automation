@@ -3,7 +3,7 @@
     WareHose
 @endsection
 @section('admin_content')
-<div class="container mt-3">
+<div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
     <div class="row ">
         <h2 class="text-center text-success font-weight-bold mt-3">BUYERS</h2>
         <div class="table-responsive">

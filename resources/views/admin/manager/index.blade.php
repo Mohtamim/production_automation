@@ -3,14 +3,13 @@
     Manager
 @endsection
 @section('admin_content')
+<div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
     <div class="row ">
         <div class="col-md-12 grid-margin stretch-card ">
 
             <h2 class="text-center text-success font-weight-bold mt-3">WAREHOUSE MANAGER</h2>
             <hr class="bg-primary">
             <div class="table-responsive">
-                <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
-                    <div class="widget-content widget-content-area br-8">
                         <table id="table" class="table dt-table-hover table-responsive" width="100%" cellspacing="0" style="white-space: nowrap;  text-overflow:ellipsis;">
                             <thead>
                                 <tr>
@@ -55,7 +54,7 @@
                 </div>
 
             </div>
-
+        </div>
         </div>
     </div>
 @endsection

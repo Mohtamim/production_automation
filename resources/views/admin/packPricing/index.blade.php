@@ -4,7 +4,7 @@
 Pack Pricing
 @endsection
 @section('admin_content')
-<div class="container-fluid mt-5 m-2 shadow">
+<div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
 <div class="row">
     <div class="col-md-12 grid-margin  ">
         <h2 class="text-center text-success font-weight-bold mt-2"> PACKAGE PRICE</h2>
