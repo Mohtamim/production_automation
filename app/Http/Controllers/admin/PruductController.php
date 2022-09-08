@@ -40,13 +40,13 @@ class PruductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(productFormValidation $request)
     {
         $input= $request->all();
         $title = $request->title;
         $category = $request->category;
         $DH_raw_materials = $request->DH_raw_materials;
-        $supplier_raw_materials = $request->supplier_raw_materials;
+        $warehouse_raw_materials = $request->warehouse_raw_materials;
         $wages = $request->wages;
         $unit = $request->unit;
         $carring_charge = $request->carring_charge;
@@ -54,8 +54,9 @@ class PruductController extends Controller
         $is_sample_product = $request->is_sample_product;
         $Details = $request->Details;
         $notes = $request->notes;
-        $totalcost_for_supplier = $request->totalcost_for_supplier;
+        $totalcost_for_warehouse = $request->totalcost_for_warehouse;
         $DH_total_price = $request->DH_total_price;
+        $FOB_cost=$request->FOB_cost;
         $img = $request->file('image');
         $img_name= hexdec(uniqid()). '.' . $img->getClientOriginalExtension();
         $img_url='upload/'.$img_name;
@@ -67,16 +68,17 @@ class PruductController extends Controller
             'title'=>$title,
             'category'=>$category,
             'DH_raw_materials'=>$DH_raw_materials,
-            'supplier_raw_materials'=>$supplier_raw_materials,
+            'warehouse_raw_materials'=>$warehouse_raw_materials,
             'wages'=>$wages,
             'DH_total_price'=>$DH_total_price,
+            'FOB_cost'=>$FOB_cost,
             'unit'=>$unit,
             'carring_charge'=>$carring_charge,
             'treatement_deduction'=>$treatement_deduction,
             'is_sample_product'=>$is_sample_product,
             'Details'=>$Details,
             'notes'=>$notes,
-            'totalcost_for_supplier'=>$totalcost_for_supplier,
+            'totalcost_for_warehouse'=>$totalcost_for_warehouse,
             'img'=>$img_url,
        ]);
         return redirect('admin/product')->with('success','Product created successfully');
@@ -103,9 +105,10 @@ class PruductController extends Controller
      */
     public function edit($id)
     {
+        $unit = unit::all();
         $category = cat::all();
         $product = pruduct::find($id);
-        return view('admin.product.edit')->with(['category'=>$category,'product'=>$product]);
+        return view('admin.product.edit')->with(['category'=>$category,'product'=>$product,'unit'=>$unit]);
     }
 
     /**
@@ -122,7 +125,7 @@ class PruductController extends Controller
         $title = $request->title;
         $category = $request->category;
         $DH_raw_materials = $request->DH_raw_materials;
-        $supplier_raw_materials = $request->supplier_raw_materials;
+        $warehouse_raw_materials = $request->warehouse_raw_materials;
         $wages = $request->wages;
         $unit = $request->unit;
         $carring_charge = $request->carring_charge;
@@ -130,7 +133,8 @@ class PruductController extends Controller
         $is_sample_product = $request->is_sample_product;
         $Details = $request->Details;
         $notes = $request->notes;
-        $totalcost_for_supplier = $request->totalcost_for_supplier;
+        $totalcost_for_warehouse = $request->totalcost_for_warehouse;
+        $FOB_cost=$request->FOB_cost;
         $DH_total_price = $request->DH_total_price;
         $img = $request->file('img');
         $img_name= hexdec(uniqid()). '.' . $img->getClientOriginalExtension();
@@ -140,7 +144,7 @@ class PruductController extends Controller
         $input=(['title'=>$title,
             'category'=>$category,
             'DH_raw_materials'=>$DH_raw_materials,
-            'supplier_raw_materials'=>$supplier_raw_materials,
+            'warehouse_raw_materials'=>$warehouse_raw_materials,
             'wages'=>$wages,
             'DH_total_price'=>$DH_total_price,
             'unit'=>$unit,
@@ -148,8 +152,9 @@ class PruductController extends Controller
             'treatement_deduction'=>$treatement_deduction,
             'is_sample_product'=>$is_sample_product,
             'Details'=>$Details,
+            'FOB_cost'=>$FOB_cost,
             'notes'=>$notes,
-            'totalcost_for_supplier'=>$totalcost_for_supplier,
+            'totalcost_for_warehouse'=>$totalcost_for_warehouse,
             'img'=>$img_url]);
 
         $product->update($input);

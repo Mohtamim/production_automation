@@ -20,15 +20,16 @@ return new class extends Migration
            $table->string('img');
            $table->string('unit') ;
            $table->string('DH_raw_materials') ;
-           $table->string('supplier_raw_materials') ;
-           $table->string('wages') ;
-           $table->string('carring_charge') ;
-           $table->string('treatement_deduction') ;
-           $table->string('is_sample_product') ;
+           $table->string('warehouse_raw_materials') ;
+           $table->integer('wages') ;
+           $table->integer('carring_charge') ;
+           $table->integer('treatement_deduction') ;
+           $table->boolean('is_sample_product') ;
            $table->string('Details') ;
            $table->string('notes') ;
-           $table->string('totalcost_for_supplier') ;
-           $table->string('DH_total_price') ;
+           $table->integer('totalcost_for_warehouse') ;
+           $table->integer('DH_total_price') ;
+           $table->integer('FOB_cost');
             $table->timestamps();
         });
     }

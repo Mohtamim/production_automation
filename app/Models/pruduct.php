@@ -16,15 +16,16 @@ class pruduct extends Model
                  'img',
                  'unit',
                  'DH_raw_materials',
-                 'supplier_raw_materials',
+                 'warehouse_raw_materials',
                  'wages',
                  'carring_charge',
                  'treatement_deduction',
                  'is_sample_product',
                  'Details',
                  'notes',
-                 'totalcost_for_supplier',
-                 'DH_total_price'
+                 'totalcost_for_warehouse',
+                 'DH_total_price',
+                 'FOB_cost'
     ];
     public function category(){
         return $this->hasMany(cat::class);

@@ -22,13 +22,14 @@
                                     <th class="text-center">DH Materials Cost</th>
                                     <th class="text-center">Warehouse Material Cost</th>
                                     <th class="text-center">Wages</th>
-                                    <th class="text-center">Carring charge</th>
+                                    <th class="text-center">Carrying charge</th>
                                     <th class="text-center">Treatement Cost</th>
                                     <th class="text-center">Is sample product?</th>
                                     <th class="text-center">Details</th>
                                     <th class="text-center">Notes</th>
                                     <th class="text-center">Warehouse Total Cost</th>
                                     <th class="text-center">DH Total Cost</th>
+                                    <th class="text-center">FOB Cost</th>
 
                                     <th>Action</th>
                                 </tr>
@@ -42,7 +43,7 @@
                                         <td class="text-center"><img src="{{ asset($item->img ) }}" style="width: 50px; height:50px;" alt=""></td>
                                         <td class="text-center">{{ $item->unit }}</td>
                                         <td class="text-center">{{ $item->DH_raw_materials }}</td>
-                                        <td class="text-center">{{ $item->supplier_raw_materials }}</td>
+                                        <td class="text-center">{{ $item->warehouse_raw_materials }}</td>
                                         <td class="text-center">{{ $item->wages }}</td>
                                         <td class="text-center">{{ $item->carring_charge }}</td>
                                         <td class="text-center">{{ $item->treatement_deduction }}</td>
@@ -55,9 +56,9 @@
 
                                         <td class="text-center">{{ $item->Details }}</td>
                                         <td class="text-center">{{ $item->notes }}</td>
-                                        <td class="text-center">{{ $item->totalcost_for_supplier }}</td>
+                                        <td class="text-center">{{ $item->totalcost_for_warehouse }}</td>
                                         <td class="text-center">{{ $item->DH_total_price }}</td>
-
+                                        <td class="text-center">{{ $item->FOB_cost }}</td>
 
                                         <td class="text-center">
                                             <div class="container justify-content-center d-flex ">
