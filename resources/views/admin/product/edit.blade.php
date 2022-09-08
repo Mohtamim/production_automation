@@ -36,11 +36,11 @@ Product
                         @foreach ($category as  $cat)
                         <option value="{{ $cat->id }}">{{ $cat->catName }}</option>
                         @endforeach
-                        @error('category')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                        @enderror
-                    </select>
 
+                    </select>
+                    @error('category')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
 
             </div>
                  </div>
@@ -65,11 +65,10 @@ Product
                         @foreach ($unit as  $unit)
                         <option value="{{ $unit->id }}">{{ $unit->name }}</option>
                         @endforeach
-                        @error('unit')
-                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                        @enderror
                     </select>
-
+                    @error('unit')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
                 </div>
                  </div>
 
