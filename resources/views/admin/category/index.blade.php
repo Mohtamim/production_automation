@@ -3,7 +3,7 @@
 Category
 @endsection
 @section('admin_content')
-<div class="container">
+<div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
     <div class="row ">
         <div class="col-md-12 grid-margin stretch-card ">
 
