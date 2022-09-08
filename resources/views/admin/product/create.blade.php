@@ -76,9 +76,9 @@ Product
                 </div>
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="supplier_raw_materials">Supplier Materials Cost:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="warehouse_raw_materials">Warehouse Materials Cost:</span>
                     <input type="number" step=".01" class="form-control"
-                     name="supplier_raw_materials"  value="{{ old('supplier_raw_materials') }}" placeholder=
+                     name="warehouse_raw_materials"  value="{{ old('warehouse_raw_materials') }}" placeholder=
                     "BDT:10,0000">
 
                 </div>
@@ -96,7 +96,7 @@ Product
 
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="carring_charge">Carring Charge:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="carring_charge">Carrying Charge:</span>
                     <input type="number" step=".01" class="form-control @error('carring_charge')
                      is-invalid
                     @enderror" name="carring_charge"  value="{{ old('carring_charge') }}" placeholder="BDT:10,0000">
@@ -151,11 +151,11 @@ Product
             </div><div class="row ms-2 me-2">
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="totalcost_for_supplier"> Supplier Total Cost:</span>
-                    <input type="number" step=".01" class="form-control @error('totalcost_for_supplier')
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="totalcost_for_warehouse"> Warehouse Total Cost:</span>
+                    <input type="number" step=".01" class="form-control @error('totalcost_for_warehouse')
                      is-invalid
-                    @enderror" name="totalcost_for_supplier" value="{{ old('totalcost_for_supplier') }}" placeholder="BDT:10,0000">
-                    @error('totalcost_for_supplier')
+                    @enderror" name="totalcost_for_warehouse" value="{{ old('totalcost_for_warehouse') }}" placeholder="BDT:10,0000">
+                    @error('totalcost_for_warehouse')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
@@ -171,7 +171,17 @@ Product
                 </div>
 
             </div>
+            <div class="input-group mb-3 col">
+                <span class="input-group-text bg-light text-black font-weight-bold" id="FOB_cost">FOB Cost:</span>
+                <input type="number"  step=".01"  class="form-control @error('FOB_cost')
+                 is-invalid
+                @enderror" name="FOB_cost" placeholder="Enter FOB_cost ">
+                @error('FOB_cost')
+                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                @enderror
+            </div>
             <div class="input-group mb-3 me-4 col">
+
             <input type="submit" value="save" class="btn btn-success me-2">
             <a href="{{ url('admin/product') }}" class="btn btn-secondary">Cancel</a>
         </div>

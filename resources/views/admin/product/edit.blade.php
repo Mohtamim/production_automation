@@ -53,14 +53,15 @@ Product
                     @enderror
                 </div>
 
-                <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="unit">Unit:</span>
-                    <input type="number" step=".01"  value="{{ $product->unit }}" class="form-control @error('unit')
-                     is-invalid
-                    @enderror" name="unit" placeholder="Enter unit">
-                    @error('unit')
-                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                    @enderror
+                <div class=" input-group mb-3 col">
+                    {{-- <label class="input-group-text bg-light text-black font-weight-bold" id="unit">Unit:</label> --}}
+                    <select id="unit" class="form-select select2" name="unit">
+                        <option value="" >Select Unit</option>
+                        @foreach ($unit as  $unit)
+                        <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                        @endforeach
+
+                    </select>
                 </div>
                  </div>
 
@@ -76,11 +77,11 @@ Product
                 </div>
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="supplier_raw_materials">Supplier_raw_materials:</span>
-                    <input type="number" step=".01"  value="{{ $product-> supplier_raw_materials}}" class="form-control @error('supplier_raw_materials')
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="warehouse_raw_materials">warehouse_raw_materials:</span>
+                    <input type="number" step=".01"  value="{{ $product-> warehouse_raw_materials}}" class="form-control @error('warehouse_raw_materials')
                      is-invalid
-                    @enderror" name="supplier_raw_materials" placeholder="Enter supplier_raw_materials">
-                    @error('supplier_raw_materials')
+                    @enderror" name="warehouse_raw_materials" placeholder="Enter warehouse_raw_materials">
+                    @error('warehouse_raw_materials')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
@@ -98,7 +99,7 @@ Product
 
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="carring_charge">Carring Charge:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="carring_charge">Carrying Charge:</span>
                     <input type="number" step=".01"  value="{{ $product->carring_charge }}" class="form-control @error('carring_charge')
                      is-invalid
                     @enderror" name="carring_charge" placeholder="Enter carring_charge">
@@ -158,26 +159,35 @@ Product
                  </div>
                  <div class="row ms-2 me-2">
                     <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="totalcost_for_supplier">Totalcost for Supplier:</span>
-                    <input type="number" step=".01"  value="{{ $product->totalcost_for_supplier }}" class="form-control @error('totalcost_for_supplier')
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="totalcost_for_warehouse">Totalcost for Warehouse:</span>
+                    <input type="number" step=".01"  value="{{ $product->totalcost_for_warehouse }}" class="form-control @error('totalcost_for_warehouse')
                      is-invalid
-                    @enderror" name="totalcost_for_supplier" placeholder="Enter totalcost_for_supplier">
-                    @error('totalcost_for_supplier')
+                    @enderror" name="totalcost_for_warehouse" placeholder="Enter totalcost_for_warehouse">
+                    @error('totalcost_for_warehouse')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="DH_total_price">DH Total Price:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold" >DH Total Price:</span>
                     <input type="number"  step=".01"  value="{{ $product->DH_total_price }}"class="form-control @error('DH_total_price')
                      is-invalid
-                    @enderror" name="DH_total_price" placeholder="Enter DH_total_price ">
+                    @enderror" name="DH_total_price" id="DH_total_price" placeholder="Enter DH_total_price ">
                     @error('DH_total_price')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
                  </div>
-                 <div class="row ms-2 me-2">
+
+                    <div class="input-group mb-3 col">
+                        <span class="input-group-text bg-light text-black font-weight-bold" >FOB Cost:</span>
+                        <input type="number"  step=".01"  id="FOB_cost" value="{{ $product->FOB_cost }}"class="form-control @error('FOB_cost')
+                         is-invalid
+                        @enderror" name="FOB_cost" placeholder="Enter FOB_cost ">
+                        @error('FOB_cost')
+                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
                     <div class="input-group mb-3 col">
                 <input type="submit" value="Update" class="btn btn-success me-1">
                 <a href="{{ url('admin/product') }}" class="btn btn-secondary">Cancel</a>

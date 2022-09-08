@@ -29,6 +29,7 @@
                                     <p class="card-text">Notes: {{ $product->notes }}</p>
                                     <p class="card-text">Warehouse Total Cost: {{ $product->warehouseId }}</p>
                                     <p class="card-text">DH Total Cost: {{ $product->DH_total_price }}</p>
+                                    <p class="card-text">FOB Cost: {{ $product->FOB_cost }}</p>
 
                                   </div>
 
