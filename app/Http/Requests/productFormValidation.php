@@ -26,14 +26,13 @@ class productFormValidation extends FormRequest
         return [
             'title'=>'required|string',
             'category'=>'required',
-            'image'=>'required',
+            'img'=>'required',
             'unit'=>'required',
             'DH_raw_materials'=>'required',
             'warehouse_raw_materials'=>'required',
             'wages'=>'required',
             'carring_charge'=>'required',
             'treatement_deduction'=>'required',
-            'is_sample_product'=>'required',
             'totalcost_for_warehouse'=>'required',
             'DH_total_price'=>'required',
             'FOB_cost'=>'required'

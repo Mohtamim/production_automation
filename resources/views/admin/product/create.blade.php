@@ -18,8 +18,8 @@ Product
 
                 <div class="row ms-2 me-2">
                 <div class=" input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="title">Product Name:</span>
-                    <input type="text" class="form-control @error('title')
+                    <span class="input-group-text bg-light text-black font-weight-bold" >Product Name:</span>
+                    <input type="text" id="title" class="form-control @error('title')
                      is-invalid
                     @enderror" name="title" placeholder="Product Name">
                     @error('title')
@@ -27,11 +27,11 @@ Product
                     @enderror
                 </div>
                 <div class=" input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="image">Image:</span>
-                    <input type="file"  class="form-control @error('image')
+                    <span class="input-group-text bg-light text-black font-weight-bold" >Image:</span>
+                    <input type="file"  class="form-control @error('img')
                      is-invalid
-                    @enderror" name="image" placeholder="Enter image">
-                    @error('image')
+                    @enderror" id="img" name="img" placeholder="Enter image">
+                    @error('img')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
@@ -40,34 +40,40 @@ Product
 
             <div class="row ms-2 me-2">
                  <div class=" input-group mb-3 col">
-                    {{-- <label class="input-group-text bg-light text-black font-weight-bold" id="unit">Unit:</label> --}}
-                    <select id="unit" class="form-select select2" name="unit">
+                    <select id="unit" class="form-select select2 @error('unit')
+                    is-invalid
+                    @enderror" name="unit">
                         <option value="" >Select Unit</option>
                         @foreach ($unit as  $unit)
                         <option value="{{ $unit->id }}">{{ $unit->name }}</option>
                         @endforeach
 
                     </select>
+                    @error('unit')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
                 </div>
 
                 <div class=" input-group mb-3 col">
-
-                    {{-- <label class="input-group-text bg-light text-black font-weight-bold" id="category">Category:</label> --}}
-
-                    <select id="category" class="form-select select2" name="category">
+                    <select id="category" class="form-select select2 @error('category')
+                    is-invalid
+                    @enderror" name="category">
                         <option value="" >Select category</option>
                         @foreach ($category as  $cat)
                         <option value="{{ $cat->id }}">{{ $cat->catName }}</option>
                         @endforeach
 
                     </select>
+                    @error('category')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
 
             </div>
             </div>
             <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="DH_raw_materials">DH Materials Cost:</span>
-                    <input type="number" step=".01" class="form-control @error('DH Materials cost')
+                    <span class="input-group-text bg-light text-black font-weight-bold">DH Materials Cost:</span>
+                    <input type="number" step=".01" id="DH_raw_materials" class="form-control @error('DH_raw_materials')
                      is-invalid
                     @enderror" name="DH_raw_materials"  value="{{ old('DH_raw_materials') }}" placeholder="BDT:10,0000">
                     @error('DH_raw_materials')
@@ -76,17 +82,21 @@ Product
                 </div>
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="warehouse_raw_materials">Warehouse Materials Cost:</span>
-                    <input type="number" step=".01" class="form-control"
-                     name="warehouse_raw_materials"  value="{{ old('warehouse_raw_materials') }}" placeholder=
+                    <span class="input-group-text bg-light text-black font-weight-bold">Warehouse Materials Cost:</span>
+                    <input type="number" step=".01" class="form-control @error('warehouse_raw_materials')
+                    is-invalid
+                    @enderror"
+                     name="warehouse_raw_materials"  id="warehouse_raw_materials" value="{{ old('warehouse_raw_materials') }}" placeholder=
                     "BDT:10,0000">
-
+                    @error('warehouse_raw_materials')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
                 </div>
             </div>
             <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="wages">Wages:</span>
-                    <input type="number" step=".01" class="form-control @error('wages')
+                    <span class="input-group-text bg-light text-black font-weight-bold" >Wages:</span>
+                    <input type="number" step=".01" id="wages" class="form-control @error('wages')
                      is-invalid
                     @enderror" name="wages"  value="{{ old('wages') }}" placeholder="BDT:10,0000">
                     @error('wages')
@@ -96,10 +106,10 @@ Product
 
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="carring_charge">Carrying Charge:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold" >Carrying Charge:</span>
                     <input type="number" step=".01" class="form-control @error('carring_charge')
                      is-invalid
-                    @enderror" name="carring_charge"  value="{{ old('carring_charge') }}" placeholder="BDT:10,0000">
+                    @enderror" name="carring_charge" id="carring_charge" value="{{ old('carring_charge') }}" placeholder="BDT:10,0000">
                     @error('carring_charge')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
@@ -107,10 +117,10 @@ Product
             </div>
             <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" value="{{ old('treatement_deduction') }}" id="treatement_deduction">Treatement Deduction:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold" value="{{ old('treatement_deduction') }}">Treatement Deduction:</span>
                     <input type="number" step=".01" class="form-control @error('treatement_deduction')
                      is-invalid
-                    @enderror" name="treatement_deduction" placeholder="BDT:10,0000">
+                    @enderror" name="treatement_deduction" id="treatement_deduction" placeholder="BDT:10,0000">
                     @error('treatement_deduction')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
@@ -119,12 +129,12 @@ Product
 
                 <div class="input-group mb-3 col">
                     <div class="form-check form-check-inline">
-                        <span class="input-group-text bg-light text-black font-weight-bold me-2" id="is_sample_product">Is it sample product?:</span>
+                        <span class="input-group-text bg-light text-black font-weight-bold me-2">Is it sample product?:</span>
 
                         <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="1">
-                        <label class="form-check-label" for="is_sample_product" value="1">Yes</label>
+                        <label class="form-check-label" for="is_sample_product" >Yes</label>
                         <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="0">
-                        <label class="form-check-label" for="is_sample_product" value="0">No</label>
+                        <label class="form-check-label" for="is_sample_product">No</label>
                       </div>
                 </div>
             </div>
@@ -134,16 +144,16 @@ Product
                     <!--- textarea-->
 
 
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="Details">Details:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold" >Details:</span>
                     <div class="md-form">
-                        <textarea name="Details" id="Details" value="{{ old('Details') }}" class="md-textarea form-control" ></textarea>
+                        <textarea name="Details" value="{{ old('Details') }}" id="Details" class="md-textarea form-control" ></textarea>
 
                     </div>
 
                 </div>
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="notes">Notes:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold">Notes:</span>
                     <div class="md-form">
                         <textarea name="notes" id="notes" value="{{ old('notes') }}" class="md-textarea form-control" ></textarea>
                     </div>
@@ -151,20 +161,20 @@ Product
             </div><div class="row ms-2 me-2">
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="totalcost_for_warehouse"> Warehouse Total Cost:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold"> Warehouse Total Cost:</span>
                     <input type="number" step=".01" class="form-control @error('totalcost_for_warehouse')
                      is-invalid
-                    @enderror" name="totalcost_for_warehouse" value="{{ old('totalcost_for_warehouse') }}" placeholder="BDT:10,0000">
+                    @enderror" name="totalcost_for_warehouse" id="totalcost_for_warehouse" value="{{ old('totalcost_for_warehouse') }}" placeholder="BDT:10,0000">
                     @error('totalcost_for_warehouse')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" id="DH_total_price"> DH Total Cost:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold"> DH Total Cost:</span>
                     <input type="number" step=".01" class="form-control @error('DH_total_price')
                      is-invalid
-                    @enderror" name="DH_total_price" value="{{ old('DH_total_price') }}" placeholder="BDT:10,0000 ">
+                    @enderror" id="DH_total_price" name="DH_total_price" value="{{ old('DH_total_price') }}" placeholder="BDT:10,0000 ">
                     @error('DH_total_price')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
@@ -172,8 +182,8 @@ Product
 
             </div>
             <div class="input-group mb-3 col">
-                <span class="input-group-text bg-light text-black font-weight-bold" id="FOB_cost">FOB Cost:</span>
-                <input type="number"  step=".01"  class="form-control @error('FOB_cost')
+                <span class="input-group-text bg-light text-black font-weight-bold" >FOB Cost:</span>
+                <input type="number"  step=".01" id="FOB_cost"  class="form-control @error('FOB_cost')
                  is-invalid
                 @enderror" name="FOB_cost" placeholder="Enter FOB_cost ">
                 @error('FOB_cost')

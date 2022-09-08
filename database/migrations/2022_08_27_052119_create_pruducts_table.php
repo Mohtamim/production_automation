@@ -24,9 +24,9 @@ return new class extends Migration
            $table->integer('wages') ;
            $table->integer('carring_charge') ;
            $table->integer('treatement_deduction') ;
-           $table->boolean('is_sample_product') ;
-           $table->string('Details') ;
-           $table->string('notes') ;
+           $table->boolean('is_sample_product')->default(0); ;
+           $table->string('Details')->nullable();
+           $table->string('notes')->nullable();
            $table->integer('totalcost_for_warehouse') ;
            $table->integer('DH_total_price') ;
            $table->integer('FOB_cost');

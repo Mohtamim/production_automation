@@ -51,14 +51,14 @@ class PruductController extends Controller
         $unit = $request->unit;
         $carring_charge = $request->carring_charge;
         $treatement_deduction = $request->treatement_deduction;
-        $is_sample_product = $request->is_sample_product;
+        $is_sample_product = $request->filled('is_sample_product');
         $Details = $request->Details;
         $notes = $request->notes;
         $totalcost_for_warehouse = $request->totalcost_for_warehouse;
         $DH_total_price = $request->DH_total_price;
         $FOB_cost=$request->FOB_cost;
-        $img = $request->file('image');
-        $img_name= hexdec(uniqid()). '.' . $img->getClientOriginalExtension();
+        $img = $request->file('img');
+        $img_name= hexdec(uniqid()). '.' .$img->getClientOriginalExtension();
         $img_url='upload/'.$img_name;
         $img->move(public_path('upload'),$img_name);
 
@@ -130,7 +130,7 @@ class PruductController extends Controller
         $unit = $request->unit;
         $carring_charge = $request->carring_charge;
         $treatement_deduction = $request->treatement_deduction;
-        $is_sample_product = $request->is_sample_product;
+        $is_sample_product = $request->filled('is_sample_product');
         $Details = $request->Details;
         $notes = $request->notes;
         $totalcost_for_warehouse = $request->totalcost_for_warehouse;
