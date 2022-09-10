@@ -18,7 +18,6 @@ class AssainedOrderController extends Controller
     {
 
         $assainorders=assainedOrder::with('products','warehouses')->get();
-        // dd($assainorders);
         return view('admin.assainedOrder.index',compact('assainorders'));
     }
 
@@ -77,7 +76,9 @@ class AssainedOrderController extends Controller
     public function edit($id)
     {
        $input=assainedOrder::find($id);
-       return view('admin.assainedOrder.edit')->with('assain',$input);
+       $warehouses=wareHouse::all();
+
+       return view('admin.assainedOrder.edit')->with(['assain'=>$input,'warehouses'=>$warehouses]);
     }
 
 
@@ -93,6 +94,7 @@ class AssainedOrderController extends Controller
     public function destroy($id)
     {
         assainedOrder::destroy($id);
+
         return redirect('admin/assaign_order')->with('status', 'Assign Ordered has been deleted');
     }
 }

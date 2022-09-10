@@ -25,7 +25,21 @@ WareHose
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
                 </div>
+
+
                 <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold" >Warehouse Id:</span>
+                    <select id="warehouseId" class="form-select" name="warehouseId">
+                        <option value="{{$assain->warehouseId}}" selected>{{$assain->warehouseId}}</option>
+                        @foreach ($warehouses as $warehouse )
+                        <option value="{{$warehouse->id}}">{{ $warehouse->warehouseName.' - '.$warehouse->id}}</option>
+                        @endforeach
+
+
+                    </select>
+                </div>
+
+                {{-- <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="warehouseId">Ware House Id:</span>
                     <input type="number" value="{{$assain->warehouseId}}" class="form-control @error('warehouseId')
                     is-invalid
@@ -35,7 +49,7 @@ WareHose
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
 
-                </div>
+                </div> --}}
 
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="phone">Quantity:</span>
