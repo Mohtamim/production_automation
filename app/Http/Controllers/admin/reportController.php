@@ -14,7 +14,10 @@ class reportController extends Controller
      */
     public function index()
     {
-       return view('admin.reports.report1');
+    //    return view('admin.reports.report1');
+     //   return view('admin.reports.report2');
+          return view('admin.reports.report3');
+
     }
 
     /**
