@@ -325,10 +325,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="reports" data-bs-parent="#accordionExample">
                     <li>
-                        <a href=""> Order Type </a>
+                        <a href="">Report 1</a>
                     </li>
                     <li>
-                        <a href=""> Orders </a>
+                        <a href=""> Report 2 </a>
                     </li>
                 </ul>
             </li>

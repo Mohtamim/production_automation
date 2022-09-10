@@ -16,6 +16,7 @@ use App\Http\Controllers\admin\PruductController;
 use App\Http\Controllers\admin\PackSizeController;
 use App\Http\Controllers\admin\portController;
 use App\Http\Controllers\admin\ShiperAndExporterController;
+use App\Http\Controllers\admin\reportController;
 use App\Http\Controllers\admin\UnitController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\WarehouseController;
@@ -25,6 +26,7 @@ use App\Http\Controllers\manager\managerAssignOrderController;
 use App\Http\Controllers\manager\managerDashboardController;
 use App\Http\Controllers\manager\managersController;
 use App\Http\Controllers\manager\paymentInfoController;
+
 use App\Models\managerlist;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +70,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('packaging_company', PackageingCompanyController::class);
     Route::resource('pack_order', PackOrderController::class);
     Route::resource('pack_price', PackPricingController::class);
+    Route::resource('reports', reportController::class);
 
 });
 
