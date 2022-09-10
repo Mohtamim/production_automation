@@ -18,11 +18,8 @@ class MainOrderController extends Controller
 
     public function index()
     {
-        $products = DB::table('main_orders')
-            ->leftJoin('pruducts', 'main_orders.id', '=', 'pruducts.id')
-            ->get();
-
-        return view('admin.mainOrder.index',compact('products'));
+        $mainorders= mainOrder::with('products')->get();
+        return view('admin.mainOrder.index',compact('mainorders'));
     }
     /**
      * Show the form for creating a new resource.
@@ -60,8 +57,7 @@ class MainOrderController extends Controller
     {
         // $loadData = DB::table('products')->where('id',$id)->get();
         // return response()->json($loadData);
-        $order = mainOrder::where('id',$oid)->select('id','quantity','remaing_quantity','productId')->get();
-
+        $order = mainOrder::where('id',$oid)->select('id','quantity','remaing_quantity','productId')->with(['products'])->get();
         return response()->json($order, 200);
     }
 

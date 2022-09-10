@@ -40,7 +40,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [customLoginController::class,'index'])->name('login.form');
+Route::get('/login', [customLoginController::class,'index'])->name('login.form');
 Route::POST('authUser', [customLoginController::class,'login'])->name('admin.login');
 
 Auth::routes();
@@ -48,7 +48,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::group(['prefix' => 'admin','middleware'=>'user'], function () {
+Route::group(['prefix' => 'admin'], function () {
     Route::resource('dashboard',dashboardController ::class);
     Route::resource('assaign_order', AssainedOrderController::class);
     Route::resource('users', UsersController::class);
@@ -71,12 +71,10 @@ Route::group(['prefix' => 'admin','middleware'=>'user'], function () {
 
 });
 
-Route::group(['prefix' => 'manager'], function () {
-Route::resource('order',managerAssignOrderController::class);
-Route::resource('dashboard',managerDashboardController::class);
-Route::resource('invoice',invoiceController::class);
-Route::resource('payment_info',paymentInfoController::class);
-Route::resource('managers',managersController::class);
+Route::group(['prefix' => 'manager','middleware'=>['admin','auth']], function () {
+    Route::resource('order',managerAssignOrderController::class);
+    Route::resource('dashboard',managerDashboardController::class);
+    Route::resource('invoice',invoiceController::class);
+    Route::resource('payment_info',paymentInfoController::class);
+    Route::resource('managers',managersController::class);
 });
-
-

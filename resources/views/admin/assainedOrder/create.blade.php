@@ -28,26 +28,26 @@
                         </tr>
                     </thead>
                     <tbody>{{ $i=0 }}
-                        @foreach ($mainOrder as $item)
-                        @if (($item->remaing_quantity>0))
-                        @if ( ($item->status != 0))
+                        @foreach ($mainorders as $mainorder)
+                        @if (($mainorder->remaing_quantity>0))
+                        @if ( ($mainorder->status != 0))
                          <tr>
                             <td class="text-center">{{ $i+=1 }}</td>
-                            <td class="text-center">{{ $item->productName }}</td>
-                            <td class="text-center">{{ $item->remaing_quantity }}</td>
-                            <td class="text-center">{{ $item->unitPrice }}</td>
-                            <td class="text-center">{{ $item->totalPrice }}</td>
-                            @if ($item->status == 1)
+                            <td class="text-center">{{ $mainorder->productName }}</td>
+                            <td class="text-center">{{ $mainorder->remaing_quantity }}</td>
+                            <td class="text-center">{{ $mainorder->unitPrice }}</td>
+                            <td class="text-center">{{ $mainorder->totalPrice }}</td>
+                            @if ($mainorder->status == 1)
                                 <td class="text-center">Active</td>
                             @endif
 
-                            @if ($item->status == 0)
+                            @if ($mainorder->status == 0)
                                 <td class="text-center">Deactive</td>
                             @endif
                             <td class="text-center">
-                                <button id="{{ $item->id }}" onclick="fetchData(id)"
+                                <button id="{{ $mainorder->id }}" onclick="fetchData(id)"
                                     class="btn btn-info btn-sm">select</button>
-                                {{-- <button type="button" id="{{  $item->id }}" onclick="fetchData(id)" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"></i>select</button> --}}
+                                {{-- <button type="button" id="{{  $mainorder->id }}" onclick="fetchData(id)" class="btn btn-info btn-sm" title="View customer" aria-hidden="true"></i>select</button> --}}
                             </td>
                         </tr>
                         @endif
@@ -74,24 +74,21 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text bg-light text-black font-weight-bold">Product Name:</span>
-                        <input type="text" id="productName"
-                            class="form-control @error('productName')
+                        <input type="text" id="productId"
+                            class="form-control @error('productId')
                      is-invalid
                     @enderror"
-                            name="productName" placeholder="Enter a Product Name">
-                        @error('productName')
+                            name="productId" placeholder="Enter a Product Name">
+                        @error('productId')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
-                    {{-- <select class="form-select select2" name="uniteType" value="{{ old('uniteType') }}" id="uniteType"
-                        aria-label="Default select example">
-                        <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order
-                            Id:</span>
-                        <option selected class="form-control">Select The Order</option>
-                        @foreach ($mainOrder as $mainOrder)
-                            <option value="{{ $mainOrder->id }}">{{ $mainOrder->productName }}</option>
-                        @endforeach
-                    </select><br> --}}
+
+
+                        <input type="text" id="productName"
+                            class="form-control " name="productName" placeholder="Enter a Product Name" hidden>
+
+
 
                     <div class="input-group mb-3">
 
@@ -161,6 +158,7 @@
                     $.each(data, function(key, value) {
                         $('#mainOrderId').val(value.id);
                         $('#productName').val(value.productId);
+                        $('#productId').val(value.products.title);
                         $('#quantity').val(value.remaing_quantity);
                     })
 

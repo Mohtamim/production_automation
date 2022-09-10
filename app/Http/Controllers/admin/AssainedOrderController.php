@@ -24,14 +24,13 @@ class AssainedOrderController extends Controller
     public function create()
     {
         $wareHouse = wareHouse::all();
-        $mainOrder = mainOrder::all();
-        return view('admin.assainedOrder.create')->with(['warehouse'=> $wareHouse,'mainOrder'=> $mainOrder]);
+        $mainorders = mainOrder::all();
+        return view('admin.assainedOrder.create')->with(['warehouse'=> $wareHouse,'mainorders'=> $mainorders]);
     }
 
 
     public function store(assainOrderFormValidation $request)
     {
-
 
         $mainOrderId = $request->mainOrderId;
         $productName = $request->productName;

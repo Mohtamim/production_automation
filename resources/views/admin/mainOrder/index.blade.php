@@ -30,26 +30,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($products as $pruduct)
+                            @foreach ($mainorders as $mainorder)
                                 <tr>
                                     <td class="text-center">{{ $loop->iteration }}</td>
-                                    <td class="text-center">{{ $pruduct->title }}</td>
-                                    <td class="text-center">{{ $pruduct->quantity }}</td>
-                                    <td class="text-center">{{ $pruduct->remaing_quantity }}</td>
-                                    <td class="text-center">{{ $pruduct->unitPrice }}</td>
-                                    <td class="text-center">{{ $pruduct->totalPrice }}</td>
-                                    @if ($pruduct->status == 1)
+                                    <td class="text-center">{{ $mainorder->products->title }}</td>
+                                    <td class="text-center">{{ $mainorder->quantity }}</td>
+                                    <td class="text-center">{{ $mainorder->remaing_quantity }}</td>
+                                    <td class="text-center">{{ $mainorder->unitPrice }}</td>
+                                    <td class="text-center">{{ $mainorder->totalPrice }}</td>
+                                    @if ($mainorder->status == 1)
                                         <td class="text-center">Active</td>
                                     @endif
 
-                                    @if ($pruduct->status == 0)
+                                    @if ($mainorder->status == 0)
                                         <td class="text-center">Deactive</td>
                                     @endif
                                     <td class="text-center">
-                                        <a href="{{ url('admin/main_order/' . $pruduct->id . '/edit') }}"
+                                        <a href="{{ url('admin/main_order/' . $mainorder->id . '/edit') }}"
                                             class="btn btn-success btn-sm" title="Edit Customer" aria-hidden="true"><i
                                                 class="fa-solid fa-pen-to-square"></i></a>
-                                        <form method="POST" action="{{ url('admin/main_order/' . $pruduct->id) }}"
+                                        <form method="POST" action="{{ url('admin/main_order/' . $mainorder->id) }}"
                                             accept-charset="UTF-8" style="display:inline">
                                             {{ method_field('DELETE') }}
                                             {{ csrf_field() }}

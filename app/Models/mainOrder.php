@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\pruduct;
+use App\Models\warehouse;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class mainOrder extends Model
 {
@@ -22,7 +24,7 @@ class mainOrder extends Model
     public function waproductsrehouse(){
         return $this->hasMany(warehouse::class);
     }
-    public function pruducts(){
-        return $this->belongsTo(pruduct::class);
+    public function products(){
+        return $this->belongsTo(pruduct::class, 'productId', 'id');
     }
 }

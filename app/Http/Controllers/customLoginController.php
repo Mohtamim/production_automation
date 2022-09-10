@@ -23,7 +23,7 @@ class customLoginController extends Controller
         if(Auth::guard('user')->attempt(['userName'=>$input['userName'],'password'=>$input['password']])){
             $userType = User::where('userName',$userName)->value('userType');
             if($userType==1){
-
+                $request->session()->regenerate();
                 return redirect('admin/dashboard');
             }else{
                 return redirect('manager/dashboard');
