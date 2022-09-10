@@ -18,5 +18,8 @@ class warehouse extends Model
     public function warehouse(){
         return $this->hasMany(warehouse::class);
     }
+    public function assainorder(){
+        return $this->hasMany(assainedOrder::class);
+    }
 
 }

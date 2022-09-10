@@ -17,10 +17,13 @@ class assainedOrder extends Model
                     'quantity',
                     'status',
     ];
-    public function warehouse(){
-        return $this->hasMany(warehouse::class);
+    public function products(){
+        return $this->belongsTo(pruduct::class,'productId','id');
+    }
+    public function warehouses(){
+        return $this->belongsTo(warehouse::class,'warehouseId','id');
     }
     public function mainorder(){
-        return $this->hasMany(mainOrder::class);
+        return $this->hasMany(mainOrder::class,'id','mainOrderId');
     }
 }

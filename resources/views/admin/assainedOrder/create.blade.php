@@ -33,7 +33,7 @@
                         @if ( ($mainorder->status != 0))
                          <tr>
                             <td class="text-center">{{ $i+=1 }}</td>
-                            <td class="text-center">{{ $mainorder->productName }}</td>
+                            <td class="text-center">{{ $mainorder->products->title }}</td>
                             <td class="text-center">{{ $mainorder->remaing_quantity }}</td>
                             <td class="text-center">{{ $mainorder->unitPrice }}</td>
                             <td class="text-center">{{ $mainorder->totalPrice }}</td>

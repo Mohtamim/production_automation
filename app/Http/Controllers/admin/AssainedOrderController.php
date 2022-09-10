@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\assainOrderFormValidation;
 use App\Models\assainedOrder;
 use App\Models\mainOrder;
+use App\Models\pruduct;
 use App\Models\warehouse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,16 +16,17 @@ class AssainedOrderController extends Controller
 
     public function index()
     {
-        $input=assainedOrder::all();
-        $mainoreders=mainOrder::all();
-        return view('admin.assainedOrder.index',compact('mainoreders'))->with('assain',$input);
+
+        $assainorders=assainedOrder::with('products','warehouses')->get();
+        // dd($assainorders);
+        return view('admin.assainedOrder.index',compact('assainorders'));
     }
 
 
     public function create()
     {
         $wareHouse = wareHouse::all();
-        $mainorders = mainOrder::all();
+        $mainorders= mainOrder::with('products')->get();
         return view('admin.assainedOrder.create')->with(['warehouse'=> $wareHouse,'mainorders'=> $mainorders]);
     }
 

@@ -21,36 +21,36 @@
                                         <th class="text-center">SL</th>
                                         <th class="text-center">Main Order Number</th>
                                         <th class="text-center">Product Name</th>
-                                        <th class="text-center">Warehouse Id</th>
+                                        <th class="text-center">Warehouse Name</th>
                                         <th class="text-center">Quantity</th>
                                         <th class="text-center">Status</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($assain as $item)
+                                    @foreach ($assainorders as $assainorder)
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
-                                            <td class="text-center">{{ $item->mainOrderId }}</td>
-                                            <td class="text-center">{{ $item->productName }}</td>
-                                            <td class="text-center">{{ $item->warehouseId }}</td>
-                                            <td class="text-center">{{ $item->quantity }}</td>
-                                            @if ($item->status == 1)
+                                            <td class="text-center">{{ $assainorder->mainOrderId }}</td>
+                                            <td class="text-center">{{ $assainorder->products->title }}</td>
+                                            <td class="text-center">{{ $assainorder->warehouses->warehouseName }}</td>
+                                            <td class="text-center">{{ $assainorder->quantity }}</td>
+                                            @if ($assainorder->status == 1)
                                                 <td class="text-center">Active</td>
                                             @endif
-                                            @if ($item->status == 0)
+                                            @if ($assainorder->status == 0)
                                                 <td class="text-center">Deactive</td>
                                             @endif
 
 
                                             <td class="text-center">
                                                 <div class="d-flex content-justify-center">
-                                                <a href="{{ url('admin/assaign_order/' . $item->id) }}"
+                                                <a href="{{ url('admin/assaign_order/' . $assainorder->id) }}"
                                                     class="btn btn-info btn-sm me-1"><i class="fa-solid fa-eye"></i></a>
-                                                <a href="{{ url('admin/assaign_order/' . $item->id . '/edit') }}"
+                                                <a href="{{ url('admin/assaign_order/' . $assainorder->id . '/edit') }}"
                                                     class="btn btn-success btn-sm me-1"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
-                                                <form method="post" action="{{ url('admin/assaign_order/' . $item->id) }}">
+                                                <form method="post" action="{{ url('admin/assaign_order/' . $assainorder->id) }}">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
                                                     <button type="submit" class="btn btn-info btn-sm me-1 btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
