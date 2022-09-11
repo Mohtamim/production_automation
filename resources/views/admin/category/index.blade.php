@@ -13,7 +13,7 @@ Category
                             Add Category
                         </a><hr>
 
-                                <table id="table" class="dataTable table-responsive text-center multi-table table dt-table-hover"   cellspacing="0">
+                                <table id="table" class="dataTable table"   cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th class="text-center">SL</th>

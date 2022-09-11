@@ -14,7 +14,7 @@ Packaging Company
                 Add New
             </a>
             <hr>
-            <table id="dataTableExample" class="dataTable table-responsive text-center multi-table table dt-table-hover">
+            <table id="dataTableExample" class="dataTable table">
               <thead>
                 <tr>
 

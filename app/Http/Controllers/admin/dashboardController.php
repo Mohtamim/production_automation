@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\assainedOrder;
 use App\Models\buyers;
 use App\Models\cat;
 use App\Models\mainOrder;
@@ -24,8 +25,7 @@ class dashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-
-
+        $warhouses=warehouse::count();
         $order=mainOrder::count();
         $users=User::count();
         $packsizes=packSize::count();
@@ -34,6 +34,8 @@ class dashboardController extends Controller
         $unit=unit::count();
         $buyer=buyers::count();
         $pack_order=packOrder::count();
+        $package_company=PackageingCompany::count();
+        $assignOrder=assainedOrder::count();
 
 
 
@@ -41,14 +43,17 @@ class dashboardController extends Controller
 
         return view('admin.dashboard')->with([
             'warhouses'=>$warhouses,
+            'order'=>$order,
             'users'=>$users,
             'packsizes'=>$packsizes,
             'category'=>$category,
             'product'=>$product,
             'unit'=>$unit,
             'buyer'=>$buyer,
-             'pack_order'=>$pack_order,
-             'order'=>$order
+            'pack_order'=> $pack_order,
+            'pack_order'=>$pack_order,
+             'assignOrder'=>$assignOrder,
+             'package_company'=>$package_company
 
         ]);
     }
