@@ -14,7 +14,7 @@
                                 title="Add new Customer">
                                 Add New
                             </a><br><br>
-                            <table id="dataTableExample" class="table">
+                            <table id="dataTableExample" class="dataTable table">
                                 <thead>
                                     <tr>
 

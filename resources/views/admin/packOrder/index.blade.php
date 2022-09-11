@@ -13,7 +13,7 @@ Pack Order
             <a href="{{url('admin/pack_order/create')}}" class="btn btn-success btn-sm" title="Add new pack_order">
                 Add Pack Order
             </a><br><br>
-            <table id="dataTableExample" class="table">
+            <table id="dataTableExample" class="dataTable table">
               <thead>
                 <tr>
 

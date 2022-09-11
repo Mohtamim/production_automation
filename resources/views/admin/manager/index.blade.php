@@ -10,14 +10,14 @@
             <h2 class="text-center text-success font-weight-bold mt-3">WAREHOUSE MANAGER</h2>
             <hr class="bg-primary">
             <div class="table-responsive">
-                        <table id="table" class="table dt-table-hover table-responsive" width="100%" cellspacing="0" style="white-space: nowrap;  text-overflow:ellipsis;">
+                        <table id="table" class="dataTable table-responsive text-center multi-table table dt-table-hover"  cellspacing="0" style="white-space: nowrap;  text-overflow:ellipsis;">
                             <thead>
                                 <tr>
 
                                     <th class="text-center">SL</th>
                                     <th class="text-center">Manager ID</th>
                                     <th class="text-center">Warehouse Manager Name</th>
-                                    <th class="text-center">Warehouse Manager username</th>
+                                    <th class="text-center">Username</th>
                                     <th class="text-center">Phone</th>
                                     <th class="text-center">Email</th>
                                     <th class="text-center">Warehouse Id</th>

@@ -14,7 +14,7 @@
                             </a>
                             <hr class="bg-primary">
                             <br><br>
-                            <table id="table table-responsive text-center multi-table table dt-table-hover" class="table" style="white-space: nowrap;  text-overflow:ellipsis;">
+                            <table id="table" class="dataTable table table-responsive text-center multi-table table dt-table-hover" style="white-space: nowrap;  text-overflow:ellipsis;">
                                 <thead>
                                     <tr>
 

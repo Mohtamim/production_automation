@@ -11,7 +11,7 @@
                     Add Product
                 </a><hr>
 
-                        <table id="table" class="table table-responsive text-center multi-table table dt-table-hover" style="white-space: nowrap;  text-overflow:ellipsis;">
+                        <table id="table" class="dataTable table-responsive text-center multi-table table dt-table-hover" style="white-space: nowrap;  text-overflow:ellipsis;">
                             <thead>
                                 <tr >
                                     <th class="text-center">Id</th>

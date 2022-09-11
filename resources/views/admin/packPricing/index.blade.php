@@ -12,7 +12,7 @@ Pack Pricing
             <a href="{{url('admin/pack_price/create')}}" class="btn btn-success btn-sm" title="Add new Customer">
                 Add New
             </a><br><br>
-            <table id="dataTableExample" class="table">
+            <table id="dataTableExample" class="dataTable table-responsive text-center multi-table table dt-table-hover">
               <thead>
                 <tr>
 

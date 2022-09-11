@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-    Pack Size
+    Report-3
 @endsection
 @section('admin_content')
 <div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">

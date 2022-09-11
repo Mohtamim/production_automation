@@ -15,7 +15,7 @@
                     <hr class="bg-primary">
 
 
-                    <table id="table table-responsive text-center multi-table table dt-table-hover" width=100% class="table"
+                    <table id="table " class="dataTable table table-responsive text-center multi-table table dt-table-hover"
                         style="white-space: nowrap; text-overflow:ellipsis;">
                         <thead>
                             <tr>

@@ -24,7 +24,7 @@
                                 class="form-control @error('title')
                      is-invalid
                     @enderror"
-                                name="title" placeholder="Product Name">
+                                name="title" value="{{ old('title') }}" placeholder="Product Name">
                             @error('title')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
@@ -35,7 +35,7 @@
                                 class="form-control @error('img')
                      is-invalid
                     @enderror"
-                                id="img" name="img" placeholder="Enter image">
+                                id="img" name="img"  placeholder="Enter image">
                             @error('img')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                             @enderror
@@ -69,7 +69,9 @@
                                 name="category">
                                 <option value="">Select category</option>
                                 @foreach ($category as $cat)
-                                    <option value="{{ $cat->id }}">{{ $cat->catName }}</option>
+
+                                <option value="{{ $cat->id }}">{{ $cat->catName }}</option>
+
                                 @endforeach
 
                             </select>
@@ -172,7 +174,7 @@
 
                             <span class="input-group-text bg-light text-black font-weight-bold">Details:</span>
                             <div class="md-form">
-                                <textarea name="Details" value="{{ old('Details') }}" id="Details" class="md-textarea form-control"></textarea>
+                                <textarea name="Details"  id="Details" class="md-textarea form-control">{{ old('Details') }}</textarea>
 
                             </div>
 
@@ -181,7 +183,7 @@
                         <div class="input-group mb-3 col">
                             <span class="input-group-text bg-light text-black font-weight-bold">Notes:</span>
                             <div class="md-form">
-                                <textarea name="notes" id="notes" value="{{ old('notes') }}" class="md-textarea form-control"></textarea>
+                                <textarea name="notes" id="notes"  class="md-textarea form-control">{{ old('notes') }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -190,7 +192,7 @@
                         <div class="input-group mb-3 col">
                             <span class="input-group-text bg-light  text-black font-weight-bold"> Warehouse Total Cost
                                 (BDT):</span>
-                            <input type="number" step=".01" 
+                            <input type="number" step=".01"
                                 class="form-control bg-white text-success  font-weight-bold @error('totalcost_for_warehouse')
                      is-invalid
                     @enderror"
@@ -221,7 +223,7 @@
                             class="form-control @error('FOB_cost')
                  is-invalid
                 @enderror"
-                            name="FOB_cost" placeholder="Enter FOB Cost">
+                            name="FOB_cost" value="{{ old('FOB_cost') }}" placeholder="Enter FOB Cost">
                         @error('FOB_cost')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror

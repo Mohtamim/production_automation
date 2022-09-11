@@ -12,7 +12,7 @@
                     </a>
                     <hr class="bg-primary">
 
-                    <table id="table" class="table table-responsive text-center multi-table table dt-table-hover" style="white-space: nowrap;  text-overflow:ellipsis;">
+                    <table id="table" class="dataTable table table-responsive text-center multi-table table dt-table-hover" style="white-space: nowrap;  text-overflow:ellipsis;">
                         <thead>
                             <tr class="text-center">
                                 <th class="text-center">Id</th>

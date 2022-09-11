@@ -18,7 +18,7 @@ WareHose
 
 
 
-            <table id="table" class="table dt-table-hover"  width="100%" cellspacing="0">
+            <table id="table" class="dataTable table dt-table-hover" cellspacing="0">
                 <thead>
                     <tr>
                         <th>SL</th>

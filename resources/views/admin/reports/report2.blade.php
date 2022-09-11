@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-    Pack Size
+    Report-2
 @endsection
 @section('admin_content')
 <div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
@@ -17,7 +17,7 @@
               Dhaka,Bangladesh
            Email:example@gmail.com
             Web:www.handicraft.com
-            <p class=" text-center lh-base text-dark" style="font-size:22px"><u>Center's Advance Statement</u></p>
+            <p class=" text-center lh-base text-dark fw-bold" style="font-size:22px"><u>Seassonal Advance</u></p>
       </address>
 
       </div>
@@ -29,8 +29,6 @@
             <span class=" bg-light text-black font-weight-bold">Print Date: </span><br>
               <div class=" border-right border-dark">
                 <div class="card-body border-right border-dark border-top border-dark border-left border-dark">
-                  <span class=" bg-light text-black font-weight-bold">Center Name: </span><br>
-
                 <span class=" bg-light text-black font-weight-bold">Center Name: </span><br>
                 <span class=" bg-light text-black font-weight-bold">Address: </span><br>
                 <span class=" bg-light text-black font-weight-bold">Village: </span><br>

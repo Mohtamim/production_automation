@@ -19,9 +19,7 @@
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                   <a href="{{ url('admin/warehouses') }}">Warehouses</a> </div>
 
-                                  @foreach ($warhouses as $key=>$warhouse )
-                                  @endforeach
-                                <div class="h5 mb-0 font-weight-bold text-gray-800 text-center" >{{ $key+1 }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800 text-center" >{{ $warhouses }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa fa-home fa-2x text-gray-300"></i>
@@ -39,7 +37,9 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     <a href="{{ url('admin/users') }}">Users</a></div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+
+                                <div class="h5 mb-0 font-weight-bold text-gray-800 text-center">{{$users  }}
+                                </div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-user-friends fa-2x text-gray-300"></i>
@@ -56,9 +56,12 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1"> <a href="{{ url('admin/pack_size') }}">Pack Sizes</a> </div>
+
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">100%</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800 text-center">
+                                            {{ $packsizes }}
+                                    </div>
                                     </div>
                                     {{-- <div class="col">
                                         <div class="progress progress-sm mr-2">
@@ -84,7 +87,8 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     <a href="{{ url('admin/category') }}">Category</a></div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{  $category }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-map fa-2x text-gray-300"></i>
@@ -104,7 +108,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                   <a href="{{ url('admin/product') }}">Products</a> </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{  $product }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-arrows-to-dot fa-2x text-gray-300"></i>
@@ -122,7 +126,8 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     <a href="{{ url('admin/unit') }}">Unit</a></div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $unit }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-scale-balanced fa-2x text-gray-300"></i>
@@ -141,7 +146,7 @@
                                 <div class="text-xs font-weight-bold text-info text-uppercase mb-1"> <a href="{{ url('admin/buyers') }}">Buyers</a> </div>
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">100%</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $buyer }}</div>
                                     </div>
                                     {{-- <div class="col">
                                         <div class="progress progress-sm mr-2">
@@ -167,7 +172,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     <a href="{{ url('admin/main_order') }}">Active Order</a></div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $order }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-bucket fa-2x text-success-300"></i>
@@ -205,7 +210,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     <a href="{{ url('admin/packaging_company') }}">Packaging Company</a></div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $package_company }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-house-circle-check fa-2x text-gray-300"></i>
