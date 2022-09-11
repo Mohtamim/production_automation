@@ -20,12 +20,12 @@
 
 
                 <div class="input-group mb-3">
-                    <select  class="form-select select2 @error('productName')
+                    <select onchange="fetchData1(id)" class="form-select select2 @error('productName')
                     is-invalid
-                     @enderror" name="productName" id="productName">
+                     @enderror" name="productName" >
                         <option value="" >Select Product</option>
                         @foreach ($product as $pro )
-                        <option value="{{$pro->id  }}">{{ $pro->title}}</option>
+                        <option id="{{$pro->id  }}"  value="{{$pro->id  }}">{{ $pro->title}}</option>
                         @endforeach
 
                     </select>
@@ -49,7 +49,7 @@
                     <span class="input-group-text bg-light text-black font-weight-bold">Unit Price(USD)</span><br>
                 <input type="text" name="unitPrice" id="unitPrice" class="form-control @error('unitPrice')
                   is-invalid
-                   @enderror" onkeyup="fetchData()">
+                   @enderror" onchange="fetchData()">
                    @error('unitPrice')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
@@ -94,39 +94,31 @@
     }
 </script>
 
+<script type="text/javascript">
+        function fetchData1(id) {
+            var oid =  $( "select option:selected" ).val();
+         if (oid){
 
-{{-- <script>
-        $('select#status').on('change',function(e){
-        e.preventDefault();
-        var selected_ststus = $(this).children("option:selected").val();
+            $.ajax({
+                url: "{{ url('admin/product_fetch') }}/" + oid,
+                type: "GET",
+                cache: false,
+                dataType: "json",
+                success: function(data) {
+                    console.log(data);
 
-        console.log(selected_status);
-        $.ajax({
-            url:"admin/main_order/" + selected_status,
-            method: 'get',
-            // data: {id:selected_status},
-            dataType: 'json',
-            success: function(){
-                console.log('Request Send');
-            }
-        });
-        $.ajax({
-        url:'admin/main_order/',
-        method:'POST',
-        dataType:'html',
-        data:{id:id},
-        success:function(data){
-            var dat=$.parseJSON(data); // JSON decode
-            $('#uuser_name').val(dat.loadData.user_name);
-            $('#uuser_pass').val(dat.qr.user_pass);
-            $('#u_token').val(dat.qr._token);
+
+                    $.each(data, function(key, value) {
+                        $('#unitPrice').val(value.FOB_cost);
+                    })
+
+                }
+            });
 
         }
-    })
 
-    });
-}
-</script> --}}
+        }
+    </script>
 <script type="text/javascript">
     $('.select2').select2();
 </script>

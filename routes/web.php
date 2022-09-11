@@ -1,35 +1,36 @@
 <?php
 
-use App\Http\Controllers\admin\AssainedOrderController;
-use App\Http\Controllers\admin\BankBenificiaryController;
-use App\Http\Controllers\admin\BuyersController;
-use App\Http\Controllers\admin\CatController;
-use App\Http\Controllers\admin\CountryController;
-use App\Http\Controllers\admin\dashboardController;
-use App\Http\Controllers\admin\MainOrderController;
-use App\Http\Controllers\admin\ManagerlistController;
-use App\Http\Controllers\admin\PackageingCompanyController;
-use App\Http\Controllers\admin\PackagingController;
-use App\Http\Controllers\admin\PackOrderController;
-use App\Http\Controllers\admin\PackPricingController;
-use App\Http\Controllers\admin\PruductController;
-use App\Http\Controllers\admin\PackSizeController;
-use App\Http\Controllers\admin\portController;
-use App\Http\Controllers\admin\ShiperAndExporterController;
-use App\Http\Controllers\admin\reportController;
-use App\Http\Controllers\admin\UnitController;
-use App\Http\Controllers\admin\UsersController;
-use App\Http\Controllers\admin\WarehouseController;
-use App\Http\Controllers\customLoginController;
-use App\Http\Controllers\manager\invoiceController;
-use App\Http\Controllers\manager\managerAssignOrderController;
-use App\Http\Controllers\manager\managerDashboardController;
-use App\Http\Controllers\manager\managersController;
-use App\Http\Controllers\manager\paymentInfoController;
-
 use App\Models\managerlist;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\productsfetch;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\admin\CatController;
+use App\Http\Controllers\admin\portController;
+use App\Http\Controllers\admin\UnitController;
+use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\customLoginController;
+use App\Http\Controllers\admin\BuyersController;
+use App\Http\Controllers\admin\reportController;
+use App\Http\Controllers\admin\CountryController;
+use App\Http\Controllers\admin\PruductController;
+use App\Http\Controllers\admin\PackSizeController;
+use App\Http\Controllers\admin\dashboardController;
+use App\Http\Controllers\admin\MainOrderController;
+use App\Http\Controllers\admin\PackagingController;
+use App\Http\Controllers\admin\PackOrderController;
+use App\Http\Controllers\admin\WarehouseController;
+use App\Http\Controllers\manager\invoiceController;
+use App\Http\Controllers\manager\managersController;
+use App\Http\Controllers\admin\ManagerlistController;
+use App\Http\Controllers\admin\PackPricingController;
+use App\Http\Controllers\admin\AssainedOrderController;
+use App\Http\Controllers\manager\paymentInfoController;
+use App\Http\Controllers\admin\BankBenificiaryController;
+use App\Http\Controllers\admin\PackageingCompanyController;
+use App\Http\Controllers\admin\ShiperAndExporterController;
+use App\Http\Controllers\manager\managerDashboardController;
+use App\Http\Controllers\manager\managerAssignOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,11 +48,12 @@ Route::POST('authUser', [customLoginController::class,'login'])->name('admin.log
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('dashboard',dashboardController ::class);
+    Route::get('product_fetch/{id}',[productsfetch::class,'show']);
     Route::resource('assaign_order', AssainedOrderController::class);
     Route::resource('users', UsersController::class);
     Route::resource('country', CountryController::class);

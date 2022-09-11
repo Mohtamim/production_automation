@@ -55,6 +55,7 @@ class MainOrderController extends Controller
 
     public function show($oid)
     {
+        
         $order = mainOrder::where('id',$oid)->select('id','quantity','remaing_quantity','productId')->with(['products'])->get();
         return response()->json($order, 200);
     }
