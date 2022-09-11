@@ -4,9 +4,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-
-
-
+use App\Models\warehouse;
 use Illuminate\Http\Request;
 
 class dashboardController extends Controller
@@ -17,7 +15,7 @@ class dashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.dashboard');
+    {   $warhouses=warehouse::all();
+        return view('admin.dashboard')->with(['warhouses'=>$warhouses]);
     }
 }

@@ -18,7 +18,10 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                   <a href="{{ url('admin/warehouses') }}">Warehouses</a> </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+
+                                  @foreach ($warhouses as $key=>$warhouse )
+                                  @endforeach
+                                <div class="h5 mb-0 font-weight-bold text-gray-800 text-center" >{{ $key+1 }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa fa-home fa-2x text-gray-300"></i>

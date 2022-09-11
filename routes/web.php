@@ -51,7 +51,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-Route::group(['prefix' => 'admin','middleware'=>['auth', 'user-access:0']], function () {
+Route::group(['prefix' => 'admin'], function () {
     Route::resource('dashboard',dashboardController ::class);
     Route::get('product_fetch/{id}',[productsfetch::class,'show']);
     Route::resource('assaign_order', AssainedOrderController::class);
