@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,12 +16,14 @@ class userCheck
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $userType)
     {
-        if(!Auth::guard('user')->check()){
-            return redirect('/')->with('error',"You don't have admin access.");
-
+        if(auth()->user()->userType == $userType){{
+            return $next($request);
         }
-        return $next($request);
+
+        return response()->json(['You do not have permission to access for this page.']);
+
     }
+}
 }

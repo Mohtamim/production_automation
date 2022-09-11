@@ -15,7 +15,7 @@
                 <div class="col-md-12">
                     @include('admin.inc.flash-messages')
                   </div>
-               <form action="{{ route('admin.login') }}" method="POST">
+               <form action="{{ route('login') }} method="POST">
                 <div class="row">
                     <div class="col-md-12 mb-3">
 

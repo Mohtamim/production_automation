@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone')->unique();
             $table->string('password');
-            $table->integer('userType');
+            $table->tinyInteger('userType')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

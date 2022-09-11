@@ -4,7 +4,7 @@ use App\Models\managerlist;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\productsfetch;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\CatController;
 use App\Http\Controllers\admin\portController;
 use App\Http\Controllers\admin\UnitController;
@@ -43,7 +43,7 @@ use App\Http\Controllers\manager\managerAssignOrderController;
 |
 */
 
-Route::get('/login', [customLoginController::class,'index'])->name('login.form');
+Route::get('/', [customLoginController::class,'index'])->name('login.form');
 Route::POST('authUser', [customLoginController::class,'login'])->name('admin.login');
 
 Auth::routes();
@@ -51,7 +51,7 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware'=>['auth', 'user-access:0']], function () {
     Route::resource('dashboard',dashboardController ::class);
     Route::get('product_fetch/{id}',[productsfetch::class,'show']);
     Route::resource('assaign_order', AssainedOrderController::class);
