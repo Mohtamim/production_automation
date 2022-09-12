@@ -106,7 +106,7 @@ class AssainedOrderController extends Controller
                $assain->update($input);
                return redirect('admin/assaign_order')->with('flash_message','Assign Ordered value Updated');
 
-    }}
+    }
 
 
 
