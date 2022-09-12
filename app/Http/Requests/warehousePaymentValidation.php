@@ -13,7 +13,7 @@ class warehousePaymentValidation extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,6 @@ class warehousePaymentValidation extends FormRequest
     {
         return [
             'managerName'=>'required',
-            'managerId'=>'required',
             'email'=>'required',
             'warehouseName'=>'required',
             'amount'=>'required',

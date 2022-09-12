@@ -5,9 +5,9 @@
 @section('admin_content')
 <div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
     <div class="row ">
-        <h2 class="text-center text-success font-weight-bold mt-3">BUYERS</h2>
+        <h2 class="text-center text-success font-weight-bold mt-3">Warehouse Payment</h2>
         <div class="table-responsive">
-                            <a href="{{ url('admin/warehousePayments/create') }}" class="btn btn-success btn-sm" title="Add Warehouse Payment">
+                            <a href="{{ url('admin/warehouse_payments/create') }}" class="btn btn-success btn-sm" title="Add Warehouse Payment">
                                 Add New
                             </a> <hr class="bg-primary">
                             <br><br>
@@ -26,7 +26,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($buyer as $item)
+                                            @foreach ($warehousePayment as $item)
                                                 <tr>
                                                     <td class="text-center">{{ $loop->iteration }}</td>
                                                     <td class="text-center">{{ $item->managerName }}</td>
@@ -38,14 +38,14 @@
 
                                                     <td class="text-center">
 
-                                                        <a href="{{ url('admin/warehousePayments/' . $item->id) }}"
+                                                        <a href="{{ url('admin/warehouse_payments/' . $item->id) }}"
                                                             class="btn btn-info btn-sm" title="View customer"
                                                             aria-hidden="true"><i class="fa fa-eye"></i></a>
-                                                        <a href="{{ url('admin/warehousePayments/' . $item->id . '/edit') }}"
+                                                        <a href="{{ url('admin/warehouse_payments/' . $item->id . '/edit') }}"
                                                             class="btn btn-success btn-sm" title="Edit Customer"
                                                             aria-hidden="true"><i class="fa fa-pen-to-square"></i></a>
                                                         <form method="POST"
-                                                            action="{{ url('admin/warehousePayments/' . $item->id) }}"
+                                                            action="{{ url('admin/warehouse_payments/' . $item->id) }}"
                                                             accept-charset="UTF-8" style="display:inline">
                                                             {{ method_field('DELETE') }}
                                                             {{ csrf_field() }}

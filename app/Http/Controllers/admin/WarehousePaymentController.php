@@ -25,9 +25,26 @@ class WarehousePaymentController extends Controller
     public function store(warehousePaymentValidation $request)
     {
 
+        $managerName=$request->managerName;
+        $managerId=$request->managerId;
+        $email=$request->email;
+        $warehouseName=$request->warehouseName;
+        $amount=$request->amount;
+        $date=$request->date;
+
+        warehousePayment::insert([
+             'managerName'=>$managerName,
+             'managerId'=>$managerId,
+             'email'=>$email,
+             'warehouseName'=>$warehouseName,
+             'amount'=> $amount,
+             'date'=> $date
+        ]);
+        return redirect('admin/warehouse_payments')->with('success','warehouse Payments created successfully' );
+
     }
 
-    
+
     public function show(warehousePayment $warehousePayment)
     {
         //

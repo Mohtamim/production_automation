@@ -20,8 +20,6 @@ use App\Http\Controllers\admin\MainOrderController;
 use App\Http\Controllers\admin\PackagingController;
 use App\Http\Controllers\admin\PackOrderController;
 use App\Http\Controllers\admin\WarehouseController;
-use App\Http\Controllers\admin\buyersPayment;
-use App\Http\Controllers\admin\warehousePayment;
 
 use App\Http\Controllers\manager\invoiceController;
 use App\Http\Controllers\manager\managersController;
@@ -37,7 +35,7 @@ use App\Http\Controllers\admin\WarehousePaymentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\manager\managerDashboardController;
 use App\Http\Controllers\manager\managerAssignOrderController;
-use App\Models\warehousePayment as ModelsWarehousePayment;
+
 
 /*
 |--------------------------------------------------------------------------

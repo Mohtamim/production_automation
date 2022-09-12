@@ -10,21 +10,27 @@ WareHose-Payment
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h2 class="text-success text-center font-weight-bold mt-3">ADD BUYERS</h2>
+                    <h2 class="text-success text-center font-weight-bold mt-3">ADD Warehouse Payments</h2>
                 </div>
             </div>
         </div><hr>
         <div class="widget-content widget-content-area ">
-            <form class="forms-sample" action="{{ url('admin/warehousePayments') }}" method="POST" enctype="multipart/form-data">
+            <form class="forms-sample" action="{{ url('admin/warehouse_payments') }}" method="POST" enctype="multipart/form-data">
                 {!! csrf_field() !!}
+                <div class="input-group mb-3">
+                    {{-- <span class="input-group-text bg-light text-black font-weight-bold">Manager ID: </span><br> --}}
+                <input type="hidden" name="managerId" value="{{ old('managerId') }}" id="managerId" class="form-control
+                 " >
+
+                </div>
                 <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     {{-- <span class="input-group-text bg-light text-black font-weight-bold">Manager Name: </span><br> --}}
                 <select type="text" name="managerName" id="managerName" class="form-control @error('managerName')
                   is-invalid
                    @enderror">
-                   <option for="">select Manager Name</option>
-                   <option for="">select Manager Name</option>
+                   <option value="">select Manager Name</option>
+                   <option value="gjf">paka</option>
 
                 </select>
                    @error('managerName')
@@ -32,14 +38,12 @@ WareHose-Payment
                    @enderror
 
                 </div>
-
-
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Manager ID: </span><br>
-                <input type="text" name="managerId" value="{{ old('managerId') }}" id="managerId" class="form-control @error('managerId')
+                    <span class="input-group-text bg-light text-black font-weight-bold">WarehouseName: </span><br>
+                <input type="text" name="warehouseName" id="warehouseName" value="{{ old('warehouseName') }}"  class="form-control @error('warehouseName')
                   is-invalid
                    @enderror" >
-                   @error('managerId')
+                   @error('warehouseName')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
 
@@ -56,30 +60,8 @@ WareHose-Payment
                    @enderror
 
                 </div>
-
-                <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Phone: </span><br>
-                <input type="text" name="phone" id="phone" value="{{ old('phone') }}"  class="form-control @error('phone')
-                  is-invalid
-                   @enderror" >
-                   @error('phone')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
-
-                </div>
             </div>
-            <div class="row ms-2 me-2">
-                <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">WarehouseName: </span><br>
-                <input type="text" name="warehouseName" id="warehouseName" value="{{ old('warehouseName') }}"  class="form-control @error('warehouseName')
-                  is-invalid
-                   @enderror" >
-                   @error('warehouseName')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
 
-                </div>
-            </div>
             <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">Amount: </span><br>
