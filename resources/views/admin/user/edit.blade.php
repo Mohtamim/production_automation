@@ -69,9 +69,9 @@
                     <div class="row ms-2 me-2">
                         <div class="input-group mb-3 col">
                             <span class="input-group-text bg-light text-black font-weight-bold" >Phone:</span>
-                            <input type="number" id="phone" class="form-control @error('phone')
+                            <input type="text" id="phone" class="form-control @error('phone')
                             is-invalid
-                            @enderror" value="{{ $user->phone }}" name="phone"
+                            @enderror" value="{{$user->phone }}" name="phone"
                                 aria-label="Enter your Phone Number"
                                 aria-describedby="basic-addon2">
                             @error('phone')

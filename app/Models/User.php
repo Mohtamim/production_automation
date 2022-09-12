@@ -51,10 +51,5 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    protected function userType(): Attribute
-    {
-        return new Attribute(
-            get: fn ($value) =>  [ "admin", "manager"][$value],
-        );
-    }
+   
 }

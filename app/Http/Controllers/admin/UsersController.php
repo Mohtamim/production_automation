@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\managerlist;
 use App\Models\users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UsersController extends Controller
 {
@@ -52,12 +53,6 @@ class UsersController extends Controller
         return redirect('admin/users')->with('success','User created successfully');
     }
 
-    public function show(User $users)
-    {
-
-    }
-
-
     public function edit($id)
     {
         $user = User::find($id);
@@ -67,11 +62,20 @@ class UsersController extends Controller
 
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $input = $request->all();
-        $user->update($input);
-        return redirect('admin/users')->with(['update'=>'Your User is Updated']);
 
+        
+        $user = User::find($id);
+            $userType1= User::where('id', $user );
+         $userType1=$userType1->userType;
+        $userType= $request->userType;
+        $input = $request->all();
+        dd($userType==$userType1);
+        if($userType==$userType1){
+            $user->update($input);
+            return redirect('admin/users')->with(['update'=>'Your User is Updated']);
+        }
+       
+        return back()->with(['update'=>'Your User is Updated']);
         }
     public function destroy($id)
     {

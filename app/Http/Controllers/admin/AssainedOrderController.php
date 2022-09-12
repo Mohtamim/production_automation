@@ -84,7 +84,7 @@ class AssainedOrderController extends Controller
 
     public function update(assainOrderFormValidation $request, $id)
     {
-    //    $assain=assainedOrder::find($id);
+       $assain=assainedOrder::find($id);
     //    $input=$request->all();
     //    $assain->update($input);
     //    return redirect('admin/assaign_order')->with('flash_message','Assign Ordered value Updated');
@@ -113,11 +113,11 @@ class AssainedOrderController extends Controller
             'warehouseId'=>$warehouseId,
             'quantity'=>$quantity,
             'status'=>$status,
-
+        ]);
             $assain->update($input);
                return redirect('admin/assaign_order')->with('flash_message','Assign Ordered value Updated');
 
-    }
+    }}
 
 
     public function destroy($id)

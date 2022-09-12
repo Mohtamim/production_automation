@@ -29,6 +29,7 @@ use App\Http\Controllers\manager\paymentInfoController;
 use App\Http\Controllers\admin\BankBenificiaryController;
 use App\Http\Controllers\admin\PackageingCompanyController;
 use App\Http\Controllers\admin\ShiperAndExporterController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\manager\managerDashboardController;
 use App\Http\Controllers\manager\managerAssignOrderController;
 
@@ -43,16 +44,17 @@ use App\Http\Controllers\manager\managerAssignOrderController;
 |
 */
 
-Route::get('/', [customLoginController::class,'index'])->name('login.form');
-Route::POST('authUser', [customLoginController::class,'login'])->name('admin.login');
+Route::get('/', [LoginController::class,'showLoginForm']);
+Route::POST('/', [customLoginController::class,]);
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('home', [HomeController::class, 'index'])->name('home');
+
 
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::resource('dashboard',dashboardController ::class);
+    Route::resource('dashboard', dashboardController::class);
     Route::get('product_fetch/{id}',[productsfetch::class,'show']);
     Route::resource('assaign_order', AssainedOrderController::class);
     Route::resource('users', UsersController::class);

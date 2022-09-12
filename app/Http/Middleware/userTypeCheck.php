@@ -17,14 +17,22 @@ class userTypeCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check()){
-            if(Auth::user()->userType == '1'){
-                return $next($request);
-            }else{
-                return redirect('/');
-            }
-        }else{
-            return redirect('/');
+        // if(Auth::check()){
+        //     if(Auth::user()->userType == '1'){
+        //         return $next($request);
+        //     }else{
+        //         return redirect('/');
+        //     }
+        // }else{
+        //     return redirect('/');
+        // }
+
+        if(auth()->user()->userType == 1){
+            return $next($request);
         }
+        if(auth()->user()->userType == 2){
+            return $next($request);
+        }
+
     }
 }
