@@ -16,7 +16,7 @@
                     <div class="card-body" >
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 text-center">
                                   <a href="{{ url('admin/warehouses') }}">Warehouses</a> </div>
 
                                 <div class="h5 mb-0 font-weight-bold text-gray-800 text-center" >{{ $warhouses }}</div>
@@ -155,9 +155,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 text-center">
                                     <a href="{{ url('admin/main_order') }}">Active Order</a></div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800 text-center">{{ $order }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800 text-center">{{ $activeorders }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-bucket fa-2x text-success-300"></i>
@@ -175,9 +175,9 @@
                     <div class="card-body" >
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1 text-center">
                                   <a href="{{ url('admin/assaign_order') }}">Pending Order</a> </div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800 text-center">{{ $pendingorders }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-rocket fa-2x text-gray-300"></i>
@@ -228,9 +228,9 @@
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 text-center">
                                     <a href="{{ url('admin/assign-order') }}">Assign Order</a></div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800 text-center">{{ $assignOrder }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800 text-center text-center">{{ $assignOrder }}</div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-comments fa-2x text-gray-300"></i>

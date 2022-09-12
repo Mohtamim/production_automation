@@ -21,17 +21,6 @@ class ManagerlistController extends Controller
     }
 
 
-    public function create()
-    {
-
-    }
-
-
-    public function store(managerlistFormValidation $request)
-    {
-
-    }
-
 
     public function show($id)
     {

@@ -36,6 +36,8 @@ class dashboardController extends Controller
         $pack_order=packOrder::count();
         $package_company=PackageingCompany::count();
         $assignOrder=assainedOrder::count();
+        $activeorders = mainOrder::where('status','1')->count();
+        $pendingorders = mainOrder::where('status','0')->count();
 
 
 
@@ -51,9 +53,10 @@ class dashboardController extends Controller
             'unit'=>$unit,
             'buyer'=>$buyer,
             'pack_order'=> $pack_order,
-            'pack_order'=>$pack_order,
              'assignOrder'=>$assignOrder,
-             'package_company'=>$package_company
+             'package_company'=>$package_company,
+             'activeorders'=>$activeorders,
+             'pendingorders'=>$pendingorders,
 
         ]);
     }
