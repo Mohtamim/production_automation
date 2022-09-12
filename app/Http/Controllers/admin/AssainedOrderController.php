@@ -84,10 +84,39 @@ class AssainedOrderController extends Controller
 
     public function update(assainOrderFormValidation $request, $id)
     {
-       $assain=assainedOrder::find($id);
-       $input=$request->all();
-       $assain->update($input);
-       return redirect('admin/assaign_order')->with('flash_message','Assign Ordered value Updated');
+    //    $assain=assainedOrder::find($id);
+    //    $input=$request->all();
+    //    $assain->update($input);
+    //    return redirect('admin/assaign_order')->with('flash_message','Assign Ordered value Updated');
+    $mainOrderId = $request->mainOrderId;
+    $productName = $request->productName;
+    $warehouseId = $request->warehouseId;
+    $quantity = $request->quantity;
+    $status = $request->status;
+
+    $mainOrder = mainOrder::all();
+    $remainQ = mainOrder::where('id',$mainOrderId)->value('remaing_quantity');
+    $remainQ1= $remainQ-$quantity;
+
+    if($remainQ<=0){
+
+        return redirect('admin/assaign_order/create')->with('error','You have no remain quantity');
+    }
+    elseif($remainQ1>=0){
+        DB::table('main_orders')
+            ->where('id', $mainOrderId)
+            ->update(['remaing_quantity' => $remainQ1]);
+
+        $input=([
+            'mainOrderId'=>$mainOrderId,
+            'productId'=>$productName,
+            'warehouseId'=>$warehouseId,
+            'quantity'=>$quantity,
+            'status'=>$status,
+
+            $assain->update($input);
+               return redirect('admin/assaign_order')->with('flash_message','Assign Ordered value Updated');
+
     }
 
 
