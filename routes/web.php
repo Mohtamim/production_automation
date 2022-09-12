@@ -30,6 +30,7 @@ use App\Http\Controllers\admin\PackPricingController;
 use App\Http\Controllers\admin\AssainedOrderController;
 use App\Http\Controllers\manager\paymentInfoController;
 use App\Http\Controllers\admin\BankBenificiaryController;
+use App\Http\Controllers\admin\BuyersPaymentController;
 use App\Http\Controllers\admin\PackageingCompanyController;
 use App\Http\Controllers\admin\ShiperAndExporterController;
 use App\Http\Controllers\Auth\LoginController;
@@ -79,7 +80,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('pack_order', PackOrderController::class);
     Route::resource('pack_price', PackPricingController::class);
     Route::resource('reports', reportController::class);
-    Route::resource('buyersPayments',buyersPayment::class);
+    Route::resource('buyersPayments',BuyersPaymentController::class);
     Route::resource('warehousePayments',warehousePayment::class);
     Route::resource('reports', reportController::class);
 

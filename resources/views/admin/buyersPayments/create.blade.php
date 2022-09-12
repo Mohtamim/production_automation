@@ -1,101 +1,70 @@
 @extends('admin.layout')
-@section('title')
-Buyer
+@section('ware-title')
+BUYERS PAYMENTS
 @endsection
 @section('admin_content')
-<div class="container mt-5">
-<div class="col-lg-12 col-12">
-
-    <div class="widget box box-shadow">
+<div class="col-lg-12 col-12  layout-spacing">
+    <div class="statbox widget box box-shadow">
         <div class="widget-header">
             <div class="row">
-                <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
-                    <h2 class="text-success text-center font-weight-bold mt-3" >EDIT BUYERS</h2>
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h3 class="text-center h2 text-success font-weight-bold">ADD BUYERS PAYMENTS</h3>
                 </div>
             </div>
         </div>
-        <div class="widget-content widget-content-area ">
-            <form class="forms-sample" action="{{ url('admin/buyers/'.$buyer->id) }}" method="POST" enctype="multipart/form-data">
-                @method('PATCH')
+        <div class="widget-content widget-content-area">
+            <form class="" action="{{ url('admin/buyersPayments') }}" method="POST">
                 {!! csrf_field() !!}
-                <div class="row ms-2 me-2">
-                <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Buyer Code </span><br>
-                <input type="number" value="{{ $buyer->buyerCode }}" name="buyerCode" id="buyerCode" class="form-control @error('buyerCode')
-                  is-invalid
-                   @enderror">
-                   @error('buyerCode')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
+                <div class="input-group mb-3">
+                    {{-- <span class="input-group-text bg-light text-black font-weight-bold">Buyer Id:</span> --}}
+                    <input type="hidden"  value="{{ old('buyerId') }}" class="form-control " name="buyerId"  id="buyerId" placeholder="Enter your Buyer Id">
 
                 </div>
 
-
-                <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Buyer Name</span><br>
-                <input type="text" name="buyerName" id="buyerName" value="{{ $buyer->buyerName }}" class="form-control @error('buyerName')
-                  is-invalid
-                   @enderror" >
-                   @error('buyerName')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
-
-                </div>
-            </div>
-            <div class="row ms-2 me-2">
-                <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Email</span><br>
-                <input type="text" name="email" value="{{ $buyer->email }}" id="email" class="form-control @error('email')
-                  is-invalid
-                   @enderror" >
-                   @error('email')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
-
-                </div>
-
-                <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Phone</span><br>
-                <input type="text" name="phone" id="phone" value="{{ $buyer->phone }}" class="form-control @error('phone')
-                  is-invalid
-                   @enderror" >
-                   @error('phone')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
-
-                </div>
-            </div>
-            <div class="row ms-2 me-2">
-                <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">img</span><br>
-                <input type="file" name="img" id="img"  class="form-control @error('img')
-                  is-invalid
-                   @enderror" >
-                   @error('img')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
-
-                </div>
-                <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Balance: </span><br>
-                <input type="number" name="balance" id="balance" value="{{ $buyer->balance }}"   class="form-control @error('balance')
-                  is-invalid
-                   @enderror" >
-                   @error('balance')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
-
-                </div>
-            </div>
-            <div class="row ms-2 me-2">
-                <div class="input-group mb-3 col">
-                        <select name="country" id="country" value="{{ $buyer->country }}" class="form-control h-50 select2 @error('country')
+                <div class="input-group mb-3">
+                    {{-- <span class="input-group-text bg-light text-black font-weight-bold">Buyer Name:</span> --}}
+                    <select type="text"  class="form-control @error('buyerName')
                     is-invalid
-                     @enderror" selected >
+                    @enderror" name="buyerName"  id="buyerName" value="{{ old('buyerName') }}"  placeholder="Enter your Buyer Name" aria-label="Enter your buyerName" aria-describedby="basic-addon2">
+                    <option value="">select Buyer</option>
+                    <option value="{{ $buyer->id }}">{{  }}</option>
+                    </select>
+                    @error('buyerName')
+              <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+
+               @enderror
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold" >Buyer Code:</span>
+                    <input type="number"  class="form-control @error('buyerCode')
+                    is-invalid
+                    @enderror" name="buyerCode" id="buyerCode" value="{{ old('buyerCode') }}"  placeholder="Enter your Buyer Code" aria-label="Enter your buyerCode" aria-describedby="basic-addon2">
+                    @error('buyerCode')
+              <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+
+               @enderror
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Email:</span>
+                    <input type="text"  class="form-control @error( "email")
+                    is-invalid
+                    @enderror" name= "email"  id= "email"  value="{{ old( "email") }}"  placeholder="Enter your Email" aria-label="Enter your email" aria-describedby="basic-addon2">
+                    @error("email")
+              <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+
+               @enderror
+                </div>
+                <div class="input-group mb-3 ">
+
+                    <select name="country" id="country" value="{{ old('country') }}"  class="form-control h-50 select2 @error('country')
+                    is-invalid
+                     @enderror" >
                      @error('country')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                      @enderror
-                        <option value=""Active>Select Country</option>
+                        <option value="">Select Country</option>
                         <option value="AFG">Afghanistan</option>
                         <option value="ALA">Åland Islands</option>
                         <option value="ALB">Albania</option>
@@ -346,18 +315,26 @@ Buyer
                         <option value="ZMB">Zambia</option>
                         <option value="ZWE">Zimbabwe</option>
                     </select>
-
-                </div>
-            </div>
-
-                <div class="input-group mb-3 me-4 col">
-                <input type="submit" value="Update" class="btn btn-success me-1">
-                <a class="btn btn-secondary" href="{{ url('admin/buyers') }}">Cancel</a>
                 </div>
 
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold" >Amount:</span>
+                    <input type="number"  class="form-control @error('amount')
+                    is-invalid
+                    @enderror" name="amount" id="amount"  value="{{ old('amount') }}"  placeholder="BDT:10,0000" aria-label="Enter your amount" aria-describedby="basic-addon2">
+                    @error('amount')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+
+                     @enderror
+                </div>
+
+
+
+                <input type="submit" value="save" class="btn btn-success">
+                <a class="btn btn-secondary" href="{{ url('admin/buyersPayments') }}">Cancel</a>
               </form>
+
         </div>
     </div>
-</div>
 </div>
 @endsection
