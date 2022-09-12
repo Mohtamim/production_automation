@@ -16,8 +16,8 @@ class reportController extends Controller
     {
     //    return view('admin.reports.report1');
         //   return view('admin.reports.report2');
-        //   return view('admin.reports.report3');
-        return view('admin.reports.report4');
+          return view('admin.reports.report3');
+        // return view('admin.reports.report4');
 
     }
 

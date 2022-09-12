@@ -13,6 +13,7 @@
 
     <script src="{{ asset('assets') }}/plugins/src/table/datatable/datatables.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <script>
         $(document).ready(function() {
             $('.dataTable').DataTable();

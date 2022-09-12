@@ -29,6 +29,7 @@ class MainOrderController extends Controller
     public function create()
     {
         $product= pruduct::all();
+
        return view('admin.mainOrder.create')->with('product',$product);
     }
 
@@ -55,7 +56,7 @@ class MainOrderController extends Controller
 
     public function show($oid)
     {
-        
+
         $order = mainOrder::where('id',$oid)->select('id','quantity','remaing_quantity','productId')->with(['products'])->get();
         return response()->json($order, 200);
     }
@@ -65,6 +66,7 @@ class MainOrderController extends Controller
     {
 
        $input=mainOrder::find($id);
+    //    $mainorders= mainOrder::with('products')->get();
         $product= pruduct::all();
         return view('admin.mainOrder.edit')->with(['mainorder'=>$input,'product'=>$product]);
     }

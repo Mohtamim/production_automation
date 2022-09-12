@@ -22,7 +22,7 @@
                     <select  class="form-select select2 @error('productName')
                     is-invalid
                      @enderror" name="productName" id="productName">
-                        <option value="" >Select Product</option>
+                    <option value="{{ $mainorder->productId }}" selected>{{ $mainorder->productId }}</option>
                         @foreach ($product as $pro )
                         <option value="{{$pro->id  }}">{{ $pro->title}}</option>
                         @endforeach
