@@ -15,4 +15,8 @@ class cat extends Model
                     'catName',
                     'catTitle'
     ];
+    public function pruduct()
+    {
+        return $this->belongsTo(pruduct::class);
+    }
 }

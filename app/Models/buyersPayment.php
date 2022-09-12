@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class buyers extends Model
+class buyersPayment extends Model
 {
     use HasFactory;
-    protected $table ='buyers';
+    protected $table ='buyers_payments';
     protected $primaryKey='id';
     protected $fillable=[
-        'buyerCode',
+        'buyerId',
         'buyerName',
-        'email',
-        'phone',
-        'img',
-        'country',
-        'balance'
+        'buyerCode',
+          'email',
+          ''
+
     ];
 }
