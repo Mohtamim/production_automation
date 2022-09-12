@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('buyers', function (Blueprint $table) {
+        Schema::create('buyers_payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('buyerCode');
+            $table->foreignId('buyerId')->constrained('buyers');
             $table->string('buyerName');
-            $table->string('email')->unique();
-            $table->string('phone');
-            $table->string('img');
+            $table->integer('buyerCode');
+            $table->string('email');
             $table->string('country');
-            $table->decimal('balance',10,2);
+            $table->decimal('amount',10,2);
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buyers');
+        Schema::dropIfExists('buyers_payments');
     }
 };

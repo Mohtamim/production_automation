@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('buyers', function (Blueprint $table) {
+        Schema::create('warehouse_payments', function (Blueprint $table) {
             $table->id();
-            $table->integer('buyerCode');
-            $table->string('buyerName');
-            $table->string('email')->unique();
-            $table->string('phone');
-            $table->string('img');
-            $table->string('country');
-            $table->decimal('balance',10,2);
+            $table->string('managerName');
+            $table->foreignId('managerId')->constrained('managerlists');
+            $table->string('email');
+            $table->string('warehouseName');
+            $table->decimal('amount',10,2);
+            $table->timestamp('date');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buyers');
+        Schema::dropIfExists('warehouse_payments');
     }
 };

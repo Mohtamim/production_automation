@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('email');
             $table->integer('warehouseId')->unsigned()->nullable();
+            $table->decimal('balance',10,2);
             $table->timestamps();
 
         });

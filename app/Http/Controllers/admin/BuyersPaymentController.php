@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
+
+use App\Models\buyersPayment;
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\Controller;
-class reportController extends Controller
+class BuyersPaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +16,7 @@ class reportController extends Controller
      */
     public function index()
     {
-       return view('admin.reports.report1');
-        //   return view('admin.reports.report2');
-        //   return view('admin.reports.report3');
-        // return view('admin.reports.report4');
-
+        //
     }
 
     /**
@@ -45,10 +43,10 @@ class reportController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\buyersPayment  $buyersPayment
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(buyersPayment $buyersPayment)
     {
         //
     }
@@ -56,10 +54,10 @@ class reportController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\buyersPayment  $buyersPayment
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(buyersPayment $buyersPayment)
     {
         //
     }
@@ -68,10 +66,10 @@ class reportController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\buyersPayment  $buyersPayment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, buyersPayment $buyersPayment)
     {
         //
     }
@@ -79,10 +77,10 @@ class reportController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\buyersPayment  $buyersPayment
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(buyersPayment $buyersPayment)
     {
         //
     }

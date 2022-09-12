@@ -16,6 +16,7 @@ class buyers extends Model
         'email',
         'phone',
         'img',
-        'country'
+        'country',
+        'balance'
     ];
 }

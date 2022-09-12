@@ -35,6 +35,7 @@ class BuyersController extends Controller
         $buyerName=$request->buyerName;
         $email=$request->email;
         $phone=$request->phone;
+        $balance=$request->balance;
         $img=$request->file('img');
         $img_name=hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
         $img_url='upload/'.$img_name;
@@ -47,7 +48,8 @@ class BuyersController extends Controller
              'email'=>$email,
              'phone'=>$phone,
              'img'=> $img_url,
-             'country'=> $country
+             'country'=> $country,
+             'balance'=>$balance
         ]);
         return redirect('admin/buyers')->with('success','Buyers created successfully' );
 
@@ -78,6 +80,7 @@ class BuyersController extends Controller
         $buyerName=$request->buyerName;
         $email=$request->email;
         $phone=$request->phone;
+        $balance=$request->balance;
         $img=$request->file('img');
         $img_name=hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
         $img_url='upload/'.$img_name;
@@ -89,7 +92,8 @@ class BuyersController extends Controller
             'email'=>$email,
             'phone'=>$phone,
             'img'=> $img_url,
-            'country'=> $country
+            'country'=> $country,
+            'balance'=>$balance
         ]);
         $buyer->update($input);
         return redirect('admin/buyers')->with(['update'=>'Your Buyer is Updated'] );

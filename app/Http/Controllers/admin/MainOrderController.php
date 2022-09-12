@@ -75,7 +75,21 @@ class MainOrderController extends Controller
     public function update(mainOrderFormValidation $request, $id)
     {
        $mainorder=mainOrder::find($id);
-       $input=$request->all();
+       $productName = $request->productName;
+       $quantity = $request->quantity;
+       $unitPrice = $request->unitPrice;
+       $totalPrice = $request->totalPrice;
+       $status = $request->status;
+
+
+       $input=([
+        'productId'=>$productName,
+        'quantity'=>$quantity,
+        'remaing_quantity'=>$quantity,
+        'unitPrice'=>$unitPrice,
+        'totalPrice'=>$totalPrice,
+        'status'=>$status,
+       ]);
        $mainorder->update($input);
        return redirect('admin/main_order')->with(['update'=>'Your Main Order is Updated']);
     }
