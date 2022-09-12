@@ -42,10 +42,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'user' => [
-            'driver' => 'session',
-            'provider' => 'user',
-        ],
+        // 'user' => [
+        //     'driver' => 'session',
+        //     'provider' => 'user',
+        // ],
 
     ],
 
@@ -71,10 +71,10 @@ return [
             'driver' => 'eloquent',
             'model' => User::class,
         ],
-        'user' => [
-            'driver' => 'eloquent',
-            'model' => User::class,
-        ]
+        // 'user' => [
+        //     'driver' => 'eloquent',
+        //     'model' => User::class,
+        // ]
     ],
 
     /*
