@@ -24,6 +24,7 @@
                                     <p class="card-text">Phone: {{ $buyers->phone }}</p>
 
                                     <p class="card-text">Country: {{ $buyers->country }}</p>
+                                    <p class="card-text">Balance: {{ $buyers->balance }}</p>
 
                                   </div>
 

@@ -65,12 +65,22 @@ WareHose
                 </div>
             </div>
             <div class="row ms-2 me-2">
+            <div class="input-group mb-3 col">
+                <span class="input-group-text bg-light text-black font-weight-bold">Image: </span><br>
+            <input type="file" name="img" id="balance" value="{{ old('img') }}"  class="form-control @error('img')
+              is-invalid
+               @enderror" >
+               @error('img')
+              <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+               @enderror
+            </div>
+
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Image: </span><br>
-                <input type="file" name="img" id="img" value="{{ old('img') }}"  class="form-control @error('img')
+                    <span class="input-group-text bg-light text-black font-weight-bold">Balance: </span><br>
+                <input type="number" name="balance" id="balance" value="{{ old('balance') }}"  class="form-control @error('balance')
                   is-invalid
                    @enderror" >
-                   @error('img')
+                   @error('balance')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
 
@@ -337,6 +347,7 @@ WareHose
                         <option value="ZWE">Zimbabwe</option>
                     </select>
                 </div>
+
                 <div class="row  me-2">
                 <div class="input-group mb-3 col">
                     <input type="submit" value="save" class="btn btn-success me-1">

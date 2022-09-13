@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+use App\Models\assainedOrder;
+use App\Models\warehousePayment;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class warehouse extends Model
 {
@@ -16,11 +19,10 @@ class warehouse extends Model
         'balance',
 
     ];
-    public function warehouse(){
-        return $this->hasMany(warehouse::class);
-    }
     public function assainorder(){
         return $this->hasMany(assainedOrder::class);
     }
-
+    public function warehouse_payments(){
+        return $this->hasMany(warehousePayment::class);
+    }
 }

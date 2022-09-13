@@ -20,7 +20,6 @@ use App\Http\Controllers\admin\MainOrderController;
 use App\Http\Controllers\admin\PackagingController;
 use App\Http\Controllers\admin\PackOrderController;
 use App\Http\Controllers\admin\WarehouseController;
-
 use App\Http\Controllers\manager\invoiceController;
 use App\Http\Controllers\manager\managersController;
 use App\Http\Controllers\admin\ManagerlistController;
@@ -83,7 +82,7 @@ Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
     Route::resource('reports', reportController::class);
     Route::resource('buyers-payments',BuyersPaymentController::class);
     Route::resource('warehouse_payments',WarehousePaymentController::class);
-    Route::resource('reports', reportController::class);
+
 
 });
 

@@ -19,4 +19,8 @@ class buyers extends Model
         'country',
         'balance'
     ];
+    public function buyersPayment()
+    {
+        return $this->hasMany(buyersPayment::class);
+    }
 }
