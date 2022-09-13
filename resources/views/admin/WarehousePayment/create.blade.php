@@ -19,24 +19,24 @@ WareHose-Payment
                 {!! csrf_field() !!}
                 <div class="input-group mb-3">
                     {{-- <span class="input-group-text bg-light text-black font-weight-bold">Manager ID: </span><br> --}}
-                <input type="hidden" name="managerId" value="{{ old('managerId') }}" id="managerId" class="form-control
+                <input type="hidden" name="managerName" value="{{ old('managerName') }}" id="managerName" class="form-control
                  " >
 
                 </div>
                 <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     {{-- <span class="input-group-text bg-light text-black font-weight-bold">Manager Name: </span><br> --}}
-                <select type="text" name="managerName" id="managerName" class="form-control @error('managerName')
+                <select type="text" name="managerId" id="managerId" class="form-control @error('managerId')
                   is-invalid
                    @enderror">
                    <option value="">select Manager Name</option>
                    @foreach ( $managers as $manager )
 
                    @endforeach
-                   <option value="{{$manager->managerId}}))">{{ $manager->managerName }}</option>
+                   <option value="{{$manager->id}}))">{{ $manager->managerName }}</option>
 
                 </select>
-                   @error('managerName')
+                   @error('managerId')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
 
@@ -103,26 +103,24 @@ WareHose-Payment
 <script type="text/javascript">
 
     $("#managerId").change(function() {
-    var optID = $('#managerId').find("option:selected").attr('id');
-
-         if (optID) {
+    var managerId = $('this').find("option:selected").val());
+alert('managerId');
+         if (managerId) {
              $.ajax({
-                 url: "{{ url('admin/managers') }}/"+optID,
+                 url: "{{ url('admin/warehouse_payments') }}/" + managerId,
                  type: "GET",
                  cache: false,
-                dataType: "json",
+                 dataType: "json",
                     success: function(data) {
-                        console.log(data);
-                            $.each(data, function(key, value) {
-                                $('#managerId').val(value.managerId);
-                                $('#warehouseName').val(value.warehouseName);
-                                $('#email').val(value.email);
-                            })
+                                $('#warehouseName').val(data.warehouseName);
+                                $('#email').val(data.email);
                          }
                      });
                  }
-            })
-
-
+                 else{
+                    $('#warehouseName').val('');
+                    $('#email').val('');
+                 }
+            });
 </script>
 @endsection
