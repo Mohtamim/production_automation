@@ -30,7 +30,10 @@ WareHose-Payment
                   is-invalid
                    @enderror">
                    <option value="">select Manager Name</option>
-                   <option value="gjf">paka</option>
+                   @foreach ( $managers as $manager )
+
+                   @endforeach
+                   <option value="{{$manager->managerId}}))">{{ $manager->managerName }}</option>
 
                 </select>
                    @error('managerName')
@@ -97,7 +100,31 @@ WareHose-Payment
     </div>
 </div>
 </div>
-<script>
-    $('.select2').select2();
+<script type="text/javascript">
+
+    $("#managerId").change(function() {
+    var optID = $('#managerId').find("option:selected").attr('id');
+
+         if (optID) {
+             $.ajax({
+                 url: "{{ url('admin/warehouse_payments') }}/"+optID,
+                 type: "GET",
+                 cache: false,
+                dataType: "json",
+                    success: function(data) {
+                        console.log(data);
+                            $.each(data, function(key, value) {
+                                $('#managerId').val(value.managerId);
+                                $('#warehouseName').val(value.warehouseName);
+                                $('#email').val(value.email);
+                                $('#amount').val(value.amount);
+                                $('#date').val(value.date);
+                            })
+                         }
+                     });
+                 }
+            })
+
+
 </script>
 @endsection

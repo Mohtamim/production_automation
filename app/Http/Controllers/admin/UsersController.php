@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\usersFormValidation;
 use App\Models\User;
-use App\Models\managerlist;
 use App\Models\users;
+use App\Models\managerlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\usersFormValidation;
 
 class UsersController extends Controller
 {
@@ -49,8 +50,25 @@ class UsersController extends Controller
             $data->save();
         }
 
-        $input= $request->all();
-        User::create($input);
+            $firstName= $request->firstName;
+            $lastName= $request->lastName;
+            $userId= $request->userId;
+            $email= $request->email;
+            $phone= $request->phone;
+            $userName= $request->userName;
+            $password=Hash::make($request->password);
+
+            $data1=new User();
+            $data1->userId=$userId;
+            $data1->userType=$userType;
+            $data1->firstName=$firstName;
+            $data1->phone=$phone;
+            $data1->email=$email;
+            $data1->password=$password;
+            $data1->lastName=$lastName;
+            $data1->userName=$userName;
+            $data1->save();
+
         return redirect('admin/users')->with('success','User created successfully');
     }
 
@@ -66,8 +84,8 @@ class UsersController extends Controller
 
 
         $user = User::find($id);
-            $userType1= User::where('id', $user );
-         $userType1=$userType1->userType;
+        $userType1= User::where('id', $user );
+        $userType1=$userType1->userType;
         $userType= $request->userType;
         $input = $request->all();
         dd($userType==$userType1);
