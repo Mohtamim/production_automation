@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\warehouse;
+use App\Models\warehousePayment;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class managerlist extends Model
 {
@@ -20,5 +22,8 @@ class managerlist extends Model
     ];
     public function warehouse(){
         return $this->hasMany(warehouse::class);
+    }
+    public function warehouse_payments(){
+        return $this->hasMany(warehousePayment::class);
     }
 }
