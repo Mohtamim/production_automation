@@ -59,7 +59,7 @@ Route::get('/',[LoginController::class,'loginPage'])->name('loginpage');
 Route::post('/',[LoginController::class,'login'])->name('login');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-Route::group(['prefix' => 'admin','middleware'=>'auth'], function () {
+Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
     Route::resource('dashboard', dashboardController::class);
     Route::get('product_fetch/{id}',[productsfetch::class,'show']);
     Route::resource('assaign_order', AssainedOrderController::class);

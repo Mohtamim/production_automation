@@ -41,6 +41,7 @@ class UsersController extends Controller
 
             $data=new managerlist();
             $data->managerId=$managerId;
+            $data->balance=0;
             $data->managerName=$managerName;
             $data->phone=$phone;
             $data->email=$email;
@@ -63,7 +64,7 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
 
-        
+
         $user = User::find($id);
             $userType1= User::where('id', $user );
          $userType1=$userType1->userType;
@@ -74,7 +75,7 @@ class UsersController extends Controller
             $user->update($input);
             return redirect('admin/users')->with(['update'=>'Your User is Updated']);
         }
-       
+
         return back()->with(['update'=>'Your User is Updated']);
         }
     public function destroy($id)

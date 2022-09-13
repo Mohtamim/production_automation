@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Middleware;
 
 use App\Models\User;
@@ -8,8 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Response;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Route;
-
-class manager
+class admin
 {
     protected $auth;
     protected $route;
@@ -23,7 +23,7 @@ class manager
 
     public function handle(Request $request, Closure $next)
     {
-        if($this->auth->user()->userType ==1){
+        if($this->auth->user()->userType !=1){
             return new Response('<h1 style="margin-top: 150px;color:dimgray"><center>401<br>ACCESS DENIED</center></h1>', 401);
         }
         return $next($request);
