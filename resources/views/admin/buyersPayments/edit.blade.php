@@ -15,7 +15,7 @@ BUYERS PAYMENTS
             </div>
         </div>
         <div class="widget-content widget-content-area ">
-            <form class="forms-sample" action="{{ url('admin/buyersPayments/'.$buyer->id) }}" method="POST" enctype="multipart/form-data">
+            <form class="forms-sample" action="{{ url('admin/buyers-payments/'.$buyer->id) }}" method="POST" enctype="multipart/form-data">
                 @method('PATCH')
                 {!! csrf_field() !!}
                 <div class="input-group mb-3">
@@ -325,7 +325,7 @@ BUYERS PAYMENTS
 
                 <div class="input-group mb-3 me-4 col">
                 <input type="submit" value="Update" class="btn btn-success me-1">
-                <a class="btn btn-secondary" href="{{ url('admin/buyers') }}">Cancel</a>
+                <a class="btn btn-secondary" href="{{ url('admin/buyers-payments') }}">Cancel</a>
                 </div>
 
               </form>

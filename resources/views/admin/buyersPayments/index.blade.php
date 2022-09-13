@@ -8,7 +8,7 @@ BUYERS PAYMENTS
             <div class="col-md-12 grid-margin">
                         <h2 class="text-center text-success">BUYERS PAYMENTS</h2>
                         <div class="table-responsive">
-                            <a href="{{ url('admin/buyersPayments/create') }}" class="btn btn-success btn-sm"
+                            <a href="{{ url('admin/buyers-payments/create') }}" class="btn btn-success btn-sm"
                                 title="Add new Customer">
                                 Add New
                             </a>
@@ -43,12 +43,12 @@ BUYERS PAYMENTS
 
                                             <td class="text-center">
                                                 <div class="d-flex content-justify-center">
-                                                <a href="{{ url('admin/buyersPayments/' . $assainorder->id) }}"
+                                                <a href="{{ url('admin/buyers-payments/' . $assainorder->id) }}"
                                                     class="btn btn-info btn-sm me-1"><i class="fa-solid fa-eye"></i></a>
-                                                <a href="{{ url('admin/buyersPayments/' . $assainorder->id . '/edit') }}"
+                                                <a href="{{ url('admin/buyers-payments/' . $assainorder->id . '/edit') }}"
                                                     class="btn btn-success btn-sm me-1"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
-                                                <form method="post" action="{{ url('admin/buyersPayments/' . $assainorder->id) }}">
+                                                <form method="post" action="{{ url('admin/buyers-payments/' . $assainorder->id) }}">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
                                                     <button type="submit" class="btn btn-info btn-sm me-1 btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>

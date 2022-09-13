@@ -20,8 +20,8 @@ class BuyersPaymentController extends Controller
 
     public function create()
     {
-        $buyer= buyers::all();
-        return view('admin.buyersPayments.create')->with('buyer',$buyer);;
+        $buyerName = buyers::all();
+        return view('admin.buyersPayments.create')->with(['buyerName'=>$buyerName]);
     }
 
 
@@ -45,13 +45,14 @@ class BuyersPaymentController extends Controller
                 'country'=>$country,
                 'amount'=>$amount,
             ]);
-        return redirect('admin/buyersPayments')->with('success',' Buyers Payments create successfully');
+        return redirect('admin/buyers-payment')->with('success',' Buyers Payments create successfully');
     }
 
 
-    public function show(buyersPayment $buyersPayment)
+    public function show($id)
     {
-
+        $buyer=buyers::where('id', $id)->select('id', 'buyerCode','email')->get();
+        return response()->json($buyer, 200);
     }
 
 

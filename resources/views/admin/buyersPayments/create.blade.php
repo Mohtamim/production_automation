@@ -13,7 +13,7 @@ BUYERS PAYMENTS
             </div>
         </div>
         <div class="widget-content widget-content-area">
-            <form class="" action="{{ url('admin/buyersPayments') }}" method="POST">
+            <form class="" action="{{ url('admin/buyers-payments') }}" method="POST">
                 {!! csrf_field() !!}
                 <div class="input-group mb-3">
                     {{-- <span class="input-group-text bg-light text-black font-weight-bold">Buyer Id:</span> --}}
@@ -23,16 +23,15 @@ BUYERS PAYMENTS
 
                 <div class="input-group mb-3">
                     {{-- <span class="input-group-text bg-light text-black font-weight-bold">Buyer Name:</span> --}}
-                    <select type="text"  class="form-control @error('buyerName')
-                    is-invalid
-                    @enderror" name="buyerName"  id="buyerName" value="{{ old('buyerName') }}"  placeholder="Enter your Buyer Name" aria-label="Enter your buyerName" aria-describedby="basic-addon2">
-                    <option value="">select Buyer</option>
-                    <option value="{{ $buyer->id }}">{{  }}</option>
-                    </select>
-                    @error('buyerName')
-              <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                    <select type="text"  class="form-control"
 
-               @enderror
+                    name="buyerName"  id="buyerName" value="{{ old('buyerName') }}"   aria-label="Enter your buyerName" aria-describedby="basic-addon2">
+                    <option value="">select Buyer</option>
+                    @foreach ($buyerName as $buyerName)
+                    <option value="{{ $buyerName->buyerId }}">{{ $buyerName->buyerName }}</option>
+                @endforeach
+                    </select>
+
                 </div>
 
                 <div class="input-group mb-3">
@@ -331,10 +330,37 @@ BUYERS PAYMENTS
 
 
                 <input type="submit" value="save" class="btn btn-success">
-                <a class="btn btn-secondary" href="{{ url('admin/buyersPayments') }}">Cancel</a>
+                <a class="btn btn-secondary" href="{{ url('admin/buyers-payments') }}">Cancel</a>
               </form>
 
         </div>
     </div>
 </div>
+<script type="text/javascript">
+
+
+
+
+    $("#buyerName").change(function() {
+    var optID = $('#buyerName').find("option:selected").attr('sid');
+
+         if (optID) {
+             $.ajax({
+                 url: "{{ url('admin/buyers-payments/create') }}/"+optID,
+                 type: "GET",
+                 cache: false,
+                dataType: "json",
+                    success: function(data) {
+                        console.log(data);
+                            $.each(data, function(key, value) {
+                                $('#buyerCode').val(value.buyerCode);
+                                $('#email').val(value.email);
+                            })
+                         }
+                     });
+                 }
+            })
+
+
+</script>
 @endsection
