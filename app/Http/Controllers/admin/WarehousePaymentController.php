@@ -2,23 +2,28 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\warehouse;
+use App\Models\managerlist;
+use Illuminate\Http\Request;
+use App\Models\warehousePayment;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\warehousePaymentValidation;
-use App\Models\warehousePayment;
-use Illuminate\Http\Request;
 
 class WarehousePaymentController extends Controller
 {
 
-    public function index()
-    {
-        $warehousePayment=warehousePayment::all();
-        return view('admin.WarehousePayment.index')->with('warehousePayment',$warehousePayment);
+    public function index(){
+    $managers = DB::table('managerlists')->select('managerId','managerName','email')->get();
+    $warehousePayment=warehousePayment::all();
+        return view('admin.WarehousePayment.index')->with(['warehousePayment'=>$warehousePayment,'managers'=>$managers]);
     }
 
     public function create()
     {
-        return view('admin.WarehousePayment.create');
+        $managers=managerlist::all();
+        $warehouse=warehouse::all();
+        return view('admin.WarehousePayment.create')->with(['managers'=>$managers,'warehouse'=>$warehouse]);
     }
 
 
@@ -45,9 +50,12 @@ class WarehousePaymentController extends Controller
     }
 
 
-    public function show(warehousePayment $warehousePayment)
+    public function show($optID)
     {
-        //
+        $order = managerlist::where('id',$optID)->select('managerId','managerName','email','warehouseName')->with(['manager'])->get();
+
+    //    dd($order);
+        return response()->json($order, 200);
     }
 
     /**
