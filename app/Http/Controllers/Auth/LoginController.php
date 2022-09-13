@@ -41,14 +41,21 @@ class LoginController extends Controller
 
         // login attempt if success then redirect dashboard
         if(Auth::attempt($credentials, $request->filled('remember'))){
-            $request->session()->regenerate();
-            return redirect()->intended('admin/dashboard');
+            if (auth()->user()->userType == 1) {
+                $request->session()->regenerate();
+                return redirect()->intended('admin/dashboard');
+            }else if (auth()->user()->userType == 2) {
+                $request->session()->regenerate();
+                return redirect()->intended('manager/dashboard');
+            }
+            // $request->session()->regenerate();
+            // return redirect()->intended('admin/dashboard');
         }
 
         // return error message
         return back()->withErrors([
-            'email' => 'Wrong Credentials found!'
-        ])->onlyInput('email');
+            'userName' => 'Wrong Credentials found!'
+        ])->onlyInput('userName');
 
     }
     public function logout(Request $request)

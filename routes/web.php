@@ -86,7 +86,7 @@ Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
 
 });
 
-Route::group(['prefix' => 'manager','middleware'=>['admin','auth']], function () {
+Route::group(['prefix' => 'manager','middleware'=>['auth','manager']], function () {
     Route::resource('order',managerAssignOrderController::class);
     Route::resource('dashboard',managerDashboardController::class);
     Route::resource('invoice',invoiceController::class);
