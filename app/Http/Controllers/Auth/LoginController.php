@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -19,22 +21,34 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    // use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function loginPage()
     {
-        $this->middleware('guest')->except('logout');
+       return view('login');
+    }
+    public function login(Request $request)
+    {
+        $validated = $request->validate([
+            'userName' => 'required',
+            'password' => 'required|string|min:4'
+        ]);
+
+        $credentials = [
+            'userName' => $request->userName,
+            'password' => $request->password,
+        ];
+
+        // login attempt if success then redirect dashboard
+        if(Auth::attempt($credentials, $request->filled('remember'))){
+            $request->session()->regenerate();
+            return redirect()->intended('admin/dashboard');
+        }
+
+        // return error message
+        return back()->withErrors([
+            'email' => 'Wrong Credentials found!'
+        ])->onlyInput('email');
+
     }
 }
