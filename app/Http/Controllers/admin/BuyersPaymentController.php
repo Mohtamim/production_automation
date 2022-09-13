@@ -3,85 +3,73 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\buyersPaymentsForm;
+use App\Models\buyers;
 use App\Models\buyersPayment;
 use Illuminate\Http\Request;
 
 class BuyersPaymentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $buyersPayments=buyersPayment::all();
+        return view('admin.buyersPayments.index')->with('buyersPayments',$buyersPayments);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        $buyer= buyers::all();
+        return view('admin.buyersPayments.create')->with('buyer',$buyer);;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(buyersPaymentsForm $request)
     {
-        //
+
+        $buyerId = $request->buyerId;
+        $buyerName = $request->buyerName;
+        $buyerCode = $request->buyerCode;
+        $email = $request->email;
+        $country = $request->country;
+        $amount = $request->amount;
+
+
+
+            buyersPayment::insert([
+                'buyerId'=>$buyerId,
+                'buyerName'=>$buyerName,
+                'buyerCode'=>$buyerCode,
+                'email'=>$email,
+                'country'=>$country,
+                'amount'=>$amount,
+            ]);
+        return redirect('admin/buyersPayments')->with('success',' Buyers Payments create successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\buyersPayment  $buyersPayment
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(buyersPayment $buyersPayment)
     {
-        //
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\buyersPayment  $buyersPayment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(buyersPayment $buyersPayment)
+
+    public function edit($id)
     {
-        //
+        $input=buyersPayment::find($id);
+        return view('admin.buyersPayments.edit')->with(['buyersPayments'=>$input]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\buyersPayment  $buyersPayment
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, buyersPayment $buyersPayment)
     {
-        //
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\buyersPayment  $buyersPayment
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(buyersPayment $buyersPayment)
     {
-        //
+
     }
 }

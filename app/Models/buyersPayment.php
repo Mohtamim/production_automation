@@ -15,7 +15,11 @@ class buyersPayment extends Model
         'buyerName',
         'buyerCode',
           'email',
-          ''
+          'country',
+          'amount'
 
     ];
+    public function buyer(){
+        return $this->belongsTo(buyers::class,'buyerId','id');
+    }
 }

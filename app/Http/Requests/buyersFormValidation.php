@@ -29,7 +29,8 @@ class buyersFormValidation extends FormRequest
             'email'=>'required|string',
             'phone'=>'required',
             'img'=>'required',
-            'country'=>'required|string'
+            'country'=>'required|string',
+            'balance'=>'required|numeric'
         ];
     }
     public function messages()

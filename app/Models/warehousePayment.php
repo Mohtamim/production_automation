@@ -18,4 +18,10 @@ class warehousePayment extends Model
         'amount',
         'date',
     ];
+    public function warehouse(){
+        return $this->belongsTo(warehouse::class,'warehouseName','warehouseName');
+    }
+    public function manager(){
+        return $this->belongsTo(managerlist::class,'managerId','id');
+    }
 }

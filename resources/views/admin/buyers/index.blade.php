@@ -22,6 +22,7 @@
                                                 <th class="text-center">Phone</th>
                                                 <th class="text-center">Image</th>
                                                 <th class="text-center">Country</th>
+                                                <th class="text-center">Balance</th>
                                                 <th class="text-center">Action</th>
                                             </tr>
                                         </thead>
@@ -35,6 +36,7 @@
                                                     <td class="text-center">{{ $item->phone }}</td>
                                                     <td class="text-center"><img src="{{asset($item->img) }}" style="width: 50px; height:50px;" alt=""></td>
                                                     <td class="text-center">{{ $item->country }}</td>
+                                                    <td class="text-center">{{ $item->balance }}</td>
 
                                                     <td class="text-center">
 
