@@ -107,7 +107,7 @@ WareHose-Payment
 
          if (optID) {
              $.ajax({
-                 url: "{{ url('admin/warehouse_payments') }}/"+optID,
+                 url: "{{ url('admin/managers') }}/"+optID,
                  type: "GET",
                  cache: false,
                 dataType: "json",
@@ -117,8 +117,6 @@ WareHose-Payment
                                 $('#managerId').val(value.managerId);
                                 $('#warehouseName').val(value.warehouseName);
                                 $('#email').val(value.email);
-                                $('#amount').val(value.amount);
-                                $('#date').val(value.date);
                             })
                          }
                      });
