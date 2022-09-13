@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\buyers;
+use Illuminate\Http\Request;
+use App\Models\buyersPayment;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\buyersPaymentsForm;
-use App\Models\buyers;
-use App\Models\buyersPayment;
-use Illuminate\Http\Request;
 
 class BuyersPaymentController extends Controller
 {
 
     public function index()
     {
+        $buyer= DB::table('buyers')->select('buyerCode','buyerName','email','country')->get();
         $buyersPayments=buyersPayment::all();
-        return view('admin.buyersPayments.index')->with('buyersPayments',$buyersPayments);
+        return view('admin.buyersPayments.index')->with(['buyersPayments'=>$buyersPayments,'buyer'=>$buyer]);
     }
 
 
     public function create()
     {
+
         $buyerName = buyers::all();
         return view('admin.buyersPayments.create')->with(['buyerName'=>$buyerName]);
     }
@@ -51,7 +54,8 @@ class BuyersPaymentController extends Controller
 
     public function show($id)
     {
-        $buyer=buyers::where('id', $id)->select('id', 'buyerCode','email')->get();
+        $buyer=buyers::where('id', $id)->select('buyerId', 'buyerCode','email')->get();
+       dd($buyer);
         return response()->json($buyer, 200);
     }
 
