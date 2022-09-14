@@ -26,22 +26,13 @@ WareHose-Payment
                 <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     {{-- <span class="input-group-text bg-light text-black font-weight-bold">Manager Name: </span><br> --}}
-<<<<<<< HEAD
                 <select  name="managerName" id="managerName" class="form-control select2 @error('managerName')
-=======
-                <select type="text" name="managerId" id="managerId" class="form-control @error('managerId')
->>>>>>> d79391b446e33a3394f92b0b099e5e1d4fc7921b
                   is-invalid
                    @enderror">
                    <option value="">select Manager Name</option>
                    @foreach ( $managers as $manager )
                    <option value="{{$manager->id}}">{{ $manager->managerName }}</option>
                    @endforeach
-<<<<<<< HEAD
-
-=======
-                   <option value="{{$manager->id}}))">{{ $manager->managerName }}</option>
->>>>>>> d79391b446e33a3394f92b0b099e5e1d4fc7921b
 
                 </select>
                    @error('managerId')
@@ -114,16 +105,9 @@ WareHose-Payment
 </div>
 <script type="text/javascript">
 
-<<<<<<< HEAD
     $("#managerName").change(function() {
     var optID = $('#managerName').find("option:selected").attr('value');
          if (optID) {
-=======
-    $("#managerId").change(function() {
-    var managerId = $('this').find("option:selected").val());
-alert('managerId');
-         if (managerId) {
->>>>>>> d79391b446e33a3394f92b0b099e5e1d4fc7921b
              $.ajax({
                  url: "{{ url('admin/warehouse_payments') }}/" + managerId,
                  type: "GET",
