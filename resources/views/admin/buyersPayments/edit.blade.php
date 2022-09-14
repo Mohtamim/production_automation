@@ -22,7 +22,7 @@
 
                     <div class="input-group mb-3">
                         {{-- <span class="input-group-text bg-light text-black font-weight-bold">Buyer Id:</span> --}}
-                        <input type="hidden"  value="{{ old('buyerName', $buyerPayment->buyerName) }}" class="form-control " name="buyerName"  id="buyerName" placeholder="Enter your Buyer Id">
+                        <input type="hidden"  value="{{ old('buyerName', $buyerPayment->buyerName) }}" class="form-control " name="buyerName"  id="buyerName">
 
                     </div>
 

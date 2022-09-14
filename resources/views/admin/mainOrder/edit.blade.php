@@ -19,16 +19,16 @@
                 {!! csrf_field() !!}
                  @method("PATCH")
                  <div class="input-group mb-3">
-                    <select  class="form-select select2 @error('productName')
+                    <select  class="form-select select2 @error('productId')
                     is-invalid
-                     @enderror" name="productName" id="productName">
-                    <option value="{{ $mainorder->productId }}" selected>{{ $mainorder->productId }}</option>
+                     @enderror" name="productId" id="productId">
+                    <option value=""">select Product</option>
                         @foreach ($product as $pro )
-                        <option value="{{$pro->id  }}">{{ $pro->title}}</option>
+                        <option value="{{$pro->id  }}"{{ $mainorder->productId == $pro->id ? 'selected' : ''}}>{{ $pro->title}}</option>
                         @endforeach
 
                     </select>
-                    @error('productName')
+                    @error('productId')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
                 </div>

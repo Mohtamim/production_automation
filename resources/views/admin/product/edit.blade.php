@@ -34,7 +34,7 @@ Product
                     @enderror" name="category">
                         <option value="" >Select category</option>
                         @foreach ($category as  $cat)
-                        <option value="{{ $cat->id }}">{{ $cat->catName }}</option>
+                        <option value="{{ $cat->id }}" {{ $product->category== $cat->id ? 'selected' : ''}}>{{ $cat->catName }}</option>
                         @endforeach
 
                     </select>
@@ -68,7 +68,7 @@ Product
                     @enderror" name="unit">
                         <option value="" >Select Unit</option>
                         @foreach ($unit as  $unit)
-                        <option value="{{ $unit->id }}">{{ $unit->name }}</option>
+                        <option value="{{ $unit->id }}" {{ $product->id == $unit->id ? 'selected' : ''}}>{{ $unit->name }}</option>
                         @endforeach
                     </select>
                     @error('unit')
@@ -137,9 +137,9 @@ Product
                     <div class="form-check form-check-inline
                     id="is_sample_product" name="is_sample_product">
                         <span class="input-group-text bg-light text-black font-weight-bold me-2">Is it sample product?:</span>
-                        <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="1">
+                        <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="1" {{ ($product->is_sample_product=="1")? "checked" : "" }}>
                         <label class="form-check-label" for="is_sample_product">Yes</label>
-                        <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="0">
+                        <input class="form-check-input" type="radio" name="is_sample_product" id="is_sample_product" value="0" {{ ($product->is_sample_product=="0")? "checked" : "" }}>
                         <label class="form-check-label" for="is_sample_product">No</label>
                       </div>
                 </div>
