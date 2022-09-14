@@ -14,7 +14,7 @@ class WarehousePaymentController extends Controller
 {
 
     public function index(){
-    $managers = DB::table('managerlists')->select('managerId','managerName','email')->get();
+    $managers = DB::table('managerlists')->select('managerName','email')->get();
     $warehousePayment=warehousePayment::all();
         return view('admin.WarehousePayment.index')->with(['warehousePayment'=>$warehousePayment,'managers'=>$managers]);
     }
@@ -50,11 +50,19 @@ class WarehousePaymentController extends Controller
     }
 
 
-    public function show($optID)
+    public function show($id)
     {
+<<<<<<< HEAD
 
         $order = managerlist::where('id',$optID)->select('managerId','managerName','email','warehouseId')->with(['warehouse'])->get();
         return response()->json($order, 200);
+=======
+        $manager = managerlist::find($id);
+        $warehouse=warehouse::find($id);
+
+    //    dd($order);
+        return response()->json($manager, 200);
+>>>>>>> d79391b446e33a3394f92b0b099e5e1d4fc7921b
     }
 
     /**

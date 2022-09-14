@@ -50,6 +50,12 @@
                                             @if ($assainorder->status == 4)
                                                 <td>Delivered</td>
                                             @endif
+                                            @if ($assainorder->status == 5)
+                                                <td>Received</td>
+                                            @endif
+                                            @if ($assainorder->status == 6)
+                                                <td>Approved</td>
+                                            @endif
 
 
                                             <td class="text-center">

@@ -2,26 +2,28 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\buyers;
+use Illuminate\Http\Request;
+use App\Models\buyersPayment;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\buyersPaymentsForm;
-use App\Models\buyers;
-use App\Models\buyersPayment;
-use Illuminate\Http\Request;
 
 class BuyersPaymentController extends Controller
 {
 
     public function index()
     {
+        $buyer= DB::table('buyers')->select('buyerCode','buyerName','email','country')->get();
         $buyersPayments=buyersPayment::all();
-        return view('admin.buyersPayments.index')->with('buyersPayments',$buyersPayments);
+        return view('admin.buyersPayments.index')->with(['buyersPayments'=>$buyersPayments,'buyer'=>$buyer]);
     }
 
 
     public function create()
     {
-        $buyer= buyers::all();
-        return view('admin.buyersPayments.create')->with('buyer',$buyer);;
+        $buyerName = buyers::all();
+        return view('admin.buyersPayments.create')->with('buyerName',$buyerName);
     }
 
 
@@ -35,36 +37,59 @@ class BuyersPaymentController extends Controller
         $country = $request->country;
         $amount = $request->amount;
 
+        // buyersPayment::insert([
+        //     'buyerId'=>$buyerId,
+        //     'buyerName'=>$buyerName,
+        //     'buyerCode'=>$buyerCode,
+        //     'email'=>$email,
+        //     'country'=>$country,
+        //     'amount'=>$amount,
+        // ]);
 
+        buyersPayment::create(
+            $request->only([
+                'buyerId',
+                'buyerName',
+                'buyerCode',
+                'email',
+                'country',
+                'amount',
+            ])
+        );
 
-            buyersPayment::insert([
-                'buyerId'=>$buyerId,
-                'buyerName'=>$buyerName,
-                'buyerCode'=>$buyerCode,
-                'email'=>$email,
-                'country'=>$country,
-                'amount'=>$amount,
-            ]);
-        return redirect('admin/buyersPayments')->with('success',' Buyers Payments create successfully');
+        return redirect('admin/buyers-payments')->with('success',' Buyers Payments create successfully');
     }
 
-
-    public function show(buyersPayment $buyersPayment)
+    public function show($id)
     {
+        $buyer = buyers::find($id);
 
+        return response()->json($buyer, 200);
     }
-
 
     public function edit($id)
     {
-        $input=buyersPayment::find($id);
-        return view('admin.buyersPayments.edit')->with(['buyersPayments'=>$input]);
-    }
+        $buyers = buyers::all();
 
+        $buyerPayment = buyersPayment::find($id);
+
+        return view('admin.buyersPayments.edit', compact('buyers', 'buyerPayment'));
+    }
 
     public function update(Request $request, buyersPayment $buyersPayment)
     {
+        $buyersPayment->update(
+            $request->only([
+                'buyerId',
+                'buyerName',
+                'buyerCode',
+                'email',
+                'country',
+                'amount',
+            ])
+        );
 
+        return redirect('admin/buyers-payments')->with('success',' Buyers Payments update successfully');
     }
 
 

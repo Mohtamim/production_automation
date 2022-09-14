@@ -48,6 +48,12 @@
                                             @if ($order->status == 4)
                                                 <td>Delivered</td>
                                             @endif
+                                            @if ($order->status == 5)
+                                                <td>Received</td>
+                                            @endif
+                                            @if ($order->status == 6)
+                                                <td>Approved</td>
+                                            @endif
 
 
                                             <td class="text-center">
@@ -56,7 +62,7 @@
                                                 <a href="{{ url('manager/order/' . $order->id . '/edit') }}"
                                                     class="btn btn-success btn-sm"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
-                                                
+
 
                                             </td>
                                         </tr>

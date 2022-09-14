@@ -45,7 +45,7 @@ class managerAssignOrderController extends Controller
     public function update(Request $request, $id)
     {
         $id=assainedOrder::find($id)->value('id');
-       $status=$request->status;
+        $status=$request->status;
        DB::table('assained_orders')
                 ->where('mainOrderId',$id)
                 ->update(['status' => $status]);

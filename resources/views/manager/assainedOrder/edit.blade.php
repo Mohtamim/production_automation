@@ -80,6 +80,12 @@ WareHose
         <option value="3" >Completed</option>
         <option value="4" selected>Delivered</option>
         @endif
+        @if ($orders->status==5)
+        <option value="5" selected>Received</option>
+        @endif
+        @if ($orders->status==6)
+        <option value="6" selected>Approved</option>
+        @endif
 
     </select>
 </div>

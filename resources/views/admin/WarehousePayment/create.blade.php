@@ -19,24 +19,32 @@ WareHose-Payment
                 {!! csrf_field() !!}
                 <div class="input-group mb-3">
                     {{-- <span class="input-group-text bg-light text-black font-weight-bold">Manager ID: </span><br> --}}
-                <input type="hidden" name="managerId" value="{{ old('managerId') }}" id="managerId" class="form-control
+                <input type="hidden" name="managerName" value="{{ old('managerName') }}" id="managerName" class="form-control
                  " >
 
                 </div>
                 <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     {{-- <span class="input-group-text bg-light text-black font-weight-bold">Manager Name: </span><br> --}}
+<<<<<<< HEAD
                 <select  name="managerName" id="managerName" class="form-control select2 @error('managerName')
+=======
+                <select type="text" name="managerId" id="managerId" class="form-control @error('managerId')
+>>>>>>> d79391b446e33a3394f92b0b099e5e1d4fc7921b
                   is-invalid
                    @enderror">
                    <option value="">select Manager Name</option>
                    @foreach ( $managers as $manager )
                    <option value="{{$manager->id}}">{{ $manager->managerName }}</option>
                    @endforeach
+<<<<<<< HEAD
 
+=======
+                   <option value="{{$manager->id}}))">{{ $manager->managerName }}</option>
+>>>>>>> d79391b446e33a3394f92b0b099e5e1d4fc7921b
 
                 </select>
-                   @error('managerName')
+                   @error('managerId')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
 
@@ -106,15 +114,23 @@ WareHose-Payment
 </div>
 <script type="text/javascript">
 
+<<<<<<< HEAD
     $("#managerName").change(function() {
     var optID = $('#managerName').find("option:selected").attr('value');
          if (optID) {
+=======
+    $("#managerId").change(function() {
+    var managerId = $('this').find("option:selected").val());
+alert('managerId');
+         if (managerId) {
+>>>>>>> d79391b446e33a3394f92b0b099e5e1d4fc7921b
              $.ajax({
-                 url: "{{ url('admin/warehouse_payments') }}/"+optID,
+                 url: "{{ url('admin/warehouse_payments') }}/" + managerId,
                  type: "GET",
                  cache: false,
-                dataType: "json",
+                 dataType: "json",
                     success: function(data) {
+<<<<<<< HEAD
                         console.log(data);
                             $.each(data, function(key, value) {
                                 $('#managerId').val(value.managerId);
@@ -123,11 +139,17 @@ WareHose-Payment
                                 $('#amount').val(value.amount);
                                 $('#date').val(value.date);
                             })
+=======
+                                $('#warehouseName').val(data.warehouseName);
+                                $('#email').val(data.email);
+>>>>>>> d79391b446e33a3394f92b0b099e5e1d4fc7921b
                          }
                      });
                  }
-            })
-
-
+                 else{
+                    $('#warehouseName').val('');
+                    $('#email').val('');
+                 }
+            });
 </script>
 @endsection

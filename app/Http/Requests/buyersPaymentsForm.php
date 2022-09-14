@@ -24,7 +24,7 @@ class buyersPaymentsForm extends FormRequest
     public function rules()
     {
         return [
-            'buyerName'=>'required',
+
             'buyerCode'=>'required',
             'email'=>'required',
             'country'=>'required',

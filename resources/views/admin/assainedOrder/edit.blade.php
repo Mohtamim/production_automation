@@ -67,12 +67,53 @@ WareHose
                         <option value="" >Select Status</option>
                         @if ($assain->status==1)
                         <option value="1" selected>Active</option>
+                        <option value="2" >Processing</option>
+                        <option value="3" >Completed</option>
+                        <option value="4" >Delivered</option>
+                        <option value="5" >Received</option>
+                        <option value="6" >Approved</option>
                         @endif
-                        @if ($assain->status==0)
-                        <option value="0" selected>Deactive</option>
+                        @if ($assain->status==2)
+                        <option value="1" >Active</option>
+                        <option value="2" selected>Processing</option>
+                        <option value="3" >Completed</option>
+                        <option value="4" >Delivered</option>
+                        <option value="5" >Received</option>
+                        <option value="6" >Approved</option>
                         @endif
-                        <option value="1">Active</option>
-                        <option value="0">Deactive</option>
+                        @if ($assain->status==3)
+                        <option value="1" >Active</option>
+                        <option value="2" >Processing</option>
+                        <option value="3" selected>Completed</option>
+                        <option value="4" >Delivered</option>
+                        <option value="5" >Received</option>
+                        <option value="6" >Approved</option>
+                        @endif
+                        @if ($assain->status==4)
+                        <option value="1" >Active</option>
+                        <option value="2" >Processing</option>
+                        <option value="3" >Completed</option>
+                        <option value="4" selected>Delivered</option>
+                        <option value="5" >Received</option>
+                        <option value="6" >Approved</option>
+                        @endif
+                        @if ($assain->status==5)
+                        <option value="1" >Active</option>
+                        <option value="2" >Processing</option>
+                        <option value="3" >Completed</option>
+                        <option value="4" >Delivered</option>
+                        <option value="5" selected>Received</option>
+                        <option value="6" >Approved</option>
+                        @endif
+                        @if ($assain->status==6)
+                        <option value="1" >Active</option>
+                        <option value="2" >Processing</option>
+                        <option value="3" >Completed</option>
+                        <option value="4" >Delivered</option>
+                        <option value="5" >Received</option>
+                        <option value="6" selected>Approved</option>
+                        @endif
+
                     </select>
                 </div>
 
