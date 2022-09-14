@@ -66,7 +66,7 @@ class PruductController extends Controller
 
         pruduct::insert([
             'title'=>$title,
-            'catId'=>$category,
+            'category'=>$category,
             'DH_raw_materials'=>$DH_raw_materials,
             'warehouse_raw_materials'=>$warehouse_raw_materials,
             'wages'=>$wages,

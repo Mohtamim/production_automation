@@ -40,7 +40,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu {{ Route::is('managers.*') ? 'active' : '' }}">
+            {{-- <li class="menu {{ Route::is('managers.*') ? 'active' : '' }}">
                 <a href="{{ url('manager/managers') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -52,7 +52,7 @@
                         <span>Warehouse Manager</span>
                     </div>
                 </a>
-            </li>
+            </li> --}}
             <li class="menu {{ Route::is('payment_info.*') ? 'active' : '' }}">
                 <a href="{{ url('manager/payment_info') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -62,13 +62,13 @@
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg>
-                        <span>Payment Info</span>
+                        <span>Payment</span>
                     </div>
                 </a>
             </li>
 
 
-            <li class="menu {{ Route::is('*order*') ? 'active' : '' }}">
+            {{-- <li class="menu {{ Route::is('*order*') ? 'active' : '' }}">
                 <a href="#order" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -91,17 +91,29 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="order" data-bs-parent="#accordionExample">
-                    <li class="{{ Route::is('assaign_order*') ? 'active' : '' }}">
-                        <a href="{{ url('manager/assaign_order') }}">Assaign Order </a>
-                    </li>
-                    <li class="{{ Route::is('main_order*') ? 'active' : '' }}">
-                        <a href="{{ url('manager/main_order') }}"> Orders </a>
+                    <li class="{{ Route::is('order') ? 'active' : '' }}">
+                        <a href="{{ url('manager/order') }}">Orders</a>
                     </li>
                 </ul>
+            </li> --}}
+            <li class="menu {{ Route::is('order.*') ? 'active' : '' }}">
+                <a href="{{ url('manager/order') }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-activity">
+                            <circle cx="8" cy="21" r="2"></circle>
+                            <circle cx="20" cy="21" r="2"></circle>
+                            <path
+                                d="M5.67 6H23l-1.68 8.39a2 2 0 0 1-2 1.61H8.75a2 2 0 0 1-2-1.74L5.23 2.74A2 2 0 0 0 3.25 1H1">
+                            </path>
+                        <span>Orders</span>
+                    </div>
+                </a>
             </li>
 
 
-            <li class="menu">
+            {{-- <li class="menu">
                 <a href="#invoice" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -134,7 +146,7 @@
                         <a href=""> Edit </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
             <li class="menu">
                 <a href="#reports" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">

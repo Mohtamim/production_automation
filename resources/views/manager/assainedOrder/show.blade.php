@@ -12,10 +12,12 @@ assign Order
                     </div>
 
                       <div class="card-body">
-                        <h5 class="card-title">Main Order Id: {{ $assain->mainOrderId }}</h5>
-                        <p class="card-text">Ware House Id: {{ $assain->warehouseId }}</p>
-                        <p class="card-text">Quantity: {{ $assain->quantity }}</p>
-                        <p class="card-text">Status: {{ $assain->status }}</p>
+                        @foreach ($orders as $order)
+                        <h5 class="card-title font-weight-bold text-black">Order Id: {{ $order->mainOrderId }}</h5>
+                        <p class="card-text font-weight-bold text-black">Product Name: {{$order->products->title }}</p>
+                        <p class="card-text font-weight-bold text-black">Quantity: {{ $order->quantity }}</p>
+                        @endforeach
+
                       </div>
                 </div>
             </div>

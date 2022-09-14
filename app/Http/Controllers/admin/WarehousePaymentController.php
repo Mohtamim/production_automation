@@ -52,9 +52,8 @@ class WarehousePaymentController extends Controller
 
     public function show($optID)
     {
-        $order = managerlist::where('id',$optID)->select('managerId','managerName','email','warehouseName')->with(['manager'])->get();
 
-    //    dd($order);
+        $order = managerlist::where('id',$optID)->select('managerId','managerName','email','warehouseId')->with(['warehouse'])->get();
         return response()->json($order, 200);
     }
 
@@ -76,9 +75,9 @@ class WarehousePaymentController extends Controller
      * @param  \App\Models\warehousePayment  $warehousePayment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, warehousePayment $warehousePayment)
+    public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -89,6 +88,6 @@ class WarehousePaymentController extends Controller
      */
     public function destroy(warehousePayment $warehousePayment)
     {
-        //
+
     }
 }

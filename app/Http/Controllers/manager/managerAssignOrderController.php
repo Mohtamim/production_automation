@@ -5,7 +5,11 @@ namespace App\Http\Controllers\manager;
 use Illuminate\Http\Request;
 use App\Models\assainedOrder;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\assainOrderFormValidation;
+use App\Models\managerlist;
+use App\Models\warehouse;
+use Illuminate\Support\Facades\DB;
 
 class managerAssignOrderController extends Controller
 {
@@ -16,45 +20,36 @@ class managerAssignOrderController extends Controller
      */
     public function index()
     {
-        $input=assainedOrder::all();
-        return view('manager.assainedOrder.index')->with('assain',$input);
+        $id=Auth::user()->userId;
+        $warehouse = managerlist::where('managerId',$id)->value('warehouseId');
+        $orders = assainedOrder::where('warehouseId',$warehouse)->select()->with(['products'])->get();
+        return view('manager.assainedOrder.index')->with(['orders'=>$orders]);
     }
-
-
-    public function create()
-    {
-
-        return view('manager.assainedOrder.create');
-    }
-
-
-    public function store(assainOrderFormValidation $request)
-    {
-        $input=$request->all();
-        assainedOrder::create($input);
-        return redirect('manager/order')->with('status','Assign Order create successfully');
-    }
-
 
     public function show($id)
     {
-        $order = assainedOrder::find($id);
-        return view('manager.assainedOrder.show')->with('assain',$order);
+         $order = assainedOrder::find($id)->value('warehouseId');
+         $orders = assainedOrder::where('mainOrderId',$order)->select()->with(['products'])->get();
+        return view('manager.assainedOrder.show')->with(['orders'=>$orders]);
     }
 
     public function edit($id)
     {
-       $input=assainedOrder::find($id);
-       return view('manager.assainedOrder.edit')->with('assain',$input);
+        $order = assainedOrder::find($id)->value('warehouseId');
+        $orders = assainedOrder::where('mainOrderId',$order)->select()->with(['products'])->get();
+
+       return view('manager.assainedOrder.edit')->with('orders',$orders);
     }
 
 
-    public function update(assainOrderFormValidation $request, $id)
+    public function update(Request $request, $id)
     {
-       $assain=assainedOrder::find($id);
-       $input=$request->all();
-       $assain->update($input);
-       return redirect('manager/order')->with('flash_message','Assign Ordered value Updated');
+        $id=assainedOrder::find($id)->value('id');
+       $status=$request->status;
+       DB::table('assained_orders')
+                ->where('mainOrderId',$id)
+                ->update(['status' => $status]);
+       return redirect('manager/order')->with('flash_message','Ordered value Updated');
     }
 
 

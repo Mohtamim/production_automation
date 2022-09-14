@@ -15,12 +15,14 @@ class warehouse extends Model
     protected $primaryKey='id';
     protected $fillable=[
         'warehouseName',
-        'address',
-        'balance',
+        'address'
 
     ];
     public function assainorder(){
         return $this->hasMany(assainedOrder::class);
+    }
+    public function managers(){
+        return $this->hasMany(managerlist::class);
     }
     public function warehouse_payments(){
         return $this->hasMany(warehousePayment::class);

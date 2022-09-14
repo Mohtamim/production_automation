@@ -36,10 +36,19 @@
                                             <td class="text-center">{{ $assainorder->warehouses->warehouseName }}</td>
                                             <td class="text-center">{{ $assainorder->quantity }}</td>
                                             @if ($assainorder->status == 1)
-                                                <td class="text-center">Active</td>
+                                                <td>Active</td>
                                             @endif
                                             @if ($assainorder->status == 0)
-                                                <td class="text-center">Deactive</td>
+                                                <td>Deactive</td>
+                                            @endif
+                                            @if ($assainorder->status == 2)
+                                                <td>Processing</td>
+                                            @endif
+                                            @if ($assainorder->status == 3)
+                                                <td>Completed</td>
+                                            @endif
+                                            @if ($assainorder->status == 4)
+                                                <td>Delivered</td>
                                             @endif
 
 

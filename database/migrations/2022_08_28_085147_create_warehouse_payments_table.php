@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('managerName');
             $table->foreignId('managerId')->constrained('managerlists');
             $table->string('email');
-            $table->string('warehouseName');
+            $table->string('warehouseName')->constrained('warehouses');;
             $table->decimal('amount',10,2);
             $table->timestamp('date');
             $table->timestamps();

@@ -21,7 +21,7 @@ class managerlist extends Model
                     'warehouseId',
     ];
     public function warehouse(){
-        return $this->hasMany(warehouse::class);
+        return $this->belongsTo(warehouse::class,'warehouseId','id');
     }
     public function warehouse_payments(){
         return $this->hasMany(warehousePayment::class);

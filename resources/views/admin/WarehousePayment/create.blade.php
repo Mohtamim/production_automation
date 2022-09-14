@@ -26,14 +26,14 @@ WareHose-Payment
                 <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     {{-- <span class="input-group-text bg-light text-black font-weight-bold">Manager Name: </span><br> --}}
-                <select type="text" name="managerName" id="managerName" class="form-control @error('managerName')
+                <select  name="managerName" id="managerName" class="form-control select2 @error('managerName')
                   is-invalid
                    @enderror">
                    <option value="">select Manager Name</option>
                    @foreach ( $managers as $manager )
-
+                   <option value="{{$manager->id}}">{{ $manager->managerName }}</option>
                    @endforeach
-                   <option value="{{$manager->managerId}}))">{{ $manager->managerName }}</option>
+
 
                 </select>
                    @error('managerName')
@@ -49,6 +49,10 @@ WareHose-Payment
                    @error('warehouseName')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
+
+                </div>
+                <div class="input-group mb-3 col">
+                <input type="hidden" name="warehouseId" id="warehouseId" value="{{ old('warehouseName') }}"  class="form-control>
 
                 </div>
             </div>
@@ -102,9 +106,8 @@ WareHose-Payment
 </div>
 <script type="text/javascript">
 
-    $("#managerId").change(function() {
-    var optID = $('#managerId').find("option:selected").attr('id');
-
+    $("#managerName").change(function() {
+    var optID = $('#managerName').find("option:selected").attr('value');
          if (optID) {
              $.ajax({
                  url: "{{ url('admin/warehouse_payments') }}/"+optID,
@@ -115,7 +118,7 @@ WareHose-Payment
                         console.log(data);
                             $.each(data, function(key, value) {
                                 $('#managerId').val(value.managerId);
-                                $('#warehouseName').val(value.warehouseName);
+                                $('#warehouseName').val(value.warehouse.warehouseName);
                                 $('#email').val(value.email);
                                 $('#amount').val(value.amount);
                                 $('#date').val(value.date);

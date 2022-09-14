@@ -171,6 +171,39 @@
                 </ul>
             </li>
 
+            <li class="menu {{ Route::is('*payment*') ? 'active' : '' }}">
+                <a href="#payment" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-activity">
+                            <circle cx="8" cy="21" r="2"></circle>
+                            <circle cx="20" cy="21" r="2"></circle>
+                            <path
+                                d="M5.67 6H23l-1.68 8.39a2 2 0 0 1-2 1.61H8.75a2 2 0 0 1-2-1.74L5.23 2.74A2 2 0 0 0 3.25 1H1">
+                            </path>
+                        </svg>
+                        <span>Payments</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-chevron-right">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+                <ul class="collapse submenu list-unstyled" id="payment" data-bs-parent="#accordionExample">
+
+                    <li class="{{ Route::is('warehouse_payments*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/warehouse_payments') }}"> Warehouse Payment </a>
+                    </li>
+                    <li class="{{ Route::is('buyers-payments*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/buyers-payments') }}">Buyer Payment </a>
+                    </li>
+                </ul>
+            </li>
+
             <li class="menu {{ Route::is('*pack*') ? 'active' : '' }}">
                 <a href="#pack" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">

@@ -24,10 +24,8 @@ class assainOrderFormValidation extends FormRequest
     public function rules()
     {
         return [
-            'mainOrderId'=>'required|numeric',
-             'warehouseId'=>'required|numeric',
-             'quantity'=>'required|numeric',
-             'status'=>'required'
+
+         'status'=>'required'
 
 
         ];

@@ -14,45 +14,49 @@
                                 title="Add new Customer">
                                 Add New
                             </a><br><br>
-                            <table id="dataTableExample" class="dataTable table">
+                            <table id="dataTableExample" class="dataTable table w-100">
                                 <thead>
                                     <tr>
 
                                         <th>SL</th>
-                                        <th>mainOrderId</th>
-                                        <th>warehouseId</th>
-                                        <th>quantity</th>
-                                        <th>status</th>
-                                        <th>Action</th>
+                                        <th>Order Id</th>
+                                        <th>Product Name</th>
+                                        <th>Quantity</th>
+                                        <th>Status</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($assain as $item)
+                                    @foreach ($orders as $order)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->mainOrderId }}</td>
-                                            <td>{{ $item->warehouseId }}</td>
-                                            <td>{{ $item->quantity }}</td>
-                                            @if ($item->status == 1)
+                                            <td>{{ $order->mainOrderId }}</td>
+                                            <td>{{ $order->products->title }}</td>
+                                            <td>{{ $order->quantity }}</td>
+                                            @if ($order->status == 1)
                                                 <td>Active</td>
                                             @endif
-                                            @if ($item->status == 0)
+                                            @if ($order->status == 0)
                                                 <td>Deactive</td>
+                                            @endif
+                                            @if ($order->status == 2)
+                                                <td>Processing</td>
+                                            @endif
+                                            @if ($order->status == 3)
+                                                <td>Completed</td>
+                                            @endif
+                                            @if ($order->status == 4)
+                                                <td>Delivered</td>
                                             @endif
 
 
-                                            <td>
-                                                <a href="{{ url('manager/order/' . $item->id) }}"
+                                            <td class="text-center">
+                                                <a href="{{ url('manager/order/' . $order->id) }}"
                                                     class="btn btn-info btn-sm"><i class="fa-solid fa-eye"></i></a>
-                                                <a href="{{ url('manager/order/' . $item->id . '/edit') }}"
+                                                <a href="{{ url('manager/order/' . $order->id . '/edit') }}"
                                                     class="btn btn-success btn-sm"><i
                                                         class="fa-solid fa-pen-to-square"></i></a>
-                                                <form method="post" action="{{ url('manager/order/' . $item->id) }}">
-                                                    {{ method_field('DELETE') }}
-                                                    {{ csrf_field() }}
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i
-                                                            class="fa-solid fa-trash-can"></i></button>
-                                                </form>
+                                                
 
                                             </td>
                                         </tr>
