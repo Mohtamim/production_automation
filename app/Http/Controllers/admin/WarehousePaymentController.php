@@ -53,8 +53,8 @@ class WarehousePaymentController extends Controller
     public function show($id)
     {
 
-        $order = managerlist::where('id',$optID)->select('managerId','managerName','email','warehouseId')->with(['warehouse'])->get();
-        return response()->json($order, 200);
+        $manager = managerlist::where('id',$id)->select('managerId','managerName','email','warehouseId')->with(['warehouse'])->get();
+        return response()->json($manager, 200);
     }
 
     /**

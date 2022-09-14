@@ -26,13 +26,14 @@ WareHose-Payment
                 <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
                     {{-- <span class="input-group-text bg-light text-black font-weight-bold">Manager Name: </span><br> --}}
-                <select  name="managerName" id="managerName" class="form-control select2 @error('managerName')
+                <select type="text" name="managerId" id="managerId" class="form-control @error('managerId')
                   is-invalid
                    @enderror">
                    <option value="">select Manager Name</option>
                    @foreach ( $managers as $manager )
-                   <option value="{{$manager->id}}">{{ $manager->managerName }}</option>
+                   <option value="{{$manager->managerId}}">{{ $manager->managerName }}</option>
                    @endforeach
+
 
                 </select>
                    @error('managerId')
@@ -42,16 +43,12 @@ WareHose-Payment
                 </div>
                 <div class="input-group mb-3 col">
                     <span class="input-group-text bg-light text-black font-weight-bold">WarehouseName: </span><br>
-                <input type="text" name="warehouseName" id="warehouseName" value="{{ old('warehouseName') }}"  class="form-control @error('warehouseName')
+                <input type="text" name="warehouseId" id="warehouseId" value="{{ old('warehouseId') }}"  class="form-control @error('warehouseId')
                   is-invalid
                    @enderror" >
-                   @error('warehouseName')
+                   @error('warehouseId')
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
-
-                </div>
-                <div class="input-group mb-3 col">
-                <input type="hidden" name="warehouseId" id="warehouseId" value="{{ old('warehouseName') }}"  class="form-control>
 
                 </div>
             </div>
@@ -103,29 +100,20 @@ WareHose-Payment
     </div>
 </div>
 </div>
-<script type="text/javascript">
 
-    $("#managerName").change(function() {
-    var optID = $('#managerName').find("option:selected").attr('value');
-         if (optID) {
+<script type="text/javascript">
+$("#managerId").change(function() {
+    var managerId = $(this).find("option:selected").val();
+    // alert(managerId)
+         if (managerId) {
              $.ajax({
                  url: "{{ url('admin/warehouse_payments') }}/" + managerId,
                  type: "GET",
                  cache: false,
                  dataType: "json",
                     success: function(data) {
-
-                        console.log(data);
-                            $.each(data, function(key, value) {
-                                $('#managerId').val(value.managerId);
-                                $('#warehouseName').val(value.warehouse.warehouseName);
-                                $('#email').val(value.email);
-                                $('#amount').val(value.amount);
-                                $('#date').val(value.date);
-                            })
-
                                 $('#warehouseName').val(data.warehouseName);
-                                $('#email').val(data.email);
+                                // $('#email').val(data.email);
                          }
                      });
                  }
@@ -133,6 +121,6 @@ WareHose-Payment
                     $('#warehouseName').val('');
                     $('#email').val('');
                  }
-            });
+    });
 </script>
 @endsection
