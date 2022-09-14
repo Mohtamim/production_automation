@@ -114,7 +114,7 @@ WareHose-Payment
                  cache: false,
                  dataType: "json",
                     success: function(data) {
-<<<<<<< HEAD
+
                         console.log(data);
                             $.each(data, function(key, value) {
                                 $('#managerId').val(value.managerId);
@@ -123,10 +123,9 @@ WareHose-Payment
                                 $('#amount').val(value.amount);
                                 $('#date').val(value.date);
                             })
-=======
+
                                 $('#warehouseName').val(data.warehouseName);
                                 $('#email').val(data.email);
->>>>>>> d79391b446e33a3394f92b0b099e5e1d4fc7921b
                          }
                      });
                  }
