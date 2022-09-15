@@ -13,15 +13,15 @@ class BuyerReportsController extends Controller
     public function index()
     {
 
-       $buyer=buyers::all();
-     return view('admin.BuyersReports.index')->with('buyer',$buyer);
+     $buyer=buyers::all();
+     return view('admin.BuyersReports.index')->with('buyers',$buyer);
 
 
 
      }
 
      public function show($id){
-        $buyer= buyers::where('id', $id)->select('buyerCode','buyerName','email','country')->get();;
+        $buyer= buyers::where('id', $id)->select()->get();
          return response()->json($buyer, 200);
      }
  }

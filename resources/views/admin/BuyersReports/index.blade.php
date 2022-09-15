@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('ware-title')
+@section('title')
 Buyers Reports
 @endsection
 @section('admin_content')
@@ -11,9 +11,9 @@ Buyers Reports
                         <div class="form-group">
                             <form action="">
                                 <div class="form-group">
-                                    <select class="form-control buyerName" name="buyerName" id="id">
+                                    <select class="form-control select2" name="buyerName" id="buyerName1">
                                         <option value="" selected>Select Buyers Name Or Search</option>
-                                        @foreach ($buyerName as $item)
+                                        @foreach ($buyers as $item)
                                             <option value="{{ $item->id }}" sid="{{ $item->id }}">
                                                 {{ $item->buyerName }}</option>
                                         @endforeach
@@ -79,14 +79,12 @@ Buyers Reports
 
 
     <script>
-        $('.buyerName').select2();
 
-        $('#id').change(function() {
+        $('#buyerName1').change(function() {
             var id = $(this).find('option:selected').attr('sid');
-            alert(id);
             if (id) {
                 $.ajax({
-                    url: "{{ url('admin/BuyersReports') }}/" + id,
+                    url: "{{ url('admin/buyers_reports') }}/" + id,
                     type: "GET",
                     cache: false,
                     dataType: "json",
