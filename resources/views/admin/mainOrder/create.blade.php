@@ -33,6 +33,20 @@
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
                 </div>
+                <div class="input-group mb-3">
+                    <select  class="form-select select2 @error('buyercode')
+                    is-invalid
+                     @enderror" name="buyerscode_id" >
+                        <option  >Select Buyer</option>
+                        @foreach ($buyers as $buyer )
+                        <option  value="{{$buyer->id  }}">{{ $buyer->buyerName}}</option>
+                        @endforeach
+
+                    </select>
+                    @error('buyercode')
+                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                   @enderror
+                </div>
 
                 <div class="input-group mb-3">
                     <select onchange="fetchData1(id)" class="form-select select2 @error('buyerId')

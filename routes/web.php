@@ -27,6 +27,7 @@ use App\Http\Controllers\admin\PackPricingController;
 use App\Http\Controllers\admin\AssainedOrderController;
 use App\Http\Controllers\manager\paymentInfoController;
 use App\Http\Controllers\admin\BankBenificiaryController;
+use App\Http\Controllers\admin\BuyerReportsController;
 use App\Http\Controllers\admin\BuyersPaymentController;
 use App\Http\Controllers\admin\PackageingCompanyController;
 use App\Http\Controllers\admin\ShiperAndExporterController;
@@ -34,6 +35,7 @@ use App\Http\Controllers\admin\WarehousePaymentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\manager\managerDashboardController;
 use App\Http\Controllers\manager\managerAssignOrderController;
+
 use GuzzleHttp\Middleware;
 
 /*
@@ -82,6 +84,8 @@ Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
     Route::resource('reports', reportController::class);
     Route::resource('buyers-payments',BuyersPaymentController::class);
     Route::resource('warehouse_payments',WarehousePaymentController::class);
+    Route::resource('buyers_reports',BuyerReportsController::class);
+
 
 
 });

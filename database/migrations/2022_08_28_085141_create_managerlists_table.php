@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('userName');
             $table->string('phone');
             $table->string('email');
-            $table->foreignId('warehouseId')->constrained('warehouses')->unsigned()->nullable();
+            $table->foreignId('warehouseId')->nullable()->constrained('warehouses');
             $table->decimal('balance',10,2);
             $table->timestamps();
 

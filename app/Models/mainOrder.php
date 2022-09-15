@@ -15,6 +15,7 @@ class mainOrder extends Model
     protected $fillable=[
         'productId',
         'quantity',
+        'buyerscode_id',
         'remaing_quantity',
         'unitPrice',
         'totalPrice',

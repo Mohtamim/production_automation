@@ -45,11 +45,13 @@ class MainOrderController extends Controller
         $unitPrice = $request->unitPrice;
         $totalPrice = $request->totalPrice;
         $status = $request->status;
+        $buyerscode_id = $request->buyerscode_id;
 
         mainOrder::insert([
             'buyerId'=>$buyerId,
             'productId'=>$productName,
             'quantity'=>$quantity,
+            'buyerscode_id'=>$buyerscode_id,
             'remaing_quantity'=>$quantity,
             'unitPrice'=>$unitPrice,
             'totalPrice'=>$totalPrice,

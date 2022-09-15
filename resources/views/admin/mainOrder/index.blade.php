@@ -21,6 +21,7 @@
                             <tr>
                                 <th class="text-center">SL</th>
                                 <th class="text-center">Product Name</th>
+                                <th class="text-center">Buyer Name</th>
                                 <th class="text-center">Quantity</th>
                                 <th class="text-center">Remain for Assaign</th>
                                 <th class="text-center">UnitPrice</th>
