@@ -18,9 +18,11 @@ return new class extends Migration
             $table->foreignId('buyerId')->constrained('buyers');
             $table->string('buyerName');
             $table->integer('buyerCode');
+            $table->string('note')->nullable();
             $table->string('email');
             $table->string('country');
             $table->decimal('amount',10,2);
+            $table->timestamp('paydate')->nullable();
             $table->timestamps();
         });
     }

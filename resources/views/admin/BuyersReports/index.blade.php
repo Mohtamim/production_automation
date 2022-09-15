@@ -12,7 +12,7 @@ Buyers Reports
                             <form action="">
                                 <div class="form-group">
                                     <select class="form-control select2" name="buyerName" id="buyerName1">
-                                        <option value="" selected>Select Buyers Name Or Search</option>
+                                        <option selected>Select Buyers Name Or Search</option>
                                         @foreach ($buyers as $item)
                                             <option value="{{ $item->id }}" sid="{{ $item->id }}">
                                                 {{ $item->buyerName }}</option>
@@ -37,15 +37,17 @@ Buyers Reports
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
 
-                                        <table id="" class="table table-striped table-bordered">
+                                        <table id="" class="table dataTable table table-responsive text-center multi-table table dt-table-hovertable-striped table-bordered w-100">
                                             <thead>
                                                 <tr>
                                                     <th>Buyer Code</th>
                                                     <th>Buyer Name</th>
                                                     <th>Email</th>
                                                     <th>Phone</th>
+                                                    <th>Date</th>
+                                                    <th>Note</th>
+                                                    <th>Amount</th>
                                                     {{-- <th>Image</th> --}}
-                                                    <th>Country</th>
                                                     <th>Balance</th>
                                                 </tr>
                                             </thead>
@@ -56,8 +58,10 @@ Buyers Reports
                                                         <td id="buyerName"> </td>
                                                         <td id="email"> </td>
                                                         <td id="phone" ></td>
+                                                        <td id="date" ></td>
+                                                        <td id="note" ></td>
+                                                        <td id="amount" ></td>
                                                         {{-- <td><img src="{{asset($item->img) }}" style="width: 50px; height:50px;" alt=""></td> --}}
-                                                        <td id="country"> </td>
                                                         <td id="balance"> </td>
                                                     </tr>
 
@@ -96,10 +100,12 @@ Buyers Reports
                             $('#buyerCode').html(value.buyerCode);
                             $('#buyerName').html(value.buyerName);
                             $('#email').html(value.email);
-                            $('#phone').html(value.phone);
-                            $('#country').html(value.country);
-
-                          $('#balance').html(value.balance);
+                            $('#phone').html(value.buyer.phone);
+                            $('#note').html(value.note);
+                            $('#date').html(value.paydate);
+                            $('#amount').html(value.amount);
+                            $('#balance').html(value.buyer.balance);
+                            alert('done')
                         })
                     }
                 })

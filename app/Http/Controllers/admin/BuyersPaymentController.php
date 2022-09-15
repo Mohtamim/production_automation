@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use Carbon\Carbon;
 use App\Models\buyers;
 use Illuminate\Http\Request;
 use App\Models\buyersPayment;
@@ -34,28 +35,40 @@ class BuyersPaymentController extends Controller
         $buyerName = $request->buyerName;
         $buyerCode = $request->buyerCode;
         $email = $request->email;
+        $paydate = Carbon::now();
         $country = $request->country;
         $amount = $request->amount;
+        $note = $request->note;
+        $balance= DB::table('buyers')
+                ->where('id', $buyerId)
+                ->get('balance')->value('balance');
+        $total= $balance + $amount;
+        DB::table('buyers')
+                ->where('id', $buyerId)
+                ->update(['balance' => $total]);
 
-        // buyersPayment::insert([
-        //     'buyerId'=>$buyerId,
-        //     'buyerName'=>$buyerName,
-        //     'buyerCode'=>$buyerCode,
-        //     'email'=>$email,
-        //     'country'=>$country,
-        //     'amount'=>$amount,
-        // ]);
 
-        buyersPayment::create(
-            $request->only([
-                'buyerId',
-                'buyerName',
-                'buyerCode',
-                'email',
-                'country',
-                'amount',
-            ])
-        );
+        buyersPayment::insert([
+            'buyerId'=>$buyerId,
+            'buyerName'=>$buyerName,
+            'buyerCode'=>$buyerCode,
+            'email'=>$email,
+            'paydate'=>$paydate,
+            'country'=>$country,
+            'amount'=>$amount,
+            'note'=>$note,
+        ]);
+
+        // buyersPayment::create(
+        //     $request->only([
+        //         'buyerId',
+        //         'buyerName',
+        //         'buyerCode',
+        //         'email',
+        //         'country',
+        //         'amount',
+        //     ])
+        // );
 
         return redirect('admin/buyers-payments')->with('success',' Buyers Payments create successfully');
     }

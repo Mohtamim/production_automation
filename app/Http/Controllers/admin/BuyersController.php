@@ -3,13 +3,16 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
-use App\Http\Requests\buyersFormValidation;
 use App\Models\buyers;
 use Illuminate\Http\Request;
+use App\Models\buyersPayment;
 
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use function GuzzleHttp\Promise\all;
+use App\Http\Requests\buyersFormValidation;
 
 class BuyersController extends Controller
 {
@@ -41,7 +44,10 @@ class BuyersController extends Controller
         $img_url='upload/'.$img_name;
         $img->move(public_path('upload'),$img_name);
         $country=$request->country;
+        $paydate = Carbon::now();
         // buyers::create($buyer);
+
+
         buyers::insert([
              'buyerCode'=>$buyerCode,
              'buyerName'=>$buyerName,
@@ -51,6 +57,21 @@ class BuyersController extends Controller
              'country'=> $country,
              'balance'=>$balance
         ]);
+          $buyerId= DB::table('buyers')
+                ->where('buyerCode', $buyerCode)
+                ->get('id')->value('id');
+          DB::table('buyers_payments')
+                ->insert([
+                    'buyerId'=>$buyerId,
+                    'buyerName'=>$buyerName,
+                    'buyerCode'=>$buyerCode,
+                    'email'=>$email,
+                    'paydate'=>$paydate,
+                    'country'=>$country,
+                    'amount'=>$balance,
+                    'note'=>'Initial Balance',
+                ]);
+
         return redirect('admin/buyers')->with('success','Buyers created successfully' );
 
 

@@ -7,6 +7,7 @@ use App\Models\buyers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\buyersPayment;
 
 class BuyerReportsController extends Controller
 {
@@ -17,11 +18,13 @@ class BuyerReportsController extends Controller
      return view('admin.BuyersReports.index')->with('buyers',$buyer);
 
 
-
      }
 
      public function show($id){
-        $buyer= buyers::where('id', $id)->select()->get();
-         return response()->json($buyer, 200);
+
+        $buyer= buyersPayment::where('buyerid', $id)->select()->with(['buyer'])->get();
+            return response()->json($buyer, 200);
+
+
      }
  }

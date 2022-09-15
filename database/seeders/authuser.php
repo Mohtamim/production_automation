@@ -37,82 +37,8 @@ class authuser extends Seeder
         foreach ($user as $key => $user) {
             User::create($user);
         }
+
        
-        $user = [
-            [
-            'userId'=>'2',
-               'firstName'=>'Manager',
-               'lastName'=>'Test',
-               'userName'=>'manager@gmail.com',
-               'phone'=>'017',
-                'userType'=>'2',
-                'email'=>'manager@gmail.com',
-                'password'=> bcrypt('123456'),
-            ],
-
-
-        ];
-
-        foreach ($user as $key => $user) {
-            User::create($user);
-        }
-        $warehouse = [
-            [
-            'warehouseName'=>'Mrpur',
-            'address'=>'Dhaka',
-
-            ],
-
-
-        ];
-
-        foreach ($warehouse as $key => $user) {
-            warehouse::create($warehouse);
-        }
-        $buyers = [
-            [
-            'buyerCode'=>'220',
-            'buyerName'=>'Linda',
-            'email'=>'buyer@gmaiil.com',
-            'phone'=>'0156',
-            'country'=>'USA',
-            'balance'=>'0',
-
-            ],
-
-
-        ];
-
-        foreach ($buyers as $key => $user) {
-            buyers::create($buyers);
-        }
-        $units = [
-            [
-            'name'=>'KG',
-            'status'=>'1',
-
-            ],
-
-
-        ];
-
-        foreach ($units as $key => $user) {
-            unit::create($units);
-        }
-
-        $category = [
-            [
-            'catName'=>'Sweet',
-            'catTitle'=>'chomchom',
-
-            ],
-
-
-        ];
-
-        foreach ($category as $key => $user) {
-            cat::create($category);
-        }
 
     }
 }

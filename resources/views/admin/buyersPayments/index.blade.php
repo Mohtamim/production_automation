@@ -23,7 +23,7 @@ BUYERS PAYMENTS
                                         <th>buyerCode</th>
                                         <th>email</th>
                                         <th>country</th>
-                                        <th> Amount</th>
+                                        <th>Amount</th>
 
                                         <th>Action</th>
                                     </tr>
