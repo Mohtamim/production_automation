@@ -15,6 +15,7 @@ class mainOrder extends Model
     protected $fillable=[
         'productId',
         'quantity',
+        'buyerscode_id',
         'remaing_quantity',
         'unitPrice',
         'totalPrice',
@@ -26,5 +27,8 @@ class mainOrder extends Model
     }
     public function products(){
         return $this->belongsTo(pruduct::class, 'productId', 'id');
+    }
+    public function buyers(){
+        return $this->belongsTo(buyers::class, 'buyercode', 'id');
     }
 }

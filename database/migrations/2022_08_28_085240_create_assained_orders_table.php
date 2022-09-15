@@ -19,6 +19,12 @@ return new class extends Migration
             $table->foreignId('productId')->constrained('pruducts');
             $table->integer('warehouseId');
             $table->decimal('quantity');
+            $table->timestamp('processing')->nullable();
+            $table->timestamp('delivered')->nullable();
+            $table->timestamp('received')->nullable();
+            $table->timestamp('approved')->nullable();
+            $table->timestamp('delivery_date')->nullable();
+            $table->timestamp('partial_delivery_quantity')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

@@ -15,11 +15,18 @@ return new class extends Migration
         Schema::create('main_orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('productId')->constrained('pruducts');
+            $table->foreignId('buyerscode_id')->constrained('buyers');
             $table->decimal('quantity', 10, 2);
             $table->decimal('unitPrice', 10, 2);
             $table->decimal('totalPrice', 10, 2);
-            $table->string('remaing_quantity');
-            $table->boolean('status')->default(1);
+            $table->timestamp('processing')->nullable();
+            $table->timestamp('delivered')->nullable();
+            $table->timestamp('delivery_date')->nullable();
+            $table->timestamp('partial_delivery_quantity')->nullable();
+            $table->timestamp('partial_delivery_amount')->nullable();
+            $table->decimal('remaing_quantity',11,2);
+            $table->decimal('assaigned_quantity',11,2)->nullable();
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }

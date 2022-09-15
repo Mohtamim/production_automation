@@ -23,4 +23,8 @@ class buyers extends Model
     {
         return $this->hasMany(buyersPayment::class);
     }
+    public function mainOrders()
+    {
+        return $this->hasMany(mainOrder::class);
+    }
 }

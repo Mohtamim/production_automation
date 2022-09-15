@@ -6,6 +6,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\mainOrderFormValidation;
+use App\Models\buyers;
 use App\Models\mainOrder;
 use App\Models\pruduct;
 use GuzzleHttp\Psr7\Response;
@@ -18,7 +19,7 @@ class MainOrderController extends Controller
 
     public function index()
     {
-        $mainorders= mainOrder::with('products')->get();
+        $mainorders= mainOrder::with(['products','buyers'])->get();
         return view('admin.mainOrder.index',compact('mainorders'));
     }
     /**
@@ -28,9 +29,10 @@ class MainOrderController extends Controller
      */
     public function create()
     {
-        $product= pruduct::all();
+    $product= pruduct::all();
+    $buyers= buyers::all();
 
-       return view('admin.mainOrder.create')->with('product',$product);
+       return view('admin.mainOrder.create')->with(['product'=>$product,'buyers'=>$buyers]);
     }
 
 
@@ -41,10 +43,12 @@ class MainOrderController extends Controller
         $unitPrice = $request->unitPrice;
         $totalPrice = $request->totalPrice;
         $status = $request->status;
+        $buyerscode_id = $request->buyerscode_id;
 
         mainOrder::insert([
             'productId'=>$productName,
             'quantity'=>$quantity,
+            'buyerscode_id'=>$buyerscode_id,
             'remaing_quantity'=>$quantity,
             'unitPrice'=>$unitPrice,
             'totalPrice'=>$totalPrice,
