@@ -34,6 +34,21 @@
                    @enderror
                 </div>
 
+                <div class="input-group mb-3">
+                    <select onchange="fetchData1(id)" class="form-select select2 @error('buyerId')
+                    is-invalid
+                     @enderror" name="buyerId" >
+                        <option value="" >Select Buyer Name</option>
+                        @foreach ($buyers as $buyer )
+                        <option id="{{$buyer->id  }}"  value="{{$buyer->id  }}">{{ $buyer->buyerName}}</option>
+                        @endforeach
+
+                    </select>
+                    @error('buyerId')
+                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                   @enderror
+                </div>
+
 
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold">Quantity</span><br>
@@ -87,6 +102,7 @@
         var quantity = $("#quantity").val();
         var unitPrice = $("#unitPrice").val();
         var totalPrice = $("#totalPrice").val();
+        var totalPrice = $("#buyerId").val();
 
         var result=quantity*unitPrice;
         $('#totalPrice').val(result);

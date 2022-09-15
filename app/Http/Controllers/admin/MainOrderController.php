@@ -6,6 +6,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\mainOrderFormValidation;
+use App\Models\buyers;
 use App\Models\mainOrder;
 use App\Models\pruduct;
 use GuzzleHttp\Psr7\Response;
@@ -18,8 +19,9 @@ class MainOrderController extends Controller
 
     public function index()
     {
+        $buyers=buyers::all();
         $mainorders= mainOrder::with('products')->get();
-        return view('admin.mainOrder.index',compact('mainorders'));
+        return view('admin.mainOrder.index',compact('mainorders','buyers'));
     }
     /**
      * Show the form for creating a new resource.
@@ -28,14 +30,16 @@ class MainOrderController extends Controller
      */
     public function create()
     {
+        $buyers=buyers::all();
         $product= pruduct::all();
 
-       return view('admin.mainOrder.create')->with('product',$product);
+       return view('admin.mainOrder.create')->with(['product'=>$product,'buyers'=>$buyers]);
     }
 
 
     public function store(mainOrderFormValidation $request)
     {
+        $buyerId=$request->buyerId;
         $productName = $request->productName;
         $quantity = $request->quantity;
         $unitPrice = $request->unitPrice;
@@ -43,6 +47,7 @@ class MainOrderController extends Controller
         $status = $request->status;
 
         mainOrder::insert([
+            'buyerId'=>$buyerId,
             'productId'=>$productName,
             'quantity'=>$quantity,
             'remaing_quantity'=>$quantity,

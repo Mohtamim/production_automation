@@ -27,4 +27,7 @@ class mainOrder extends Model
     public function products(){
         return $this->belongsTo(pruduct::class, 'productId', 'id');
     }
+    public function buyers(){
+        return $this->belongsTo(buyers::class, 'buyerId', 'id');
+    }
 }

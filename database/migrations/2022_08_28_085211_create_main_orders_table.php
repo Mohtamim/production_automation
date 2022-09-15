@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('main_orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('productId')->constrained('pruducts');
+            $table->foreignId('buyerId')->constrained('buyers');
             $table->decimal('quantity', 10, 2);
             $table->decimal('unitPrice', 10, 2);
             $table->decimal('totalPrice', 10, 2);
