@@ -12,7 +12,7 @@ Buyers Reports
                             <form action="">
                                 <div class="form-group">
                                     <select class="form-control select2" name="buyerName" id="buyerName1">
-                                        <option selected>Select Buyers Name Or Search</option>
+                                        <option value="" sid="" selected>Select Buyers Name Or Search</option>
                                         @foreach ($buyers as $item)
                                             <option value="{{ $item->id }}" sid="{{ $item->id }}">
                                                 {{ $item->buyerName }}</option>
@@ -37,33 +37,35 @@ Buyers Reports
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
 
-                                        <table id="" class="table dataTable table table-responsive text-center multi-table table dt-table-hovertable-striped table-bordered w-100">
-                                            <thead>
+                                        <table id="payreport" style=" width: 100%; display: table; " class="table dataTable table table-responsive text-center multi-table table dt-table-hovertable-striped table-bordered w-100">
+                                           <div class="row">
+                                            <div  class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text bg-light text-black font-weight-bold" >Buyer Name:</span>
+                                                    <p id="buyerName" class="form-control"></p>
+                                                </div>
+                                            </div>
+                                            <div  class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text bg-light text-black font-weight-bold" >Buyer Code:</span>
+                                                    <p id="buyerCode" class="form-control"></p>
+                                                </div>
+                                            </div>
+                                           </div>
+                                            <thead >
                                                 <tr>
-                                                    <th>Buyer Code</th>
-                                                    <th>Buyer Name</th>
-                                                    <th>Email</th>
-                                                    <th>Phone</th>
+
+
                                                     <th>Date</th>
                                                     <th>Note</th>
                                                     <th>Amount</th>
                                                     {{-- <th>Image</th> --}}
                                                     <th>Balance</th>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-
-                                                    <tr>
-                                                        <td id="buyerCode"></td>
-                                                        <td id="buyerName"> </td>
-                                                        <td id="email"> </td>
-                                                        <td id="phone" ></td>
-                                                        <td id="date" ></td>
-                                                        <td id="note" ></td>
-                                                        <td id="amount" ></td>
-                                                        {{-- <td><img src="{{asset($item->img) }}" style="width: 50px; height:50px;" alt=""></td> --}}
-                                                        <td id="balance"> </td>
-                                                    </tr>
+                                            </theadstyle=>
+                                            <tbody id="content1"  >
 
 
                                             </tbody>
@@ -82,10 +84,16 @@ Buyers Reports
     </div>
 
 
-    <script>
-
+    <script type="text/javascript">
+$(document).ready(function () {
+        $("#payreport").DataTable();
+        $(".dataTables_empty").empty();
+    });
         $('#buyerName1').change(function() {
             var id = $(this).find('option:selected').attr('sid');
+            $("#payreport").find('tbody').empty();
+            $('#buyerCode').html('');
+            $('#buyerName').html('');
             if (id) {
                 $.ajax({
                     url: "{{ url('admin/buyers_reports') }}/" + id,
@@ -97,20 +105,51 @@ Buyers Reports
                         console.log(data);
 
                         $.each(data, function(key, value) {
+                            // $('#buyerCode').html(value.buyerCode);
+                            // $('#buyerName').html(value.buyerName);
+                            // $('#email').html(value.email);
+                            // $('#phone').html(value.buyer.phone);
+                            // $('#note').html(value.note);
+                            // $('#date').html(value.paydate);
+                            // $('#amount').html(value.amount);
+                            // $('#balance').html(value.buyer.balance);
+                            // var body = "<tr>";
+                            // body    += "<td>" + value.buyerCode + "</td>";
+                            // body    += "<td>" + value.buyerName + "</td>";
+                            // body    += "<td>" + value.email + "</td>";
+                            // body    += "<td>" + value.buyer.phone + "<zzzzz/td>";
+                            // body    += "<td>" + value.note + "</td>";
+                            // body    += "<td>" + value.paydate + "</td>";
+                            // body    += "<td>" + value.amount + "</td>";
+                            // body    += "<td>" + value.buyer.balance + "</td>";
+                            // body    += "</tr>";
+                            // $( "#content1 tbody" ).append(body);
+
+
+
+
+                            $('#content1').append(
+                                      `<tr>
+                                                        <td > ${value.paydate}</td>
+                                                        <td >${value.note}</td>
+                                                        <td >${value.amount}</td>
+                                                        <td > ${value.buyer.balance}</td>
+                                        </tr>`
+                            )
                             $('#buyerCode').html(value.buyerCode);
                             $('#buyerName').html(value.buyerName);
-                            $('#email').html(value.email);
-                            $('#phone').html(value.buyer.phone);
-                            $('#note').html(value.note);
-                            $('#date').html(value.paydate);
-                            $('#amount').html(value.amount);
-                            $('#balance').html(value.buyer.balance);
-                            alert('done')
-                        })
+
+                        });
+
+
+
                     }
                 })
             }
         })
+
+
+
     </script>
 @endsection
 
