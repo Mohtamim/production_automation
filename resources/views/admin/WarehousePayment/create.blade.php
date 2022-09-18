@@ -31,7 +31,7 @@ WareHose-Payment
                    @enderror">
                    <option value="">select Manager Name</option>
                    @foreach ( $managers as $manager )
-                   <option value="{{$manager->managerId}}">{{ $manager->managerName }}</option>
+                   <option value="{{$manager->managerId}}" id="{{$manager->managerId}}">{{ $manager->managerName }}</option>
                    @endforeach
 
 
@@ -51,6 +51,8 @@ WareHose-Payment
                    @enderror
 
                 </div>
+                      <input type="hidden" name="warehouseName" id="warehouseName" value="{{ old('warehouseName') }}"  class="form-control" >
+
             </div>
             <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
@@ -86,6 +88,14 @@ WareHose-Payment
                    @enderror
 
                 </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold" >Payment Note:</span>
+                    <textarea type="text"  class="form-control" name="note" id="note"  value="{{ old('note') }}"  placeholder="Check/ Cash" aria-label="Enter your amount" aria-describedby="basic-addon2"></textarea>
+                    @error('amount')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+
+                    @enderror
+                </div>
             </div>
 
 
@@ -112,8 +122,14 @@ $("#managerId").change(function() {
                  cache: false,
                  dataType: "json",
                     success: function(data) {
-                                $('#warehouseName').val(data.warehouseName);
-                                // $('#email').val(data.email);
+                        console.log(data);
+                        $.each(data, function(key, value) {
+                            $('#warehouseId').val(value.warehouse.warehouseName);
+                            $('#email').val(value.email);
+                            $('#warehouseName').val(value.warehouseId);
+                            $('#managerName').val(value.managerName);
+                        });
+
                          }
                      });
                  }

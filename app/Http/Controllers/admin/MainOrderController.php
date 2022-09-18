@@ -39,14 +39,14 @@ class MainOrderController extends Controller
 
     public function store(mainOrderFormValidation $request)
     {
+
         $buyerId=$request->buyerId;
         $productName = $request->productName;
         $quantity = $request->quantity;
         $unitPrice = $request->unitPrice;
         $totalPrice = $request->totalPrice;
         $status = $request->status;
-        $buyerscode_id = $request->buyerscode_id;
-
+        $buyerscode_id= buyers::where('id', $buyerId)->select('buyerCode')->get()->value('buyerCode');
         mainOrder::insert([
             'buyerId'=>$buyerId,
             'productId'=>$productName,
@@ -81,6 +81,7 @@ class MainOrderController extends Controller
 
     public function update(mainOrderFormValidation $request, $id)
     {
+
        $mainorder=mainOrder::find($id);
        $productName = $request->productName;
        $quantity = $request->quantity;

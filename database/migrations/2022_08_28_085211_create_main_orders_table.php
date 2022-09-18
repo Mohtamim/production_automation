@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('productId')->constrained('pruducts');
             $table->foreignId('buyerId')->constrained('buyers');
+            $table->integer('buyerscode_id');
             $table->decimal('quantity', 10, 2);
             $table->decimal('unitPrice', 10, 2);
             $table->decimal('totalPrice', 10, 2);

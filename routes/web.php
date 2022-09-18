@@ -35,7 +35,7 @@ use App\Http\Controllers\admin\WarehousePaymentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\manager\managerDashboardController;
 use App\Http\Controllers\manager\managerAssignOrderController;
-
+use App\Http\Controllers\admin\warehouseReportController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -85,6 +85,7 @@ Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
     Route::resource('buyers-payments',BuyersPaymentController::class);
     Route::resource('warehouse_payments',WarehousePaymentController::class);
     Route::resource('buyers_reports',BuyerReportsController::class);
+    Route::resource('warehouse_report',warehouseReportController::class);
 
 
 

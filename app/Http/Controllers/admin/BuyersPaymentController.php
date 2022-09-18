@@ -42,6 +42,7 @@ class BuyersPaymentController extends Controller
         $balance= DB::table('buyers')
                 ->where('id', $buyerId)
                 ->get('balance')->value('balance');
+
         $total= $balance + $amount;
         DB::table('buyers')
                 ->where('id', $buyerId)
@@ -57,6 +58,7 @@ class BuyersPaymentController extends Controller
             'country'=>$country,
             'amount'=>$amount,
             'note'=>$note,
+            'balance'=> $total
         ]);
 
         // buyersPayment::create(

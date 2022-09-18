@@ -14,16 +14,18 @@ class warehousePayment extends Model
     protected $primaryKey='id';
     protected $fillable=[
         'managerName',
-        'managerId',
+        'warehouseId',
         'email',
         'warehouseName',
         'amount',
         'date',
+        'note',
+        'balance',
     ];
     public function warehouse(){
         return $this->belongsTo(warehouse::class,'warehouseName','id');
     }
     public function manager(){
-        return $this->belongsTo(managerlist::class,'managerId','id');
+        return $this->belongsTo(managerlist::class,'managerId','managerId');
     }
 }

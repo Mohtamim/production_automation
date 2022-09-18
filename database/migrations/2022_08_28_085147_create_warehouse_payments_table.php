@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('warehouse_payments', function (Blueprint $table) {
             $table->id();
             $table->string('managerName');
-            $table->foreignId('managerId')->constrained('managerlists');
+            $table->foreignId('managerId');
             $table->string('email');
-            $table->string('warehouseName')->constrained('warehouses');;
+            $table->string('warehouseName')->constrained('warehouses');
+            $table->string('note')->default('Payment Added');
             $table->decimal('amount',10,2);
+            $table->decimal('balance',10,2)->default('0');
             $table->timestamp('date');
             $table->timestamps();
         });

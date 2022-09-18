@@ -33,28 +33,14 @@
                   <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                    @enderror
                 </div>
-                <div class="input-group mb-3">
-                    <select  class="form-select select2 @error('buyercode')
-                    is-invalid
-                     @enderror" name="buyerscode_id" >
-                        <option  >Select Buyer</option>
-                        @foreach ($buyers as $buyer )
-                        <option  value="{{$buyer->id  }}">{{ $buyer->buyerName}}</option>
-                        @endforeach
-
-                    </select>
-                    @error('buyercode')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
-                </div>
 
                 <div class="input-group mb-3">
-                    <select onchange="fetchData1(id)" class="form-select select2 @error('buyerId')
+                    <select class="form-select select2 @error('buyerId')
                     is-invalid
                      @enderror" name="buyerId" >
-                        <option value="" >Select Buyer Name</option>
+                        <option value=""  >Select Buyer Name</option>
                         @foreach ($buyers as $buyer )
-                        <option id="{{$buyer->id  }}"  value="{{$buyer->id  }}">{{ $buyer->buyerName}}</option>
+                        <option  value="{{$buyer->id}}">{{$buyer->buyerName}}</option>
                         @endforeach
 
                     </select>
@@ -116,7 +102,7 @@
         var quantity = $("#quantity").val();
         var unitPrice = $("#unitPrice").val();
         var totalPrice = $("#totalPrice").val();
-        var totalPrice = $("#buyerId").val();
+        // var totalPrice = $("#buyerId").val();
 
         var result=quantity*unitPrice;
         $('#totalPrice').val(result);

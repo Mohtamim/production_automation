@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('country');
             $table->decimal('amount',10,2);
             $table->timestamp('paydate')->nullable();
+            $table->decimal('balance',10,2)->nullable();
             $table->timestamps();
         });
     }

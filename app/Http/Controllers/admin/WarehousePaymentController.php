@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use Carbon\Carbon;
 use App\Models\warehouse;
 use App\Models\managerlist;
 use Illuminate\Http\Request;
@@ -35,16 +36,37 @@ class WarehousePaymentController extends Controller
         $email=$request->email;
         $warehouseName=$request->warehouseName;
         $amount=$request->amount;
+        $note=$request->note;
         $date=$request->date;
+        $wPay = new warehousePayment();
 
-        warehousePayment::insert([
-             'managerName'=>$managerName,
-             'managerId'=>$managerId,
-             'email'=>$email,
-             'warehouseName'=>$warehouseName,
-             'amount'=> $amount,
-             'date'=> $date
-        ]);
+        $balance= DB::table('warehouses')
+                ->where('id', $warehouseName)
+                ->get('balance')->value('balance');
+
+        $total= $balance + $amount;
+        DB::table('warehouses')
+                ->where('id', $warehouseName)
+                ->update(['balance' => $total]);
+
+        $wPay->managerName= $managerName;
+        $wPay->managerId= $managerId;
+        $wPay->email= $email;
+        $wPay->warehouseName= $warehouseName;
+        $wPay->amount= $amount;
+        $wPay->balance= $total;
+        $wPay->note= $note;
+        return $wPay->date= $date->toDateString();
+        $wPay->save();
+
+        // warehousePayment::insert([
+        //      'managerName'=>$managerName,
+        //      'managerId'=>$managerId,
+        //      'email'=>$email,
+        //      'warehouseName'=>$warehouseName,
+        //      'amount'=> $amount,
+        //      'date'=> $date
+        // ]);
         return redirect('admin/warehouse_payments')->with('success','warehouse Payments created successfully' );
 
     }
@@ -52,8 +74,7 @@ class WarehousePaymentController extends Controller
 
     public function show($id)
     {
-
-        $manager = managerlist::where('id',$id)->select('managerId','managerName','email','warehouseId')->with(['warehouse'])->get();
+        $manager = managerlist::where('managerId',$id)->select('managerId','managerName','email','warehouseId')->with(['warehouse'])->get();
         return response()->json($manager, 200);
     }
 

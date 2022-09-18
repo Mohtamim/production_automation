@@ -80,6 +80,14 @@
 
                         @enderror
                     </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-light text-black font-weight-bold" >Payment Note:</span>
+                        <textarea type="text"  class="form-control" name="note" id="note"  value="{{ old('note') }}"  placeholder="Check/ Cash" aria-label="Enter your amount" aria-describedby="basic-addon2"></textarea>
+                        @error('amount')
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+
+                        @enderror
+                    </div>
 
 
 

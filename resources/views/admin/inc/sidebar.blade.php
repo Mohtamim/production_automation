@@ -320,7 +320,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu {{ Route::is('shiperment_exporter*')? 'active':''  }}">
+            <li class="menu {{ Route::is('reports*')? 'active':''  }}">
                 <a href="{{ url('admin/shiperment_exporter') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -358,10 +358,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="reports" data-bs-parent="#accordionExample">
                     <li>
-                        <a href="">Report 1</a>
+                        <a href="{{ url('admin/warehouse_report') }}">Warehouse Reports</a>
                     </li>
                     <li>
-                        <a href=""> Report 2 </a>
+                        <a href="{{ url('admin/buyers_reports') }}">Buyer Report</a>
                     </li>
                 </ul>
             </li>

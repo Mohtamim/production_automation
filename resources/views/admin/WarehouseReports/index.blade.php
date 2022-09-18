@@ -1,6 +1,6 @@
 @extends('admin.layout')
 @section('title')
-Buyers Reports
+Warhouse Reports
 @endsection
 @section('admin_content')
     <div class="content-wrap">
@@ -11,11 +11,11 @@ Buyers Reports
                         <div class="form-group">
                             <form action="">
                                 <div class="form-group">
-                                    <select class="form-control select2" name="buyerName" id="buyerName1">
-                                        <option value="" sid="" selected>Select Buyers Name Or Search</option>
-                                        @foreach ($buyers as $item)
+                                    <select class="form-control select2" name="warehouse" id="warehouse1">
+                                        <option value="" sid="" selected>Select warhouse</option>
+                                        @foreach ($warehouses as $item)
                                             <option value="{{ $item->id }}" sid="{{ $item->id }}">
-                                                {{ $item->buyerName }}</option>
+                                                {{ $item->warehouseName }}</option>
                                         @endforeach
 
                                     </select>
@@ -42,31 +42,27 @@ Buyers Reports
                                             <div  class="col m-1">
 
                                                 <div class="input-group mb-3">
-                                                    <span class="input-group-text bg-light text-black font-weight-bold" >Buyer Name:</span>
-                                                    <p id="buyerName" class="form-control"></p>
+                                                    <span class="input-group-text bg-light text-black font-weight-bold" >Warhouse Name:</span>
+                                                    <p id="warehouseName" class="form-control"></p>
                                                 </div>
                                             </div>
                                             <div  class="col m-1">
 
                                                 <div class="input-group mb-3">
-                                                    <span class="input-group-text bg-light text-black font-weight-bold" >Buyer Code:</span>
-                                                    <p id="buyerCode" class="form-control"></p>
+                                                    <span class="input-group-text bg-light text-black font-weight-bold" >Warhouse ID:</span>
+                                                    <p id="warehouseId" class="form-control"></p>
                                                 </div>
                                             </div>
                                            </div>
                                             <thead >
                                                 <tr>
-
-
                                                     <th>Date</th>
                                                     <th>Note</th>
                                                     <th>Amount</th>
-                                                    {{-- <th>Image</th> --}}
                                                     <th>Balance</th>
                                                 </tr>
                                             </theadstyle=>
-                                            <tbody id="content1"  >
-
+                                            <tbody id="content1">
 
                                             </tbody>
                                         </table>
@@ -89,14 +85,12 @@ $(document).ready(function () {
         $("#payreport").DataTable();
         $(".dataTables_empty").empty();
     });
-        $('#buyerName1').change(function() {
+        $('#warehouse1').change(function() {
             var id = $(this).find('option:selected').attr('sid');
-            $("#payreport").find('tbody').empty();
-            $('#buyerCode').html('');
-            $('#buyerName').html('');
+
             if (id) {
                 $.ajax({
-                    url: "{{ url('admin/buyers_reports') }}/" + id,
+                    url: "{{ url('admin/warehouse_report') }}/" + id,
                     type: "GET",
                     cache: false,
                     dataType: "json",
@@ -105,12 +99,12 @@ $(document).ready(function () {
                         console.log(data);
 
                         $.each(data, function(key, value) {
-                            $('#buyerCode').html(value.buyerCode);
-                            $('#buyerName').html(value.buyerName);
+                            $('#warehouseId').html(value.id);
+                            $('#warehouseName').html(value.warehouse.warehouseName);
 
                             $('#content1').append(
                                       `<tr>
-                                                        <td > ${value.paydate}</td>
+                                                        <td > ${value.date}</td>
                                                         <td >${value.note}</td>
                                                         <td >${value.amount}</td>
                                                         <td > ${value.balance}</td>
@@ -121,6 +115,10 @@ $(document).ready(function () {
                         });
                     }
                 })
+            }else{
+            $("#payreport").find('tbody').empty();
+            $('#warehouseId').html('');
+            $('#warehouseName').html('');
             }
         })
 
