@@ -19,9 +19,8 @@ class MainOrderController extends Controller
 
     public function index()
     {
-        $buyers=buyers::all();
-        $mainorders= mainOrder::with('products')->get();
-        return view('admin.mainOrder.index',compact('mainorders','buyers'));
+        $mainorders= mainOrder::with(['buyers','products'])->get();
+        return view('admin.mainOrder.index',compact('mainorders'));
     }
     /**
      * Show the form for creating a new resource.
@@ -79,11 +78,11 @@ class MainOrderController extends Controller
     }
 
 
-    public function update(mainOrderFormValidation $request, $id)
+    public function update(Request $request, $id)
     {
 
        $mainorder=mainOrder::find($id);
-       $productName = $request->productName;
+       $productId = $request->productId;
        $quantity = $request->quantity;
        $unitPrice = $request->unitPrice;
        $totalPrice = $request->totalPrice;
@@ -91,7 +90,7 @@ class MainOrderController extends Controller
 
 
        $input=([
-        'productId'=>$productName,
+        'productId'=>$productId,
         'quantity'=>$quantity,
         'remaing_quantity'=>$quantity,
         'unitPrice'=>$unitPrice,

@@ -7,6 +7,7 @@ use App\Models\assainedOrder;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\assainOrderFormValidation;
+use App\Http\Requests\managerOrderRequest;
 use App\Models\managerlist;
 use App\Models\warehouse;
 use Illuminate\Support\Facades\DB;
@@ -42,10 +43,10 @@ class managerAssignOrderController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(managerOrderRequest $request, $id)
     {
         $id=assainedOrder::find($id)->value('id');
-        $status=$request->status;
+       $status=$request->status;
        DB::table('assained_orders')
                 ->where('mainOrderId',$id)
                 ->update(['status' => $status]);

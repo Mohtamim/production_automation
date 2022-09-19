@@ -38,11 +38,25 @@
                             <td class="text-center">{{ $mainorder->unitPrice }}</td>
                             <td class="text-center">{{ $mainorder->totalPrice }}</td>
                             @if ($mainorder->status == 1)
-                                <td class="text-center">Active</td>
+                                <td>Active</td>
                             @endif
-
                             @if ($mainorder->status == 0)
-                                <td class="text-center">Deactive</td>
+                                <td>Deactive</td>
+                            @endif
+                            @if ($mainorder->status == 2)
+                                <td>Processing</td>
+                            @endif
+                            @if ($mainorder->status == 3)
+                                <td>Completed</td>
+                            @endif
+                            @if ($mainorder->status == 4)
+                                <td>Delivered</td>
+                            @endif
+                            @if ($mainorder->status == 5)
+                                <td>Received</td>
+                            @endif
+                            @if ($mainorder->status == 6)
+                                <td>Approved</td>
                             @endif
                             <td class="text-center">
                                 <button id="{{ $mainorder->id }}" onclick="fetchData(id)"

@@ -25,7 +25,8 @@ return new class extends Migration
             $table->date('received')->format('d/m/Y')->nullable();
             $table->date('approved')->format('d/m/Y')->nullable();
             $table->date('delivery_date')->format('d/m/Y')->nullable();
-            $table->date('partial_delivery_quantity')->format('d/m/Y')->nullable();
+            $table->decimal('partial_delivery_quantity')->nullable();
+            $table->decimal('partial_delivery_amount', 10, 2)->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

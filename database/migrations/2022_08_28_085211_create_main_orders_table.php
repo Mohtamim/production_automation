@@ -20,14 +20,15 @@ return new class extends Migration
             $table->decimal('quantity', 10, 2);
             $table->decimal('unitPrice', 10, 2);
             $table->decimal('totalPrice', 10, 2);
-            $table->timestamp('processing')->nullable();
-            $table->timestamp('delivered')->nullable();
-            $table->timestamp('delivery_date')->nullable();
-            $table->timestamp('partial_delivery_quantity')->nullable();
-            $table->timestamp('partial_delivery_amount')->nullable();
-            $table->decimal('remaing_quantity',11,2);
-            $table->decimal('assaigned_quantity',11,2)->nullable();
-            $table->boolean('status')->nullable();
+            $table->date('processing')->format('d/m/Y')->nullable();
+            $table->date('completed')->format('d/m/Y')->nullable();
+            $table->date('delivered')->format('d/m/Y')->nullable();
+            $table->date('received')->format('d/m/Y')->nullable();
+            $table->date('approved')->format('d/m/Y')->nullable();
+            $table->date('delivery_date')->format('d/m/Y')->nullable();
+            $table->decimal('partial_delivery_quantity', 10, 2)->nullable();
+            $table->decimal('partial_delivery_amount', 10, 2)->format('d/m/Y')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

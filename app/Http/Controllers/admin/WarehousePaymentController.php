@@ -56,17 +56,9 @@ class WarehousePaymentController extends Controller
         $wPay->amount= $amount;
         $wPay->balance= $total;
         $wPay->note= $note;
-        return $wPay->date= $date->toDateString();
+        $wPay->date;
         $wPay->save();
 
-        // warehousePayment::insert([
-        //      'managerName'=>$managerName,
-        //      'managerId'=>$managerId,
-        //      'email'=>$email,
-        //      'warehouseName'=>$warehouseName,
-        //      'amount'=> $amount,
-        //      'date'=> $date
-        // ]);
         return redirect('admin/warehouse_payments')->with('success','warehouse Payments created successfully' );
 
     }

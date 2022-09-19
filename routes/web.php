@@ -36,6 +36,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\manager\managerDashboardController;
 use App\Http\Controllers\manager\managerAssignOrderController;
 use App\Http\Controllers\admin\warehouseReportController;
+use App\Http\Controllers\Assaignordersfetch;
+use App\Http\Controllers\orderReport;
+use App\Http\Controllers\ordersfetch;
 use GuzzleHttp\Middleware;
 
 /*
@@ -63,6 +66,8 @@ Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
     Route::resource('dashboard', dashboardController::class);
     Route::get('product_fetch/{id}',[productsfetch::class,'show']);
+    Route::get('order_fetch/{id}',[ordersfetch::class,'show']);
+    Route::get('assaign_order_fetch/{id}',[Assaignordersfetch::class,'show']);
     Route::resource('assaign_order', AssainedOrderController::class);
     Route::resource('users', UsersController::class);
     Route::resource('country', CountryController::class);
@@ -85,6 +90,8 @@ Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
     Route::resource('buyers-payments',BuyersPaymentController::class);
     Route::resource('warehouse_payments',WarehousePaymentController::class);
     Route::resource('buyers_reports',BuyerReportsController::class);
+    Route::get('order_reports',[orderReport::class,'index']);
+    Route::get('order_reports/{id}/{ordernumber}',[orderReport::class,'show'])->name('orderreport');
     Route::resource('warehouse_report',warehouseReportController::class);
 
 

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('note')->default('Payment Added');
             $table->decimal('amount',10,2);
             $table->decimal('balance',10,2)->default('0');
-            $table->timestamp('date');
+            $table->date('date')->format('d/m/Y')->nullable();
             $table->timestamps();
         });
     }

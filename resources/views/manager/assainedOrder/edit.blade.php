@@ -33,7 +33,7 @@ WareHose
                     <span class="input-group-text bg-light text-black font-weight-bold" id="phone">Quantity:</span>
                     <input type="number" value="{{$orders->quantity}}" class="form-control font-weight-bold text-info @error('quantity')
                      is-invalid
-                    @enderror" name="quantity" placeholder="Enter your quantity" disabled  aria-label="Enter your quantity " aria-describedby="basic-addon2">
+                    @enderror" name="quantity" placeholder="Enter your quantity"  aria-label="Enter your quantity " aria-describedby="basic-addon2">
                     @error('quantity')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
 
@@ -57,8 +57,10 @@ WareHose
 </div>
 <div class="input-group mb-3 col  " style="minWidth:678px">
 
-    <select id="status" class="form-select m-8 w-25 text-center" name="status">
-        <option value="" >Select Status</option>
+    <select id="status" class="form-select m-8 w-25 text-center @error('status')
+        is-invalid
+    @enderror " name="status">
+        <option value="">Select Status</option>
         @if ($orders->status==1)
         <option value="1" selected>Active</option>
         <option value="2" >Processing</option>
@@ -88,6 +90,9 @@ WareHose
         @endif
 
     </select>
+    @error('status')
+        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+        @enderror
 </div>
 
 @endforeach

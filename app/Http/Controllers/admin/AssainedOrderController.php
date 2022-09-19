@@ -100,43 +100,37 @@ class AssainedOrderController extends Controller
     if($status==0 || $status==1){
         DB::table('assained_orders')
         ->where('mainOrderId',$id)
-        ->update(['mainOrderId'=>  $mainOrderId,'warehouseId'=> $warehouseId,'quantity'=> $quantity,'status' => $status]);
+        ->update(['quantity'=> $quantity,'status' => $status]);
     }
     elseif($status==2){
         $time = Carbon::now()->toDateString();
         DB::table('assained_orders')
         ->where('mainOrderId',$id)
-        ->update(['mainOrderId'=>  $mainOrderId,'warehouseId'=> $warehouseId,'quantity'=> $quantity,'status' => $status,'processing'=>$time]);
-    }
-    elseif($status==2){
-        $time = Carbon::now()->toDateString();
-        DB::table('assained_orders')
-        ->where('mainOrderId',$id)
-        ->update(['mainOrderId'=>  $mainOrderId,'warehouseId'=> $warehouseId,'quantity'=> $quantity,'status' => $status,'processing'=>$time]);
+        ->update(['quantity'=> $quantity,'status' => $status,'processing'=>$time]);
     }
     elseif($status==3){
         $time = Carbon::now()->toDateString();
         DB::table('assained_orders')
         ->where('mainOrderId',$id)
-        ->update(['mainOrderId'=>  $mainOrderId,'warehouseId'=> $warehouseId,'quantity'=> $quantity,'status' => $status,'completed'=>$time]);
+        ->update(['quantity'=> $quantity,'status' => $status,'completed'=>$time]);
     }
     elseif($status==4){
         $time = Carbon::now()->toDateString();
         DB::table('assained_orders')
         ->where('mainOrderId',$id)
-        ->update(['mainOrderId'=>  $mainOrderId,'warehouseId'=> $warehouseId,'quantity'=> $quantity,'status' => $status,'delivered'=>$time]);
+        ->update(['partial_delivery_quantity'=> $quantity,'status' => $status,'delivered'=>$time]);
     }
     elseif($status==5){
         $time = Carbon::now()->toDateString();
         DB::table('assained_orders')
         ->where('mainOrderId',$id)
-        ->update(['mainOrderId'=>  $mainOrderId,'warehouseId'=> $warehouseId,'quantity'=> $quantity,'status' => $status,'received'=>$time]);
+        ->update(['quantity'=> $quantity,'status' => $status,'received'=>$time]);
     }
     elseif($status==6){
         $time = Carbon::now()->toDateString();
         DB::table('assained_orders')
         ->where('mainOrderId',$id)
-        ->update(['mainOrderId'=>  $mainOrderId,'warehouseId'=> $warehouseId,'quantity'=> $quantity,'status' => $status,'approved'=>$time]);
+        ->update(['quantity'=> $quantity,'status' => $status,'approved'=>$time]);
     }
     return redirect('admin/assaign_order')->with('flash_message','Assign Ordered value Updated');
     }

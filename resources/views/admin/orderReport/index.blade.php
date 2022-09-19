@@ -11,14 +11,21 @@ Warhouse Reports
                         <div class="form-group">
                             <form action="">
                                 <div class="form-group">
-                                    <select class="form-control select2" name="warehouse" id="warehouse1">
-                                        <option value="" sid="" selected>Select warhouse</option>
-                                        @foreach ($warehouses as $item)
-                                            <option value="{{ $item->id }}" sid="{{ $item->id }}">
-                                                {{ $item->warehouseName }}</option>
-                                        @endforeach
+                                    <select class="form-control select2" name="warehouse" id="orderType" >
+                                        <option value="" sid="" selected>Select Order type</option>
+                                            <option value="1" sid="1">Main Order</option>
+                                            <option value="2" sid="2">Assigned Order</option>
 
                                     </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <form action="">
+                                <div class="form-group">
+                                    <input type="text" id="ordernumber"  placeholder="Order Number..">
                                 </div>
                             </form>
                         </div>
@@ -80,17 +87,25 @@ Warhouse Reports
     </div>
 
 
-    <script type="text/javascript">
-$(document).ready(function () {
+<script type="text/javascript">
+
+    $(document).ready(function () {
         $("#payreport").DataTable();
         $(".dataTables_empty").empty();
     });
-        $('#warehouse1').change(function() {
+        $('#orderType').change(function result() {
             var id = $(this).find('option:selected').attr('sid');
+            // var ordernumber = $("#ordernumber").change(val());
+            $("#ordernumber").on("change paste keyup", function() {
+                var ordernumber = $("#ordernumber").val();
+            });
+            ordernumber=1;
+alert(ordernumber)
 
             if (id) {
+
                 $.ajax({
-                    url: "{{ url('admin/warehouse_report') }}/" + id,
+                    url: "{{ url('admin/order_reports') }}/" + id + "/" + ordernumber,
                     type: "GET",
                     cache: false,
                     dataType: "json",
@@ -122,8 +137,6 @@ $(document).ready(function () {
             }
         })
 
-
-
-    </script>
+</script>
 @endsection
 
