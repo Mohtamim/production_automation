@@ -9,6 +9,8 @@ class pruduct extends Model
 {
     use HasFactory;
     protected $table='pruducts';
+    public $timestamps = true;
+
     protected $primaryKey='id';
     protected $fillable=[
                  'title',

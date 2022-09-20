@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class buyers extends Model
 {
     use HasFactory;
+    public $timestamps = true;
+
     protected $table ='buyers';
     protected $primaryKey='id';
     protected $fillable=[

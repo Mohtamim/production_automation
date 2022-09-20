@@ -11,6 +11,8 @@ class packOrder extends Model
     use HasFactory;
     protected $table='pack_orders';
     protected $primaryKey='id';
+    public $timestamps = true;
+
     protected $fillable=[
         'proformalInvoice',
         'company',

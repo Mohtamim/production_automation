@@ -9,5 +9,7 @@ class packaging extends Model
 {
     use HasFactory;
     protected $table='packagings';
+    public $timestamps = true;
+
     protected $primaryKey='id';
 }

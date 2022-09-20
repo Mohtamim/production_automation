@@ -12,6 +12,8 @@ class managerlist extends Model
     use HasFactory;
     protected $table='managerlists';
     protected $primaryKey='id';
+    public $timestamps = true;
+
     protected $fillable=[
                     'managerId',
                     'managerName',

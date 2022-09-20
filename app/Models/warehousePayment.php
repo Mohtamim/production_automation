@@ -11,6 +11,8 @@ class warehousePayment extends Model
 {
     use HasFactory;
     protected $table='warehouse_payments';
+    public $timestamps = true;
+
     protected $primaryKey='id';
     protected $fillable=[
         'managerName',
