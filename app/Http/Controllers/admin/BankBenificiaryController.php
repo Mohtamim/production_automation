@@ -4,7 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\bankBenifiFormValidation;
+use App\Http\Requests\shiperandexporterFormValidation;
 use App\Models\bankBenificiary;
+use App\Models\shiperAndExporter;
 use Illuminate\Http\Request;
 
 class BankBenificiaryController extends Controller
@@ -24,7 +26,7 @@ class BankBenificiaryController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(shiperandexporterFormValidation $request)
     {
         $input= $request->all();
         bankBenificiary::create($input);
@@ -44,7 +46,7 @@ class BankBenificiaryController extends Controller
         return view('admin.bankBenificiary.edit')->with('bank',$bank);
     }
 
-   function update(Request $request, $id)
+   function update(shiperandexporterFormValidation $request, $id)
     {
         $bank = bankBenificiary::find($id);
         $input = $request->all();
