@@ -36,6 +36,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\manager\managerDashboardController;
 use App\Http\Controllers\manager\managerAssignOrderController;
 use App\Http\Controllers\admin\warehouseReportController;
+use App\Http\Controllers\assaignOrderReport;
 use App\Http\Controllers\Assaignordersfetch;
 use App\Http\Controllers\orderReport;
 use App\Http\Controllers\ordersfetch;
@@ -90,8 +91,9 @@ Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
     Route::resource('buyers-payments',BuyersPaymentController::class);
     Route::resource('warehouse_payments',WarehousePaymentController::class);
     Route::resource('buyers_reports',BuyerReportsController::class);
-    Route::get('order_reports',[orderReport::class,'index']);
-    Route::get('order_reports/{id}/{ordernumber}',[orderReport::class,'show'])->name('orderreport');
+    Route::get('main_order_reports',[orderReport::class,'index']);
+    Route::get('main_order_reports/{id}',[orderReport::class,'show']);
+    Route::get('assaign_order_reports/{id}',[assaignOrderReport::class,'show']);
     Route::resource('warehouse_report',warehouseReportController::class);
 
 

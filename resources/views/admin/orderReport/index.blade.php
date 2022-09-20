@@ -1,13 +1,13 @@
 @extends('admin.layout')
 @section('title')
-Warhouse Reports
+    Warhouse Reports
 @endsection
 @section('admin_content')
     <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-4">
+                    {{-- <div class="col-4">
                         <div class="form-group">
                             <form action="">
                                 <div class="form-group">
@@ -20,12 +20,21 @@ Warhouse Reports
                                 </div>
                             </form>
                         </div>
+                    </div> --}}
+                    <div class="col-4">
+                        <div class="form-group">
+                            <form action="">
+                                <div class="form-group">
+                                    <input type="text" id="ordernumber" placeholder="Order Number..">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                     <div class="col-4">
                         <div class="form-group">
                             <form action="">
                                 <div class="form-group">
-                                    <input type="text" id="ordernumber"  placeholder="Order Number..">
+                                    <input type="button" class="btn btn-primary" id="search1" value="Search">
                                 </div>
                             </form>
                         </div>
@@ -44,26 +53,31 @@ Warhouse Reports
                                 <div class="bootstrap-data-table-panel">
                                     <div class="table-responsive">
 
-                                        <table id="payreport" style=" width: 100%; display: table; " class="table dataTable table table-responsive text-center multi-table table dt-table-hovertable-striped table-bordered w-100">
-                                           <div class="row">
-                                            <div  class="col m-1">
+                                        <table id="payreport" style=" width: 100%; display: table; "
+                                            class="table dataTable table table-responsive text-center multi-table table dt-table-hovertable-striped table-bordered w-100">
+                                            <div class="row">
+                                                <div class="col m-1">
 
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text bg-light text-black font-weight-bold" >Warhouse Name:</span>
-                                                    <p id="warehouseName" class="form-control"></p>
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Warhouse
+                                                            Name:</span>
+                                                        <p id="warehouseName" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Warhouse
+                                                            ID:</span>
+                                                        <p id="warehouseId" class="form-control"></p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div  class="col m-1">
-
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text bg-light text-black font-weight-bold" >Warhouse ID:</span>
-                                                    <p id="warehouseId" class="form-control"></p>
-                                                </div>
-                                            </div>
-                                           </div>
-                                            <thead >
+                                            <thead>
                                                 <tr>
-                                                    <th>Date</th>
+                                                    <th>Order Date</th>
                                                     <th>Note</th>
                                                     <th>Amount</th>
                                                     <th>Balance</th>
@@ -87,25 +101,20 @@ Warhouse Reports
     </div>
 
 
-<script type="text/javascript">
+    <script type="text/javascript">
+        $(document).ready(function() {
 
-    $(document).ready(function () {
-        $("#payreport").DataTable();
-        $(".dataTables_empty").empty();
-    });
-        $('#orderType').change(function result() {
-            var id = $(this).find('option:selected').attr('sid');
-            // var ordernumber = $("#ordernumber").change(val());
-            $("#ordernumber").on("change paste keyup", function() {
-                var ordernumber = $("#ordernumber").val();
+            $("#payreport").DataTable();
+
+            $("#search1").click(function() {
+               var id = $("#ordernumber").val();
             });
-            ordernumber=1;
-alert(ordernumber)
+
 
             if (id) {
 
                 $.ajax({
-                    url: "{{ url('admin/order_reports') }}/" + id + "/" + ordernumber,
+                    url: "{{ url('admin/main_order_reports') }}/" + id,
                     type: "GET",
                     cache: false,
                     dataType: "json",
@@ -118,7 +127,7 @@ alert(ordernumber)
                             $('#warehouseName').html(value.warehouse.warehouseName);
 
                             $('#content1').append(
-                                      `<tr>
+                                `<tr>
                                                         <td > ${value.date}</td>
                                                         <td >${value.note}</td>
                                                         <td >${value.amount}</td>
@@ -130,13 +139,7 @@ alert(ordernumber)
                         });
                     }
                 })
-            }else{
-            $("#payreport").find('tbody').empty();
-            $('#warehouseId').html('');
-            $('#warehouseName').html('');
             }
-        })
-
-</script>
+        });
+    </script>
 @endsection
-

@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class=""></div>
-        <ul class="list-unstyled menu-categories" id="accordionExample">
+        <ul class="list-unstyled menu-categories " id="accordionExample">
 
 
             <li class="menu {{ Route::is('*dashboard.*') ? 'active' : '' }}">
@@ -363,6 +363,15 @@
                     <li>
                         <a href="{{ url('admin/buyers_reports') }}">Buyer Report</a>
                     </li>
+                    <li>
+                        <a href="{{ url('admin/main_order_reports') }}">Main Order Report</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('admin/assaign_order_reports') }}">Assaign Order Report</a>
+                    </li>
+                </ul>
+                <ul class="collapse submenu list-unstyled" id="report" data-bs-parent="#accordionExample">
+
                 </ul>
             </li>
 
