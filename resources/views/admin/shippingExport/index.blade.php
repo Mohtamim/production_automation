@@ -7,7 +7,7 @@ Shipping Export
     <div class="row ">
         <div class="col-md-12 grid-margin  ">
 
-                    <h3 class="text-center text-success font-weight-bold mt-3">Shipping Export</h3>
+                    <h3 class="text-center text-success font-weight-bold mt-3">SHIPPING EXPORT</h3>
                     <div class="table-responsive">
                         <a href="{{ url('admin/shiperment_exporter/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
                             Add New
@@ -31,34 +31,34 @@ Shipping Export
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($shiperment_exporter as $shiperment_exporter)
+                                        @foreach ($shiperment_exporter as $shiperment)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $'shiperment_exporter'->name }}</td>
-                                                <td>{{ $'shiperment_exporter'->addressline1 }}</td>
-                                                <td>{{ $'shiperment_exporter'->addressline2 }}</td>
-                                                <td>{{ $'shiperment_exporter'->country }}</td>
-                                                <td>{{ $'shiperment_exporter'->phone }}</td>
-                                                <td>{{ $'shiperment_exporter'->email }}</td>
-                                                <td>{{ $'shiperment_exporter'->website }}</td>
+                                                <td>{{ $shiperment->name }}</td>
+                                                <td>{{ $shiperment->addressline1 }}</td>
+                                                <td>{{ $shiperment->addressline2 }}</td>
+                                                <td>{{ $shiperment->country }}</td>
+                                                <td>{{ $shiperment->phone }}</td>
+                                                <td>{{ $shiperment->email }}</td>
+                                                <td>{{ $shiperment->website }}</td>
 
-                                                @if ($'shiperment_exporter'->status == 1)
+                                                @if ($shiperment->status == 1)
                                                 <td class="text-center">Active</td>
                                             @endif
-                                            @if ($'shiperment_exporter'->status == 0)
+                                            @if ($shiperment->status == 0)
                                                 <td class="text-center">Deactive</td>
                                             @endif
 
                                             <td class="text-center">
 
-                                                <a href="{{ url('admin/'shiperment_exporter'/' . $'shiperment_exporter'->id) }}"
+                                                <a href="{{ url('admin/shiperment_exporter/' . $shiperment->id) }}"
                                                     class="btn btn-info btn-sm" title="View customer"
                                                     aria-hidden="true"><i class="fa fa-eye"></i></a>
-                                                <a href="{{ url('admin/'shiperment_exporter'/' . $'shiperment_exporter'->id . '/edit') }}"
+                                                <a href="{{ url('admin/shiperment_exporter/' . $shiperment->id . '/edit') }}"
                                                     class="btn btn-success btn-sm" title="Edit Customer"
                                                     aria-hidden="true"><i class="fa fa-pen-to-square"></i></a>
                                                 <form method="POST"
-                                                    action="{{ url('admin/'shiperment_exporter'/' . $'shiperment_exporter'->id) }}"
+                                                    action="{{ url('admin/shiperment_exporter/' . $shiperment->id) }}"
                                                     accept-charset="UTF-8" style="display:inline">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}

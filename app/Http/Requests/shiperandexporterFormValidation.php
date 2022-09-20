@@ -13,7 +13,7 @@ class shiperandexporterFormValidation extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,13 @@ class shiperandexporterFormValidation extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'required|',
+            'addressline1'=>'required|',
+            'addressline2'=>'required|',
+             'phone'=>'required|',
+            'email'=>'required|',
+             'country'=>'required|',
+            'sataus'=>'required|'
         ];
     }
 }

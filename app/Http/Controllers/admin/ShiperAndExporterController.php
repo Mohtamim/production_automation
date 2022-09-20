@@ -3,84 +3,67 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\shiperandexporterFormValidation;
 use App\Models\shiperAndExporter;
 use Illuminate\Http\Request;
 
 class ShiperAndExporterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function index()
     {
-        //
+        $shiperment_exporter=shiperAndExporter::all();
+        return view('admin.shippingExport.index')->with('shiperment_exporter', $shiperment_exporter);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function create()
     {
-        //
+        return view('admin.shippingExport.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function store(Request $request)
     {
-        //
+        $input= $request->all();
+        shiperAndExporter::create($input);
+        return redirect('admin/shiperment_exporter')->with('success','Shiperment Exporter created successfully');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\shiperAndExporter  $shiperAndExporter
-     * @return \Illuminate\Http\Response
-     */
-    public function show(shiperAndExporter $shiperAndExporter)
+
+
+    public function show($id)
     {
-        //
+        $shiperment_exporter = shiperAndExporter::find($id);
+
+        return view('admin.shippingExport.show')->with('shiperment_exporter',$shiperment_exporter);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\shiperAndExporter  $shiperAndExporter
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(shiperAndExporter $shiperAndExporter)
+
+
+    public function edit($id)
     {
-        //
+        $shiperment_exporter = shiperAndExporter::find($id);
+        return view('admin.shippingExport.edit')->with('shiperment_exporter',$shiperment_exporter);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\shiperAndExporter  $shiperAndExporter
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, shiperAndExporter $shiperAndExporter)
+
+
+    public function update(Request $request, $id)
     {
-        //
+        $shiper = shiperAndExporter::find($id);
+        $input = $request->all();
+        $shiper->update($input);
+        return redirect('admin/shiperment_exporter')->with(['update'=>'Your Shiperment Exporter is Updated']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\shiperAndExporter  $shiperAndExporter
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(shiperAndExporter $shiperAndExporter)
+
+    public function destroy($id)
     {
-        //
+        shiperAndExporter::destroy($id);
+        return redirect('admin/shiperment_exporter')->with('delete', 'Shiperment Exporter has been deleted');
     }
 }
