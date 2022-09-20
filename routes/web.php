@@ -92,6 +92,7 @@ Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
     Route::resource('warehouse_payments',WarehousePaymentController::class);
     Route::resource('buyers_reports',BuyerReportsController::class);
     Route::get('main_order_reports',[orderReport::class,'index']);
+    Route::get('assaign_order_reports',[assaignOrderReport::class,'index']);
     Route::get('main_order_reports/{id}',[orderReport::class,'show']);
     Route::get('assaign_order_reports/{id}',[assaignOrderReport::class,'show']);
     Route::resource('warehouse_report',warehouseReportController::class);

@@ -11,14 +11,14 @@ class assaignOrderReport extends Controller
     {
 
         $orders = assainedOrder::with(['warehouses', 'products','mainorder']);
-        return view('admin.orderReport.index')->with('orders', $orders);
+        return view('admin.assaignOrderReport.index')->with('orders', $orders);
     }
 
 
 
     public function show($id)
     {
-        $order = assainedOrder::where('id', $id)->with(['warehouses', 'products','mainorder'])->select->get();
+        $order = assainedOrder::where('id', $id)->with(['warehouses', 'products','mainorder'])->select()->get();
         return response()->json($order, 200);
     }
 }

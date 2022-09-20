@@ -80,6 +80,16 @@
                    @enderror
 
                 </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Expected Delivery Date:</span><br>
+                <input type="date" name="delivery_date" id="delivery_date" class="form-control @error('delivery_date')
+                  is-invalid
+                   @enderror" >
+                   @error('delivery_date')
+                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                   @enderror
+
+                </div>
                 <div class="input-group mb-3" style="minWidth:678px">
 
                     <select id="status" class="form-select" name="status">
