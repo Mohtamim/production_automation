@@ -10,6 +10,8 @@ class packPricing extends Model
     use HasFactory;
     protected $table='pack_pricings';
     protected $primaryKey='id';
+    public $timestamps = true;
+
     protected $fillable=[
         'companyName',
         'packTitle',

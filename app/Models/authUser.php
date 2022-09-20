@@ -10,6 +10,8 @@ class authUser extends Model
     use HasFactory;
     protected $guard ='auth_users';
     protected $table='auth_users';
+    public $timestamps = true;
+
     protected $primaryKey='id';
     protected $fillable=[
         'userId',

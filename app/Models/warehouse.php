@@ -12,6 +12,8 @@ class warehouse extends Model
 {
     use HasFactory;
     protected $table='warehouses';
+    public $timestamps = true;
+
     protected $primaryKey='id';
     protected $fillable=[
         'warehouseName',

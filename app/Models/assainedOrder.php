@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class assainedOrder extends Model
 {
     use HasFactory;
+    public $timestamps = true;
     protected $table='assained_orders';
     protected $primaryKey='id';
     protected $fillable=[

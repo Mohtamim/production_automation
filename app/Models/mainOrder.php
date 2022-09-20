@@ -12,6 +12,8 @@ class mainOrder extends Model
     use HasFactory;
     protected $table='main_orders';
     protected $primaryKey='id';
+    public $timestamps = true;
+
     protected $fillable=[
         'productId',
         'quantity',

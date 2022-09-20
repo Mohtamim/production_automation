@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class unit extends Model
 {
     use HasFactory;
-    use HasFactory;
+    public $timestamps = true;
+
     protected $table='units';
     protected $primaryKey='id';
     protected $fillable=[

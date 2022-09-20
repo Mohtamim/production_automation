@@ -10,6 +10,8 @@ class PackageingCompany extends Model
     use HasFactory;
     protected $table="packageing_companies";
     protected $primaryKey='id';
+    public $timestamps = true;
+
     protected $fillable=[
         'companyName',
         'email',

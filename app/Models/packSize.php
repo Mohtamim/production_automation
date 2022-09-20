@@ -10,6 +10,8 @@ class packSize extends Model
     use HasFactory;
     protected $table='pack_sizes';
     protected $primaryKey='id';
+    public $timestamps = true;
+
     protected $fillable=[
         'title',
         'length',
