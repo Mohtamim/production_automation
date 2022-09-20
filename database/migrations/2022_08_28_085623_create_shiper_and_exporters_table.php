@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('shiper_and_exporters', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('addressline1');
+            $table->string('addressline2');
+            $table->string('country');
+            $table->string('phone');
+            $table->string('email');
+            $table->string('website');
+            $table->string('status')->default();
             $table->timestamps();
         });
     }

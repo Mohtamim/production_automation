@@ -1,39 +1,102 @@
 @extends('admin.layout')
 @section('ware-title')
-WareHose
+Bank Benificiaries
 @endsection
 @section('admin_content')
-<div class="col-lg-12 col-12  layout-spacing">
-    <div class="statbox widget box box-shadow">
-        <div class="widget-header">
-            <div class="row">
-                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h4>Edit warehouse</h4>
+<div class="container mt-5">
+    <div class="col-lg-12 col-12">
+
+        <div class="widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12" >
+                        <h2 class="text-success text-center font-weight-bold mt-3" >EDIT Bank Benificiaries</h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="widget-content widget-content-area">
-            <form class="forms-sample" action="{{ url('admin/warehouses/'.$warehouse->id) }}" method="POST">
+            <div class="widget-content widget-content-area ">
+            <form class="forms-sample" action="{{ url('admin/bank_benificiary/'.$bank->id) }}" method="POST">
                 {!! csrf_field() !!}
                 @method("PATCH")
-                    <div class="mb-3">
-                    <input type="hidden" name="id" id="id" value="{{$warehouse->id}}" />
-                </div>
-                <div class="mb-3">
-                  <label for="warehouseName" class="form-label">Warehouse Name</label>
+                <div class="row ms-2 me-2">
+                    <div class="input-group mb-3 col">
+                        <span class="input-group-text bg-light text-black font-weight-bold">Name: </span><br>
+                    <input type="text" name="name" value="{{ $bank->name }}" id="name" class="form-control @error('name')
+                      is-invalid
+                       @enderror">
+                       @error('name')
+                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                       @enderror
 
-                  <input type="text" class="form-control" name="warehouseName" id="warehouseName"  value="{{ $warehouse->warehouseName }}"><br>
+                    </div>
 
-                </div>
-                <div class="mb-3">
-                  <label for="address" class="form-label">Address</label>
-                  <input type="text" class="form-control" name="address" id="address" value="{{ $warehouse->address }}">
-                </div>
 
-                <input type="submit" value="save" class="btn btn-success">
-                <button class="btn btn-secondary">Cancel</button>
-              </form>
+                    <div class="input-group mb-3 col">
+                        <span class="input-group-text bg-light text-black font-weight-bold">Address Line 1:</span><br>
+                    <input type="text" name="addressline1" value="{{ $bank->addressline1 }}" id="addressline1" class="form-control @error('addressline1')
+                      is-invalid
+                       @enderror" >
+                       @error('addressline1')
+                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                       @enderror
+
+                    </div>
+                    </div>
+                    <div class="row ms-2 me-2">
+
+                    <div class="input-group mb-3 col">
+                        <span class="input-group-text bg-light text-black font-weight-bold">Address Line 2:</span><br>
+                    <input type="text" name="addressline2" value="{{ $bank->addressline2 }}" id="addressline2" class="form-control @error('addressline2')
+                      is-invalid
+                       @enderror" >
+                       @error('addressline2')
+                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                       @enderror
+
+                    </div>
+                    <div class="input-group mb-3 col">
+                        <span class="input-group-text bg-light text-black font-weight-bold">Account No:</span><br>
+                    <input type="text" name="account_no" value="{{ $bank->account_no }}" id="account_no" class="form-control @error('account_no')
+                      is-invalid
+                       @enderror" >
+                       @error('account_no')
+                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                       @enderror
+
+                    </div>
+                    </div>
+                    <div class="row ms-2 me-2">
+                    <div class="input-group mb-3 col">
+                        <span class="input-group-text bg-light text-black font-weight-bold">Swift Code: </span><br>
+                    <input type="text" name="swift_code" value="{{ $bank->swift_code }}" id="swift_code" class="form-control @error('swift_code')
+                      is-invalid
+                       @enderror" >
+                       @error('swift_code')
+                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                       @enderror
+
+                    </div>
+                    <div class="input-group mb-3 col" style="minWidth:678px">
+                        <select id="status" class="form-select" name="status">
+                            <option value="" >Select Status</option>
+                            @if ($bank->status==1)
+                            <option value="1" selected>Active</option>
+                            @endif
+                            @if ($bank->status==0)
+                            <option value="0" selected>Deactive</option>
+                            @endif
+                            <option value="1">Active</option>
+                            <option value="0">Deactive</option>
+                        </select>
+
+                    </div>
+                    </div>
+
+
+                    <input type="submit" value="save" class="btn btn-success">
+                    <a class="btn btn-secondary" href="{{ url('admin/bank_benificiary') }}">Cancel</a>
+                  </form>
+            </div>
         </div>
-    </div>
 </div>
 @endsection
