@@ -3,16 +3,17 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
-use App\Http\Requests\mainOrderFormValidation;
 use App\Models\buyers;
-use App\Models\mainOrder;
 use App\Models\pruduct;
-use GuzzleHttp\Psr7\Response;
+use App\Models\mainOrder;
 use Illuminate\Http\Request;
+use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Symfony\Component\Console\Input\Input;
+use App\Http\Requests\mainOrderFormValidation;
 
 class MainOrderController extends Controller
 {
@@ -45,6 +46,7 @@ class MainOrderController extends Controller
         $unitPrice = $request->unitPrice;
         $totalPrice = $request->totalPrice;
         $status = $request->status;
+        $delivery_date=$request->delivery_date;
         $buyerscode_id= buyers::where('id', $buyerId)->select('buyerCode')->get()->value('buyerCode');
         mainOrder::insert([
             'buyerId'=>$buyerId,
@@ -54,6 +56,7 @@ class MainOrderController extends Controller
             'remaing_quantity'=>$quantity,
             'unitPrice'=>$unitPrice,
             'totalPrice'=>$totalPrice,
+            'delivery_date'=>$delivery_date,
             'status'=>$status,
        ]);
         return redirect('admin/main_order')->with('success','Main Order create successfully');
@@ -82,22 +85,59 @@ class MainOrderController extends Controller
     {
 
        $mainorder=mainOrder::find($id);
-       $productId = $request->productId;
+       $Id = $mainorder->id;
        $quantity = $request->quantity;
        $unitPrice = $request->unitPrice;
        $totalPrice = $request->totalPrice;
        $status = $request->status;
+       $status = $request->status;
+
+    if($status==0 || $status==1){
+        DB::table('main_orders')
+        ->where('Id',$id)
+        ->update(['quantity'=> $quantity,'status' => $status]);
+    }
+    elseif($status==2){
+        $time = Carbon::now()->toDateString();
+        DB::table('main_orders')
+        ->where('Id',$id)
+        ->update(['quantity'=> $quantity,'status' => $status,'processing'=>$time]);
+    }
+    elseif($status==3){
+        $time = Carbon::now()->toDateString();
+        DB::table('main_orders')
+        ->where('Id',$id)
+        ->update(['quantity'=> $quantity,'status' => $status,'completed'=>$time]);
+    }
+    elseif($status==4){
+        $time = Carbon::now()->toDateString();
+        DB::table('main_orders')
+        ->where('Id',$id)
+        ->update(['partial_delivery_quantity'=> $quantity,'status' => $status,'delivered'=>$time]);
+    }
+    elseif($status==5){
+        $time = Carbon::now()->toDateString();
+        DB::table('main_orders')
+        ->where('Id',$id)
+        ->update(['quantity'=> $quantity,'status' => $status,'received'=>$time]);
+    }
+    elseif($status==6){
+        $time = Carbon::now()->toDateString();
+        DB::table('main_orders')
+        ->where('Id',$id)
+        ->update(['quantity'=> $quantity,'status' => $status,'approved'=>$time]);
+    }
 
 
-       $input=([
-        'productId'=>$productId,
-        'quantity'=>$quantity,
-        'remaing_quantity'=>$quantity,
-        'unitPrice'=>$unitPrice,
-        'totalPrice'=>$totalPrice,
-        'status'=>$status,
-       ]);
-       $mainorder->update($input);
+    //    $input=([
+    //     'productId'=>$productId,
+    //     'quantity'=>$quantity,
+    //     'remaing_quantity'=>$quantity,
+    //     'unitPrice'=>$unitPrice,
+    //     'totalPrice'=>$totalPrice,
+    //     'status'=>$status,
+    //    ]);
+    //    $mainorder->update($input);
        return redirect('admin/main_order')->with(['update'=>'Your Main Order is Updated']);
     }
 

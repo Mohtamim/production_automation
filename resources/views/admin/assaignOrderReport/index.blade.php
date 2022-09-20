@@ -69,7 +69,7 @@
                                                     <th>Status</th>
                                                 </tr>
                                             </thead> --}}
-                                            <tbody id="content1">
+                                            <tbody id="content1" >
 
                                             </tbody>
                                         </table>
@@ -96,7 +96,7 @@
                 $("#payreport").find('tbody').empty();
 
                 $.ajax({
-                    url: "{{ url('admin/main_order_reports') }}/" + id,
+                    url: "{{ url('admin/assaign_order_reports') }}/" + id,
                     type: "GET",
                     cache: false,
                     dataType: "json",
@@ -107,21 +107,21 @@
 
                             $('#content1').append(
                                 `
-                                <div class="row ml-2 me-2">
+                                <div class="row ml-2 me-2 ml-2 me-2">
                                                 <div class="col m-1">
 
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Order ID:</span>
-                                                        <p id="orderId" class="form-control text-primary font-weight-bold">${value.id}</p>
+                                                        <p id="orderId" class="form-control text-primary font-weight-bold ">${value.id}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col m-1">
 
                                                     <div class="input-group mb-3">
                                                         <span
-                                                            class="input-group-text bg-light text-black font-weight-bold">Buyer Name:</span>
-                                                        <p id="buyerName" class="form-control text-primary font-weight-bold">${value.buyers.buyerName}</p>
+                                                            class="input-group-text bg-light text-black font-weight-bold">Main Order Id:</span>
+                                                        <p id="buyerName" class="form-control text-primary font-weight-bold ">${value.mainOrderId}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -131,15 +131,15 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Ordered Quantity:</span>
-                                                        <p id="orderedQuantity" class="form-control text-primary font-weight-bold">${value.quantity}</p>
+                                                        <p id="orderedQuantity" class="form-control text-primary font-weight-bold ">${value.quantity}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col m-1">
 
                                                     <div class="input-group mb-3">
                                                         <span
-                                                            class="input-group-text bg-light text-black font-weight-bold">Unit Price:</span>
-                                                        <p id="unitPrice" class="form-control text-primary font-weight-bold">${value.unitPrice}</p>
+                                                            class="input-group-text bg-light text-black font-weight-bold">Warhouse Unit Cost:</span>
+                                                        <p id="unitPrice" class="form-control text-primary font-weight-bold ">${value.products.totalcost_for_warehouse}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,7 +149,7 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Total Price:</span>
-                                                        <p id="totalPrice" class="form-control text-primary font-weight-bold">${value.totalPrice}</p>
+                                                        <p id="totalPrice" class="form-control text-primary font-weight-bold ">${value.quantity * value.products.totalcost_for_warehouse}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col m-1">
@@ -157,7 +157,7 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Expected Delivery Date:</span>
-                                                        <p id="warehouseId" class="form-control text-primary font-weight-bold">${value.delivery_date}</p>
+                                                        <p id="warehouseId" class="form-control text-primary font-weight-bold ">${value.delivery_date}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -167,7 +167,7 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Processing Date:</span>
-                                                        <p id="totalPrice" class="form-control text-primary font-weight-bold">${value.processing}</p>
+                                                        <p id="totalPrice" class="form-control text-primary font-weight-bold ">${value.processing}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col m-1">
@@ -175,7 +175,7 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Completed Date:</span>
-                                                        <p id="warehouseId" class="form-control text-primary font-weight-bold">${value.completed}</p>
+                                                        <p id="warehouseId" class="form-control text-primary font-weight-bold ">${value.completed}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -185,7 +185,7 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Delivered Date:</span>
-                                                        <p id="totalPrice" class="form-control text-primary font-weight-bold">${value.delivered}</p>
+                                                        <p id="totalPrice" class="form-control text-primary font-weight-bold ">${value.delivered}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col m-1">
@@ -193,7 +193,7 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Received Date:</span>
-                                                        <p id="warehouseId" class="form-control text-primary font-weight-bold">${value.received}</p>
+                                                        <p id="warehouseId" class="form-control text-primary font-weight-bold ">${value.received}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -203,7 +203,7 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Approved Date:</span>
-                                                        <p id="totalPrice" class="form-control text-primary font-weight-bold">${value.approved}</p>
+                                                        <p id="totalPrice" class="form-control text-primary font-weight-bold ">${value.approved}</p>
                                                     </div>
                                                 </div>
                                                 <div class="col m-1">
@@ -211,7 +211,7 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Delivery Quantity:</span>
-                                                        <p id="warehouseId" class="form-control text-primary font-weight-bold">${value.partial_delivery_quantity}</p>
+                                                        <p id="warehouseId" class="form-control text-primary font-weight-bold ">${value.partial_delivery_quantity}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -221,7 +221,7 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Remaining for delivery:</span>
-                                                        <p id="totalPrice" class="form-control text-primary font-weight-bold">${value.remaing_quantity}</p>
+                                                        <p id="totalPrice" class="form-control text-primary"> need to work for remian quantity</p>
                                                     </div>
                                                 </div>
                                                 <div class="col m-1">
@@ -229,7 +229,7 @@
                                                     <div class="input-group mb-3">
                                                         <span
                                                             class="input-group-text bg-light text-black font-weight-bold">Partial Delivery Amount:</span>
-                                                        <p id="warehouseId" class="form-control text-primary font-weight-bold">${value.partial_delivery_amount}</p>
+                                                        <p id="warehouseId" class="form-control text-primary font-weight-bold ">${value.partial_delivery_amount}</p>
                                                     </div>
                                                 </div>
                                             </div>

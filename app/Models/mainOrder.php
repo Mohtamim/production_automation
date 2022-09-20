@@ -22,6 +22,7 @@ class mainOrder extends Model
         'unitPrice',
         'totalPrice',
         'status',
+        'delivery_date'
 
     ];
     public function waproductsrehouse(){

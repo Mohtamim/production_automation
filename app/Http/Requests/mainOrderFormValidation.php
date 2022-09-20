@@ -29,6 +29,7 @@ class mainOrderFormValidation extends FormRequest
             'unitPrice'=>'required|numeric',
             'totalPrice'=>'required|numeric',
             'status'=>'required|numeric',
+            'delivery_date'=>'required'
         ];
     }
 }
