@@ -61,6 +61,17 @@ WareHose
 
                     @enderror
                 </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text bg-light text-black font-weight-bold" id="phone">Delivery Deadline:</span>
+                    <input type="date" value="{{ \Carbon\Carbon::parse($assain->delivery_date)->format('Y-m-d') }}" class="form-control @error('delivery_date')
+                     is-invalid
+                    @enderror" name="delivery_date" placeholder="Enter your delivery_date" aria-label="Enter your delivery_date " aria-describedby="basic-addon2">
+                    @error('delivery_date')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+
+                    @enderror
+                </div>
+                
                 <div class="input-group mb-3" style="minWidth:678px">
 
                     <select id="status" class="form-select" name="status">

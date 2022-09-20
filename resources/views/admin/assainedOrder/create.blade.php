@@ -23,6 +23,7 @@
                             <th class="text-center">Remaing for Assiagn</th>
                             <th class="text-center">UnitPrice</th>
                             <th class="text-center">TotalPrice</th>
+
                             <th class="text-center">Status</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -35,8 +36,8 @@
                             <td class="text-center">{{ $i+=1 }}</td>
                             <td class="text-center">{{ $mainorder->products->title }}</td>
                             <td class="text-center">{{ $mainorder->remaing_quantity }}</td>
-                            <td class="text-center">{{ $mainorder->unitPrice }}</td>
-                            <td class="text-center">{{ $mainorder->totalPrice }}</td>
+                            <td class="text-center">&#2547;{{ $mainorder->products->totalcost_for_warehouse }}</td>
+                            <td class="text-center">{{'৳' . $mainorder->products->totalcost_for_warehouse * $mainorder->remaing_quantity}}</td>
                             @if ($mainorder->status == 1)
                                 <td>Active</td>
                             @endif
@@ -130,6 +131,15 @@
                             aria-describedby="basic-addon2">
                         @error('quantity')
                             <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                        @enderror
+                    </div>
+                    <div class="input-group mb-3" style="minWidth:678px">
+
+                        <input id="status" type="date" name="delivery_date" class="form-control @error('delivery_date')
+                        is-invalid
+                        @enderror">
+                        @error('delivery_date')
+                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="input-group mb-3" style="minWidth:678px">
