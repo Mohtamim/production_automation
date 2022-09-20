@@ -25,7 +25,8 @@ class assainOrderFormValidation extends FormRequest
     {
         return [
 
-         'status'=>'required'
+         'status'=>'required',
+         'delivery_date'=>'required'
 
 
         ];
@@ -40,6 +41,7 @@ class assainOrderFormValidation extends FormRequest
             'warehouseId.numeric' => 'String is not allowed',
             'quantity.required' => 'Please Enter a Quantity',
             'quantity.numeric' => 'String is not allowed',
+            'delivery_date.required' => 'Delivery Deadline is required',
         ];
     }
 }

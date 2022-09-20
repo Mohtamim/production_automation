@@ -20,6 +20,7 @@ class assainedOrder extends Model
                     'warehouseId',
                     'quantity',
                     'status',
+                    'delivery_date'
     ];
     public function products(){
         return $this->belongsTo(pruduct::class,'productId','id');
