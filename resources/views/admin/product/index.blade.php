@@ -44,9 +44,9 @@
                                         <td class="text-center">{{ $item->unit }}</td>
                                         <td class="text-center">{{ $item->DH_raw_materials }}</td>
                                         <td class="text-center">{{ $item->warehouse_raw_materials }}</td>
-                                        <td class="text-center">{{ $item->wages }}</td>
-                                        <td class="text-center">{{ $item->carring_charge }}</td>
-                                        <td class="text-center">{{ $item->treatement_deduction }}</td>
+                                        <td class="text-center">{{ $item->wages }}৳</td>
+                                        <td class="text-center">{{ $item->carring_charge }}৳</td>
+                                        <td class="text-center">{{ $item->treatement_deduction }}৳</td>
                                         @if ($item->is_sample_product == 1)
                                             <td class="text-center">Yes</td>
                                         @endif
@@ -57,8 +57,8 @@
                                         <td class="text-center">{{ $item->Details }}</td>
                                         <td class="text-center">{{ $item->notes }}</td>
                                         <td class="text-center">{{ $item->totalcost_for_warehouse }}</td>
-                                        <td class="text-center">{{ $item->DH_total_price }}</td>
-                                        <td class="text-center">{{ $item->FOB_cost }}</td>
+                                        <td class="text-center">{{ $item->DH_total_price }}<span>৳</span></td>
+                                        <td class="text-center">{{ $item->FOB_cost }}$</td>
 
                                         <td class="text-center">
                                             <div class="container justify-content-center d-flex ">
