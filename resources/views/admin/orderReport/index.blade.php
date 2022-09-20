@@ -54,38 +54,149 @@
                                     <div class="table-responsive">
 
                                         <table id="payreport" style=" width: 100%; display: table; "
-                                            class="table dataTable table table-responsive text-center multi-table table dt-table-hovertable-striped table-bordered w-100">
+                                            class="table  table-responsive text-center multi-table table dt-table-hovertable-striped table-bordered w-100">
                                             <div class="row">
                                                 <div class="col m-1">
 
                                                     <div class="input-group mb-3">
                                                         <span
-                                                            class="input-group-text bg-light text-black font-weight-bold">Warhouse
-                                                            Name:</span>
-                                                        <p id="warehouseName" class="form-control"></p>
+                                                            class="input-group-text bg-light text-black font-weight-bold">Order ID:</span>
+                                                        <p id="orderId" class="form-control"></p>
                                                     </div>
                                                 </div>
                                                 <div class="col m-1">
 
                                                     <div class="input-group mb-3">
                                                         <span
-                                                            class="input-group-text bg-light text-black font-weight-bold">Warhouse
-                                                            ID:</span>
+                                                            class="input-group-text bg-light text-black font-weight-bold">Buyer Name:</span>
+                                                        <p id="buyerName" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Ordered Quantity:</span>
+                                                        <p id="orderedQuantity" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Unit Price:</span>
+                                                        <p id="unitPrice" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Total Price:</span>
+                                                        <p id="totalPrice" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Expected Delivery Date:</span>
                                                         <p id="warehouseId" class="form-control"></p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <thead>
-                                                <tr>
-                                                    <th>Order Date</th>
-                                                    <th>Note</th>
-                                                    <th>Amount</th>
-                                                    <th>Balance</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="content1">
+                                            <div class="row">
+                                                <div class="col m-1">
 
-                                            </tbody>
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Processing Date:</span>
+                                                        <p id="totalPrice" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Completed Date:</span>
+                                                        <p id="warehouseId" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Delivered Date:</span>
+                                                        <p id="totalPrice" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Received Date:</span>
+                                                        <p id="warehouseId" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Approved Date:</span>
+                                                        <p id="totalPrice" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Delivery Quantity:</span>
+                                                        <p id="warehouseId" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Remaining for delivery:</span>
+                                                        <p id="totalPrice" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="col m-1">
+
+                                                    <div class="input-group mb-3">
+                                                        <span
+                                                            class="input-group-text bg-light text-black font-weight-bold">Partial Delivery Amount:</span>
+                                                        <p id="warehouseId" class="form-control"></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{-- <thead>
+                                                <tr>
+                                                    <th>Processing Date</th>
+                                                    <th>Completed Date</th>
+                                                    <th>Delivered Date</th>
+                                                    <th>Received Date</th>
+                                                    <th>Approved Date</th>
+                                                    <th>Delivery Quantity</th>
+                                                    <th>Remaining for delivery</th>
+                                                    <th>Partial Delivery Amount</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead> --}}
+                                            {{-- <tbody id="content1">
+
+                                            </tbody> --}}
                                         </table>
                                     </div>
                                 </div>
@@ -107,7 +218,7 @@
             $("#payreport").DataTable();
 
             $("#search1").click(function() {
-               var id = $("#ordernumber").val();
+                var id = $("#ordernumber").val();
             });
 
 
@@ -128,10 +239,10 @@
 
                             $('#content1').append(
                                 `<tr>
-                                                        <td > ${value.date}</td>
-                                                        <td >${value.note}</td>
-                                                        <td >${value.amount}</td>
-                                                        <td > ${value.balance}</td>
+                                                        <td > ${processing}</td>
+                                                        <td >${value.completed}</td>
+                                                        <td >${value.delivered}</td>
+                                                        <td > ${value.received}</td>
                                         </tr>`
                             )
 

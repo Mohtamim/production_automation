@@ -21,7 +21,5 @@ class orderReport extends Controller
     {
         $order = mainOrder::where('id', $id)->with(['buyers', 'products'])->select()->get();
         return response()->json($order, 200);
-
-
     }
 }

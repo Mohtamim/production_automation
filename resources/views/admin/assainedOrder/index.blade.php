@@ -169,18 +169,7 @@
                                         <td >${value.warehouses.warehouseName}</td>
                                         <td > ${status}</td>
 
-                                        <td class="text-center">
-                                            <a href="{{ route('assaign_order.edit',"+value.id+"}) }}"
-                                                class="btn btn-success btn-sm" title="Edit Customer" aria-hidden="true"><i
-                                                    class="fa-solid fa-pen-to-square"></i></a>
-                                            <form method="POST" action="{{ url('admin/assaign_order/' . $assainorder->id) }}"
-                                                accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-info btn-sm btn-danger delete-confirm"
-                                                    aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
-                                            </form>
-                                        </td>
+
 
 
                                      </tr>`
