@@ -57,7 +57,7 @@
                                         <td class="text-center">{{ $item->Details }}</td>
                                         <td class="text-center">{{ $item->notes }}</td>
                                         <td class="text-center">{{ $item->totalcost_for_warehouse }}</td>
-                                        <td class="text-center">{{ $item->DH_total_price }}<span>৳</span></td>
+                                        <td class="text-center">{{ $item->DH_total_price }}<b>৳</b></td>
                                         <td class="text-center">{{ $item->FOB_cost }}$</td>
 
                                         <td class="text-center">
