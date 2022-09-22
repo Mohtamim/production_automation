@@ -24,7 +24,8 @@ class manager
     public function handle(Request $request, Closure $next)
     {
         if($this->auth->user()->userType ==1){
-            return new Response('<h1 style="margin-top: 150px;color:dimgray"><center>401<br>ACCESS DENIED</center></h1>', 401);
+            return redirect()->route('admin.dashboard.index')->with('error', 'An Admin can\'t access manager propertise');
+            // return new Response('<h1 style="margin-top: 150px;color:dimgray"><center>401<br>ACCESS DENIED</center></h1>', 401);
         }
         return $next($request);
     }

@@ -43,10 +43,10 @@ class LoginController extends Controller
         if(Auth::attempt($credentials, $request->filled('remember'))){
             if (auth()->user()->userType == 1) {
                 $request->session()->regenerate();
-                return redirect()->intended('admin/dashboard');
+                return redirect()->route('admin.dashboard.index');
             }else if (auth()->user()->userType == 2) {
                 $request->session()->regenerate();
-                return redirect()->intended('manager/dashboard');
+                return redirect()->route('manager.dashboard.index');
             }
             // $request->session()->regenerate();
             // return redirect()->intended('admin/dashboard');

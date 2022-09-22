@@ -64,7 +64,8 @@ Route::get('/',[LoginController::class,'loginPage'])->name('loginpage');
 Route::post('/',[LoginController::class,'login'])->name('login');
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
+
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function(){
     Route::resource('dashboard', dashboardController::class);
     Route::get('product_fetch/{id}',[productsfetch::class,'show']);
     Route::get('order_fetch/{id}',[ordersfetch::class,'show']);
@@ -97,11 +98,14 @@ Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
     Route::get('assaign_order_reports/{id}',[assaignOrderReport::class,'show']);
     Route::resource('warehouse_report',warehouseReportController::class);
 
-
-
 });
+// Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
 
-Route::group(['prefix' => 'manager','middleware'=>['auth','manager']], function () {
+
+
+// });
+
+Route::prefix('manager')->name('manager.')->middleware(['auth', 'manager'])->group(function(){
     Route::resource('order',managerAssignOrderController::class);
     Route::resource('dashboard',managerDashboardController::class);
     Route::resource('invoice',invoiceController::class);
