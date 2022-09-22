@@ -2,7 +2,7 @@
 
     <nav id="sidebar"  style="background-color: #FFDEE9;
     background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
-    ">
+    " class="sidebar">
 
         <div class="navbar-nav theme-brand flex-row  text-center ">
             <div class="row text-center">
@@ -40,7 +40,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu {{ Route::is('users.*') ? 'active' : '' }}">
+            <li class="menu {{ Route::is('admin.users.*') ? 'active' : '' }}">
                 <a href="{{ url('admin/users') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -59,7 +59,7 @@
 
 
 
-            <li class="menu {{ Route::is('warehouses.*') ? 'active' : '' }}">
+            <li class="menu {{ Route::is('admin.warehouses.*') ? 'active' : '' }}">
                 <a href="{{ url('admin/warehouses') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -73,7 +73,7 @@
                 </a>
             </li>
 
-            <li class="menu {{ Route::is('managers.*') ? 'active' : '' }}">
+            <li class="menu {{ Route::is('admin.managers.*') ? 'active' : '' }}">
                 <a href="{{ url('admin/managers') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -87,7 +87,7 @@
                 </a>
             </li>
 
-            <li class="menu {{ Route::is('buyers.*') ? 'active' : '' }}">
+            <li class="menu {{ Route::is('admin.buyers.*') ? 'active' : '' }}">
                 <a href="{{ url('admin/buyers') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -103,7 +103,7 @@
 
 
             <li
-                class="menu {{ Route::is('product.*') ? 'active' : '' }}{{ Route::is('unit*') ? 'active' : '' }}{{ Route::is('category*') ? 'active' : '' }}">
+                class="menu {{ Route::is('*product.*') ? 'active' : '' }}{{ Route::is('*unit*') ? 'active' : '' }}{{ Route::is('*category*') ? 'active' : '' }}">
                 <a href="#products" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -124,13 +124,13 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="products" data-bs-parent="#accordionExample">
-                    <li class="{{ Route::is('unit*') ? 'active' : '' }}">
+                    <li class="{{ Route::is('*unit*') ? 'active' : '' }}">
                         <a href="{{ url('admin/unit') }}"> Unit </a>
                     </li>
-                    <li class="{{ Route::is('category*') ? 'active' : '' }}">
+                    <li class="{{ Route::is('*category*') ? 'active' : '' }}">
                         <a href="{{ url('admin/category') }}"> Category </a>
                     </li>
-                    <li class="{{ Route::is('product*') ? 'active' : '' }}">
+                    <li class="{{ Route::is('*product*') ? 'active' : '' }}">
                         <a href="{{ url('admin/product') }}"> Products </a>
                     </li>
                 </ul>
@@ -138,7 +138,7 @@
 
 
 
-            <li class="menu {{ Route::is('*order*') ? 'active' : '' }}">
+            <li class="menu {{ Route::is('*main_order*') ? 'active' : '' }}{{ Route::is('*assaign_order*') ? 'active' : '' }}">
                 <a href="#order" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -162,10 +162,10 @@
                 </a>
                 <ul class="collapse submenu list-unstyled" id="order" data-bs-parent="#accordionExample">
 
-                    <li class="{{ Route::is('main_order*') ? 'active' : '' }}">
+                    <li class="{{ Route::is('*main_order*') ? 'active' : '' }}">
                         <a href="{{ url('admin/main_order') }}"> Orders </a>
                     </li>
-                    <li class="{{ Route::is('assaign_order*') ? 'active' : '' }}">
+                    <li class="{{ Route::is('*assaign_order*') ? 'active' : '' }}">
                         <a href="{{ url('admin/assaign_order') }}">Assaign Order </a>
                     </li>
                 </ul>
@@ -227,22 +227,22 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="pack" data-bs-parent="#accordionExample">
-                    <li class="{{ Route::is('packaging_company*') ? 'active' : '' }}">
+                    <li class="{{ Route::is('admin.packaging_company*') ? 'active' : '' }}">
                         <a href="{{ url('admin/packaging_company') }}"> Packgeing Company </a>
                     </li>
-                    <li class="{{ Route::is('pack_size*') ? 'active' : '' }}">
+                    <li class="{{ Route::is('admin.pack_size*') ? 'active' : '' }}">
                         <a href="{{ url('admin/pack_size') }}"> Pack Size </a>
                     </li>
-                    <li class="{{ Route::is('pack_price*') ? 'active' : '' }}">
+                    <li class="{{ Route::is('admin.pack_price*') ? 'active' : '' }}">
                         <a href="{{ url('admin/pack_price') }}"> Pack Price</a>
                     </li>
-                    <li class="{{ Route::is('pack_order*') ? 'active' : '' }}">
+                    <li class="{{ Route::is('admin.pack_order*') ? 'active' : '' }}">
                         <a href="{{ url('admin/pack_order') }}"> Pack Order </a>
                     </li>
 
                 </ul>
             </li>
-            <li class="menu">
+            <li class="menu {{ Route::is('*invoice*') ? 'active' : '' }}">
                 <a href="#invoice" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -277,8 +277,8 @@
                 </ul>
             </li>
 
-            <li class="menu">
-                <a href=""" aria-expanded="false" class="dropdown-toggle">
+            {{-- <li class="menu">
+                <a href="{{ url('admin/country') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -290,9 +290,9 @@
                         <span>Country</span>
                     </div>
                 </a>
-            </li>
+            </li> --}}
 
-            <li class="menu">
+            {{-- <li class="menu {{ Route::is('admin.port*') ? 'active' : '' }}">
                 <a href="{{ url('admin/port') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -304,7 +304,7 @@
                         <span>Port</span>
                     </div>
                 </a>
-            </li>
+            </li> --}}
 
             <li class="menu">
                 <a href="{{url('admin/bank_benificiary')}}" aria-expanded="false" class="dropdown-toggle">
@@ -320,7 +320,7 @@
                     </div>
                 </a>
             </li>
-            <li class="menu">
+            <li class="menu {{ Route::is('*report*') ? 'active' : '' }}">
                 <a href="#reports" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -342,7 +342,7 @@
                         </svg>
                     </div>
                 </a>
-                <ul class="collapse submenu list-unstyled" id="reports" data-bs-parent="#accordionExample">
+                <ul class="collapse submenu list-unstyled {{ Route::is('*main_order_reports*') ? 'active' : '' }}{{ Route::is('*assaign_order_reports*') ? 'active' : '' }}{{ Route::is('*warehouse_report*') ? 'active' : '' }}{{ Route::is('*buyers_reports*') ? 'active' : '' }} " id="reports" data-bs-parent="#accordionExample">
                     <li>
                         <a href="{{ url('admin/warehouse_report') }}">Warehouse Reports</a>
                     </li>
@@ -360,7 +360,7 @@
 
 
             </li>
-            <li class="menu {{ Route::is('reports*')? 'active':''  }}">
+            {{-- <li class="menu {{ Route::is('reports*')? 'active':''  }}">
                 <a href="{{ url('admin/shiperment_exporter') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -373,7 +373,7 @@
                         <span>Shipping and Export</span>
                     </div>
                 </a>
-            </li>
+            </li> --}}
 
 
         </ul>
