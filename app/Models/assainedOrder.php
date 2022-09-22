@@ -31,4 +31,9 @@ class assainedOrder extends Model
     public function mainorder(){
         return $this->hasMany(mainOrder::class,'id','mainOrderId');
     }
+
+    public function managerlists(){
+        return $this->hasMany(managerlist::class);
+    }
 }
+

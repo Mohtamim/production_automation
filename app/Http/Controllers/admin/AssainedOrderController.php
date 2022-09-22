@@ -94,6 +94,7 @@ class AssainedOrderController extends Controller
     //    $assain->update($input);
     //    return redirect('admin/assaign_order')->with('flash_message','Assign Ordered value Updated');
     $quantity = $request->quantity;
+    $quantity = $request->quantity;
     $delivery_date = $request->delivery_date;
     $status = $request->status;
     if($delivery_date != $delivery_date1){
@@ -134,6 +135,9 @@ class AssainedOrderController extends Controller
     elseif($status==6){
         $time = Carbon::now()->toDateString();
         DB::table('assained_orders')
+        ->where('id',$id)
+        ->update(['quantity'=> $quantity,'status' => $status,'approved'=>$time]);
+        DB::table('managerlists')
         ->where('id',$id)
         ->update(['quantity'=> $quantity,'status' => $status,'approved'=>$time]);
     }
