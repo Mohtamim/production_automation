@@ -15,7 +15,7 @@
                             <thead>
                                 <tr >
                                     <th class="text-center">Id</th>
-                                    <th class="text-center">product Name </th>
+                                    <th class="text-center">product Code </th>
                                     <th class="text-center">Category</th>
                                     <th class="text-center">Image</th>
                                     <th class="text-center">Unit</th>

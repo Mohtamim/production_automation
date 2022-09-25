@@ -22,6 +22,8 @@
                                     <p class="card-text">Buyer Name: {{ $buyers->buyerName }}</p>
                                     <p class="card-text">Email: {{ $buyers->email }}</p>
                                     <p class="card-text">Phone: {{ $buyers->phone }}</p>
+                                    <p class="card-text">Buyer's Address: {{ $buyers->buyerAddress }}</p>
+                                    <p class="card-text">Buyer'sb Bank Address: {{ $buyers->buyerbankAddress }}</p>
 
                                     <p class="card-text">Country: {{ $buyers->country }}</p>
                                     <p class="card-text">Balance: {{ $buyers->balance }}</p>
