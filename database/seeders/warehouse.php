@@ -22,7 +22,7 @@ class warehouses extends Seeder
 
         $warehouses = [
             [
-            'warehouseName'=>'Mrpur',
+            'warehouseName'=>'Mirpur',
             'address'=>'Dhaka',
 
             ],
