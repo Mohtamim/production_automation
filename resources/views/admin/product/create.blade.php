@@ -19,7 +19,7 @@
 
                     <div class="row ms-2 me-2">
                         <div class=" input-group mb-3 col">
-                            <span class="input-group-text bg-light text-black font-weight-bold">Product Name:</span>
+                            <span class="input-group-text bg-light text-black font-weight-bold">Product Code:</span>
                             <input type="text" id="title"
                                 class="form-control @error('title')
                      is-invalid

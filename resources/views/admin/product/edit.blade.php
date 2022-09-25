@@ -18,7 +18,7 @@ Product
                  @method('PATCH')
                  <div class="row ms-2 me-2">
                     <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold" >Title:</span>
+                    <span class="input-group-text bg-light text-black font-weight-bold" >Product Code:</span>
                     <input type="text" value="{{ $product->title }}" id="title" class="form-control @error('title')
                      is-invalid
                     @enderror" name="title">

@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="me" style="width: 60%;float: left;margin-left:50px">
-                                    <h5 class="card-title">Title: {{ $product->title }}</h5>
+                                    <h5 class="card-title">Product Code: {{ $product->title }}</h5>
                                     <p class="card-text">Category: {{ $product->category }}</p>
 
                                     <p class="card-text">Unit: {{ $product->unit }}</p>
