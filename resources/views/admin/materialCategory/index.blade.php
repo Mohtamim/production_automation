@@ -7,10 +7,10 @@ Category
     <div class="row ">
         <div class="col-md-12 grid-margin stretch-card ">
 
-                    <h2 class="text-center text-success font-weight-bold">CATEGOEY</h2>
+                    <h2 class="text-center text-success font-weight-bold">MATERIAL CATEGOEY</h2>
                     <div class="table-responsive">
                         <a href="{{ url('admin/material_category/create') }}" class="btn btn-success btn-sm" title="Add new Customer">
-                            Add Category
+                            Add Material Category
                         </a><hr>
 
                                 <table id="table" class="dataTable table"   cellspacing="0">

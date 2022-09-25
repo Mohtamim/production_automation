@@ -8,7 +8,7 @@ Material Category
         <div class="widget-header">
             <div class="row">
                 <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                    <h3 class="text-center h2 text-success font-weight-bold">ADD Category</h3>
+                    <h3 class="text-center h2 text-success font-weight-bold">ADD MATERIAL CATEGORY</h3>
                 </div>
             </div>
         </div>
