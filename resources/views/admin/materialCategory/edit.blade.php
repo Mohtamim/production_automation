@@ -20,8 +20,8 @@ Category
                     <span class="input-group-text bg-light text-black font-weight-bold" >Materail Name:</span>
                     <input type="text" class="form-control @error('materailName,')
                     is-invalid
-                    @enderror" name="materailName," id="materailName," placeholder="Enter your Category Name" value="{{ $cat->materailName, }}" >
-              @error('materailName,')
+                    @enderror" name="materailName" id="materailName" placeholder="Enter your Category Name" value="{{ $matCat->materailName}}" >
+              @error('materailName')
               <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
                @enderror
 
@@ -31,7 +31,7 @@ Category
                     <span class="input-group-text bg-light text-black font-weight-bold" >Quantity:</span>
                     <input type="text" class="form-control @error('quantity')
                     is-invalid
-                    @enderror" name="quantity" id="quantity" value="{{ $matCat->quantity }}"  aria-describedby="basic-addon2">
+                    @enderror price_calc" name="quantity" id="quantity" value="{{ $matCat->quantity }}"  aria-describedby="basic-addon2">
                     @error('quantity')
               <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
 
@@ -41,7 +41,7 @@ Category
                     <span class="input-group-text bg-light text-black font-weight-bold" >Unit Price:</span>
                     <input type="text" class="form-control @error('unitPrice')
                     is-invalid
-                    @enderror" name="unitPrice" id="unitPrice"  value="{{ $matCat->unitPrice }}"  aria-label="Enter your unitPrice" aria-describedby="basic-addon2">
+                    @enderror price_calc" name="unitPrice" id="unitPrice"  value="{{ $matCat->unitPrice }}"  aria-label="Enter your unitPrice" aria-describedby="basic-addon2">
                     @error('unitPrice')
               <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
 
@@ -49,10 +49,10 @@ Category
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" >Total Price :</span>
-                    <input type="text" class="form-control @error('totalPrice ')
+                    <input type="text" class="form-control @error('totalPrice')
                     is-invalid
-                    @enderror" name="totalPrice " id="totalPrice" value="{{ $matCat->totalPrice  }}"  aria-label="Enter your totalPrice " aria-describedby="basic-addon2">
-                    @error('totalPrice ')
+                    @enderror" name="totalPrice" id="totalPrice" value="{{ $matCat->totalPrice  }}"  aria-label="Enter your totalPrice " aria-describedby="basic-addon2">
+                    @error('totalPrice')
               <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
 
                @enderror
@@ -70,4 +70,16 @@ Category
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(".price_calc").on('input', function() {
+         var quantity = $("#quantity").val();
+         var unitPrice = $("#unitPrice").val();
+         var totalPrice = $("#totalPrice").val();
+
+         var result=quantity*unitPrice;
+         $('#totalPrice').val(result);
+
+     })
+ </script>
+
 @endsection
