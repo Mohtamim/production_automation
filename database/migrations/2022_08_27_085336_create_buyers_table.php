@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone');
             $table->string('img');
+            $table->string('buyerAddress');
+            $table->string('buyerbankAddress');
             $table->string('country');
             $table->decimal('balance',10,2);
             $table->timestamps();

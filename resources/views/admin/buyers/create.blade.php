@@ -65,6 +65,30 @@ WareHose
                 </div>
             </div>
             <div class="row ms-2 me-2">
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Buyer Address: </span><br>
+                <input type="text" name="buyerAddress" value="{{ old('buyerAddress') }}" id="buyerAddress" class="form-control @error('buyerAddress')
+                  is-invalid
+                   @enderror">
+                   @error('buyerAddress')
+                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                   @enderror
+
+                </div>
+
+
+                <div class="input-group mb-3 col">
+                    <span class="input-group-text bg-light text-black font-weight-bold">Buyer Bank Address: </span><br>
+                <input type="text" name="buyerbankAddress" value="{{ old('buyerbankAddress') }}" id="buyerbankAddress" class="form-control @error('buyerbankAddress')
+                  is-invalid
+                   @enderror" >
+                   @error('buyerbankAddress')
+                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
+                   @enderror
+
+                </div>
+            </div>
+            <div class="row ms-2 me-2">
             <div class="input-group mb-3 col">
                 <span class="input-group-text bg-light text-black font-weight-bold">Image: </span><br>
             <input type="file" name="img" id="balance" value="{{ old('img') }}"  class="form-control @error('img')

@@ -38,6 +38,8 @@ class BuyersController extends Controller
         $buyerName=$request->buyerName;
         $email=$request->email;
         $phone=$request->phone;
+        $buyerAddress=$request->buyerAddress;
+        $buyerbankAddress=$request->buyerbankAddress;
         $balance=$request->balance;
         $img=$request->file('img');
         $img_name=hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
@@ -54,6 +56,8 @@ class BuyersController extends Controller
              'email'=>$email,
              'phone'=>$phone,
              'img'=> $img_url,
+             'buyerAddress'=> $buyerAddress,
+             'buyerbankAddress'=> $buyerbankAddress,
              'country'=> $country,
              'balance'=>$balance
         ]);
@@ -66,6 +70,8 @@ class BuyersController extends Controller
                     'buyerName'=>$buyerName,
                     'buyerCode'=>$buyerCode,
                     'email'=>$email,
+                    'buyerAddress'=> $buyerAddress,
+                    'buyerbankAddress'=> $buyerbankAddress,
                     'paydate'=>$paydate,
                     'country'=>$country,
                     'amount'=>$balance,
@@ -101,6 +107,8 @@ class BuyersController extends Controller
         $buyerName=$request->buyerName;
         $email=$request->email;
         $phone=$request->phone;
+        $buyerAddress=$request->buyerAddress;
+        $buyerbankAddress=$request->buyerbankAddress;
         $balance=$request->balance;
         $img=$request->file('img');
         $img_name=hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
@@ -112,6 +120,8 @@ class BuyersController extends Controller
             'buyerName'=>$buyerName,
             'email'=>$email,
             'phone'=>$phone,
+            'buyerAddress'=> $buyerAddress,
+            'buyerbankAddress'=> $buyerbankAddress,
             'img'=> $img_url,
             'country'=> $country,
             'balance'=>$balance

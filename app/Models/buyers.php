@@ -18,6 +18,8 @@ class buyers extends Model
         'email',
         'phone',
         'img',
+        'buyerAddress',
+        'buyerbankAddress',
         'country',
         'balance'
     ];

@@ -27,6 +27,8 @@ class buyerss extends Seeder
             'email'=>'buyer@gmaiil.com',
             'phone'=>'0156',
             'country'=>'USA',
+            'buyerAddress'=>'USA',
+            'buyerbankAddress'=>'USA',
             'balance'=>'0',
 
             ],
