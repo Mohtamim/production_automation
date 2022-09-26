@@ -130,6 +130,9 @@
                     <li class="{{ Route::is('*category*') ? 'active' : '' }}">
                         <a href="{{ url('admin/category') }}"> Category </a>
                     </li>
+                    <li class="{{ Route::is('*material_category') ? 'active' : '' }}">
+                        <a href="{{ url('admin/material_category') }}">Material Category </a>
+                    </li>
                     <li class="{{ Route::is('*product*') ? 'active' : '' }}">
                         <a href="{{ url('admin/product') }}"> Products </a>
                     </li>
