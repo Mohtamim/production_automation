@@ -63,9 +63,9 @@
                 </div>
                 <div class="col form-group text-center">
                     <label>DH Product Code</label>
-                    <select onchange="fetchData1(id)" class="form-select  @error('productName')
+                    <select  class="form-select  @error('productName')
                     is-invalid
-                     @enderror" name="productName[]" id="productName1">
+                     @enderror" name="productName[]" id="productName1" onchange="salesAdd(1)">
                         <option value="" >Select Product</option>
                         @foreach ($products as $pro )
                         <option id="{{$pro->id  }}"  value="{{$pro->id  }}">{{ $pro->title}}</option>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="col form-group text-center">
                     <label>Unit Price (USD)</label>
-                <input type="number" name="unitPrice[]" id="unitPrice1"  onkeyup="parchaseeCal(1)" class="form-control @error('unitPrice')
+                <input type="number" name="unitPrice[]" id="unitPrice1"  onchange="parchaseeCal(1)" class="form-control @error('unitPrice')
                   is-invalid
                    @enderror" onchange="fetchData()">
                    @error('unitPrice')
@@ -158,44 +158,26 @@
     </div>
 </div>
 </div>
+
 <script type="text/javascript">
-    function fetchData() {
-        var quantity = $("#quantity").val();
-        var unitPrice = $("#unitPrice").val();
-        var totalPrice = $("#totalPrice").val();
-        // var totalPrice = $("#buyerId").val();
-
-        var result=quantity*unitPrice;
-        $('#totalPrice').val(result);
-
-    }
+function salesAdd(id){
+        var optID = $('#productName'+id).find("option:selected").attr('id');
+            if (optID) {
+                $.ajax({
+                    url: "{{ url('admin/product_fetch') }}/"+optID,
+                    type: "GET",
+                    cache: false,
+                    dataType: "json",
+                        success: function(data) {
+                            console.log(data);
+                                $.each(data, function(key, value) {
+                                    $('#unitPrice'+id).val(value.FOB_cost);
+                                })
+                            }
+                        });
+         }
+}
 </script>
-
-<script type="text/javascript">
-        function fetchData1(id) {
-            var oid =  $( "select option:selected" ).val();
-         if (oid){
-
-            $.ajax({
-                url: "{{ url('admin/product_fetch') }}/" + oid,
-                type: "GET",
-                cache: false,
-                dataType: "json",
-                success: function(data) {
-                    console.log(data);
-
-
-                    $.each(data, function(key, value) {
-                        $('#unitPrice').val(value.FOB_cost);
-                    })
-
-                }
-            });
-
-        }
-
-        }
-    </script>
 <script type="text/javascript">
     $('.select2').select2();
     function row_Append(){
@@ -226,7 +208,7 @@
             row+='</div>'
             row+='<div class="col form-group text-center">'
             row+='<label>Unit Price (USD)</label>'
-            row+='<input type="number" class="form-control" name="unitPrice[]" id="unitPrice'+i+'" onkeyup="parchaseeCal('+i+')" placeholder="Unit Price (USD)">'
+            row+='<input type="number" class="form-control" name="unitPrice[]" id="unitPrice'+i+'" onchange="parchaseeCal('+i+')" placeholder="Unit Price (USD)">'
             row+='</div>'
             row+='<div class="col form-group text-center">'
             row+='<label>Total Price</label>'
