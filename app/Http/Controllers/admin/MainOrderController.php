@@ -35,13 +35,13 @@ class MainOrderController extends Controller
 
        return view('admin.mainOrder.create')->with(['products'=>$products,'buyers'=>$buyers]);
     }
+//mainOrderFormValidation
 
-
-    public function store(mainOrderFormValidation $request)
+    public function store(Request $request)
     {
 
         $buyerId=$request->buyerId;
-        $DH_PI_ID=$request->PIN;
+        $DH_PID=$request->PIN;
         $buyerProductCode=$request->bpcode;
         $productName = $request->productName;
         $quantity = $request->quantity;
@@ -60,7 +60,7 @@ class MainOrderController extends Controller
                 'buyerProductCode'=>$buyerProductCode[$i],
                 'grandTotal'=>$grandTotal,
                 'totalQuantity'=>$totalQuantity,
-                'DH_PI_ID'=>$DH_PI_ID[$i],
+                'DH_PID'=>$DH_PID,
                 'productId'=>$productName[$i],
                 'quantity'=>$quantity[$i],
                 'buyerscode_id'=>$buyerscode_id,

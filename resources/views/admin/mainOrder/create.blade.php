@@ -59,7 +59,7 @@
 
                 <div class="col form-group text-center">
                     <label>Buyer Product Code</label>
-                    <input type="text" name="bpcode" id="bpcode" class="form-control">
+                    <input type="text" name="bpcode[]" id="bpcode1" class="form-control">
                 </div>
                 <div class="col form-group text-center">
                     <label>DH Product Code</label>

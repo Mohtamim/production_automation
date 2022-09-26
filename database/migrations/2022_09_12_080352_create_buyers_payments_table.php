@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('note')->nullable();
             $table->string('email');
             $table->string('country');
+            $table->string('buyerAddress');
+            $table->string('buyerbankAddress');
             $table->decimal('amount',10,2);
             $table->timestamp('paydate')->nullable();
             $table->decimal('balance',10,2)->nullable();

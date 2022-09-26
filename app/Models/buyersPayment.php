@@ -19,7 +19,9 @@ class buyersPayment extends Model
         'email',
         'country',
         'amount',
-        'balance'
+        'balance',
+        'buyerAddress',
+        'buyerbankAddress',
     ];
     public function buyer(){
         return $this->belongsTo(buyers::class,'buyerId','id');
