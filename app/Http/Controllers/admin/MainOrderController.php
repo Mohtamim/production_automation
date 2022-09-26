@@ -31,9 +31,9 @@ class MainOrderController extends Controller
     public function create()
     {
         $buyers=buyers::all();
-        $product= pruduct::all();
+        $products= pruduct::all();
 
-       return view('admin.mainOrder.create')->with(['product'=>$product,'buyers'=>$buyers]);
+       return view('admin.mainOrder.create')->with(['products'=>$products,'buyers'=>$buyers]);
     }
 
 
