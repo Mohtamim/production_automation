@@ -67,26 +67,14 @@ Buyer
             </div>
             <div class="row ms-2 me-2">
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Buyer Address: </span><br>
-                <input type="text" name="buyerAddress" value="{{ $buyer->buyerAddress }}" id="buyerAddress" class="form-control @error('buyerAddress')
-                  is-invalid
-                   @enderror">
-                   @error('buyerAddress')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
-
+                    <span class="input-group-text bg-light text-black font-weight-bold">Buyer's Address:</span>
+                    <textarea type="text" value="{{old('buyerAddress',$buyer->buyerAddress ) }}" id="buyerAddress" class="form-control" name="buyerAddress">{{ $buyer->buyerAddress }}</textarea>
                 </div>
 
 
                 <div class="input-group mb-3 col">
-                    <span class="input-group-text bg-light text-black font-weight-bold">Buyer Bank Address: </span><br>
-                <input type="text" name="buyerbankAddress" value="{{ $buyer->buyerbankAddress }}" id="buyerbankAddress" class="form-control @error('buyerbankAddress')
-                  is-invalid
-                   @enderror" >
-                   @error('buyerbankAddress')
-                  <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span><br>
-                   @enderror
-
+                    <span class="input-group-text bg-light text-black font-weight-bold">Buyer's Bank Address:</span>
+                    <textarea type="text" value="{{old('buyerbankAddress',$buyer->buyerbankAddress ) }}" id="buyerbankAddress" class="form-control" name="buyerbankAddress">{{ $buyer->buyerbankAddress }}</textarea>
                 </div>
             </div>
             <div class="row ms-2 me-2">
