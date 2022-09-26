@@ -42,7 +42,7 @@
                                     <button type="button" class="btn btn-sm text-white w-100 bg-info btn-outline-dark font-weight-bold" id="gPI" >Generate DH PI NO.</button>
                                 </div>
                                 <div class="form-group text-center col">
-                                    <input type="text" name="PI" id="PIN" class="form-control ">
+                                    <input type="text" name="PIN" id="PIN" class="form-control ">
 
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                     <label>DH Product Code</label>
                     <select onchange="fetchData1(id)" class="form-select  @error('productName')
                     is-invalid
-                     @enderror" name="productName" >
+                     @enderror" name="productName[]" id="productName1">
                         <option value="" >Select Product</option>
                         @foreach ($products as $pro )
                         <option id="{{$pro->id  }}"  value="{{$pro->id  }}">{{ $pro->title}}</option>
@@ -209,7 +209,7 @@
             row+='</div>'
             row+='<div class="col form-group text-center">'
             row+='<label>Buyer Product Code</label>'
-            row+='<input type="text" name="bpcode" id="bpcode" class="form-control">'
+            row+='<input type="text" name="bpcode[]" id="bpcode'+i+'" class="form-control">'
             row+='</div>'
             row+='<div class="col form-group text-center">'
             row+='<label>DH Product Code</label>'

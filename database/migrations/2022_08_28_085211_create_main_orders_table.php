@@ -15,7 +15,9 @@ return new class extends Migration
         Schema::create('main_orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('productId')->constrained('pruducts');
+            $table->DH_PI_ID('string');
             $table->foreignId('buyerId')->constrained('buyers');
+            $table->buyerProductCode('string');
             $table->integer('buyerscode_id');
             $table->decimal('quantity', 10, 2);
             $table->decimal('unitPrice', 10, 2);
@@ -27,6 +29,8 @@ return new class extends Migration
             $table->date('approved')->format('d/m/Y')->nullable();
             $table->date('delivery_date')->format('d/m/Y')->nullable();
             $table->decimal('partial_delivery_quantity', 10, 2)->nullable();
+            $table->decimal('grandTotal', 10, 2)->nullable();
+            $table->decimal('totalQuantity', 10, 2)->nullable();
             $table->decimal('partial_delivery_amount', 10, 2)->format('d/m/Y')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();

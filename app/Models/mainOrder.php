@@ -15,11 +15,16 @@ class mainOrder extends Model
     public $timestamps = true;
 
     protected $fillable=[
+        'buyerId',
         'productId',
+        'DH_PI_ID',
         'quantity',
+        'buyerProductCode',
         'buyerscode_id',
         'remaing_quantity',
         'unitPrice',
+        'grandTotal',
+        'totalQuantity',
         'totalPrice',
         'status',
         'delivery_date'

@@ -41,24 +41,38 @@ class MainOrderController extends Controller
     {
 
         $buyerId=$request->buyerId;
+        $DH_PI_ID=$request->PIN;
+        $buyerProductCode=$request->bpcode;
         $productName = $request->productName;
         $quantity = $request->quantity;
         $unitPrice = $request->unitPrice;
         $totalPrice = $request->totalPrice;
+        $grandTotal = $request->grandTotal;
+        $totalQuantity = $request->totalQuantity;
         $status = $request->status;
         $delivery_date=$request->delivery_date;
         $buyerscode_id= buyers::where('id', $buyerId)->select('buyerCode')->get()->value('buyerCode');
-        mainOrder::insert([
-            'buyerId'=>$buyerId,
-            'productId'=>$productName,
-            'quantity'=>$quantity,
-            'buyerscode_id'=>$buyerscode_id,
-            'remaing_quantity'=>$quantity,
-            'unitPrice'=>$unitPrice,
-            'totalPrice'=>$totalPrice,
-            'delivery_date'=>$delivery_date,
-            'status'=>$status,
-       ]);
+
+        for ($i=0; $i <count($productName) ; $i++) {
+
+            mainOrder::insert([
+                'buyerId'=>$buyerId,
+                'buyerProductCode'=>$buyerProductCode[$i],
+                'grandTotal'=>$grandTotal,
+                'totalQuantity'=>$totalQuantity,
+                'DH_PI_ID'=>$DH_PI_ID[$i],
+                'productId'=>$productName[$i],
+                'quantity'=>$quantity[$i],
+                'buyerscode_id'=>$buyerscode_id,
+                'remaing_quantity'=>$quantity[$i],
+                'unitPrice'=>$unitPrice[$i],
+                'totalPrice'=>$totalPrice[$i],
+                'delivery_date'=>$delivery_date,
+                'status'=>$status,
+           ]);
+        }
+
+
         return redirect('admin/main_order')->with('success','Main Order create successfully');
     }
 
