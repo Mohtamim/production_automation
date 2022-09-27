@@ -40,6 +40,7 @@ use App\Http\Controllers\manager\managerAssignOrderController;
 use App\Http\Controllers\admin\warehouseReportController;
 use App\Http\Controllers\assaignOrderReport;
 use App\Http\Controllers\Assaignordersfetch;
+use App\Http\Controllers\DhDetailsController;
 use App\Http\Controllers\orderReport;
 use App\Http\Controllers\ordersfetch;
 
@@ -102,6 +103,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('warehouse_report',warehouseReportController::class);
     Route::resource('material_category',MaterialCategoryController::class);
     Route::resource('terms-condition',TermsConditionController::class);
+    Route::resource('dh-details',DhDetailsController::class);
 
 });
 // Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
