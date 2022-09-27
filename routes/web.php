@@ -99,6 +99,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('assaign_order_reports/{id}',[assaignOrderReport::class,'show']);
     Route::resource('warehouse_report',warehouseReportController::class);
     Route::resource('material_category',MaterialCategoryController::class);
+    Route::resource('terms-condition',MaterialCategoryController::class);
 
 });
 // Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {

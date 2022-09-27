@@ -92,7 +92,7 @@
                 </div>
                 <div class="col form-group text-center">
                     <label>Unit Price (USD)</label>
-                <input type="number" name="unitPrice[]" id="unitPrice1"  onchange="parchaseeCal(1)" class="form-control @error('unitPrice')
+                <input type="number" name="unitPrice[]" id="unitPrice1"  onmousemove="parchaseeCal(1)" class="form-control @error('unitPrice')
                   is-invalid
                    @enderror" onchange="fetchData()">
                    @error('unitPrice')
@@ -173,6 +173,7 @@ function salesAdd(id){
                                 $.each(data, function(key, value) {
                                     $('#unitPrice'+id).val(value.FOB_cost);
                                 })
+                                parchaseeCal(1);
                             }
                         });
          }
@@ -208,7 +209,7 @@ function salesAdd(id){
             row+='</div>'
             row+='<div class="col form-group text-center">'
             row+='<label>Unit Price (USD)</label>'
-            row+='<input type="number" class="form-control" name="unitPrice[]" id="unitPrice'+i+'" onchange="parchaseeCal('+i+')" placeholder="Unit Price (USD)">'
+            row+='<input type="number" class="form-control" name="unitPrice[]" id="unitPrice'+i+'" onmousemove="parchaseeCal('+i+')" placeholder="Unit Price (USD)">'
             row+='</div>'
             row+='<div class="col form-group text-center">'
             row+='<label>Total Price</label>'
