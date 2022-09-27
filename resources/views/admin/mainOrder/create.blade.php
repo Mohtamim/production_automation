@@ -18,6 +18,7 @@
             <form class="forms-sample" action="{{ url('admin/main_order') }}" method="POST">
                 {!! csrf_field() !!}
                 <input type="hidden" name="rowlen" id="rowlen" value="1">
+                <input type="hidden" name="porowlen" id="porowlen" value="1">
                 {{-- <input type="hidden" name="invoice_id" id="invoice_id" value="1"/> --}}
                 {{-- <input type="hidden" name="customer_id" id="customer_id" value="0"/> --}}
                 <div class="row mt-3">
@@ -49,8 +50,26 @@
                             </div>
 
 
-                </div>
+                </div><hr>
+                <div class="row mt-1 bg-light"  id="poRowAppend">
+                    <div class="col-1">
+                        <button type="button" class="btn btn-sm btn-outline-dark" id="RowAdd" onclick="po_row_Append()" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
+                        {{-- <button type="button" class="btn btn-sm btn-outline-danger" id="RowDeletesd" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button> --}}
+                    </div><div class="form-group text-center col">
+                        <span class="input-group-text bg-light text-black font-weight-bold">P.O. Number:</span>
+                        <input type="text" name="pono_id[]" id="pono_id1" class="form-control">
+                    </div>
+                    <div class="form-group text-center col">
+                        <span class="input-group-text bg-light text-black font-weight-bold">Date:</span>
+                <input type="date" name="pono_date[]" id="pono_date1" class="form-control @error('delivery_date')
+                  is-invalid
+                   @enderror" >
+                    </div>
 
+
+
+                </div>
+<hr>
             <div class="row mt-3" id="RowAppend">
                 <div class="col-1">
                     <button type="button" class="btn btn-sm btn-outline-dark" id="RowAdd" onclick="row_Append()" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
@@ -59,7 +78,7 @@
 
                 <div class="col form-group text-center">
                     <label>Buyer Product Code</label>
-                    <input type="text" name="bpcode[]" id="bpcode1" class="form-control">
+                    <input type="text" name="bpcode[]" id="bpcode1" class="form-control" placeholder="Enter Buyer Code">
                 </div>
                 <div class="col form-group text-center">
                     <label>DH Product Code</label>
@@ -173,7 +192,7 @@ function salesAdd(id){
                                 $.each(data, function(key, value) {
                                     $('#unitPrice'+id).val(value.FOB_cost);
                                 })
-                                parchaseeCal(1);
+                                parchaseeCal(id);
                             }
                         });
          }
@@ -186,13 +205,13 @@ function salesAdd(id){
         var i=1;
         var rowlength=parseInt($('#rowlen').val());
         i+=rowlength;
-        var row='<div class="row mt-3" id="DelRow'+i+'">'
+        var row='<div class="row mt-3" id="poDelRow'+i+'">'
             row+='<div class="col-1">'
-            row+='<button type="button" class="btn btn-sm btn-outline-danger" id="minus" onclick="row_Remove('+i+')"  style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
+            row+='<button type="button" class="btn btn-sm btn-outline-danger" id="minus" onclick="po_row_Remove('+i+')"  style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
             row+='</div>'
             row+='<div class="col form-group text-center">'
             row+='<label>Buyer Product Code</label>'
-            row+='<input type="text" name="bpcode[]" id="bpcode'+i+'" class="form-control">'
+            row+='<input type="text" name="bpcode[]" id="bpcode'+i+'" class="form-control" placeholder="Enter Buyer Code">'
             row+='</div>'
             row+='<div class="col form-group text-center">'
             row+='<label>DH Product Code</label>'
@@ -219,6 +238,30 @@ function salesAdd(id){
 
         $('#RowAppend').append(row);
         $('#rowlen').val(i);
+        i++;
+
+    }
+    function po_row_Append(){
+
+        var i=1;
+        var rowlength=parseInt($('#porowlen').val());
+        i+=rowlength;
+        var row='<div class="row mt-3" id="DelRow'+i+'">'
+            row+='<div class="col-1">'
+            row+='<button type="button" class="btn btn-sm btn-outline-danger" id="minus" onclick="row_Remove('+i+')"  style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button>'
+            row+='</div>'
+            row+='<div class="col form-group text-center">'
+            row+='<span class="input-group-text bg-light text-black font-weight-bold">P.O. Number:</span>'
+            row+='<input type="text" name="pono_id[]" id="pono_id'+i+'" class="form-control" placeholder="Enter PO Code">'
+            row+='</div>'
+            row+='<div class="col form-group text-center">'
+            row+='<span class="input-group-text bg-light text-black font-weight-bold">Date:</span>'
+            row+='<input type="date" name="pono_date[]" id="pono_date'+i+'" class="form-control">'
+            row+='</div>'
+            row+='</div>'
+
+        $('#poRowAppend').append(row);
+        $('#porowlen').val(i);
         i++;
 
     }

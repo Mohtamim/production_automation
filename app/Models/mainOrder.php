@@ -14,22 +14,7 @@ class mainOrder extends Model
     protected $primaryKey='id';
     public $timestamps = true;
 
-    protected $fillable=[
-        'buyerId',
-        'productId',
-        'DH_PID',
-        'quantity',
-        'buyerProductCode',
-        'buyerscode_id',
-        'remaing_quantity',
-        'unitPrice',
-        'grandTotal',
-        'totalQuantity',
-        'totalPrice',
-        'status',
-        'delivery_date'
-
-    ];
+    protected $guarded=['id'];
     public function waproductsrehouse(){
         return $this->hasMany(warehouse::class);
     }
@@ -38,5 +23,8 @@ class mainOrder extends Model
     }
     public function buyers(){
         return $this->belongsTo(buyers::class, 'buyerId', 'id');
+    }
+    public function ponos(){
+        return $this->belongsTo(ponos::class, 'pono_id', 'id');
     }
 }

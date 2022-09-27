@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Symfony\Component\Console\Input\Input;
 use App\Http\Requests\mainOrderFormValidation;
+use App\Models\pono;
+
 
 class MainOrderController extends Controller
 {
@@ -43,6 +45,17 @@ class MainOrderController extends Controller
         $buyerId=$request->buyerId;
         $DH_PID=$request->PIN;
         $buyerProductCode=$request->bpcode;
+        $pono_id=$request->pono_id;
+        $pono_date=$request->pono_date;
+        $pono_date= $pono_date;
+        for ($i=0; $i <count($pono_id) ; $i++) {
+            pono::insert([
+                'pono_id'=>$pono_id[$i],
+                'pono_date'=>$pono_date[$i],
+                'DH_PID'=>$DH_PID,
+            ]);
+        }
+
         $productName = $request->productName;
         $quantity = $request->quantity;
         $unitPrice = $request->unitPrice;
@@ -57,6 +70,7 @@ class MainOrderController extends Controller
 
             mainOrder::insert([
                 'buyerId'=>$buyerId,
+                'pono_id'=>$pono_id,
                 'buyerProductCode'=>$buyerProductCode[$i],
                 'grandTotal'=>$grandTotal,
                 'totalQuantity'=>$totalQuantity,

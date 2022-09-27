@@ -24,7 +24,7 @@ class unitFormValidation extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|string|regex:/^[\pL\s\-]+$/u',
+            'name'=>'required|string',
             'status'=>'required|string',
         ];
     }
