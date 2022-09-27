@@ -265,8 +265,8 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="invoice" data-bs-parent="#accordionExample">
-                    <li>
-                        <a href=""> List </a>
+                    <li class="{{ Route::is('admin.terms-condition*') ? 'active' : '' }}">
+                        <a href="{{ url('admin/terms-condition') }}">Terms Conditions</a>
                     </li>
                     <li>
                         <a href=""> Preview </a>
