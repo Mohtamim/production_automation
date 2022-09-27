@@ -20,7 +20,7 @@ use App\Http\Controllers\admin\MainOrderController;
 use App\Http\Controllers\admin\PackagingController;
 use App\Http\Controllers\admin\PackOrderController;
 use App\Http\Controllers\admin\WarehouseController;
-use App\Http\Controllers\manager\invoiceController;
+// use App\Http\Controllers\manager\invoiceController;
 use App\Http\Controllers\manager\managersController;
 use App\Http\Controllers\admin\ManagerlistController;
 use App\Http\Controllers\admin\PackPricingController;
@@ -32,6 +32,7 @@ use App\Http\Controllers\admin\BuyersPaymentController;
 use App\Http\Controllers\admin\MaterialCategoryController;
 use App\Http\Controllers\admin\PackageingCompanyController;
 use App\Http\Controllers\admin\ShiperAndExporterController;
+use App\Http\Controllers\admin\TermsConditionController;
 use App\Http\Controllers\admin\WarehousePaymentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\manager\managerDashboardController;
@@ -41,6 +42,7 @@ use App\Http\Controllers\assaignOrderReport;
 use App\Http\Controllers\Assaignordersfetch;
 use App\Http\Controllers\orderReport;
 use App\Http\Controllers\ordersfetch;
+
 use GuzzleHttp\Middleware;
 
 /*
@@ -99,7 +101,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('assaign_order_reports/{id}',[assaignOrderReport::class,'show']);
     Route::resource('warehouse_report',warehouseReportController::class);
     Route::resource('material_category',MaterialCategoryController::class);
-    Route::resource('terms-condition',MaterialCategoryController::class);
+    Route::resource('terms-condition',TermsConditionController::class);
 
 });
 // Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {
