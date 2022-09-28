@@ -18,7 +18,11 @@
             <form class="forms-sample" action="{{ url('admin/main_order') }}" method="POST">
                 {!! csrf_field() !!}
                 <input type="hidden" name="rowlen" id="rowlen" value="1">
-                <input type="hidden" name="porowlen" id="porowlen" value="1">
+                <input type="hidden" name="rowlen" id="rowlen" value="1">
+                {{-- @foreach ($newInvoiceID as $newInvoiceID) --}}
+                <input type="hidden" name="newInvoiceID" id="newInvoiceID" value="{{ $newInvoiceID }}">
+                {{-- @endforeach --}}
+
                 {{-- <input type="hidden" name="invoice_id" id="invoice_id" value="1"/> --}}
                 {{-- <input type="hidden" name="customer_id" id="customer_id" value="0"/> --}}
                 <div class="row mt-3">
@@ -295,19 +299,20 @@ function salesAdd(id){
 
 
 $("#gPI").click(function(){
+    var newInvoiceID=parseInt($('#newInvoiceID').val());
     var currentTime = new Date()
     var month = currentTime.getMonth() + 1;
-    var seq = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
+    // var seq = (Math.floor(Math.random() * 10000) + 10000).toString().substring(1);
     if(month >= 7){
         var year = currentTime.getFullYear()
         var year1 = year + 1;
-        $('#PIN').val(seq + "-" + year + "-" +year1);
+        $('#PIN').val(newInvoiceID + "-" + year + "-" +year1);
 
 }
     else{
     var year = currentTime.getFullYear()
         var year1 = year - 1;
-        $('#PIN').val(seq + "-" + year1 + "-" + year);
+        $('#PIN').val(newInvoiceID + "-" + year1 + "-" + year);
     }
 
 });

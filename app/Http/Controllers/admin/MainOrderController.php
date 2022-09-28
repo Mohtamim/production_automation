@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Symfony\Component\Console\Input\Input;
 use App\Http\Requests\mainOrderFormValidation;
+use App\Models\dhDetails;
 use App\Models\pono;
 
 
@@ -34,8 +35,14 @@ class MainOrderController extends Controller
     {
         $buyers=buyers::all();
         $products= pruduct::all();
+        $invoice = new mainOrder();
+    
+        $lastInvoiceID = $invoice->orderBy('DH_PID', 'desc')->pluck('DH_PID')->first();
+        $lastInvoiceID= str_pad($lastInvoiceID,4,'-',STR_PAD_LEFT);
+        $lastInvoiceID = intval($lastInvoiceID);
+        $newInvoiceID = $lastInvoiceID + 1;
 
-       return view('admin.mainOrder.create')->with(['products'=>$products,'buyers'=>$buyers]);
+       return view('admin.mainOrder.create',compact('newInvoiceID'))->with(['products'=>$products,'buyers'=>$buyers]);
     }
 //mainOrderFormValidation
 
