@@ -104,7 +104,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('material_category',MaterialCategoryController::class);
     Route::resource('terms-condition',TermsConditionController::class);
     Route::resource('dh-details',DhDetailsController::class);
+    Route::resource('supplier',DhDetailsController::class);
     Route::get('poroforma-invoice',[proformaInvoice::class,'index']);
+    Route::get('poroforma-invoice/{id}',[proformaInvoice::class,'pidata']);
 
 });
 // Route::group(['prefix' => 'admin','middleware'=>['admin','auth']], function () {

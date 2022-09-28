@@ -6,6 +6,27 @@ Proforma Invoice
 <a href="#" onclick="printdiv()">Print</a>
 <div id="printpage">
     <div class="page-content container">
+        <div class="row ml-2 me-2">
+
+            <div class="col-4">
+                <div class="form-group">
+                    <form action="">
+                        <div class="form-group">
+                            <input type="text" id="pinumber" placeholder="P.I Number..">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <form action="">
+                        <div class="form-group">
+                            <input type="button" class="btn btn-primary" id="search1" value="Search">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="page-header text-blue-d2">
             <h1 class="page-title text-secondary-d1">
                 Invoice
@@ -125,7 +146,7 @@ Proforma Invoice
                         <div class="row border-b-2 brc-default-l2"></div>
 
                         <!-- or use a table instead -->
-                        <!--
+
                 <div class="table-responsive">
                     <table class="table table-striped table-borderless border-0 border-b-2 brc-default-l1">
                         <thead class="bg-none bgc-default-tp1">
@@ -150,7 +171,7 @@ Proforma Invoice
                         </tbody>
                     </table>
                 </div>
-                -->
+
 
                         <div class="row mt-3">
                             <div class="col-12 col-sm-7 text-grey-d2 text-95 mt-2 mt-lg-0">
@@ -220,5 +241,167 @@ document.getElementById("printpage").innerHTML;
        popupWin.document.close();
        return false;
         }
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#search1").click(function() {
+            var id = $("#pinumber").val();
+            alert(id)
+
+        if (id) {
+            $("#payreport").find('tbody').empty();
+
+            $.ajax({
+                url: "{{ url('admin/poroforma-invoice') }}/" + id,
+                type: "GET",
+                cache: false,
+                dataType: "json",
+                success: function(data) {
+                    console.log(data);
+                    $.each(data, function(key, value) {
+
+
+                        $('#content1').append(
+                            `
+                            <div class="row ml-2 me-2">
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Order ID:</span>
+                                                    <p id="orderId" class="form-control text-primary font-weight-bold">${value.id}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Buyer Name:</span>
+                                                    <p id="buyerName" class="form-control text-primary font-weight-bold">${value.buyers.buyerName}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ml-2 me-2">
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Ordered Quantity:</span>
+                                                    <p id="orderedQuantity" class="form-control text-primary font-weight-bold">${value.quantity}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Unit Price:</span>
+                                                    <p id="unitPrice" class="form-control text-primary font-weight-bold">${value.unitPrice}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ml-2 me-2">
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Total Price:</span>
+                                                    <p id="totalPrice" class="form-control text-primary font-weight-bold">${value.totalPrice}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Expected Delivery Date:</span>
+                                                    <p id="warehouseId" class="form-control text-primary font-weight-bold">${value.delivery_date}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ml-2 me-2">
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Processing Date:</span>
+                                                    <p id="totalPrice" class="form-control text-primary font-weight-bold">${value.processing}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Completed Date:</span>
+                                                    <p id="warehouseId" class="form-control text-primary font-weight-bold">${value.completed}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ml-2 me-2">
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Delivered Date:</span>
+                                                    <p id="totalPrice" class="form-control text-primary font-weight-bold">${value.delivered}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Received Date:</span>
+                                                    <p id="warehouseId" class="form-control text-primary font-weight-bold">${value.received}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ml-2 me-2">
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Approved Date:</span>
+                                                    <p id="totalPrice" class="form-control text-primary font-weight-bold">${value.approved}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Delivery Quantity:</span>
+                                                    <p id="warehouseId" class="form-control text-primary font-weight-bold">${value.partial_delivery_quantity}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row ml-2 me-2">
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Remaining for delivery:</span>
+                                                    <p id="totalPrice" class="form-control text-primary font-weight-bold">${value.remaing_quantity}</p>
+                                                </div>
+                                            </div>
+                                            <div class="col m-1">
+
+                                                <div class="input-group mb-3">
+                                                    <span
+                                                        class="input-group-text bg-light text-black font-weight-bold">Partial Delivery Amount:</span>
+                                                    <p id="warehouseId" class="form-control text-primary font-weight-bold">${value.partial_delivery_amount}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                            `
+                        )
+
+
+                    });
+
+                }
+            })
+        }else{
+            $("#payreport").find('tbody').empty();
+        }
+
+    });
+    });
 </script>
 @endsection

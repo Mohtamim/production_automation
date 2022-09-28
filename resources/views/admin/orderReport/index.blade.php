@@ -7,20 +7,7 @@
         <div class="main">
             <div class="container-fluid">
                 <div class="row ml-2 me-2">
-                    {{-- <div class="col-4">
-                        <div class="form-group">
-                            <form action="">
-                                <div class="form-group">
-                                    <select class="form-control select2" name="warehouse" id="orderType" >
-                                        <option value="" sid="" selected>Select Order type</option>
-                                            <option value="1" sid="1">Main Order</option>
-                                            <option value="2" sid="2">Assigned Order</option>
-
-                                    </select>
-                                </div>
-                            </form>
-                        </div>
-                    </div> --}}
+                    
                     <div class="col-4">
                         <div class="form-group">
                             <form action="">
