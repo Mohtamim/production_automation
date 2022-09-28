@@ -69,7 +69,6 @@ class MainOrderController extends Controller
         for ($i=0; $i <count($productName) ; $i++) {
             mainOrder::insert([
                 'buyerId'=>$buyerId,
-                'pono_id'=>$pono_id,
                 'buyerProductCode'=>$buyerProductCode[$i],
                 'grandTotal'=>$grandTotal,
                 'totalQuantity'=>$totalQuantity,
@@ -83,11 +82,8 @@ class MainOrderController extends Controller
                 'delivery_date'=>$delivery_date,
                 'status'=>$status,
            ]);
-        }
-
-
-        return redirect('admin/main_order')->with('success','Main Order create successfully');
-    }
+        }       return redirect('admin/main_order')->with('success','Main Order create successfully');
+}
 
 
     public function show($oid)
@@ -102,7 +98,7 @@ class MainOrderController extends Controller
     {
 
        $input=mainOrder::find($id);
-    //    $mainorders= mainOrder::with('products')->get();
+    //  $mainorders= mainOrder::with('products')->get();
         $product= pruduct::all();
         return view('admin.mainOrder.edit')->with(['mainorder'=>$input,'product'=>$product]);
     }
@@ -116,7 +112,6 @@ class MainOrderController extends Controller
        $quantity = $request->quantity;
        $unitPrice = $request->unitPrice;
        $totalPrice = $request->totalPrice;
-       $status = $request->status;
        $status = $request->status;
 
     if($status==0 || $status==1){

@@ -25,6 +25,6 @@ class mainOrder extends Model
         return $this->belongsTo(buyers::class, 'buyerId', 'id');
     }
     public function ponos(){
-        return $this->belongsTo(ponos::class, 'pono_id', 'id');
+        return $this->belongsTo(pono::class, 'DH_PID', 'DH_PID');
     }
 }

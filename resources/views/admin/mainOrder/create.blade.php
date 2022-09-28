@@ -301,13 +301,13 @@ $("#gPI").click(function(){
     if(month >= 7){
         var year = currentTime.getFullYear()
         var year1 = year + 1;
-        $('#PIN').val(seq + "/" + year + "-" +year1);
+        $('#PIN').val(seq + "-" + year + "-" +year1);
 
 }
     else{
     var year = currentTime.getFullYear()
         var year1 = year - 1;
-        $('#PIN').val(seq + "/" + year1 + "-" + year);
+        $('#PIN').val(seq + "-" + year1 + "-" + year);
     }
 
 });
