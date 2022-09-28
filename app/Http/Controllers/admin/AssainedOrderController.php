@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\admin;
+use App\Http\Controllers\Controller;
 
 use Carbon\Carbon;
 use App\Models\pruduct;
@@ -9,7 +10,7 @@ use App\Models\warehouse;
 use Illuminate\Http\Request;
 use App\Models\assainedOrder;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Controller;
+
 
 use function GuzzleHttp\Promise\queue;
 use App\Http\Requests\assainOrderFormValidation;

@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
+            $table->integer('suplierId');
+            $table->string('suplierName');
+            $table->string('userName');
+            $table->string('phone');
+            $table->string('email');
+            $table->foreignId('warehouseId')->nullable()->constrained('warehouses');
+            $table->decimal('balance',10,2);
             $table->timestamps();
         });
     }
