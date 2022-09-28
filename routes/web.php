@@ -40,7 +40,7 @@ use App\Http\Controllers\manager\managerAssignOrderController;
 use App\Http\Controllers\admin\warehouseReportController;
 use App\Http\Controllers\assaignOrderReport;
 use App\Http\Controllers\Assaignordersfetch;
-use App\Http\Controllers\DhDetailsController;
+use App\Http\Controllers\admin\DhDetailsController;
 use App\Http\Controllers\orderReport;
 use App\Http\Controllers\ordersfetch;
 use App\Http\Controllers\proformaInvoice;
