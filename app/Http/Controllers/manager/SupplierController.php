@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Http\Controllers\manager;
 namespace App\Http\Controllers;
 
 use App\Models\supplier;

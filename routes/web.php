@@ -44,7 +44,7 @@ use App\Http\Controllers\admin\DhDetailsController;
 use App\Http\Controllers\orderReport;
 use App\Http\Controllers\ordersfetch;
 use App\Http\Controllers\proformaInvoice;
-use App\Http\Controllers\supplier;
+use App\Http\Controllers\manager\supplier;
 use GuzzleHttp\Middleware;
 
 /*
