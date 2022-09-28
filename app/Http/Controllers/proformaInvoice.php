@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\dhDetails;
 use App\Models\mainOrder;
+use App\Models\shiperAndExporter;
 use Illuminate\Http\Request;
 
 class proformaInvoice extends Controller
@@ -11,7 +12,8 @@ class proformaInvoice extends Controller
     public function index()
     {
         $dhDetails = dhDetails::select()->get();
-        return view('admin.invoice.proformaInvoice')->with('dhDetails',$dhDetails);
+        $shipping = shiperAndExporter::select()->get();
+        return view('admin.invoice.proformaInvoice')->with(['dhDetails'=>$dhDetails,'shippings' => $shipping]);
     }
     public function pidata($id)
     {

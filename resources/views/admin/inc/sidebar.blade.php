@@ -363,7 +363,7 @@
 
 
             </li>
-            {{-- <li class="menu {{ Route::is('reports*')? 'active':''  }}">
+            <li class="menu {{ Route::is('shiperment_exporter*')? 'active':''  }}">
                 <a href="{{ url('admin/shiperment_exporter') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -376,7 +376,7 @@
                         <span>Shipping and Export</span>
                     </div>
                 </a>
-            </li> --}}
+            </li>
 
 
         </ul>

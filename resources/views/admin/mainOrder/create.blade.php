@@ -306,13 +306,13 @@ $("#gPI").click(function(){
     if(month >= 7){
         var year = currentTime.getFullYear()
         var year1 = year + 1;
-        $('#PIN').val(newInvoiceID + "-" + year + "-" +year1);
+        $('#PIN').val(+"DH " +newInvoiceID + "-" + year + "-" +year1);
 
 }
     else{
     var year = currentTime.getFullYear()
         var year1 = year - 1;
-        $('#PIN').val(newInvoiceID + "-" + year1 + "-" + year);
+        $('#PIN').val(+"DH " +newInvoiceID + "-" + year1 + "-" + year);
     }
 
 });

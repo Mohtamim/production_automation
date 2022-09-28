@@ -80,7 +80,7 @@ Warhouse Reports
     </div>
 
 
-    <script type="text/javascript">
+<script type="text/javascript">
 $(document).ready(function () {
         $("#payreport").DataTable();
         $(".dataTables_empty").empty();
