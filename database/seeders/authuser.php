@@ -38,7 +38,7 @@ class authuser extends Seeder
             User::create($user);
         }
 
-       
+
 
     }
 }
