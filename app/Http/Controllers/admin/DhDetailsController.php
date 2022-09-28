@@ -19,7 +19,7 @@ class DhDetailsController extends Controller
 
     public function create()
     {
-return view('admin.DhDetails.create');
+        return view('admin.DhDetails.create');
     }
 
 

@@ -45,6 +45,7 @@ use App\Http\Controllers\orderReport;
 use App\Http\Controllers\ordersfetch;
 use App\Http\Controllers\proformaInvoice;
 use App\Http\Controllers\manager\supplier;
+use App\Http\Controllers\SupplierController;
 use GuzzleHttp\Middleware;
 
 /*
@@ -121,5 +122,5 @@ Route::prefix('manager')->name('manager.')->middleware(['auth', 'manager'])->gro
     Route::resource('invoice',invoiceController::class);
     Route::resource('payment_info',paymentInfoController::class);
     Route::resource('managers',managersController::class);
-    Route::resource('supplier',supplier::class);
+    Route::resource('supplier',SupplierController::class);
 });
