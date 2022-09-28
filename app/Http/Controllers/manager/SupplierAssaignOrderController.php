@@ -2,86 +2,58 @@
 
 namespace App\Http\Controllers\manager;
 
-use App\Http\Controllers\Controller;
+use App\Models\managerlist;
 
-use App\Models\supplierAssaignOrder;
 use Illuminate\Http\Request;
+use App\Models\assainedOrder;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Models\supplierAssaignOrder;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\supplierOrderRequest;
 
 class SupplierAssaignOrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $id=Auth::user()->userId;
+        $warehouse = managerlist::where('managerId',$id)->value('warehouseId');
+        $orders = supplierAssaignOrder::where('warehouseId',$warehouse)->select()->with(['products'])->get();
+        return view('manager.SupplierAssainedOrder.index')->with(['orders'=>$orders]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show($id)
     {
-        //
+         $order = supplierAssaignOrder::find($id)->value('warehouseId');
+         $orders = supplierAssaignOrder::where('mainOrderId',$order)->select()->with(['products'])->get();
+        return view('manager.SupplierAssainedOrder.show')->with(['orders'=>$orders]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit($id)
     {
-        //
+        $order = supplierAssaignOrder::find($id)->value('warehouseId');
+        $orders = supplierAssaignOrder::where('mainOrderId',$order)->select()->with(['products'])->get();
+
+       return view('manager.SupplierAssainedOrder.edit')->with('orders',$orders);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\supplierAssaignOrder  $supplierAssaignOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function show(supplierAssaignOrder $supplierAssaignOrder)
+
+    public function update(supplierOrderRequest $request, $id)
     {
-        //
+        $id=supplierAssaignOrder::find($id)->value('id');
+       $status=$request->status;
+       DB::table('supplier_assaign_orders')
+                ->where('mainOrderId',$id)
+                ->update(['status' => $status]);
+       return redirect('manager/supplier-assign-order')->with('flash_message','Ordered value Updated');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\supplierAssaignOrder  $supplierAssaignOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(supplierAssaignOrder $supplierAssaignOrder)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\supplierAssaignOrder  $supplierAssaignOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, supplierAssaignOrder $supplierAssaignOrder)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\supplierAssaignOrder  $supplierAssaignOrder
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(supplierAssaignOrder $supplierAssaignOrder)
-    {
-        //
+        assainedOrder::destroy($id);
+        return redirect('manager/supplier-assign-order')->with('status', 'Assign Ordered has been deleted');
     }
 }
+
+

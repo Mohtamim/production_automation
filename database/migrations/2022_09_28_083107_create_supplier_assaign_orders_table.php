@@ -15,6 +15,19 @@ return new class extends Migration
     {
         Schema::create('supplier_assaign_orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('mainOrderId')->constrained('main_orders')->onDelete('cascade');
+            $table->foreignId('productId')->constrained('pruducts');
+            $table->integer('warehouseId');
+            $table->decimal('quantity');
+            $table->date('processing')->format('d/m/Y')->nullable();
+            $table->date('completed')->format('d/m/Y')->nullable();
+            $table->date('delivered')->format('d/m/Y')->nullable();
+            $table->date('received')->format('d/m/Y')->nullable();
+            $table->date('approved')->format('d/m/Y')->nullable();
+            $table->date('delivery_date')->format('d/m/Y')->nullable();
+            $table->decimal('partial_delivery_quantity')->nullable();
+            $table->decimal('partial_delivery_amount', 10, 2)->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

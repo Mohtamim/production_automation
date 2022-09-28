@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class supplierAssaignOrder extends Model
 {
     use HasFactory;
+    protected $guarderd=['id'];
 }
