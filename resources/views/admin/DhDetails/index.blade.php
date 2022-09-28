@@ -1,11 +1,11 @@
-@extends('backend.layout')
-@section('content')
+@extends('admin.layout')
+@section('admin_content')
 <div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
     <div class="row">
         <div class="col-md-12 grid-margin">
                     <h2 class="text-center text-success">Company</h2>
                     <div class="table-responsive">
-                        <a href="{{ route('dh-details.create') }}" class="btn btn-success btn-sm"
+                        <a href="{{ route('admin.dh-details.create') }}" class="btn btn-success btn-sm"
                             title="Add new Customer">
                             Add New Company
                         </a>
