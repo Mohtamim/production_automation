@@ -19,7 +19,7 @@ class orderReport extends Controller
 
     public function show($id)
     {
-        $order = mainOrder::where('id', $id)->with(['buyers', 'products'])->select()->get();
+        $order = mainOrder::where('DH_PID','like', $id)->with(['buyers', 'products'])->select()->get();
         return response()->json($order, 200);
     }
 }

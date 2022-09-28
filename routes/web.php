@@ -44,6 +44,7 @@ use App\Http\Controllers\DhDetailsController;
 use App\Http\Controllers\orderReport;
 use App\Http\Controllers\ordersfetch;
 use App\Http\Controllers\proformaInvoice;
+use App\Http\Controllers\supplier;
 use GuzzleHttp\Middleware;
 
 /*
@@ -104,7 +105,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('material_category',MaterialCategoryController::class);
     Route::resource('terms-condition',TermsConditionController::class);
     Route::resource('dh-details',DhDetailsController::class);
-    Route::resource('supplier',DhDetailsController::class);
     Route::get('poroforma-invoice',[proformaInvoice::class,'index']);
     Route::get('poroforma-invoice/{id}',[proformaInvoice::class,'pidata']);
 
@@ -121,4 +121,5 @@ Route::prefix('manager')->name('manager.')->middleware(['auth', 'manager'])->gro
     Route::resource('invoice',invoiceController::class);
     Route::resource('payment_info',paymentInfoController::class);
     Route::resource('managers',managersController::class);
+    Route::resource('supplier',supplier::class);
 });
