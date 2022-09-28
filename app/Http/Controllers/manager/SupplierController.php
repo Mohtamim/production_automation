@@ -3,83 +3,51 @@ namespace App\Http\Controllers\manager;
 namespace App\Http\Controllers;
 
 use App\Models\supplier;
+use App\Models\suppliers;
+use App\Models\warehouse;
 use Illuminate\Http\Request;
+use App\Http\Requests\SupplierFormV;
 
 class SupplierController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $warehouse= warehouse::all();
+        $suppliers=suppliers::all();
+        return view('manager.supplier.index')->with(['warehouse'=>$warehouse,'suppliers'=>$suppliers]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+
+    public function show($id)
     {
-        //
+        $suppliers = suppliers::find($id);
+        return view('manager.supplier.show')->with('suppliers',$suppliers);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function edit($id)
     {
-        //
+        $warehouse= warehouse::all();
+        $suppliers=suppliers::find($id);
+        return view('manager.supplier.edit')->with(['warehouse'=>$warehouse,'suppliers'=>$suppliers]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\supplier  $supplier
-     * @return \Illuminate\Http\Response
-     */
-    public function show(supplier $supplier)
+
+    public function update(SupplierFormV $request, $id)
     {
-        //
+
+       $suppliers=suppliers::find($id);
+       $input=$request->all();
+       $suppliers->update($input);
+       return redirect('admin/supplier')->with(['update'=>'Your suppliers is Updated']);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\supplier  $supplier
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(supplier $supplier)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\supplier  $supplier
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, supplier $supplier)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\supplier  $supplier
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(supplier $supplier)
-    {
-        //
+        suppliers::destroy($id);
+        return redirect('admin/supplier')->with('delete', 'suppliers has been deleted');
     }
 }
+

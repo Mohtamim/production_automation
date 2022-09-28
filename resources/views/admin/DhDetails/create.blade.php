@@ -8,12 +8,10 @@ DH-Details
         <div class="statbox widget box box-shadow">
             <div class="widget-header">
                 <div class="row">
-                    <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex ">
-                        <h2 class=" text-center text-center mt-2">New Details</h2>
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                        <h3 class="text-center h2 text-success font-weight-bold">Create DH DETAILS</h3>
                     </div>
-
                 </div>
-
             </div>
             <div class="widget-content widget-content-area">
                 <form id="save_data" class="" action="{{ url('admin/dh-details') }}" method="POST"  enctype="multipart/form-data">
@@ -96,7 +94,7 @@ DH-Details
                         @enderror
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text bg-light text-black font-weight-bold">Website:</span>
+                        <span class="input-group-text bg-light text-black font-weight-bold">logo:</span>
                         <input type="file" id="logo"
                             class="form-control @error('logo')
                      is-invalid

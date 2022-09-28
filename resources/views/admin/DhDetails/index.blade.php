@@ -3,11 +3,11 @@
 <div class="container mt-5 shadow-lg p-3 mb-5 bg-body rounded">
     <div class="row">
         <div class="col-md-12 grid-margin">
-                    <h2 class="text-center text-success">Company</h2>
+                    <h2 class="text-center text-success">DH DETAILS</h2>
                     <div class="table-responsive">
                         <a href="{{ route('admin.dh-details.create') }}" class="btn btn-success btn-sm"
                             title="Add new Customer">
-                            Add New Company
+                            Add DH Details
                         </a>
                         <hr class="bg-primary">
                         <br><br>
@@ -22,9 +22,9 @@
                                     <th class="text-center">Telephone</th>
                                     <th class="text-center">Fax</th>
                                     <th class="text-center">Email</th>
-                                    <th class="text-center">Logo</th>
                                     <th class="text-center">Website</th>
-                                    <th class="">Action</th>
+                                    <th class="text-center">Logo</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,15 +39,16 @@
                                         <td class="text-center">{{ $item->email }}</td>
                                         <td class="text-center">{{ $item->website }}</td>
                                         <td class="text-center">
-                                            <img src="{{ asset('storage/'. $item->logo) }}" width= '100' height='100' class="img img-responsive" />
+                                            <img src="{{ asset($item->logo) }}" width= '100' height='100' class="img img-responsive rounded-circle" />
                                         </td>
 
                                         <td class="text-center">
                                             <div class="d-flex content-justify-center ms-5">
-                                            <a href="{{ route('companies.edit', $item->id) }}"
-                                                class="btn btn-success btn-sm me-1"><i
-                                                    class="fa-solid fa-pen-to-square"></i></a>
-                                            <form method="post" action="{{ route('companies.destroy', $item->id) }}">
+                                                <a href="{{ url('admin/dh-details/' . $item->id) }}"
+                                                    class="btn btn-info btn-sm me-1" title="View customer"
+                                                    aria-hidden="true"><i class="fa fa-eye"></i></a>
+                                                <a href="{{url('admin/dh-details/'.$item->id.'/edit')}}" class="btn btn-success btn-sm me-1" title="Edit Customer" aria-hidden="true"><i class="fa fa-pen-to-square"></i></a>
+                                            <form method="post" action="{{url('admin/dh-details/'.$item->id) }}">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
                                                 <button type="submit" class="btn btn-info btn-sm me-1 btn-danger delete-confirm" aria-hidden="true"><i class="fa-solid fa-trash"></i></button>
