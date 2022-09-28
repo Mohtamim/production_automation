@@ -75,7 +75,6 @@
                     <button type="button" class="btn btn-sm btn-outline-dark" id="RowAdd" onclick="row_Append()" style="margin-top: 34px"><i class="fa-solid fa-plus"></i></button>
                     {{-- <button type="button" class="btn btn-sm btn-outline-danger" id="RowDeletesd" style="margin-top: 34px"><i class="fa-solid fa-minus"></i></button> --}}
                 </div>
-
                 <div class="col form-group text-center">
                     <label>Buyer Product Code</label>
                     <input type="text" name="bpcode[]" id="bpcode1" class="form-control" placeholder="Enter Buyer Code">

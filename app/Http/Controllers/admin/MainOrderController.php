@@ -67,7 +67,6 @@ class MainOrderController extends Controller
         $buyerscode_id= buyers::where('id', $buyerId)->select('buyerCode')->get()->value('buyerCode');
 
         for ($i=0; $i <count($productName) ; $i++) {
-
             mainOrder::insert([
                 'buyerId'=>$buyerId,
                 'pono_id'=>$pono_id,

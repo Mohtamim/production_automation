@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('ware-title')
+@section('title')
 Terms Conditions
 @endsection
 @section('admin_content')
