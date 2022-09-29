@@ -19,7 +19,6 @@ Terms Conditions
                                             <th class="text-center">SL</th>
                                             <th class="text-center">Name</th>
                                             <th class="text-center">Details</th>
-
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -28,7 +27,7 @@ Terms Conditions
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td class="text-center">{{ $item->name }}</td>
-                                                <td class="text-center">{{ $item->Details }}</td>
+                                                <td class="text-center">{{ $item->details }}</td>
 
 
                                                 <td class="text-center">

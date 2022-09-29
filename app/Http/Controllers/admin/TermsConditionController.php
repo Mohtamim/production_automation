@@ -27,16 +27,13 @@ class TermsConditionController extends Controller
         return view('admin.invoice.TermsConditions.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(termsConditionForm $request)
     {
-        $input=$request->all();
-        termsCondition::create($input);
+       termsCondition::create($request->only([
+        'name',
+        'details'
+
+       ]));
         return redirect('admin/terms-condition')->with('success','Category create successfully');
     }
 

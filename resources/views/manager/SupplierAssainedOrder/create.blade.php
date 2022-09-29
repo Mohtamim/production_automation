@@ -61,7 +61,7 @@ WareHose
                     <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order Id:</span>
                     <input type="number" class="form-control @error('mainOrderId')
                      is-invalid
-                    @enderror" name="mainOrderId" placeholder="Enter MainOrder Id">
+                    @enderror" name="mainOrderId" placeholder="Enter Assign Order Id">
                     @error('mainOrderId')
                      <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
@@ -69,8 +69,8 @@ WareHose
                 <select class="form-select" name="uniteType" id="uniteType" aria-label="Default select example">
                     <span class="input-group-text bg-light text-black font-weight-bold" id="mainOrderId">Main Order Id:</span>
                     <option  selected class="form-control">Select The Order</option>
-                    @foreach ($mainOrder as $mainOrder)
-                    <option value="{{ $mainOrder->id }}">{{ $mainOrder->productName }}</option>
+                    @foreach ($orders as $orders)
+                    <option value="{{ $orders->id }}">{{ $orders->productName }}</option>
                     @endforeach
                   </select><br>
 

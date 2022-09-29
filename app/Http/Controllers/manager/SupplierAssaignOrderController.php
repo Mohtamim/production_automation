@@ -43,7 +43,7 @@ class SupplierAssaignOrderController extends Controller
         $id=supplierAssaignOrder::find($id)->value('id');
        $status=$request->status;
        DB::table('supplier_assaign_orders')
-                ->where('mainOrderId',$id)
+                ->where('assignOrderId',$id)
                 ->update(['status' => $status]);
        return redirect('manager/supplier-assign-order')->with('flash_message','Ordered value Updated');
     }

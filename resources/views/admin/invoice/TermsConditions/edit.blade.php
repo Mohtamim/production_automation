@@ -31,7 +31,7 @@ Category
 
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" >Details:</span>
-                    <input type="text" class="form-control" name="details" id="details" value="{{ $termsConditions->details }}"  aria-label="Enter your details" aria-describedby="basic-addon2">
+                    <textarea type="text" class="form-control" name="details" id="details" value="{{ $termsConditions->details }}"  aria-label="Enter your details" aria-describedby="basic-addon2">{{ $termsConditions->details }}</textarea>
                 </div>
 
 
