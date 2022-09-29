@@ -28,7 +28,7 @@ Terms Conditions
                                             <tr>
                                                 <td class="text-center">{{ $loop->iteration }}</td>
                                                 <td class="text-center">{{ $item->name }}</td>
-                                                <td class="text-center">{{ $item->Details }}</td>
+                                                <td class="text-center">{{ $item->details }}</td>
 
 
                                                 <td class="text-center">

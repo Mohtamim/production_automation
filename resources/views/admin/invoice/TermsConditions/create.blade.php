@@ -30,7 +30,7 @@ Terms Conditions
 
                 <div class="input-group mb-3">
                     <span class="input-group-text bg-light text-black font-weight-bold" >Details:</span>
-                    <input type="text"  class="form-control" id="details" name="details"  value="{{ old('details') }}"  placeholder="Enter your Details" aria-label="Enter your details" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" id="Details" name="details"  value="{{ old('Details') }}"  placeholder="Enter your Details" aria-label="Enter your details" aria-describedby="basic-addon2">
 
                 </div>
 
