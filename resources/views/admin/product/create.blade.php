@@ -255,5 +255,16 @@
             $('#totalcost_for_warehouse').val(totalcost_for_warehouse);
             $('#DH_total_price').val(DH_total_price);
      }
+// $(function() {
+//     $("#notes").keypress(function (e) {
+//         if(e.which == 13) {
+//             //submit form via ajax, this is not JS but server side scripting so not showing here
+//             $("#notes").append($(this).val() + "<br/>");
+//             $(this).val("#notes")+"<br/>";
+//             e.preventDefault();
+//         }
+//     });
+// });
     </script>
+
 @endsection

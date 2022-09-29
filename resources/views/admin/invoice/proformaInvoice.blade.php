@@ -24,24 +24,26 @@
                     </form>
                 </div>
             </div>
-        </div>
+
+        <div class="col-4 d-flex justify-content-end">
+
+            <div class="page-tools justify-content-end">
+               <div class="action-buttons justify-content-end">
+                   <a class="btn bg-white btn-light mx-1px text-95" href="#" onclick="printdiv()"
+                       data-title="Print">
+                       <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2 justify-content-end"></i>
+                       Print
+                   </a>
+               </div>
+           </div>
+       </div>
     </div>
+    </div>
+
     <div id="printpage">
         <div class="page-content container">
 
-            <div class="page-header text-blue-d2">
 
-
-                <div class="page-tools">
-                    <div class="action-buttons">
-                        <a class="btn bg-white btn-light mx-1px text-95" href="#" onclick="printdiv()"
-                            data-title="Print">
-                            <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2"></i>
-                            Print
-                        </a>
-                    </div>
-                </div>
-            </div>
 
             <div class="container px-0">
                 <div class="row mt-4">
@@ -51,12 +53,12 @@
                                     <div class="row p-0 m-0">
                                         <div class="col-sm-3 p-0 m-0">
                                             <div>
-                                                <span class="text-primary font-weight-bold" style="font-size: 12px;">
+                                                <span class="text-primary font-weight-bold p-0 m-0" style="font-size: 10px;">
                                                     <p>SHIPPER & EXPORTER</p>
                                                 </span>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3 ">
+                                        <div class="col-sm-3 p-0 m-0">
                                             <div>
                                                 <span class=" text-blue align-middle font-weight-bold"
                                                     style="font-size: 12px;">
@@ -184,21 +186,28 @@
 
 
     <script type="text/javascript">
-        function printdiv() {
+        // function printdiv() {
 
-            document.getElementById("printpage").innerHTML;
-            var newstr = document.getElementById("printpage").innerHTML;
+            // document.getElementById("printpage").innerHTML;
+            // var newstr = document.getElementById("printpage").innerHTML;
 
-            //You can set height width over here
-            var popupWin = window.open('', '_blank', 'width=1100,height=600');
-            popupWin.document.open();
-            popupWin.document.open('<html>');
-            popupWin.document.open('<body>');
-            popupWin.document.write(newstr);
-            popupWin.document.open('</body>');
-            popupWin.document.open('</html>');
-            popupWin.document.close();
-            return false;
+            // //You can set height width over here
+            // var popupWin = window.open('', '_blank', 'width=1100,height=600');
+            // popupWin.document.open();
+            // popupWin.document.open('<html>');
+            // popupWin.document.open('<body>');
+            // popupWin.document.write(newstr);
+            // popupWin.document.open('</body>');
+            // popupWin.document.open('</html>');
+            // popupWin.document.close();
+            // return false;
+            function printdiv() {
+                var printContents = document.getElementById('printpage').innerHTML;
+                var originalContents = document.body.innerHTML;
+                document.body.innerHTML = printContents;
+                window.print();
+                document.body.innerHTML = originalContents;
+                location.reload();
         }
     </script>
     <script type="text/javascript">

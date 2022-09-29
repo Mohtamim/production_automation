@@ -265,11 +265,11 @@
                     </div>
                 </a>
                 <ul class="collapse submenu list-unstyled" id="invoice" data-bs-parent="#accordionExample">
-                    <li class="{{ Route::is('admin.terms-condition*') ? 'active' : '' }}">
+                    {{-- <li class="{{ Route::is('admin.terms-condition*') ? 'active' : '' }}">
                         <a href="{{ url('admin/terms-condition') }}">Terms Conditions</a>
-                    </li>
+                    </li> --}}
                     <li>
-                        <a href=""> Preview </a>
+                        <a href="{{ url('admin/poroforma-invoice') }}">P.I. Invoice </a>
                     </li>
                     <li>
                         <a href=""> Add </a>
@@ -280,8 +280,8 @@
                 </ul>
             </li>
 
-            {{-- <li class="menu">
-                <a href="{{ url('admin/country') }}" aria-expanded="false" class="dropdown-toggle">
+            <li class="menu">
+                <a href="{{ url('admin/terms-condition') }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -290,10 +290,10 @@
                             <line x1="8" y1="2" x2="8" y2="18"></line>
                             <line x1="16" y1="6" x2="16" y2="22"></line>
                         </svg>
-                        <span>Country</span>
+                        <span>Terms and Condition</span>
                     </div>
                 </a>
-            </li> --}}
+            </li>
 
             {{-- <li class="menu {{ Route::is('admin.port*') ? 'active' : '' }}">
                 <a href="{{ url('admin/port') }}" aria-expanded="false" class="dropdown-toggle">
