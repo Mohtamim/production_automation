@@ -14,7 +14,7 @@ WareHose
         </div>
         @foreach ($orders as $orders)
         <div class="widget-content widget-content-area">
-            <form class="" action="{{ url('manager/order/'.$orders->id) }}" method="POST">
+            <form class="" action="{{ url('manager/supplier-assign-order/'.$orders->id) }}" method="POST">
                 {!! csrf_field() !!}
                 @method('PUT')
 
