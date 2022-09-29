@@ -19,7 +19,6 @@ Terms Conditions
                                             <th class="text-center">SL</th>
                                             <th class="text-center">Name</th>
                                             <th class="text-center">Details</th>
-
                                             <th class="text-center">Action</th>
                                         </tr>
                                     </thead>
