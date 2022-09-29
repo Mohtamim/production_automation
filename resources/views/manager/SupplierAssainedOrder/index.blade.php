@@ -30,7 +30,7 @@
                                     @foreach ($orders as $order)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $order->mainOrderId }}</td>
+                                            <td>{{ $order->assignOrderId }}</td>
                                             <td>{{ $order->products->title }}</td>
                                             <td>{{ $order->quantity }}</td>
                                             @if ($order->status == 1)

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('supplier_assaign_orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mainOrderId')->constrained('main_orders')->onDelete('cascade');
+            $table->foreignId('assignOrderId')->constrained('assained_orders');
             $table->foreignId('productId')->constrained('pruducts');
             $table->integer('warehouseId');
             $table->decimal('quantity');
