@@ -24,12 +24,11 @@ class bankBenifiFormValidation extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|',
-            'addressline1'=>'required|',
-            'addressline2'=>'required|',
-            'account_no'=>'required|',
-            'swift_code'=>'required|',
-            'sataus'=>'required|'
+            'name'=>'required',
+            'addressline1'=>'required',
+            'addressline2'=>'required',
+            'account_no'=>'required',
+            'swift_code'=>'required',
         ];
     }
 }

@@ -12,12 +12,5 @@ class bankBenificiary extends Model
 
     protected $table='bank_benificiaries';
     protected $primaryKey='id';
-    protected $fillable=[
-        'name',
-        'addressline1',
-        'addressline2',
-        'account_no',
-        'swift_code',
-        'sataus'
-];
+    protected $guarded=['id'];
 }

@@ -25,189 +25,175 @@
                 </div>
             </div>
 
-        <div class="col-4 d-flex justify-content-end">
+            <div class="col-4 d-flex justify-content-end">
 
-            <div class="page-tools justify-content-end">
-               <div class="action-buttons justify-content-end">
-                   <a class="btn bg-white btn-light mx-1px text-95" href="#" onclick="printdiv()"
-                       data-title="Print">
-                       <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2 justify-content-end"></i>
-                       Print
-                   </a>
-               </div>
-           </div>
-       </div>
-    </div>
-    </div>
-
-    <div id="printpage">
-        <div class="page-content container">
-
-
-
-            <div class="container px-0">
-                <div class="row mt-4">
-                    <hr class="row brc-default-l1 mx-n1 mb-4" />
-                        @foreach ($shippings as $shipping)
-                                <div class="col-sm-6 p-0 m-0">
-                                    <div class="row p-0 m-0">
-                                        <div class="col-sm-3 p-0 m-0">
-                                            <div>
-                                                <span class="text-primary font-weight-bold p-0 m-0" style="font-size: 10px;">
-                                                    <p>SHIPPER & EXPORTER</p>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3 p-0 m-0">
-                                            <div>
-                                                <span class=" text-blue align-middle font-weight-bold"
-                                                    style="font-size: 12px;">
-                                                    <p>{{ $shipping->name }}</p>
-                                                </span>
-                                            </div>
-                                            <div class="text-grey-m2">
-                                                <div class="my-1" style="font-size: 10px;">
-                                                    {!! preg_replace('/,/', '<br/>', $shipping->addressline1) !!}
-                                                </div>
-                                                <div class="my-1" style="font-size: 10px;">
-                                                    {!! preg_replace('/,/', '<br/>', $shipping->addressline2) !!}
-                                                </div>
-                                                <div class="my-1" style="font-size: 10px;">
-                                                    {{ $shipping->country }}
-                                                </div>
-                                                <div class="my-1" style="font-size: 10px;">Email:
-                                                    {{ $shipping->email }}
-                                                </div>
-                                                <div class="my-1" style="font-size: 10px;">website:
-                                                    {{ $shipping->website }}
-                                                </div>
-
-                                                <div class="my-1" style="font-size: 10px;">{{ $shipping->phone }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        @endforeach
-                        @foreach ($shippings as $shipping)
-                                <div class="col-sm-6 align-self-start d-sm-flex justify-content-end">
-                                    <div class="row p-0 m-0">
-                                        <div class="col-sm-3 p-0 m-0">
-                                            <div>
-                                                <span class="text-primary font-weight-bold p-0 m-0" style="font-size: 12px;">
-                                                    <p>SHIPPER & EXPORTER</p>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3 ">
-                                            <div>
-                                                <span class=" text-blue align-middle font-weight-bold"
-                                                    style="font-size: 12px;">
-                                                    <p>{{ $shipping->name }}</p>
-                                                </span>
-                                            </div>
-                                            <div class="text-grey-m2">
-                                                <div class="my-1" style="font-size: 10px;">
-                                                    {!! preg_replace('/,/', '<br/>', $shipping->addressline1) !!}
-                                                </div>
-                                                <div class="my-1" style="font-size: 10px;">
-                                                    {!! preg_replace('/,/', '<br/>', $shipping->addressline2) !!}
-                                                </div>
-                                                <div class="my-1" style="font-size: 10px;">
-                                                    {{ $shipping->country }}
-                                                </div>
-                                                <div class="my-1" style="font-size: 10px;">Email:
-                                                    {{ $shipping->email }}
-                                                </div>
-                                                <div class="my-1" style="font-size: 10px;">website:
-                                                    {{ $shipping->website }}
-                                                </div>
-
-                                                <div class="my-1" style="font-size: 10px;">{{ $shipping->phone }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        @endforeach
-                        @foreach ($shippings as $shipping)
-                                <div class="col-sm-6 p-0 m-0">
-                                    <div class="row p-0 m-0">
-                                        <div class="col-sm-3 p-0 m-0">
-                                            <div>
-                                                <span class="text-primary font-weight-bold" style="font-size: 12px;">
-                                                    <p>SHIPPER & EXPORTER</p>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-3 ">
-                                            <div>
-                                                <span class=" text-blue align-middle font-weight-bold"
-                                                    style="font-size: 12px;">
-                                                    <p>{{ $shipping->name }}</p>
-                                                </span>
-                                            </div>
-                                            <div class="text-grey-m2">
-                                                <div class="my-1" style="font-size: 10px;">
-                                                    {!! preg_replace('/,/', '<br/>', $shipping->addressline1) !!}
-                                                </div>
-                                                <div class="my-1" style="font-size: 10px;">
-                                                    {!! preg_replace('/,/', '<br/>', $shipping->addressline2) !!}
-                                                </div>
-
-
-                                                <div class="my-1" style="font-size: 10px;">{{ $shipping->phone }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        @endforeach
+                <div class="page-tools justify-content-end">
+                    <div class="action-buttons justify-content-end">
+                        <a class="btn bg-white btn-light mx-1px text-95" href="#" onclick="printdiv()"
+                            data-title="Print">
+                            <i class="mr-1 fa fa-print text-primary-m1 text-120 w-2 justify-content-end"></i>
+                            Print
+                        </a>
+                    </div>
                 </div>
             </div>
-            <table id="payreport" style=" width: 100%; display: table; "
-                                            class="table  table-responsive  multi-table table dt-table-hovertable-striped table-bordered w-100">
-
-                                            <thead>
-                                                <tr>
-                                                    <th style="font-size: 14px;">Buyer Article No.</th>
-                                                    <th style="font-size: 14px;">DH. ARTICLE NO.</th>
-                                                    <th style="font-size: 14px;">DESCRIPTION OF GOODS</th>
-                                                    <th style="font-size: 14px;">QUANTITY</th>
-                                                    <th style="font-size: 14px;">UNIT PRICE</th>
-                                                    <th style="font-size: 14px;">TOTAL AMOUNT</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="content1">
-
-                                            </tbody>
-                                        </table>
         </div>
     </div>
+
+    <div id="printpage" class="page-content container">
+            <div class="row mt-4">
+                    <hr class="row brc-default-l1 mx-n1 mb-4" />
+                    @foreach ($shippings as $shipping)
+                        <div class="col-sm-6 p-0 m-0">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div>
+                                        <span class="text-primary font-weight-bold p-0 m-0" style="font-size: 10px;">
+                                            <p>SHIPPER & EXPORTER</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-3 p-0 m-0">
+                                    <div class="my-1" style="font-size: 10px;">
+                                        <p class="font-weight-bold p-0 m-0">{{ $shipping->name}}</p>
+                                        <p class=" p-0 m-0">{!! preg_replace('/,/', '<br/>', $shipping->addressline1) !!}</p>
+                                        <p class="p-0 m-0" style="font-size: 10px;" >{!! preg_replace('/,/', '<br/>', $shipping->addressline2) !!}</p>
+                                        <p class="p-0 m-0" style="font-size: 10px;" >{{ $shipping->country }}</p>
+                                        <p class="p-0 m-0" style="font-size: 10px;" > {{ $shipping->email }}</p>
+                                        <p class="p-0 m-0" style="font-size: 10px;" >{{ $shipping->website }}</p>
+                                        <p class="p-0 m-0" style="font-size: 10px;" >{{ $shipping->phone }}</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    @endforeach
+                        <div class="col-6">
+                            <div class="row p-0 m-0">
+                                <div class="col-sm-3 d-flex justify-content-start">
+                                    <div>
+                                        <span class="text-primary font-weight-bold" style="font-size: 10px;">
+                                            <p>CONSIGNEE/BUYER</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 d-flex justify-content-end">
+                                    <div class="">
+                                        <div class="my-1" style="font-size: 10px;">
+                                            <p class="font-weight-bold" id="buyerName"></p>
+                                            <p class="" style="font-size: 10px;" id="buyerAddress"></p>
+                                            <p class="" style="font-size: 10px;" id="country"></p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            </div>
+            <div class="row">
+                    @foreach ($banks as $bank)
+                        <div class="col-sm-6 p-0 m-0">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div>
+                                        <span class="text-primary font-weight-bold p-0 m-0" style="font-size: 10px;">
+                                            <p>BENIFICIARY BANK</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-3 p-0 m-0">
+                                    <div class="my-1" style="font-size: 10px;">
+                                        <p class="font-weight-bold p-0 m-0">{{ $bank->name }}</p>
+                                        <p class="p-0 m-0" style="font-size: 10px;" >{{ $bank->addressline1 }}</p>
+                                        <p class="p-0 m-0" style="font-size: 10px;" >{{ $bank->addressline2 }}</p>
+                                        <p class="p-0 m-0" style="font-size: 10px;" >{{ $bank->swift_code }}</p>
+                                        <p class="p-0 m-0" style="font-size: 10px;" >{{ $bank->account_no }}</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    @endforeach
+                        <div class="col-6">
+                            <div class="row p-0 m-0">
+                                <div class="col-3 d-flex justify-content-start">
+                                    <div>
+                                        <span style="font-size: 10px;">
+                                            <p>CONSIGNEE/BUYER</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-3 d-flex justify-content">
+                                    <div class="" style="font-size: 10px;" >
+                                        <p class="font-weight-bold p-0 m-0" id="buyerName"></p>
+                                        <p class="p-0 m-0" id="buyerAddress"></p>
+                                        <p class="p-0 m-0" id="country"></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+            </div>
+                <table id="payreport" style=" width: 100%; display: table; "
+                    class="table  table-responsive mt-3  multi-table table dt-table-hovertable-striped table-bordered w-100">
+
+                    <thead>
+                        <tr>
+                            <th style="font-size: 14px;">Buyer Article No.</th>
+                            <th style="font-size: 14px;">DH. ARTICLE NO.</th>
+                            <th style="font-size: 14px;">DESCRIPTION OF GOODS</th>
+                            <th style="font-size: 14px;">QUANTITY</th>
+                            <th style="font-size: 14px;">UNIT PRICE</th>
+                            <th style="font-size: 14px;">TOTAL AMOUNT</th>
+                        </tr>
+                    </thead>
+                    <tbody id="content1">
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" id="bagCharge">Absormatic Bag Charges:</td>
+                            <td id="bagChargeAmount"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" id="bagCharge">Fumigates Charges:</td>
+                            <td id="bagChargeAmount"></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="container container-fluid">
+                    <div class="row">
+
+                    </div>
+                <div class="row">
+                    @foreach ($terms as $term )
+                    <div class="row" style="font-size: 10px;">
+                        <div class="col">
+                           <span> {{ $loop->iteration . '. ' }}</span> <span class="font-weight-bold p-0 m-0">{{ $term->name . ':' }}</span><span class=" p-0 m-0">{{ $term->details }}</span>
+                        </div>
+
+                    </div>
+                    @endforeach
+                    <p>@numberToWord(85648521)</p>
+                </div>
+            </div>
+
     </div>
-    </div>
+
 
 
     <script type="text/javascript">
-        // function printdiv() {
-
-            // document.getElementById("printpage").innerHTML;
-            // var newstr = document.getElementById("printpage").innerHTML;
-
-            // //You can set height width over here
-            // var popupWin = window.open('', '_blank', 'width=1100,height=600');
-            // popupWin.document.open();
-            // popupWin.document.open('<html>');
-            // popupWin.document.open('<body>');
-            // popupWin.document.write(newstr);
-            // popupWin.document.open('</body>');
-            // popupWin.document.open('</html>');
-            // popupWin.document.close();
-            // return false;
-            function printdiv() {
-                var printContents = document.getElementById('printpage').innerHTML;
-                var originalContents = document.body.innerHTML;
-                document.body.innerHTML = printContents;
-                window.print();
-                document.body.innerHTML = originalContents;
-                location.reload();
+        function printdiv() {
+            var printContents = document.getElementById('printpage').innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+            location.reload();
         }
     </script>
     <script type="text/javascript">
@@ -240,6 +226,9 @@
                             `
                                 )
 
+                                $("#buyerName").html(value.buyers.buyerName);
+                                $("#buyerAddress").html(value.buyers.buyerAddress);
+                                $("#country").html(value.buyers.country);
 
                             });
 

@@ -26,7 +26,7 @@ class BankBenificiaryController extends Controller
     }
 
 
-    public function store(shiperandexporterFormValidation $request)
+    public function store(bankBenifiFormValidation $request)
     {
         $input= $request->all();
         bankBenificiary::create($input);
@@ -46,7 +46,7 @@ class BankBenificiaryController extends Controller
         return view('admin.bankBenificiary.edit')->with('bank',$bank);
     }
 
-   function update(shiperandexporterFormValidation $request, $id)
+   function update(bankBenifiFormValidation $request, $id)
     {
         $bank = bankBenificiary::find($id);
         $input = $request->all();
